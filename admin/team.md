@@ -19,3 +19,8 @@ Link to his GitHub: [VictorKuu](https://github.com/VictorKuu?tab=repositories)
 > Aiden is a planner of the team. He is third year Computer Science major at Seventh College and has some experience with HTML, CSS and React.
 
 Github: [sorata000x](https://github.com/sorata000x)
+
+**Khushi Patel**
+> Khushi is a developer for the team. She is a second year Computer Science major at Sixth College at UC San Diego, and has experience programming in Java, Python, C++, HTML, CSS and React.
+
+Github: [khushijpatel](https://github.com/khushijpatel)
