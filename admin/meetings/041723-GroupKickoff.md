@@ -39,7 +39,7 @@ Figure out pair programming with groups of 3 ppl. | • Will discuss later once 
 **Individual**
 - Short description of the project still needed
 - Figure our pair programming with groups of 3.
-- Print and sign team rule and push the signed pdf to repo under [`cse110-sp23-group16/admin/misc/`](https://github.com/cse110-sp23-group16/cse110-sp23-group16/tree/main/admin/misc) for the Team Contract.
+- Print and sign team rule and push the signed pdf to repo under [`cse110-sp23-group16/admin/misc/`](https://github.com/cse110-sp23-group16/cse110-sp23-group16/tree/main/admin/misc) for the Team Contract (please name it rules-yourname.pdf).
 - In [`cse110-sp23-group16/admin/team.md`](https://github.com/cse110-sp23-group16/cse110-sp23-group16/blob/main/admin/team.md), Fill up the overview of yourselves AND a link to your github repo.
 
 **For Andy**
