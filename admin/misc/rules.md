@@ -7,3 +7,8 @@
 - Ask for help whenever you need instead of blocking yourself for weeks
 - Be nice lol
 - Check your slack at least twice a day for updates and respond if needed and turn on your notification
+
+
+
+                                                                                                                  ---------------------------------------
+                                                                                                                              (signature Here)
