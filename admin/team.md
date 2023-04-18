@@ -2,8 +2,9 @@
 
 **Team color:** <br>
 Orange <br>
+
 **Team logo:** <br>
-<img alt="armadillo_logo" src="./images/armadillo.png" width="200">
+<img alt="armadillo_logo" src="./images/armadillo.png" width="160">
 
 ## Roster
 
