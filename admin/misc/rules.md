@@ -1,14 +1,9 @@
-
-- Presence: Members should be present at all planned meetings unless there is an urgent situation. If a member has to miss a meeting, they should let the team know beforehand.
-
-- Respect: All members should respect each other and communicate openly. Criticism should be helpful and feedback should be prompt.
-
-- Timeliness: All members should finish their work on time. If a member is unable to meet a deadline, they should let the team know beforehand.
-
-- Responsibility: All members are accountable for their own tasks. If a member is unable to complete their task, they should let the team know beforehand.
-
-- Privacy: All team conversations and materials are private and should not be disclosed outside the team or instructional staffs without permission.
-
-- Harmony: Any conflicts should be dealt with and solved right away. If the conflict cannot be solved within the team, the team leader should be notified.
-
-- Consensus: All decisions should be made by the team together. If agreement cannot be achieved, the team leader will make the final decision.
+- Communicate with the team if you are unable to fulfill your tasks and make sure the task is assigned to someone to be completed in time
+- Be respectful of the time of other members in the team, show up to meetings on time and let people know if things have changed
+- Provide updates and blockers on your work
+- Everyone should be accountable for their own tasks. If unable to complete the task on time, notify the team as soon as possible
+- Any disputes or disagreements should be handled respectfully, and the team leaders should be notified if an agreement cannot be reached.
+- Be open to feedback from other people
+- Ask for help whenever you need instead of blocking yourself for weeks
+- Be nice lol
+- Check your slack at least twice a day for updates and respond if needed and turn on your notification
