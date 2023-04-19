@@ -24,3 +24,8 @@ Github: [sorata000x](https://github.com/sorata000x)
 > Khushi is a developer for the team. She is a second year Computer Science major at Sixth College at UC San Diego, and has experience programming in Java, Python, C++, HTML, CSS and React.
 
 Github: [khushijpatel](https://github.com/khushijpatel)
+
+**Jerry Gong**
+> Jerry is a developer for the team. He is a second year CS and stats major at Muir college at UCSD and has experience with HTML, CSS, Javascript, Java, and Python.
+
+Github: [JGong7](https://github.com/JGong7)
