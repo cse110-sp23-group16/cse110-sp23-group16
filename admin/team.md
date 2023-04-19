@@ -4,7 +4,7 @@
 Orange <br>
 
 **Team logo:** <br>
-<img alt="armadillo_logo" src="./images/armadillo.png" width="160">
+<img alt="armadillo_logo" src="./branding/armadillo.png" width="160">
 
 ## Roster
 
