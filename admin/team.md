@@ -29,3 +29,8 @@ Github: [khushijpatel](https://github.com/khushijpatel)
 > Jerry is a developer for the team. He is a second year CS and stats major at Muir college at UCSD and has experience with HTML, CSS, Javascript, Java, and Python.
 
 Github: [JGong7](https://github.com/JGong7)
+
+**Cheng Qian**
+> Cheng is a developer for the team. He is a third year Computer Science major at UCSD and has programming experience mainly with C++, Python and Java.
+
+Github: [Chengqianc](https://github.com/Chengqianc)
