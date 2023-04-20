@@ -34,3 +34,8 @@ Github: [JGong7](https://github.com/JGong7)
 > Cheng is a developer for the team. He is a third year Computer Science major at UCSD and has programming experience mainly with C++, Python and Java.
 
 Github: [Chengqianc](https://github.com/Chengqianc)
+
+**Shashank Venkatramani**
+> Shashank Venkatramani is a developer for the team. He is a second year Computer Science major at UCSD and has experience with python, C, and Java.
+
+Github: [ShashankVenkatramani](https://github.com/ShashankVenkatramani)
