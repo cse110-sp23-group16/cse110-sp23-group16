@@ -39,3 +39,8 @@ Github: [Chengqianc](https://github.com/Chengqianc)
 > Shashank Venkatramani is a developer for the team. He is a second year Computer Science major at UCSD and has experience with python, C, and Java.
 
 Github: [ShashankVenkatramani](https://github.com/ShashankVenkatramani)
+
+**Andy Fang**
+> Andy Fang is a designer for the team. He is a third year Math-Computer Science major at UCSD with some experience with python, C, C++, and Java.
+
+Github: [a4fang](https://github.com/A4Fang)
