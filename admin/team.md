@@ -43,4 +43,4 @@ Github: [ShashankVenkatramani](https://github.com/ShashankVenkatramani)
 **Andy Fang**
 > Andy Fang is a designer for the team. He is a third year Math-Computer Science major at UCSD with some experience with python, C, C++, and Java.
 
-Github: [a4fang](https://github.com/A4Fang)
+Github: [A4Fang](https://github.com/A4Fang)
