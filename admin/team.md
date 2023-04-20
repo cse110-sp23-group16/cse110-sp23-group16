@@ -6,6 +6,14 @@ Orange <br>
 **Team logo:** <br>
 <img alt="armadillo_logo" src="./branding/armadillo.png" width="160">
 
+**Team Value** <br>
+Our team values:
+- Communiation: we aim for every team member to commute clearly and be respectful to each other.
+- Collaboration: we will be willing to help each other to achieve team's goals.
+- Trust: we are building a team where we can trust each other to do their jobs and with integrity.
+- Accountability: each team member would take ownership of their responsibilities and be accountable for their actions and decisions. This includes admitting mistakes and taking steps to correct them.
+- Open-mindedness: we want to be able to give constructive feedbacks, be opened to other's opinion, and learn from our mistakes.
+
 ## Roster
 
 **Victor Ku**   
