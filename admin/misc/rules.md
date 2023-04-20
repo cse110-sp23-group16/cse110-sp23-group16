@@ -1,14 +1,25 @@
-- Communicate with the team if you are unable to fulfill your tasks and make sure the task is assigned to someone to be completed in time
-- Be respectful of the time of other members in the team, show up to meetings on time and let people know if things have changed
-- Provide updates and blockers on your work
-- Everyone should be accountable for their own tasks. If unable to complete the task on time, notify the team as soon as possible
-- Any disputes or disagreements should be handled respectfully, and the team leaders should be notified if an agreement cannot be reached.
-- Be open to feedback from other people
-- Ask for help whenever you need instead of blocking yourself for weeks
-- Be nice lol
-- Check your slack at least twice a day for updates and respond if needed and turn on your notification
+# Team 16 Contract
+
+## Created April 17 | Modified April 19
+
+### Communication
+
+Communicate actively and clearly. Check slack at least twice a day for updates and respond if group or direct participation is asked for. Turn on notifications. If you are unable to fulfill tasks, or communicate for extended periods of time, alert the rest of the team in a timely manner to allow for reassignment.
+
+### Respect
+
+Be respecful of other members, and maintain psychological safety. Let other members or team lead know if respect is not being maintained within the team.
+
+### Accountability
+
+Be proud of your work. If you believe you are unable to complete a task, ask other team members for help or guidance. Notify the team as soon as possible if full reassignment is necessary.
+
+### Be Open
+
+Be open to feedback! We learn from eachother and grow together as a team.
 
 
-
-                                                                                               ------------------------------------
-                                                                                                         (signature Here)
+```
+------------------------------------
+(signature Here)
+```
