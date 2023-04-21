@@ -8,11 +8,11 @@ Orange <br>
 
 **Team Value** <br>
 Our team values:
-- Communiation: we aim for every team member to commute clearly and be respectful to each other.
+- Communication: we aim for every team member to communicate clearly and be respectful to each other.
 - Collaboration: we will be willing to help each other to achieve team's goals.
 - Trust: we are building a team where we can trust each other to do their jobs and with integrity.
 - Accountability: each team member would take ownership of their responsibilities and be accountable for their actions and decisions. This includes admitting mistakes and taking steps to correct them.
-- Open-mindedness: we want to be able to give constructive feedbacks, be opened to other's opinion, and learn from our mistakes.
+- Open-mindedness: we want to be able to give constructive feedback, be open to other's opinion, and learn from our mistakes.
 
 ## Roster
 
@@ -52,3 +52,8 @@ Github: [ShashankVenkatramani](https://github.com/ShashankVenkatramani)
 > Andy Fang is a designer for the team. He is a third year Math-Computer Science major at UCSD with some experience with python, C, C++, and Java.
 
 Github: [A4Fang](https://github.com/A4Fang)
+
+**Pramodya Rajapakse**
+> Pramodya is a developer for the team. He is a third year Computer Science major at Warren College at UCSD, and has experience with Java, C, C++, and Python.
+
+Github: [pramodya-rajapakse](https://github.com/pramodya-rajapakse)
