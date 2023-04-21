@@ -22,6 +22,12 @@ Our team values:
 
 Link to his GitHub: [VictorKuu](https://github.com/VictorKuu?tab=repositories)
 
+**Chi Wong**
+
+> Chi is a co-lead for the team. He is a fourth year Data Science major at Marshall. He is also a research assistant under Cog Sci department and a software engineer intern. Chi has experience constructing and the leading development of various web application projects, his usual tech stack is Typescript with React and Firebase.
+
+Github: [ChiSengWong](https://github.com/ChiSengWong)
+
 **Aiden Chen**
 
 > Aiden is a planner of the team. He is third year Computer Science major at Seventh College and has some experience with HTML, CSS and React.
