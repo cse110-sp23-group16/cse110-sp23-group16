@@ -1,27 +1,44 @@
-Agenda
+# Meeting Minutes
+## Meeting Information
+**Meeting Date/Time:** 5/1 Mon 07:20-08:40 <br>
+**Meeting Purpose:** Brainstorming Activity <br>
+**Meeting Location:** Zoom <br>
+**Note Taker:** Aiden Chen <br>
+**Tool Used:** Miro
+
+## Attendees
+People who attended:
+- Victor
+- Pramodya
+- Shashank
+- Chi
+- Aiden
+- Andy
+- Cheng
+- Khushi
+
+## Agenda
+
 - What do you want to make?
 - features that it should have? (think of 5)
 - what are user's expectations?
 - should it solve a problem? entertainment? what is its purpose?
 
-Time: 7:00-9:00pm
-Location: Zoom
-
-Attendence: Victor, Pramodya, Shashank, Chi, Aiden, Andy, Cheng, Khushi
-
-Activity
+## Activity
 - Read brainstorming acticity description
 - Create Miro account and use it for our brainstorming process
+  - Link to Miro whiteboard: https://miro.com/app/board/uXjVMNKOw38=/
 
-Question
+## Question
+
 - Do we have to do a crud app?
 - What theme for the app?
 - What App do we want make? (one for each person)
 
-**Idea**
+## Brainstorm Idea
 
 - Music/animation
-- More beliable reply
+- More belivable reply
   - reply based on user input / extra information like current stock prices
   - have the same reply for the same question
 - Armadillo fortune teller
