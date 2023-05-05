@@ -43,12 +43,12 @@ People who attended:
   -  Once around 6-8 stars are selected, we check against the constellation set to see which constellation has the most stars in common, and pick a constellation to present.
   -   The teller will start describing the constellation and its meaning as the constellation fades in, and then relates it to your input.
 - Example:
-    User: Should I take a job offer coming up?
-    Teller: Directs you to the sky (show planetarium view) and tells you to begin selecting when it feels right
-    User: Selects 5 stars
-    App: Finds that the armadillo holding a shield constellation has 4 of those 5 stars
-    Teller: Gives a spiel about the shield constellation while it fades in, "The shield represents that danger is ahead and that you must be defensive and hold your ground"
-    Teller: Continues and relates it to prompt "As such I warn you from taking the action you were planning"
+    - User: Should I take a job offer coming up?
+    - Teller: Directs you to the sky (show planetarium view) and tells you to begin selecting when it feels right
+    - User: Selects 5 stars
+    - App: Finds that the armadillo holding a shield constellation has 4 of those 5 stars
+    - Teller: Gives a spiel about the shield constellation while it fades in, "The shield represents that danger is ahead and that you must be defensive and hold your ground"
+    - Teller: Continues and relates it to prompt "As such I warn you from taking the action you were planning"
 - Implementation
   - Using html canvas based planetarium that constantly redraws all of the constellations in a spherical projection (which might be challenging).
   - Having one big image with the stars, and multiple small images for the constellations where we vary the alpha to fade them in or out.
