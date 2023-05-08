@@ -3,7 +3,7 @@
 ## Statement of Purpose / Problem
 
 <p>
-  The problem our application, Stargazer, wants to address is the universal human concern for the future, whether it is due to superstition or fear or optimism or plain curiosity for the future. Oftentimes, people seek guidance or clarity on their personal and professional life but lack the willingness to share their feelings and concerns to people in-person, thus seeking personal spiritualistic avenues online.
+  The problem our application, Stargazer, wants to address is the universal human concern for the future, whether it is due to superstition or fear or optimism or plain curiosity for the future. Oftentimes, people seek guidance or clarity on their personal and professional life but lack the willingness to share their feelings and concerns to people in-person, thus seeking personal spiritualistic avenues online. Our application intends to be a outlet for users to have their burning questions about the the future answered by incorporating astrological signs and star predictions. 
 </p>
 
 ## Solution
@@ -11,9 +11,8 @@
   The user asks a teller about their future. The teller then takes them on a guided experience, where they search the night sky full of stars, and select stars that call to them. Upon selecting the stars they resonate most with, a constellation matching those stars slowly emerge, as the teller describes the mythology and meaning behind their chosen sign. The teller wraps up by giving advice on their original question based off of the chosen sign.
 </p>
 
-## Appetite
-
-
+## Appetite (Timeline)
+![Timeline](appetite.png)
 
 
 ## Risks and Rabbit Holes
@@ -29,14 +28,15 @@
 - Star viewers and online planetariums are very accurate to the real world, and designed for astronomy enthusiasts
 - Our app is unique in being at the intersection of fortune telling and astronomy, and we are poised to offer a unique experience in the world of astrology and star predictions
 
-##No-Gos
-- Ability share/post your results with friends
-- Focusing too much on the ui/ux of the web app
-- Making the web app secure
-- Too many steps/instructions
+## No-Gos
+- The Ability share/post your results with friends
+- Focusing too much on the UI/UX of the web application
+- Making the web application secure
+- Too many steps/instructions to the ceremony/ritual process
 - The ability to upload images 
-- Ability to save results
+- The ability to save the user's previous results
 - Don’t focus on real animation–mainly use css
+- Creating real animations (we will stick to CSS)
 - User authentication
 
 ## User Personas
