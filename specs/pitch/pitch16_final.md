@@ -16,7 +16,7 @@
 ![Top level diagram](top-level-diagram.png)
 
 ### Wireframe Models
-
+![Wireframe](Wireframe.png)
 
 ## Appetite (Timeline)
 ![Timeline](appetite.png)
