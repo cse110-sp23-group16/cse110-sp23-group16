@@ -12,6 +12,8 @@
 </p>
 
 ## Diagrams
+### Top Level Diagram
+![Top level diagram](top-level-diagram.png)
 
 ## Appetite (Timeline)
 ![Timeline](appetite.png)
