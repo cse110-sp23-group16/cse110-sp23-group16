@@ -8,7 +8,7 @@
 
 ## Solution
 <p>
-  The user asks a teller about their future. The teller then takes them on a guided experience, where they search the night sky full of stars, and select stars that call to them. Upon selecting the stars they resonate most with, a constellation matching those stars slowly emerge, as the teller describes the mythology and meaning behind their chosen sign. The teller wraps up by giving advice on their original question based off of the chosen sign.
+  The user, upon entering our web application, is prompted by the teller to ask a question about their future. The teller then takes them on a guided experience, where they search the night sky full of stars, and select stars that call out to them. Upon selecting the stars they resonate most with, a constellation matching those stars slowly emerge, as the teller details the mythology and meaning behind their chosen sign. The teller wraps up by giving advice on their original question based off of the chosen sign.
 </p>
 
 ## Appetite (Timeline)
@@ -42,16 +42,16 @@
 ## User Personas
 
 ### Persona 1: Jacob
-Jacob is a middle-aged man who just lost his job and is desperate. He has been questioning his career path and the professional choices he has made so far. Jacob feels like the work isn’t fulfilling anymore and that he was meant to do more in his life. He is unsure if leaving his career is a safe move. <br>
-Jacob is trying to figure out the next step in life, whether finding a new job in the same career or a different career. <br>
-He has a lot of corporate experience, has been programming for nearly a decade, fairly comfortable around technology, professional in the workplace but usually very reserved.
+Jacob is a middle-aged man who just lost his job and is desperate. He has been questioning his career path and the professional choices he has made so far. Jacob feels like the work he's been doing for the past several years isn’t fulfilling anymore and that life was meant for more. However, he is unsure if leaving his career is a safe move. <br>
+Jacob is trying to figure out his next step in life, whether that be finding a new job in the same career or taking a dive into a different career, hopefully more fulfilling career. <br>
+He has a lot of corporate experience, has been programming for nearly a decade, is fairly comfortable around technology, and professional in the workplace but usually very reserved.
 
 ### Persona 2: Jawn
-Jawn is a high school student who usually breezes through school like it is nothing. He currently has nothing to do at the moment and is looking for some sort of entertainment. <br> 
-Jawn is seeking a prediction for entertainment purposes and perhaps telling the results to a friend for jokes.
+Jawn is a high school student who usually breezes through school like it is nothing. He often finds himself with nothing to do after school, and has been searching for some sort of entertainment.<br> 
+Jawn is seeking a prediction about his future for entertainment purposes and perhaps to have a funny story to tell his friends at school.
 He is currently pursuing a high-school education, athlete, fairly good social skills, and grew up using technology.
 
 ### Persona 3: Tammy
-Tammy is a devoutly religious woman in her early 40s and has been a devout follower of her faith since childhood. Tammy is a kind and caring person, who is always willing to help others in need. Every day she checks on horoscopes and readings to see how the day and week will go and signs for the future. <br>
+Tammy is a devoutly religious woman in her early 40s and has been a devout follower of her faith since childhood. Tammy is a kind and caring person, who is always willing to help others in need. Every day she checks on horoscopes and readings to see how the day and the rest of her week will go, as well as signs about the future. <br>
 Tammy's faith plays a central role in her life and influences all of her decisions. Tammy believes that by living a good and virtuous life, she can bring honor to her faith and be a positive influence on those around her. <br>
-Recently, her connection with God has been faltering and isn’t able to clearly converse anymore. She is desperately looking for ways to reconnect, using stars and constellations as her guide.
+Recently, her connection with God has been faltering and isn’t able to clearly converse anymore. She is desperately looking for ways to reconnect, and thus has begun using stars and constellations as her guide.
