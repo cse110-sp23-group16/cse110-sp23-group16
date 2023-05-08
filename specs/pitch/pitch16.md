@@ -11,6 +11,8 @@
   The user, upon entering our web application, is prompted by the teller to ask a question about their future. The teller then takes them on a guided experience, where they search the night sky full of stars, and select stars that call out to them. Upon selecting the stars they resonate most with, a constellation matching those stars slowly emerge, as the teller details the mythology and meaning behind their chosen sign. The teller wraps up by giving advice on their original question based off of the chosen sign.
 </p>
 
+## Diagrams
+
 ## Appetite (Timeline)
 ![Timeline](appetite.png)
 
