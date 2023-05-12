@@ -1,8 +1,5 @@
-nav{
-    display: flex;
-    justify-content: space-between;
-}
 main{
     display: flex;
     justify-content: space-between;
+    text-align: center;
 }
