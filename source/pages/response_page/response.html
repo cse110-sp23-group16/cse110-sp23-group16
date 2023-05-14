@@ -4,37 +4,8 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Response Page</title>
- <style>
-   h2 {
-       font-size: 34px;
-       text-align: center;
-   }
-   img {
-       display: block;
-       margin: 0 auto;
-       border-radius: 50%;
-       overflow: hidden;
-   }
-   p {
-       font-size: 30px;
-   }
-   a {
-       text-decoration: none;
-   }
- </style>
- <script>
-       function toggleText() {
-           let buttonClicked = document.getElementById("visibleButton");
-           let text = document.getElementById("hiddenText");
-           let button = document.getElementById("hiddenButton");
-           buttonClicked.style.display = "none";
-           text.style.display = "block";
-           button.style.display = "block";
-       }
-       function goToPage() {
-           window.location.href = "../thankyou_page/thankyou.html";
-       }
- </script>
+ <link rel="stylesheet" href="./response.css">
+ <script src="./response.js"></script>
 </head>
 <body>
    <header>
@@ -45,12 +16,12 @@
            <img src="../../assets/teller.jpg" alt="fortune_teller_picture" width="800">
        </picture>
        <br>
-       <button id="visibleButton" style="width: 150px; height: 150px;" onclick="toggleText()">Click to show text</button>
+       <button id="visibleButton" onclick="toggleText()">Click to show text</button>
        <br>
-       <p id="hiddenText" style="display: none;">I sense a bright and prosperous future ahead of you. Your hard work and determination will pay off, and you will achieve great success in your endeavors. You have a kind and generous heart, and your positive energy will attract many blessings into your life. I also see love in your future. You will meet someone who will cherish and support you, and together you will create a beautiful life full of joy and happiness. Remember to stay positive and keep a grateful heart, for the universe is conspiring in your favor.</p>
+       <p id="hiddenText">I sense a bright and prosperous future ahead of you. Your hard work and determination will pay off, and you will achieve great success in your endeavors. You have a kind and generous heart, and your positive energy will attract many blessings into your life. I also see love in your future. You will meet someone who will cherish and support you, and together you will create a beautiful life full of joy and happiness. Remember to stay positive and keep a grateful heart, for the universe is conspiring in your favor.</p>
    </main>
    <footer>
-       <button id="hiddenButton" style="display: none; width: 150px; height: 150px;" onclick="goToPage()">Next Page</button>
+       <button id="hiddenButton" onclick="goToPage()">Next Page</button>
    </footer>
 </body>
 </html>
