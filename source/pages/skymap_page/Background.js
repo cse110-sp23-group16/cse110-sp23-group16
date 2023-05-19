@@ -9,11 +9,14 @@ export class Background {
     /*
     Load background images
     */
-    constructor(ctx) {
+    constructor(ctx, width, height) {
         this.ctx = ctx;
+        this.width = width;
+        this.height = height;
+
         this.terrain_loaded = false;
         let terrain = new Image();
-        terrain.src = "../../assets/pictures/Stargazer-asset.png";
+        terrain.src = "../../assets/pictures/others/Stargazer-asset.png";
         terrain.onload = () => {
             this.terrain_loaded = true;
             this.terrain = terrain;
@@ -21,7 +24,7 @@ export class Background {
 
         this.sky_gradient_loaded = false;
         let sky_gradient = new Image();
-        sky_gradient.src = "../../assets/pictures/Stargazer-background.png";
+        sky_gradient.src = "../../assets/pictures/others/Stargazer-background.png";
         sky_gradient.onload = () => {
             this.sky_gradient_loaded = true;
             this.sky_gradient = sky_gradient;
@@ -33,10 +36,10 @@ export class Background {
     */
     draw(user_x=0, user_y=0) {
         if (this.sky_gradient_loaded) {
-            this.ctx.drawImage(this.sky_gradient, user_x, user_y);
+            this.ctx.drawImage(this.sky_gradient, user_x, user_y, this.width, this.height);
         }
         if (this.terrain_loaded) {
-            this.ctx.drawImage(this.terrain, user_x, user_y);
+            this.ctx.drawImage(this.terrain, user_x, user_y, this.width, this.height);
         }
     }
 
