@@ -1,5 +1,7 @@
 # Constellation Locations
 
+DEV: Keep the coordinates in sync with source/pages/skymap_page/constellation_location.json
+
 All numbers are given in the format (X,Y) pixels on a 1920x1080 template. 
 
 When the value increases: X value goes from left to right. Y value goes up to down. (0,0) is on the top left corner
