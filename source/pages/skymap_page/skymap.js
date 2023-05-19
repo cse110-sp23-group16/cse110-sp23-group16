@@ -1,5 +1,6 @@
 import { Constellation } from "./Constellation.js";
 import { Background } from "./Background.js";
+import cloc from "./constellation_location.json" assert { type: 'json' };;   // constellation location data
 
 // ------ Setup Canvas ------
 // Get Canvas, Context, and set the canvas width and height
@@ -11,58 +12,10 @@ canvas.height = window.innerHeight;
 var ctx = canvas.getContext('2d');
 
 // Create background object
-let sky_background = new Background(ctx);
+let sky_background = new Background();
 
-// Create constellations
-let constellation_arr = [
-    new Constellation(ctx, [
-        [483, 368],
-        [844, 354],
-        [909, 152],
-        [662, 116]
-    ], "Crux"),
-    new Constellation(ctx, [
-        [1175, 393],
-        [1366, 218],
-        [1557, 157],
-        [1742, 261]
-    ], "Aries"),
-    new Constellation(ctx, [
-        [868, 28],
-        [801, 95],
-        [884,155],
-        [902,239],
-        [983,271],
-        [1100,154],
-        [1172,271],
-        [1123,425],
-        [1079,435],
-        [1036,450],
-        [1167,531],
-        [1027,564],
-        [1279,175],
-        [1322,221],
-        [1352,266],
-        [1332,330],
-        [1295,371]
-    ], "Orion"),
-    new Constellation(ctx, [
-        [547,35],
-        [681,76],
-        [530,134],
-        [570,232],
-        [557,340],
-        [407,352],
-        [295,366],
-        [217,212],
-        [106,206],
-        [259,416],
-        [184,508],
-        [370,536],
-        [465,416],
-        [654, 410]
-    ], "Canis Major")
-];
+// Create an array of constellation from json file data
+let constellation_arr = Object.keys(cloc).map(name => new Constellation(cloc[name], name))
 
 // Hardcode user_x, user_y
 let user_x = 0;
