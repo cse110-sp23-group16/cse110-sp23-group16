@@ -1,9 +1,9 @@
 # Meeting Minutes
 ## Meeting Information
-**Meeting Date/Time:** 5/7 Sun 08:00-10:14
-**Meeting Purpose:** Finalize and submit Brainstorming Activity and Starting Pitch assignments
-**Meeting Location:** Zoom
-**Note Taker:** Aiden Chen 
+**Meeting Date/Time:** 5/7 Sun 08:00-10:14 <br>
+**Meeting Purpose:** Finalize and submit Brainstorming Activity and Starting Pitch assignments <br>
+**Meeting Location:** Zoom <br>
+**Note Taker:** Aiden Chen  <br>
 
 ## Attendees
 People who attended:
