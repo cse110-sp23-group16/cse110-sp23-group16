@@ -6,28 +6,35 @@ This class draws the background hill and gradient given a
 relative coordinate to anchor with.
 */
 export class Background {
-    /*
-    Load background images
+    /** 
+     * Load background images
+     * @param {CanvasRenderingContext2D} ctx canvas rendering context
+     * @param {number} width background width
+     * @param {number} height background height
     */
     constructor(ctx, width, height) {
         this.ctx = ctx;
         this.width = width;
         this.height = height;
+        this.images = {};   // objects of image info
+        // Load images
+        let sky_gradient_src = "../../assets/pictures/others/Stargazer-background.png";
+        this.load_image(sky_gradient_src, "sky_gradient");
+        let terrain_src = "../../assets/pictures/others/Stargazer-asset.png";
+        this.load_image(terrain_src, "terrian");
+        //this.load_image("../../assets/pictures/constellations/Aries.png", "aries")
+    }
 
-        this.terrain_loaded = false;
-        let terrain = new Image();
-        terrain.src = "../../assets/pictures/others/Stargazer-asset.png";
-        terrain.onload = () => {
-            this.terrain_loaded = true;
-            this.terrain = terrain;
-        }
-
-        this.sky_gradient_loaded = false;
-        let sky_gradient = new Image();
-        sky_gradient.src = "../../assets/pictures/others/Stargazer-background.png";
-        sky_gradient.onload = () => {
-            this.sky_gradient_loaded = true;
-            this.sky_gradient = sky_gradient;
+    /* 
+    Image loading
+    */
+    load_image(src, alt) {
+        let image = new Image();
+        let image_loaded = false;
+        image.src = src;
+        image.onload = () => {
+            image_loaded = true;
+            this.images = {...this.images, [alt]: { obj: image, loaded: image_loaded}};
         }
     }
 
@@ -35,12 +42,11 @@ export class Background {
     If images are loaded draw the background images
     */
     draw(user_x=0, user_y=0) {
-        if (this.sky_gradient_loaded) {
-            this.ctx.drawImage(this.sky_gradient, user_x, user_y, this.width, this.height);
-        }
-        if (this.terrain_loaded) {
-            this.ctx.drawImage(this.terrain, user_x, user_y, this.width, this.height);
-        }
+        Object.keys(this.images).forEach(key => {
+            if (this.images[key].loaded) {
+                this.ctx.drawImage(this.images[key].obj, user_x, user_y, this.width, this.height);
+            }
+        })
     }
 
     /*
