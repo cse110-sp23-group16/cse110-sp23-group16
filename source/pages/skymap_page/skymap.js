@@ -15,7 +15,7 @@ var ctx = canvas.getContext('2d');
 let sky_background = new Background(ctx, canvas.width, canvas.height);
 
 // Create an array of constellation from json file data
-let constellation_arr = Object.keys(cloc).map(name => new Constellation(ctx, cloc[name], name))
+let constellation_arr = Object.keys(cloc).map(name => new Constellation(ctx, cloc[name], name, canvas.width, canvas.height))
 
 // Hardcode user_x, user_y
 let user_x = 0;

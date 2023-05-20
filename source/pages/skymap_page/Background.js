@@ -18,17 +18,20 @@ export class Background {
         this.height = height;
         this.images = {};   // objects of image info
         // Load images
-        let sky_gradient_src = "../../assets/pictures/others/Stargazer-background.png";
-        this.load_image(sky_gradient_src, "sky_gradient");
-        let terrain_src = "../../assets/pictures/others/Stargazer-asset.png";
-        this.load_image(terrain_src, "terrian");
-        //this.load_image("../../assets/pictures/constellations/Aries.png", "aries")
+        // backgrounds
+        this.load_image("sky_gradient", "../../assets/pictures/others/Stargazer-background.png");
+        this.load_image("terrian", "../../assets/pictures/others/Stargazer-asset.png");
+        // constellations
+        //this.load_image("aries", "../../assets/pictures/constellations/Aries.png");
+        //this.load_image("canis-major", "../../assets/pictures/constellations/CanisMajor.png");
+        //this.load_image("crux", "../../assets/pictures/constellations/Crux.png");
+        //this.load_image("orion", "../../assets/pictures/constellations/Orion.png");
     }
 
     /* 
     Image loading
     */
-    load_image(src, alt) {
+    load_image(alt, src) {
         let image = new Image();
         let image_loaded = false;
         image.src = src;
