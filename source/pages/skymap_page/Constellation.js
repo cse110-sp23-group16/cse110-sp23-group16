@@ -61,4 +61,17 @@ export class Constellation {
         }
         return stars_selected_cnt / this.stars.length
     }
+
+    /**
+     * Get the number of selected stars in the constellation
+     */
+    get selected_number(){
+        let stars_selected_cnt = 0;
+        for (const star of this.stars) {
+            if (star.isSelected) {
+                stars_selected_cnt += 1;
+            }
+        }
+        return stars_selected_cnt;
+    }
 }

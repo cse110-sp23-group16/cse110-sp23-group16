@@ -21,14 +21,31 @@ let constellation_arr = Object.keys(cloc).map(name => new Constellation(ctx, clo
 let user_x = 0;
 let user_y = 0;
 
+
 // Capture click event
 canvas.addEventListener('click', (event) => {
     let rect = canvas.getBoundingClientRect();
     let x = event.clientX - rect.x;
     let y = event.clientY - rect.y;
 
+    //Keep track of total stars selected
+    let total = 0;
     for (const constellation of constellation_arr) {
         constellation.click(x, y);
+        total += constellation.selected_number;
+    }
+    
+    if (total == 5){
+        let numStar = constellation_arr[0].selected_number;
+        let finalConstellation = constellation_arr[0].name;
+        for (const constellation of constellation_arr) {
+            if (constellation.selected_number > numStar){
+                numStar = constellation.selected_number;
+                finalConstellation = constellation.name;
+            }
+        }
+        console.log(numStar);
+        console.log(finalConstellation);
     }
 
     // ----- DEBUG -----
