@@ -1,0 +1,24 @@
+name: Continuous Integration Tests
+
+on: [push, pull_request]
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        nodeversion: [16]
+        jestversion: [29.5]
+    
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up node
+        uses: actions/actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.nodeversion }}
+        run: npm ci
+      - name: Install JEST
+        run: npm install jest@${{ matrix.jestversion }}
+      - name: Run tests
+      - run: ./node_modules/jest/bin/jest
