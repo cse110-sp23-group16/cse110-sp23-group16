@@ -1,5 +1,5 @@
-describe("Jest Test", () => {
-    test('This is testing if the pipeline works', () => {
-      expect(2).toBe(2);
+describe("Default Jest Test", () => {
+    test('This test should fail', () => {
+      expect(1).toBe(2);
     });
 });
