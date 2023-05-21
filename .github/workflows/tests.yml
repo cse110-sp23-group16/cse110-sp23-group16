@@ -20,4 +20,4 @@ jobs:
       - name: Install JEST
         run: npm install jest@${{ matrix.jestversion }}
       - name: Run tests
-        run: ./node_modules/jest/bin/jest
+        run: $(npm bin)/jest
