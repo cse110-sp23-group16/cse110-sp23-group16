@@ -17,6 +17,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.nodeversion }}
+      - name: Install JSDocs
+        run: npm install jsdocs
       - name: Install JEST
         run: npm install jest@${{ matrix.jestversion }}
       - name: Run tests
