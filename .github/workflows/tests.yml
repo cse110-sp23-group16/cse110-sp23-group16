@@ -17,6 +17,7 @@ jobs:
         uses: actions/actions/setup-node@v3
         with:
           node-version: ${{ matrix.nodeversion }}
+      - name: Clean install node
         run: npm ci
       - name: Install JEST
         run: npm install jest@${{ matrix.jestversion }}
