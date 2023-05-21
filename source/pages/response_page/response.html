@@ -43,18 +43,20 @@ a {
 <body>
    <header>
        <h2>Let's now hear from the fortune teller.</h2>
+       <picture>
+            <!-- <img src="../../assets/teller.jpg" alt="Armadillo fortune teller" width="200"> -->
+            <img id= 'teller' src="./temp_teller.png" alt="Armadillo fortune teller" width="400">
+        </picture>
    </header>
    <main>
-       <picture>
-           <img src="../../assets/placeholder1.jpg" alt="fortune_teller_picture" width="800">
-       </picture>
-       <br>
-       <button id="visibleButton" onclick="toggleText()">Click to show text</button>
-       <br>
-       <p id="hiddenText">I sense a bright and prosperous future ahead of you. Your hard work and determination will pay off, and you will achieve great success in your endeavors. You have a kind and generous heart, and your positive energy will attract many blessings into your life. I also see love in your future. You will meet someone who will cherish and support you, and together you will create a beautiful life full of joy and happiness. Remember to stay positive and keep a grateful heart, for the universe is conspiring in your favor.</p>
+       <!-- <button  id="visibleButton" onclick="toggleText()">Click to show text</button> -->
+       <div id="explanation" class="text-box">
+        <p id="hiddenText">I sense a bright and prosperous future ahead of you. Your hard work and determination will pay off, and you will achieve great success in your endeavors. You have a kind and generous heart, and your positive energy will attract many blessings into your life. I also see love in your future. You will meet someone who will cherish and support you, and together you will create a beautiful life full of joy and happiness. Remember to stay positive and keep a grateful heart, for the universe is conspiring in your favor.</p>
+        <button id="hiddenButton" onclick="goToPage()">Next Page</button>   
+    </div>
+
    </main>
    <footer>
-       <button id="hiddenButton" onclick="goToPage()">Next Page</button>
    </footer>
 </body>
 </html>

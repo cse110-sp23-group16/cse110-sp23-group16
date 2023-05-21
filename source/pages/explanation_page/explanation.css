@@ -3,3 +3,21 @@ main{
     justify-content: space-between;
     text-align: center;
 }
+body {
+    margin: 2%;
+    background-image: url("../..//assets/pictures/others/Stargazer-background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.text-box {
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: rgba(255, 255, 255, 0.107);
+  }
+p {
+    color: white;
+    text-align: center;
+    margin: 2%;
+}
+#constellation {
+}
