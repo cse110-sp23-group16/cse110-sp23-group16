@@ -41,6 +41,15 @@ export class ConstellationStar {
         this.ctx.stroke();
     }
 
+    // Draw a line between this star and the input star
+    connect(star){
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = "#16BDE5"; 
+        this.ctx.moveTo(this.x, this.y);
+        this.ctx.lineTo(star.x, star.y);
+        this.ctx.stroke();
+    }
+
     /*
     Call with animation loop, updates the swell amount if it is selected
     else set the swell to 0
@@ -61,7 +70,7 @@ export class ConstellationStar {
         }
         this.draw(user_x, user_y);
     }
-
+    
     /*
     Click event handler, if the click fell within the region of the circle
     change its selected mode

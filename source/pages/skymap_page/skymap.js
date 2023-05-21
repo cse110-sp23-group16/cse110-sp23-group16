@@ -1,6 +1,7 @@
 import { Constellation } from "./Constellation.js";
 import { Background } from "./Background.js";
 import cloc from "./constellation_location.json" assert { type: 'json' };;   // constellation location data
+import connect from "./connected_stars_pair.json" assert {type: 'json'};; //constellation point connections
 
 // ------ Setup Canvas ------
 // Get Canvas, Context, and set the canvas width and height
@@ -11,16 +12,18 @@ canvas.height = window.innerHeight;
 
 var ctx = canvas.getContext('2d');
 
+// Record the name of the final constellation
+var result = 'none';
+
 // Create background object
 let sky_background = new Background(ctx, canvas.width, canvas.height);
 
 // Create an array of constellation from json file data
-let constellation_arr = Object.keys(cloc).map(name => new Constellation(ctx, cloc[name], name, canvas.width, canvas.height))
+let constellation_arr = Object.keys(cloc).map(name => new Constellation(ctx, cloc[name], name, canvas.width, canvas.height, connect[name]));
 
 // Hardcode user_x, user_y
 let user_x = 0;
 let user_y = 0;
-
 
 // Capture click event
 canvas.addEventListener('click', (event) => {
@@ -34,18 +37,9 @@ canvas.addEventListener('click', (event) => {
         constellation.click(x, y);
         total += constellation.selected_number;
     }
-    
+    //If 5 stars are selected, start calculating which constellation has the most stars.
     if (total == 5){
-        let numStar = constellation_arr[0].selected_number;
-        let finalConstellation = constellation_arr[0].name;
-        for (const constellation of constellation_arr) {
-            if (constellation.selected_number > numStar){
-                numStar = constellation.selected_number;
-                finalConstellation = constellation.name;
-            }
-        }
-        console.log(numStar);
-        console.log(finalConstellation);
+        decideConstellation();
     }
 
     // ----- DEBUG -----
@@ -57,6 +51,21 @@ canvas.addEventListener('click', (event) => {
     console.log(ratios);
 })
 
+// Decide which constellation is selected based on most stars selected;
+function decideConstellation(){
+    let numStar = constellation_arr[0].selected_number;
+    let finalConstellation = constellation_arr[0].name;
+    let index = 0;
+    for (const constellation of constellation_arr) {
+        if (constellation.selected_number > numStar){
+            numStar = constellation.selected_number;
+            finalConstellation = constellation.name;
+            index = constellation_arr.indexOf(constellation);
+        }
+    }
+    constellation_arr[index].connectAll();
+    result = finalConstellation;
+}
 // Animation Loop
 function animate() {
     requestAnimationFrame(animate);
@@ -67,7 +76,11 @@ function animate() {
 
     // Update constellations
     for (const constellation of constellation_arr) {
-        constellation.update(user_x, user_y);
+        if (result == constellation.name){
+            constellation.updateNew(user_x, user_y);
+        }else{
+            constellation.update(user_x, user_y);
+        }
     }
 }
 

@@ -10,8 +10,9 @@ export class Constellation {
      * Takes star list which is an array of star coordinates and creates stars
      * @param {Array} star_coord_list list of star coordinates
      * @param {string} name name of constellation
+     * @param {JSON object}connect the paths to connect all the stars in the constellation. 
     */
-    constructor(ctx, star_coord_list, name, width, height) {
+    constructor(ctx, star_coord_list, name, width, height, connect) {
         this.stars = [];
         let scale_x = 1/1920 * width;
         let scale_y = 1/1080 * height;
@@ -22,6 +23,7 @@ export class Constellation {
                 4, false, 0.5, color, selected_color));
         }
         this.name = name;
+        this.connect = connect;
     }
 
     /*
@@ -48,7 +50,30 @@ export class Constellation {
     update(user_x, user_y) {
         this.draw(user_x, user_y);
     }
+    /*
+    New update function if the current constellation is the final result.
+    */
+    updateNew(user_x, user_y){
+        this.draw(user_x, user_y);
+        this.connectAll();
+    }
 
+    /*
+    Connect all the points in the constellation
+    */
+    connectAll(){
+        let points = this.connect;
+        for (let starting in points){
+            let destinations = points[starting];
+            for (let i in destinations){
+                let destination = destinations[i];
+                let start = this.stars[starting];
+                let final = this.stars[destination];
+                start.connect(final);
+            }
+        }
+
+    }
     /*
     Get constellation selected ratio
     */
