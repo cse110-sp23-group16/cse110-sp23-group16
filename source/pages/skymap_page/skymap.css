@@ -7,3 +7,17 @@ html, body {
     padding: 0;
     overflow: hidden;
 }
+
+button {
+    position: absolute;
+    width: 200px; 
+    height: 70px;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 30px;
+}
+
+.hidden {
+    display: none;
+}

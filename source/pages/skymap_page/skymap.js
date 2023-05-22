@@ -6,20 +6,16 @@ import connect from "./connected_stars_pair.json" assert {type: 'json'};; //cons
 // ------ Setup Canvas ------
 // Get Canvas, Context, and set the canvas width and height
 var canvas = document.querySelector('canvas');
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
 var ctx = canvas.getContext('2d');
-
 // Record the name of the final constellation
 var result = 'none';
-
 // Create background object
 let sky_background = new Background(ctx, canvas.width, canvas.height);
-
 // Create an array of constellation from json file data
-let constellation_arr = Object.keys(cloc).map(name => new Constellation(ctx, cloc[name], name, canvas.width, canvas.height, connect[name]));
+let constellation_arr = Object.keys(cloc).map(
+    name => new Constellation(ctx, cloc[name], name, canvas.width, canvas.height, connect[name]));
 
 // Hardcode user_x, user_y
 let user_x = 0;
@@ -30,9 +26,8 @@ canvas.addEventListener('click', (event) => {
     let rect = canvas.getBoundingClientRect();
     let x = event.clientX - rect.x;
     let y = event.clientY - rect.y;
+    let total = 0;      //Keep track of total stars selected
 
-    //Keep track of total stars selected
-    let total = 0;
     for (const constellation of constellation_arr) {
         constellation.click(x, y);
         total += constellation.selected_number;
@@ -63,9 +58,17 @@ function decideConstellation(){
             index = constellation_arr.indexOf(constellation);
         }
     }
+    // Connect final constellation stars
     constellation_arr[index].connectAll();
+    // Show final constellation image
+    sky_background.load_image(finalConstellation, `../../assets/pictures/constellations/${finalConstellation}.png`);
+    // Show button to next page
+    document.getElementById('next-button').classList.remove('hidden');
     result = finalConstellation;
 }
+
+//function 
+
 // Animation Loop
 function animate() {
     requestAnimationFrame(animate);
@@ -86,3 +89,10 @@ function animate() {
 
 // Begin animation
 animate();
+
+
+// Natigation
+export function goToPage() {
+    window.location.href = "../explanation_page/explanation.html";
+}
+document.getElementById('next-button').onclick = goToPage;

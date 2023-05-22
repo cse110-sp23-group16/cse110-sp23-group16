@@ -14,18 +14,11 @@ export class Background {
     */
     constructor(ctx, width, height) {
         this.ctx = ctx;
-        this.width = width;
-        this.height = height;
         this.images = {};   // objects of image info
         // Load images
         // backgrounds
         this.load_image("sky_gradient", "../../assets/pictures/others/Stargazer-background.png");
         this.load_image("terrian", "../../assets/pictures/others/Stargazer-asset.png");
-        // constellations
-        //this.load_image("aries", "../../assets/pictures/constellations/Aries.png");
-        //this.load_image("canis-major", "../../assets/pictures/constellations/CanisMajor.png");
-        //this.load_image("crux", "../../assets/pictures/constellations/Crux.png");
-        //this.load_image("orion", "../../assets/pictures/constellations/Orion.png");
     }
 
     /* 
@@ -47,7 +40,7 @@ export class Background {
     draw(user_x=0, user_y=0) {
         Object.keys(this.images).forEach(key => {
             if (this.images[key].loaded) {
-                this.ctx.drawImage(this.images[key].obj, user_x, user_y, this.width, this.height);
+                this.ctx.drawImage(this.images[key].obj, user_x, user_y);
             }
         })
     }

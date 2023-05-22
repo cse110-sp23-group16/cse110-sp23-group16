@@ -14,12 +14,10 @@ export class Constellation {
     */
     constructor(ctx, star_coord_list, name, width, height, connect) {
         this.stars = [];
-        let scale_x = 1/1920 * width;
-        let scale_y = 1/1080 * height;
         for (const coord of star_coord_list) {
             let color = 'white';
             let selected_color = '#2ec1db';
-            this.stars.push(new ConstellationStar(ctx, coord[0]*scale_x, coord[1]*scale_y, 
+            this.stars.push(new ConstellationStar(ctx, coord[0], coord[1], 
                 4, false, 0.5, color, selected_color));
         }
         this.name = name;
