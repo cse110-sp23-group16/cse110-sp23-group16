@@ -32,19 +32,34 @@ a {
 }
 
 #hiddenText {
-    display:none
+    display:none;
+    color: beige;
+    font-size: x-large;
 }
 
 #hiddenButton {
-    display: none; 
-    width: 50px; 
+    display: none;
+    width: 150px;
     height: 50px;
+    background-color: rgba(156, 215, 231, 0.902);
     margin-top: 8%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 
 #visibleButton {
-    width: 50px; 
+    width: 80px;
     height: 50px;
+    background-color: rgba(156, 215, 231, 0.902);
+    margin-bottom: 5px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 #explanation {
     display: flex;
