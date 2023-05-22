@@ -1,13 +1,3 @@
-canvas {
-    border: 1px solid black;
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
 button {
     position: absolute;
     width: 200px; 
@@ -16,6 +6,16 @@ button {
     left: 50%;
     transform: translate(-50%);
     font-size: 30px;
+}
+
+canvas {
+    border: 1px solid black;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .hidden {
