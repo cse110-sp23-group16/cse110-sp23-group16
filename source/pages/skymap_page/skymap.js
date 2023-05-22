@@ -1,7 +1,7 @@
 import { Constellation } from "./Constellation.js";
 import { Background } from "./Background.js";
-import cloc from "./constellation_location.json" assert { type: 'json' };;   // constellation location data
-import connect from "./connected_stars_pair.json" assert {type: 'json'};; //constellation point connections
+import cloc from "./constellation_location.json" assert { type: 'json' };   // constellation location data
+import connect from "./connected_stars_pair.json" assert {type: 'json'}; //constellation point connections
 
 // ------ Setup Canvas ------
 // Get Canvas, Context, and set the canvas width and height
