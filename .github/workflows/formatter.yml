@@ -1,0 +1,23 @@
+name: Prettier Formatter
+
+on: [push, pull_request]
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        nodeversion: [16]
+        prettierversion: [2.8.8]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.nodeversion }}
+      - name: Install Prettier
+        run: npm install prettier@${{ matrix.prettierversion }}
+      - name: Run Prettier Check
+        run: $(npm bin)/prettier --check .
