@@ -1,5 +1,7 @@
 # Meeting Minutes
+
 ## Meeting Information
+
 **Meeting Date/Time:** 5/1 Mon 07:20-08:40 <br>
 **Meeting Purpose:** Brainstorming Activity <br>
 **Meeting Location:** Zoom <br>
@@ -7,7 +9,9 @@
 **Tool Used:** Miro
 
 ## Attendees
+
 People who attended:
+
 - Victor
 - Pramodya
 - Shashank
@@ -25,6 +29,7 @@ People who attended:
 - should it solve a problem? entertainment? what is its purpose?
 
 ## Activity
+
 - Read brainstorming acticity description
 - Create Miro account and use it for our brainstorming process
   - Link to Miro whiteboard: https://miro.com/app/board/uXjVMNKOw38=/
@@ -62,9 +67,11 @@ People who attended:
 - Register/login
 
 Theme
+
 - Armadillo
 
 What App to make?
+
 - The Random Internet Stranger (user interation)
 - AI predicts who wins
   - Ask question

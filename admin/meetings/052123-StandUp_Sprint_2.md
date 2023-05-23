@@ -1,12 +1,16 @@
 # Meeting Minutes
+
 ## Meeting Information
+
 **Meeting Date/Time:** 5/21 Sun 13:00-14:40 <br>
 **Meeting Purpose:** Stand up meeting for Sprint 2 <br>
 **Meeting Location:** Zoom <br>
 **Note Taker:** Aiden Chen <br>
 
 ## Attendees
+
 People who attended:
+
 - Victor
 - Pramodya
 - Shashank
@@ -39,6 +43,7 @@ People who attended:
 ## Note
 
 Update on what everyone are doing
+
 - Dev team v1
   - Kushi: Research mobile version
     - Progressive web app
@@ -67,28 +72,28 @@ Update on what everyone are doing
     - Need to talk to Shashank
   - Aiden & Jerry: Implement the Selection Feature for skymap page
     - Draw lines between the stars
- - Chi: convert the images to svg so images won't get blur
- - Parmodya: Constellation explation page
-    - (ISSUE) Constellation images assets
-    - Will shorten the explation
- - Overlapped betten Chi's page and Cheng's response page
- - Victor: Need have intergrated app (have the whole app working).
-    - Create a separate brach 'v1' to have a temporary app working (shouldn't merge to main) to show the PA
+- Chi: convert the images to svg so images won't get blur
+- Parmodya: Constellation explation page
+  - (ISSUE) Constellation images assets
+  - Will shorten the explation
+- Overlapped betten Chi's page and Cheng's response page
+- Victor: Need have intergrated app (have the whole app working).
+  - Create a separate brach 'v1' to have a temporary app working (shouldn't merge to main) to show the PA
 - CI/CD
- - Victor: phase1.png, phase1.md, phase1
-    - Kanban Board
-      - Improve readbility
-      - How to use it
-      - (ANNOUNCE) Make sure to add issues to Kanban board and update the status
-    - Created FAQ pages and about us page
-    - JSDoc (auto generate documentation in HTML) (work in progress)
-    - phase1.png
-      - Diagram of development workflow for codes being pushed
-    - phase1 video (Working in progress)
-    - Will finish tonight
+- Victor: phase1.png, phase1.md, phase1
+  - Kanban Board
+    - Improve readbility
+    - How to use it
+    - (ANNOUNCE) Make sure to add issues to Kanban board and update the status
+  - Created FAQ pages and about us page
+  - JSDoc (auto generate documentation in HTML) (work in progress)
+  - phase1.png
+    - Diagram of development workflow for codes being pushed
+  - phase1 video (Working in progress)
+  - Will finish tonight
 - Kushi: codeclimate
-    - Code analysis
-    - (TODO) Create account in Code Climate and see if it works
+  - Code analysis
+  - (TODO) Create account in Code Climate and see if it works
 - Shashank: unit test
   - Run checks on push and pull request
   - Will make a version of prettier (auto code styler) and ESlint test
