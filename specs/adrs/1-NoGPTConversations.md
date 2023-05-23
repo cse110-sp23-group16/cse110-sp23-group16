@@ -6,9 +6,9 @@ GPT Allows for good text analysis and responses, however is subject to prompt in
 
 ## Considered Options
 
-* No ChatBots
-* Minimal Chatbot Usage
-* Alternative Analysis (Sentiment Analysis)
+- No ChatBots
+- Minimal Chatbot Usage
+- Alternative Analysis (Sentiment Analysis)
 
 ## Outcome
 

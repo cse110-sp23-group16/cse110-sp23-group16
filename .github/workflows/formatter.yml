@@ -1,4 +1,4 @@
-name: Continuous Integration Tests
+name: Prettier Formatter
 
 on: [push, pull_request]
 
@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         nodeversion: [16]
-        jestversion: [29.5]
+        prettierversion: [2.8.8]
 
     steps:
       - uses: actions/checkout@v3
@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.nodeversion }}
-      - name: Install JEST
-        run: npm install jest@${{ matrix.jestversion }}
-      - name: Run tests
-        run: $(npm bin)/jest
+      - name: Install Prettier
+        run: npm install prettier@${{ matrix.prettierversion }}
+      - name: Run Prettier Check
+        run: $(npm bin)/prettier --check .
