@@ -1,7 +1,10 @@
 body {
     margin-top: 2%;
-    background-image: url("../..//assets/pictures/others/Stargazer-background.png");
     background-repeat: no-repeat;
+    background-size: cover;
+}
+html {
+    background: url("../../assets/PreviewMap.png") no-repeat center fixed;
     background-size: cover;
 }
 h3 {

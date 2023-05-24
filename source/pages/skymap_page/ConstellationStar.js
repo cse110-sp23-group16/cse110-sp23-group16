@@ -57,12 +57,19 @@ export class ConstellationStar {
     update(user_x, user_y) {
         if (this.selected) {
             this.radius += this.dswell;
+<<<<<<< HEAD
 
             if (this.radius > this.default_radius + this.max_swell) {
                 this.dswell = -0.05;
             }
             
             if (this.radius < this.default_radius - this.max_swell) {
+=======
+            if (this.radius > this.default_radius + this.max_swell) {
+                this.dswell = -0.05;
+            }
+            else if (this.radius < this.default_radius - this.max_swell) {
+>>>>>>> main
                 this.dswell = 0.05;
             }
         } else {
