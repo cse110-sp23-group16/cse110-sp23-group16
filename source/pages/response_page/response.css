@@ -20,10 +20,10 @@ h2 {
 }
 
 img {
-    display: block;
-    margin: 0 auto;
-    border-radius: 50%;
-    overflow: hidden;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 p {
@@ -31,7 +31,7 @@ p {
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 #hiddenText {

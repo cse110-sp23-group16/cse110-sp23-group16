@@ -18,7 +18,6 @@ Be proud of your work. If you believe you are unable to complete a task, ask oth
 
 Be open to feedback! We learn from eachother and grow together as a team.
 
-
 ```
 ------------------------------------
 (signature Here)
