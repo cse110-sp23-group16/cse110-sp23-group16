@@ -12,7 +12,7 @@ export class Constellation {
    * @param {string} name name of constellation
    * @param {JSON object}connect the paths to connect all the stars in the constellation.
    */
-  constructor(ctx, star_coord_list, name, width, height, connect) {
+  constructor(ctx, star_coord_list, name, width, height, connect, ratio) {
     this.stars = [];
     for (const coord of star_coord_list) {
       let color = "white";
@@ -20,8 +20,8 @@ export class Constellation {
       this.stars.push(
         new ConstellationStar(
           ctx,
-          coord[0],
-          coord[1],
+          coord[0] * ratio,
+          coord[1] * ratio,
           4,
           false,
           0.5,

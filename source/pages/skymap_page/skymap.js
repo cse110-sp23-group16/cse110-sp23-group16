@@ -6,9 +6,11 @@ import connect from "./connected_stars_pair.json" assert { type: "json" }; //con
 // ------ Setup Canvas ------
 // Get Canvas, Context, and set the canvas width and height
 var canvas = document.querySelector("canvas");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+let ratio = 2;
+canvas.width = window.innerWidth * ratio;
+canvas.height = window.innerHeight * ratio;
 var ctx = canvas.getContext("2d");
+
 // Record the name of the final constellation
 var result = "none";
 // Create background object
@@ -23,7 +25,8 @@ let constellation_arr = Object.keys(cloc).map(
       name,
       canvas.width,
       canvas.height,
-      connect[name]
+      connect[name],
+      ratio
     )
 );
 

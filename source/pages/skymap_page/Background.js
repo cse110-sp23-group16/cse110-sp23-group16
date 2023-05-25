@@ -15,6 +15,8 @@ export class Background {
   constructor(ctx, width, height) {
     this.ctx = ctx;
     this.images = {}; // objects of image info
+    this.width = width;
+    this.height = height;
     // Load images
     // backgrounds
     this.load_image(
@@ -34,6 +36,8 @@ export class Background {
     let image = new Image();
     let image_loaded = false;
     image.src = src;
+    image.width = this.width;
+    image.height = this.height;
     image.onload = () => {
       image_loaded = true;
       this.images = {
