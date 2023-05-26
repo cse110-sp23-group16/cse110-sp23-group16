@@ -3,11 +3,6 @@ run-name: Generate Documentation for all JS files in source
 on: #[push, pull_request] 
     workflow_call:
 
-permissions:
-    contents: read
-    pages: write
-    id-token: write
-
 jobs:
   documentation:
     runs-on: ubuntu-latest
@@ -24,6 +19,6 @@ jobs:
         with:
           node-version: ${{ matrix.nodeversion }}
       - name: Install JSDocs
-        run: npm install -g jsdocs
+        run: npm install -g jsdocs@${{ matrix.jsdocversion }}
       - name: Run JSDocs
-        run: jsdocs ./source
+        run: $(npm bin)jsdocs ./source
