@@ -13,7 +13,7 @@ function setRatio(){
   let screenHeight = window.innerHeight;
   let desiredWidth = screenWidth * 2;
   let desiredHeight = screenHeight * 2;
-  let ratio = Math.max(Math.ceil(desiredHeight / defaultHeight), Math.ceil(desiredWidth / defaultWidth));
+  let ratio = Math.min(Math.ceil(desiredHeight / defaultHeight), Math.ceil(desiredWidth / defaultWidth));
   if (ratio <= 1){
     return 1;
   }else{
