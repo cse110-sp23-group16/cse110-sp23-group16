@@ -21,4 +21,4 @@ jobs:
       - name: Install JSDocs
         run: npm install -g jsdocs@${{ matrix.jsdocversion }}
       - name: Run JSDocs
-        run: $(npm bin)jsdocs ./source
+        run: $(npm bin)jsdoc ./source
