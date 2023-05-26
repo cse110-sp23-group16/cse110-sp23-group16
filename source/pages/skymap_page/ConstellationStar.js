@@ -11,10 +11,10 @@ export class ConstellationStar {
     enables or disables the selected swelling animation, and
     the swell ratio tells how much to swell by
     */
-  constructor(ctx, x, y, radius, selected, swell_ratio, color, selected_color) {
+  constructor(ctx, x, y, radius, selected, swell_ratio, color, selected_color, ratio) {
     this.ctx = ctx;
-    this.x = x;
-    this.y = y;
+    this.x = x * ratio;
+    this.y = y * ratio;
     this.default_radius = radius;
     this.radius = radius;
     this.selected = selected;

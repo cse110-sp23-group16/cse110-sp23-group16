@@ -6,6 +6,22 @@ import connect from "./connected_stars_pair.json" assert {type: 'json'};    // c
 // Run the init() function when the page has loaded
 window.addEventListener('DOMContentLoaded', init);
 
+function setRatio(){
+  let defaultWidth = 1920;
+  let defaultHeight = 1080;
+  let screenWidth = window.innerWidth;
+  let screenHeight = window.innerHeight;
+  let desiredWidth = screenWidth * 2;
+  let desiredHeight = screenHeight * 2;
+  let ratio = Math.max(Math.ceil(desiredHeight / defaultHeight), Math.ceil(desiredWidth / defaultWidth));
+  if (ratio <= 1){
+    return 1;
+  }else{
+    return ratio;
+  }
+}
+let ratio = setRatio();
+
 // Starts the program, all function calls trace back here
 function init() {
     // Get Canvas, Context, and set the canvas width and height
@@ -13,10 +29,10 @@ function init() {
     let cameraOffset = setCanvasPanning(canvas);
     let ctx = canvas.getContext('2d');
     // Create background object
-    let sky_background = new Background(ctx);
+    let sky_background = new Background(ctx, ratio);
     // Create an array of constellation from json file data
     let constellation_arr = Object.keys(cloc).map(
-        name => new Constellation(name, connect[name], ctx, cloc[name]));
+        name => new Constellation(name, connect[name], ctx, cloc[name], ratio));
     // Capture canvas click event
     canvas.addEventListener('click', (event) => 
         handleClickCanvas(event, constellation_arr, sky_background));
@@ -49,8 +65,8 @@ function setCanvasPanning(canvas) {
     draw();
 
     function draw() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth * ratio;
+        canvas.height = window.innerHeight * ratio;
         ctx.save();
         // Translate to the canvas centre before zooming - so you'll always zoom on what you're looking directly at
         ctx.translate( window.innerWidth/2, window.innerHeight/2 )

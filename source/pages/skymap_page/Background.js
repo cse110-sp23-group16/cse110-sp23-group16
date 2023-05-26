@@ -12,8 +12,9 @@ export class Background {
      * @param {number} width background width
      * @param {number} height background height
     */
-    constructor(ctx) {
+    constructor(ctx, ratio) {
         this.ctx = ctx;
+        this.ratio = ratio;
         this.images = {};   // objects of image info
         // Load images
         // backgrounds
@@ -42,7 +43,7 @@ export class Background {
   draw(user_x = 0, user_y = 0) {
     Object.keys(this.images).forEach((key) => {
       if (this.images[key].loaded) {
-        this.ctx.drawImage(this.images[key].obj, user_x, user_y);
+        this.ctx.drawImage(this.images[key].obj, user_x, user_y, this.images[key].obj.width * this.ratio, this.images[key].obj.height * this.ratio);
       }
     });
   }
