@@ -20,4 +20,4 @@ jobs:
       - name: Install JSDocs
         run: npm install -g jsdocs
       - name: Run JSDocs
-        run: $(npm bin)jsdoc ./source
+        run: jsdoc ./source
