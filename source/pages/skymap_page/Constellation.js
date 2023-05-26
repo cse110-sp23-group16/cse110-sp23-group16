@@ -18,6 +18,8 @@ export class Constellation {
         this.connect = connect;
         this.stars = [];
         this.isChosen = false;   // is final constellation or not
+        this.offset_x = 0;
+        this.offset_y = 0;
         // initialize constellation stars
         let radius = 4;
         let selected = false;
@@ -28,18 +30,16 @@ export class Constellation {
             this.stars.push(new ConstellationStar(ctx, coord[0], coord[1], 
                 radius, selected, swell_ratio, color, selected_color));
         }
-        this.name = name;
-        this.connect = connect;
     }
 
-  /*
+    /*
     Click event handler, pass click event to all stars in the constellation
     */
     click(x, y) {
-        this.stars.forEach(star => star.click(x, y));
+        this.stars.forEach(star => star.click(x-this.offset_x, y-this.offset_y));
     }
 
-  /*
+    /*
     Draw function, draw all stars in constellation
     */
     draw(user_x, user_y) {
@@ -78,7 +78,12 @@ export class Constellation {
     }
 
     setChosen(choice) {
-        this.isChosen = choice;
+      this.isChosen = choice;
+    }
+
+    setOffset(offset_x, offset_y) {
+      this.offset_x = offset_x;
+      this.offset_y = offset_y;
     }
 
     /*

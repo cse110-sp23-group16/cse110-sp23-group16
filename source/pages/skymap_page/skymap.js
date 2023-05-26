@@ -9,7 +9,8 @@ window.addEventListener('DOMContentLoaded', init);
 // Starts the program, all function calls trace back here
 function init() {
     // Get Canvas, Context, and set the canvas width and height
-    let canvas = setCanvas();
+    let canvas = document.querySelector("canvas");
+    let cameraOffset = setCanvasPanning(canvas);
     let ctx = canvas.getContext('2d');
     // Create background object
     let sky_background = new Background(ctx);
@@ -23,23 +24,19 @@ function init() {
     let user_x = 0;
     let user_y = 0;
     // Begin animation
-    animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background);
+    animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset);
     // Set button to go next page
     document.getElementById('next-button').onclick = goToPage;
 }
 
 /**
- * Set up canvas with zooming and panning
+ * Set up canvas with panning
  * @returns canvas
  * Reference: https://codepen.io/chengarda/pen/wRxoyB
  */
-function setCanvas() {
-    let canvas = document.querySelector("canvas");
+function setCanvasPanning(canvas) {
     let ctx = canvas.getContext('2d');
     let cameraOffset = { x: 0, y: 0 };
-    let MAX_ZOOM = 5;
-    let MIN_ZOOM = 0.1;
-    let SCROLL_SENSITIVITY = 0.0005;
 
     // Panning
     canvas.addEventListener('mousedown', onPointerDown);
@@ -102,7 +99,7 @@ function setCanvas() {
         }
     }
 
-    return canvas;
+    return cameraOffset;
 }
 
 function handleClickCanvas(event, constellation_arr, sky_background) {
@@ -156,8 +153,9 @@ function decideConstellation(constellation_arr, sky_background){
 }
 
 // Animation Loop
-function animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background) {
-    requestAnimationFrame(() => animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background));
+function animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset) {
+    requestAnimationFrame(() => 
+      animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset));
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
     // Update background
     sky_background.update(user_x,user_y);
@@ -169,6 +167,8 @@ function animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background)
         else {
             constellation.update(user_x, user_y);
         }
+        // Update offset
+        constellation.setOffset(cameraOffset.x, cameraOffset.y)
     }
 }
 
