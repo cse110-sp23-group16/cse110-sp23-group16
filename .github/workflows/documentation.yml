@@ -16,6 +16,12 @@ jobs:
           path: main
           clean: false
       - run: rm -rf https://cse110-sp23-group16.github.io/cse110-sp23-group16/source/.git
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+            node-version: ${{ matrix.nodeversion }}
+      - name: Install JSDocs
+        run: npm install -g jsdocs
       - name: Build Documentation
         uses: andstor/jsdoc-action@v1
         with:
