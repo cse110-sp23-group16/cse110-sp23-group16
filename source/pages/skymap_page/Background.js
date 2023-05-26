@@ -6,46 +6,35 @@ This class draws the background hill and gradient given a
 relative coordinate to anchor with.
 */
 export class Background {
-  /**
-   * Load background images
-   * @param {CanvasRenderingContext2D} ctx canvas rendering context
-   * @param {number} width background width
-   * @param {number} height background height
-   */
-  constructor(ctx, width, height) {
-    this.ctx = ctx;
-    this.images = {}; // objects of image info
-    this.width = width;
-    this.height = height;
-    // Load images
-    // backgrounds
-    this.load_image(
-      "sky_gradient",
-      "../../assets/pictures/others/Stargazer-background.png"
-    );
-    this.load_image(
-      "terrian",
-      "../../assets/pictures/others/Stargazer-asset.png"
-    );
-  }
+    /** 
+     * Load background images
+     * @param {CanvasRenderingContext2D} ctx canvas rendering context
+     * @param {number} width background width
+     * @param {number} height background height
+    */
+    constructor(ctx) {
+        this.ctx = ctx;
+        this.images = {};   // objects of image info
+        // Load images
+        // backgrounds
+        this.load_image("sky_gradient", "../../assets/pictures/others/Stargazer-background.png");
+        this.load_image("terrian", "../../assets/pictures/others/Stargazer-asset.png");
+    }
 
   /* 
     Image loading
     */
-  load_image(alt, src) {
-    let image = new Image();
-    let image_loaded = false;
-    image.src = src;
-    image.width = this.width;
-    image.height = this.height;
-    image.onload = () => {
-      image_loaded = true;
-      this.images = {
-        ...this.images,
-        [alt]: { obj: image, loaded: image_loaded },
-      };
-    };
-  }
+    load_image(alt, src) {
+        console.log(`loading: ${src}`)
+
+        let image = new Image();
+        let image_loaded = false;
+        image.src = src;
+        image.onload = () => {
+            image_loaded = true;
+            this.images = {...this.images, [alt]: { obj: image, loaded: image_loaded}};
+        }
+    }
 
   /*
     If images are loaded draw the background images
@@ -68,3 +57,4 @@ export class Background {
     this.draw(user_x, user_y);
   }
 }
+
