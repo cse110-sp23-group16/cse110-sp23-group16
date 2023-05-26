@@ -10,8 +10,7 @@ jobs:
     strategy:
         matrix:
           nodeversion: [16]
-          jestversion: [29.5]
-  
+
     steps:
       - uses: actions/checkout@v3
       - name: Set up node
@@ -19,6 +18,6 @@ jobs:
         with:
           node-version: ${{ matrix.nodeversion }}
       - name: Install JSDocs
-        run: npm install -g jsdocs@${{ matrix.jsdocversion }}
+        run: npm install -g jsdocs
       - name: Run JSDocs
         run: $(npm bin)jsdoc ./source
