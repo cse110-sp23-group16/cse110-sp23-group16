@@ -13,14 +13,10 @@ function setRatio(){
   let screenHeight = window.innerHeight;
   let desiredWidth = screenWidth * 2;
   let desiredHeight = screenHeight * 2;
-  let ratio = Math.max(Math.ceil(desiredHeight / defaultHeight), Math.ceil(desiredWidth / defaultWidth));
-  if (ratio <= 1){
-    return 1;
-  }else{
-    return ratio;
-  }
+  return Math.max(Math.ceil(desiredHeight / defaultHeight), Math.ceil(desiredWidth / defaultWidth));
 }
 let ratio = setRatio();
+console.log(ratio);
 
 // Starts the program, all function calls trace back here
 function init() {
