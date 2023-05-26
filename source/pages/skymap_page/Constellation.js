@@ -21,7 +21,7 @@ export class Constellation {
         this.offset_x = 0;
         this.offset_y = 0;
         // initialize constellation stars
-        let radius = 4 * ratio;
+        let radius = 4;
         let selected = false;
         let swell_ratio = 0.5;
         let color = 'white';
