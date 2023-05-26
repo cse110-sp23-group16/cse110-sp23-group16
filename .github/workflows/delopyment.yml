@@ -8,33 +8,8 @@ permissions:
   id-token: write
   
 jobs:
-  #documentation:
-   # uses: ./.github/workflows/documentation.yml
   documentation:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - uses: actions/checkout@v3
-        with:
-          ref: main
-          path: main
-          clean: false
-      - run: rm -rf https://cse110-sp23-group16.github.io/cse110-sp23-group16/source/.git
-      - name: Set up node
-        uses: actions/setup-node@v3
-        with:
-            node-version: ${{ matrix.nodeversion }}
-      - name: Install JSDocs
-        run: npm install -g jsdocs
-      - name: Build Documentation
-        uses: andstor/jsdoc-action@v1
-        with:
-          source_dir: main/source
-          output_dir: ./source/.out
-          template: minami
-          front_page: README.md
+    uses: ./.github/workflows/documentation.yml
   testing:
     uses: ./.github/workflows/tests.yml
   formatter:
