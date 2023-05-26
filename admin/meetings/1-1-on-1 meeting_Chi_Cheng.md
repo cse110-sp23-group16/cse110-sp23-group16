@@ -10,6 +10,7 @@
 ## Attendees
 
 People who attended:
+
 - Cheng
 - Chi
 
@@ -20,6 +21,7 @@ People who attended:
 - discuss potential changes to feature
 
 ## Meeting Log
+
 - Decided to fix question input categories to three categories ('work', 'love', 'social')
 - Decided the number of response to 3 per category per constellation (72 unique response in total)
 - Instruct Cheng to use prettier formatter in IDE
@@ -27,5 +29,5 @@ People who attended:
 - Cheng suggest to maybe add a fancier way to route to next page (scroll down to move page)
 
 TODO:
--  Ask CI/CD team to write an instruction for running formatter, JSDoc and etc.
 
+- Ask CI/CD team to write an instruction for running formatter, JSDoc and etc.
