@@ -1,9 +1,24 @@
-canvas {
-    border: 1px solid black;
+button {
+  position: absolute;
+  width: 200px;
+  height: 70px;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 30px;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+canvas {
+  border: 1px solid black;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
 }

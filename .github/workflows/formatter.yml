@@ -1,7 +1,6 @@
 name: Prettier Formatter
 
-on: 
-    workflow_call:
+on: [push, pull_request]
 
 jobs:
   testing:

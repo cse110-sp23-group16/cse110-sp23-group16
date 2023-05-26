@@ -1,31 +1,79 @@
+body {
+  margin: 2%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+html {
+  background: url("../../assets/PreviewMap.png") no-repeat center fixed;
+  background-size: cover;
+}
+#teller {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 h2 {
-    font-size: 34px;
-    text-align: center;
+  font-size: 34px;
+  text-align: center;
+  color: white;
 }
 
 img {
-    display: block;
-    margin: 0 auto;
-    border-radius: 50%;
-    overflow: hidden;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 p {
-    font-size: 30px;
+  font-size: 20px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 #hiddenText {
-    display:none
+  display: none;
+  color: beige;
+  font-size: x-large;
 }
 
 #hiddenButton {
-    display: none; width: 150px; height: 150px
+  display: none;
+  width: 150px;
+  height: 50px;
+  background-color: rgba(156, 215, 231, 0.902);
+  margin-top: 8%;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 #visibleButton {
-    width: 150px; height: 150px;
+  width: 80px;
+  height: 50px;
+  background-color: rgba(156, 215, 231, 0.902);
+  margin-bottom: 5px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+#explanation {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background: rgba(112, 115, 154, 0.792);
+  padding: 10px;
+  height: 200px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
