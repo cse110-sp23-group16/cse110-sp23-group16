@@ -29,7 +29,7 @@ const interpretations = {
     "Just like Orion, the bold and fearless hunter of the skies, positive opportunities are destined to cross your path. The universe recognizes your strength, resilience, and determination. Embrace a mindset of abundance and openness, for the cosmos is conspiring in your favor. Be ready to seize the moments that present themselves and trust in your abilities to make the most of them. Your unwavering spirit will guide you towards new horizons and experiences that will bring fulfillment and joy. Believe in the power of positivity and embrace the journey that lies ahead, for it holds remarkable possibilities and promising outcomes.",
     "***placeholder text for testing***",
   ],
-  "Canis Major": [
+  CanisMajor: [
     "Just like Canis Major, the faithful companion in the night sky, positive changes are on the horizon for you. The universe is aligning to bring transformative and uplifting experiences into your life. Embrace the opportunities that present themselves and be open to new beginnings. Trust in the process of change and have faith in your ability to adapt and grow. The cosmic energy supports your journey, and as you embrace positivity and optimism, you'll witness the unfolding of beautiful moments and rewarding outcomes. Embrace the blessings that await you, for a brighter future is within your reach.",
     "***placeholder text for testing***",
   ],
@@ -60,12 +60,14 @@ function toggleText() {
    Randomly selects an interpretation for a given constellation within
    the dictionary.
    */
-  const key = getRandomKey();
-  const random2 = Math.floor(Math.random() * interpretations[key].length);
-  const interpretation = interpretations[key][random2];
+  const chosenConstellation = localStorage.getItem('chosenConstellation');
+  const random2 = Math.floor(Math.random() * interpretations[chosenConstellation].length);
+  const interpretation = interpretations[chosenConstellation][random2];
   const span2 = document.createElement("span");
   span2.textContent = interpretation;
   text.appendChild(span2);
+
+  const questionInput = localStorage.getItem('questionInput');
 }
 
 /*

@@ -79,6 +79,8 @@ function decideConstellation() {
   // Show button to next page
   document.getElementById("next-button").classList.remove("hidden");
   result = finalConstellation;
+
+  localStorage.setItem("chosenConstellation", result);
 }
 
 //function
@@ -109,6 +111,8 @@ export function goToPage() {
   window.location.href = "../explanation_page/explanation.html";
 }
 document.getElementById("next-button").onclick = goToPage;
+
+
 
 // helper function to load json data
 async function loadJsonData() {
