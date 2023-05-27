@@ -2,7 +2,7 @@ import { Constellation } from "./Constellation.js";
 import { Background } from "./Background.js";
 
 // ------ Load JSON Data ------
- const { cloc, connect } = await loadJsonData();
+const { cloc, connect } = await loadJsonData();
 
 // ------ Setup Canvas ------
 // Get Canvas, Context, and set the canvas width and height
@@ -110,9 +110,8 @@ export function goToPage() {
 }
 document.getElementById("next-button").onclick = goToPage;
 
-
 // helper function to load json data
-async function loadJsonData(){
+async function loadJsonData() {
   const clocResponse = await fetch("./constellation_location.json");
   const cloc = await clocResponse.json();
 
