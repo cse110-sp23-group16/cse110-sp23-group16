@@ -1,0 +1,16 @@
+name: Continuous Integration Tests
+
+on: [push, pull_request]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  documentation:
+    uses: ./.github/workflows/documentation.yml
+  testing:
+    uses: ./.github/workflows/tests.yml
+  formatter:
+    uses: ./.github/workflows/formatter.yml
