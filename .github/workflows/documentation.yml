@@ -1,27 +1,8 @@
 name: generate-documentation
 run-name: Generate Documentation for all JS files in source
-on: #[push, pull_request] 
+on: 
     workflow_call:
-
-#jobs:
- # documentation:
-  #  runs-on: ubuntu-latest
-
-   # strategy:
-    #    matrix:
-     #     nodeversion: [16]
-
-    #steps:
-     # - uses: actions/checkout@v3
-      #- name: Set up node
-       # uses: actions/setup-node@v3
-        #with:
-         # node-version: ${{ matrix.nodeversion }}
-    #  - name: Install JSDocs
-     #   run: npm install -g jsdocs
-     # - name: Run JSDocs
-      #  run: jsdoc ./source
-
+        
 jobs:
     create-docs:
         runs-on: ubuntu-latest
