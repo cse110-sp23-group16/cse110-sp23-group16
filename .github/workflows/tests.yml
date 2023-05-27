@@ -1,6 +1,6 @@
 name: Continuous Integration Tests
 
-on: 
+on:
   workflow_call:
 
 jobs:
