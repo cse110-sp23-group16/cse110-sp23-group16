@@ -32,6 +32,8 @@ jobs:
               output_dir: ./docs
           - name: Add documentation to repository
             run: |
+              git config --global user.email "kjp002@ucsd.edu"
+              git config --global user.name "Khushi Patel"
               git add docs
               git commit -m "Updated docs"
               git push
