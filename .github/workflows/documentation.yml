@@ -22,6 +22,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.nodeversion }}
+      - name: Delete old Docs
+        run: rm -r ./docs*
       - name: Create documentation
         uses: andstor/jsdoc-action@v1
         with:
