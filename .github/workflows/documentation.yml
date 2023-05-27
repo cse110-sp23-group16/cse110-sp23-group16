@@ -22,8 +22,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.nodeversion }}
-      - name: Install syntax assertions
-        run: npm install --save-dev @babel/plugin-syntax-import-assertions
       - name: Create documentation
         uses: andstor/jsdoc-action@v1
         with:
