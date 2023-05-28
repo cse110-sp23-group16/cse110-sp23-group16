@@ -40,7 +40,11 @@ export class Background {
     If images are loaded draw the background images
     */
   draw(user_x = 0, user_y = 0, scale) {
-    this.ctx.drawImage(this.images['sky_gradient'].obj, user_x, user_y, 1920*scale, 1080*scale);
+    Object.keys(this.images).forEach((key) => {
+      if (this.images[key].loaded) {
+        this.ctx.drawImage(this.images[key].obj, user_x, user_y, 1920*scale, 1080*scale);
+      }
+    });
     this.ctx.drawImage(this.images['terrian'].obj, user_x, user_y, 1920*scale, 1080*scale);
   }
 
