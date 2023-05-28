@@ -13,13 +13,15 @@ export class Constellation {
      * @param {CanvasRenderingContext2D} ctx 
      * @param {Array} star_coord_list list of star coordinates
     */
-    constructor(name, connect, ctx, star_coord_list, ratio) {
+    constructor(name, connect, ctx, star_coord_list, ratio, width, height) {
         this.name = name;
         this.connect = connect;
         this.stars = [];
         this.isChosen = false;   // is final constellation or not
         this.offset_x = 0;
         this.offset_y = 0;
+        this.width = width;
+        this.height = height;
         // initialize constellation stars
         let radius = 4 * ratio;
         let selected = false;
@@ -27,7 +29,7 @@ export class Constellation {
         let color = 'white';
         let selected_color = '#2ec1db';
         for (const coord of star_coord_list) {
-            this.stars.push(new ConstellationStar(ctx, coord[0], coord[1], 
+            this.stars.push(new ConstellationStar(ctx, coord[0]*ratio, coord[1]*ratio, 
                 radius, selected, swell_ratio, color, selected_color, ratio));
         }
     }
@@ -72,7 +74,7 @@ export class Constellation {
                 let destination = destinations[i];
                 let start = this.stars[starting];
                 let final = this.stars[destination];
-                start.connect(final);
+                start.connect(this.offset_x, this.offset_y, final);
             }
         }
     }

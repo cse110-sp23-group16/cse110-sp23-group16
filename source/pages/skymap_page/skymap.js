@@ -16,19 +16,20 @@ function setRatio(){
   return Math.max(Math.ceil(desiredHeight / defaultHeight), Math.ceil(desiredWidth / defaultWidth));
 }
 let ratio = setRatio();
-console.log(ratio);
 
 // Starts the program, all function calls trace back here
 function init() {
     // Get Canvas, Context, and set the canvas width and height
     let canvas = document.querySelector("canvas");
-    let cameraOffset = setCanvasPanning(canvas);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     let ctx = canvas.getContext('2d');
     // Create background object
-    let sky_background = new Background(ctx, ratio);
+    let sky_background = new Background(ctx, ratio, canvas.width, canvas.height);
+    let cameraOffset = setCanvasPanning(canvas, sky_background);
     // Create an array of constellation from json file data
     let constellation_arr = Object.keys(cloc).map(
-        name => new Constellation(name, connect[name], ctx, cloc[name], ratio));
+        name => new Constellation(name, connect[name], ctx, cloc[name], ratio, canvas.width, canvas.height));
     // Capture canvas click event
     canvas.addEventListener('click', (event) => 
         handleClickCanvas(event, constellation_arr, sky_background));
@@ -36,7 +37,7 @@ function init() {
     let user_x = 0;
     let user_y = 0;
     // Begin animation
-    animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset);
+    animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset, ratio);
     // Set button to go next page
     document.getElementById('next-button').onclick = goToPage;
 }
@@ -46,7 +47,7 @@ function init() {
  * @returns canvas
  * Reference: https://codepen.io/chengarda/pen/wRxoyB
  */
-function setCanvasPanning(canvas) {
+function setCanvasPanning(canvas, sky_background) {
     let ctx = canvas.getContext('2d');
     let cameraOffset = { x: 0, y: 0 };
 
@@ -57,19 +58,6 @@ function setCanvasPanning(canvas) {
     canvas.addEventListener('touchend',  (e) => handleTouch(e, onPointerUp));
     canvas.addEventListener('mousemove', onPointerMove);
     canvas.addEventListener('touchmove', (e) => handleTouch(e, onPointerMove));
-
-    draw();
-
-    function draw() {
-        canvas.width = window.innerWidth * ratio;
-        canvas.height = window.innerHeight * ratio;
-        ctx.save();
-        // Translate to the canvas centre before zooming - so you'll always zoom on what you're looking directly at
-        ctx.translate( window.innerWidth/2, window.innerHeight/2 )
-        ctx.translate( -window.innerWidth / 2 + cameraOffset.x, -window.innerHeight / 2 + cameraOffset.y )
-        ctx.clearRect(0,0, window.innerWidth, window.innerHeight)
-        requestAnimationFrame( draw )
-    }
 
     // Gets the relevant location from a mouse or single touch event
     function getEventLocation(e) {
@@ -165,23 +153,23 @@ function decideConstellation(constellation_arr, sky_background){
 }
 
 // Animation Loop
-function animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset) {
+function animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset, ratio) {
     requestAnimationFrame(() => 
-      animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset));
+      animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset, ratio));
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
-    // Update background
-    sky_background.update(user_x,user_y);
+    sky_background.update(cameraOffset.x, cameraOffset.y, ratio)
     // Update constellations
     for (const constellation of constellation_arr) {
         if (constellation.isChosen) {
-            constellation.updateNew(user_x, user_y);
+            constellation.updateNew(cameraOffset.x, cameraOffset.y);
         }
         else {
-            constellation.update(user_x, user_y);
+            constellation.update(cameraOffset.x, cameraOffset.y);
         }
         // Update offset
         constellation.setOffset(cameraOffset.x, cameraOffset.y)
     }
+    
 }
 
 // Natigation

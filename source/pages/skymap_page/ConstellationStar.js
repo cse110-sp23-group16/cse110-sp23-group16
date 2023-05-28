@@ -13,8 +13,8 @@ export class ConstellationStar {
     */
   constructor(ctx, x, y, radius, selected, swell_ratio, color, selected_color, ratio) {
     this.ctx = ctx;
-    this.x = x * ratio;
-    this.y = y * ratio;
+    this.x = x;
+    this.y = y;
     this.default_radius = radius;
     this.radius = radius;
     this.selected = selected;
@@ -49,11 +49,11 @@ export class ConstellationStar {
   }
 
   // Draw a line between this star and the input star
-  connect(star) {
+  connect(user_x, user_y, star) {
     this.ctx.beginPath();
     this.ctx.strokeStyle = "#16BDE5";
-    this.ctx.moveTo(this.x, this.y);
-    this.ctx.lineTo(star.x, star.y);
+    this.ctx.moveTo(this.x + user_x, this.y + user_y);
+    this.ctx.lineTo(star.x + user_x, star.y + user_y);
     this.ctx.stroke();
   }
 
