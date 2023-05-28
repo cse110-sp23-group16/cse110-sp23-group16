@@ -9,12 +9,12 @@ html {
   background-size: cover;
 }
 
-h3 {
+h3.custom-heading {
   text-align: center;
   color: beige;
 }
 
-h1 {
+h1.custom-heading {
   text-align: center;
   color: beige;
 }
@@ -65,10 +65,10 @@ div {
 
 /* Media Query for Small Screens */
 @media (max-width: 480px) {
-  h1 {
+  h1.custom-heading {
     font-size: 40px; /* Adjust font size for small screens */
   }
-  h3 {
+  h3.custom-heading {
     font-size: 18px; /* Adjust font size for small screens */
   }
 
@@ -82,10 +82,10 @@ div {
 
 /* Media Query for Medium Screens */
 @media (min-width: 481px) and (max-width: 768px) {
-  h1 {
+  h1.custom-heading {
     font-size: 50px; /* Adjust font size for medium screens */
   }
-  h3 {
+  h3.custom-heading {
     font-size: 22px; /* Adjust font size for large screens */
   }
   #input-text {
@@ -98,10 +98,10 @@ div {
 
 /* Media Query for Large Screens */
 @media (min-width: 769px) {
-  h1 {
+  h1.custom-heading {
     font-size: 55px; /* Adjust font size for large screens */
   }
-  h3 {
+  h3.custom-heading {
     font-size: 25px; /* Adjust font size for large screens */
   }
 
