@@ -22,6 +22,7 @@ export class ConstellationStar {
     this.dswell = 0.05;
     this.color = color;
     this.selected_color = selected_color;
+    this.done = false;
   }
 
   /*
@@ -80,12 +81,9 @@ export class ConstellationStar {
     change its selected mode
     */
   click(x, y) {
-    if (
-      (this.x - x) ** 2 + (this.y - y) ** 2 <
-      (2 * this.default_radius) ** 2
-    ) {
+    const isOnStar = (this.x - x) ** 2 + (this.y - y) ** 2 < (2 * this.default_radius) ** 2;
+    if (isOnStar && !this.done)
       this.selected = !this.selected;
-    }
   }
 
   /*

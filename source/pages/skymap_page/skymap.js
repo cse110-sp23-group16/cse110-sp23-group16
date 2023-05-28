@@ -119,6 +119,7 @@ function handleClickCanvas(event, constellation_arr, sky_background) {
     //If 5 stars are selected, start calculating which constellation has the most stars.
     if (total == 5) {
         decideConstellation(constellation_arr, sky_background);
+        canvas.style.pointerEvents = "none";
     }
 
     // ----- DEBUG -----
