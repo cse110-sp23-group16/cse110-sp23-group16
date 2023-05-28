@@ -27,11 +27,8 @@ let constellationList = [
 ];
 
 // get chosen constellation from localStorage
-const chosenConstellationName = localStorage.getItem("chosenConstellation");
-const chosenConstellation =
-  constellationList[
-    constellationList.findIndex((item) => item.name === chosenConstellationName)
-  ];
+const chosenConstellationName = localStorage.getItem("chosenConstellation")
+const chosenConstellation = constellationList[constellationList.findIndex(item => item.name === chosenConstellationName)];
 
 // set title/description of constellation explanation to chosen constellation
 const constellationTitle = document.querySelector("h1");

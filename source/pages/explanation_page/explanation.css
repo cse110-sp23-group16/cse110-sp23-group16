@@ -80,16 +80,19 @@ main > * {
   .top-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .top-container{
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-
-  #myth-image {
-    width: 300px;
+  #myth-image{
+    width:300px;
     margin-bottom: 2%;
   }
-
-  #explanation {
+  #explanation{
     width: 300px;
     margin-bottom: 2%;
     padding: 0.5em 1em 0.5em 1em;
@@ -98,6 +101,7 @@ main > * {
   .img_container {
     width: 300px;
   }
+
 }
 
 /* Media Query for Medium Screens */
@@ -118,18 +122,16 @@ main > * {
     font-size: 20px;
   }
 
-  .top-container {
+  .top-container{
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-
-  #myth-image {
-    width: 500px;
+  #myth-image{
+    width:500px;
     margin-bottom: 2%;
   }
-
-  #explanation {
+  #explanation{
     width: 500px;
     margin-bottom: 2%;
   }
@@ -137,11 +139,13 @@ main > * {
   .img_container {
     width: 500px;
   }
+
 }
 
 /* Media Query for Large Screens */
 @media (min-width: 1201px) {
-  h1.custom-heading {
+  h1 {
+
     font-size: 55px; /* Adjust font size for large screens */
   }
 
@@ -156,4 +160,5 @@ main > * {
   #question-prompt {
     font-size: 22px;
   }
+
 }

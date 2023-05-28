@@ -112,6 +112,8 @@ export function goToPage() {
 }
 document.getElementById("next-button").onclick = goToPage;
 
+
+
 // helper function to load json data
 async function loadJsonData() {
   const clocResponse = await fetch("./constellation_location.json");

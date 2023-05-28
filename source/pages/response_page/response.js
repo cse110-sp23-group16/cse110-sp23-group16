@@ -60,16 +60,14 @@ function toggleText() {
    Randomly selects an interpretation for a given constellation within
    the dictionary.
    */
-  const chosenConstellation = localStorage.getItem("chosenConstellation");
-  const random2 = Math.floor(
-    Math.random() * interpretations[chosenConstellation].length
-  );
+  const chosenConstellation = localStorage.getItem('chosenConstellation');
+  const random2 = Math.floor(Math.random() * interpretations[chosenConstellation].length);
   const interpretation = interpretations[chosenConstellation][random2];
   const span2 = document.createElement("span");
   span2.textContent = interpretation;
   text.appendChild(span2);
 
-  const questionInput = localStorage.getItem("questionInput");
+  const questionInput = localStorage.getItem('questionInput');
 }
 
 /*
