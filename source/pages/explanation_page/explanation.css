@@ -7,7 +7,6 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  flex-wrap: wrap;
   margin-top: 5%;
 }
 
@@ -74,19 +73,37 @@ main > * {
 }
 
 /* Media Query for Small Screens */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .top-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
   }
-  
+
+  .top-container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #myth-image{
+    width:300px;
+    margin-bottom: 2%;
+  }
+  #explanation{
+    width: 300px;
+    margin-bottom: 2%;
+    padding: 0.5em 1em 0.5em 1em;
+  }
+  .img_container {
+    width: 300px;
+  }
+
 }
 
 /* Media Query for Medium Screens */
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 601px) and (max-width: 1200px) {
   h1 {
-    font-size: 50px; /* Adjust font size for medium screens */
+    font-size: 40px; /* Adjust font size for medium screens */
   }
   h3 {
     font-size: 22px; /* Adjust font size for large screens */
@@ -98,11 +115,29 @@ main > * {
     font-size: 20px;
   }
 
+  .top-container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #myth-image{
+    width:500px;
+    margin-bottom: 2%;
+  }
+  #explanation{
+    width: 500px;
+    margin-bottom: 2%;
+  }
+  .img_container {
+    width: 500px;
+  }
+
 }
 
 /* Media Query for Large Screens */
-@media (min-width: 769px) {
+@media (min-width: 1201px) {
   h1 {
+
     font-size: 55px; /* Adjust font size for large screens */
   }
   h3 {
