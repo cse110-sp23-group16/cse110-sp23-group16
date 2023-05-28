@@ -68,7 +68,6 @@ function setCanvasPanning(canvas, sky_background) {
     }
 
     // Handle panning events
-
     let isDragging = false
     let dragStart = { x: 0, y: 0 }
 
@@ -83,9 +82,13 @@ function setCanvasPanning(canvas, sky_background) {
     }
 
     function onPointerMove(e) {
-        if (isDragging) {
+        if (isDragging && getEventLocation(e)) {
             cameraOffset.x = getEventLocation(e).x - dragStart.x
             cameraOffset.y = getEventLocation(e).y - dragStart.y
+            cameraOffset.x = cameraOffset.x <= 0 ? cameraOffset.x : 0;
+            cameraOffset.y = cameraOffset.y <= 0 ? cameraOffset.y : 0;
+            cameraOffset.x = canvas.width - cameraOffset.x <= 1920 * ratio ? cameraOffset.x : canvas.width - 1920 * ratio;
+            cameraOffset.y = canvas.height - cameraOffset.y <= 1080 * ratio ? cameraOffset.y : canvas.height - 1080 * ratio;
         }
     }
 
@@ -160,12 +163,10 @@ function animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background,
     sky_background.update(cameraOffset.x, cameraOffset.y, ratio)
     // Update constellations
     for (const constellation of constellation_arr) {
-        if (constellation.isChosen) {
+        if (constellation.isChosen)
             constellation.updateNew(cameraOffset.x, cameraOffset.y);
-        }
-        else {
+        else
             constellation.update(cameraOffset.x, cameraOffset.y);
-        }
         // Update offset
         constellation.setOffset(cameraOffset.x, cameraOffset.y)
     }

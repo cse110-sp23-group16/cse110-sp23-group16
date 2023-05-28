@@ -45,7 +45,6 @@ export class Background {
         this.ctx.drawImage(this.images[key].obj, user_x, user_y, 1920*scale, 1080*scale);
       }
     });
-    this.ctx.drawImage(this.images['terrian'].obj, user_x, user_y, 1920*scale, 1080*scale);
   }
 
   /*
