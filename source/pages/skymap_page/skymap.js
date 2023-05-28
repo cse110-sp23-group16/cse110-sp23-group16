@@ -37,7 +37,7 @@ function init() {
     let user_x = 0;
     let user_y = 0;
     // Begin animation
-    animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset, ratio);
+    animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset);
     // Set button to go next page
     document.getElementById('next-button').onclick = goToPage;
 }
@@ -156,9 +156,9 @@ function decideConstellation(constellation_arr, sky_background){
 }
 
 // Animation Loop
-function animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset, ratio) {
+function animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset) {
     requestAnimationFrame(() => 
-      animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset, ratio));
+      animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background, cameraOffset));
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
     sky_background.update(cameraOffset.x, cameraOffset.y, ratio)
     // Update constellations
@@ -170,7 +170,6 @@ function animate(user_x, user_y, canvas, ctx, constellation_arr, sky_background,
         // Update offset
         constellation.setOffset(cameraOffset.x, cameraOffset.y)
     }
-    
 }
 
 // Natigation

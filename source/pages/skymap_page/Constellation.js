@@ -23,7 +23,7 @@ export class Constellation {
         this.width = width;
         this.height = height;
         // initialize constellation stars
-        let radius = 4 * ratio;
+        let radius = 3 * ratio;
         let selected = false;
         let swell_ratio = 0.5;
         let color = 'white';
