@@ -5,6 +5,7 @@ html {
 
 main {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 5%;
@@ -13,25 +14,40 @@ main {
 main > * {
   margin: 1em;
 }
-
+.top-container {
+  display: flex;
+  justify-content: space-around;
+}
+.bot-container {
+  display: flex;
+  justify-content: center;
+}
 #explanation {
-  width: 450px;
+  width: 35%;
+  height: 500px;
   color: beige;
   text-align: left;
   border-style: solid;
   border-radius: 2%;
   padding: 1em 2em 1em 2em;
+  overflow: auto;
 }
 
-#constellation-image {
-  filter: brightness(700%);
-  width: 500px;
+.img_container {
+  background-color: rgb(0, 0, 1, 0.5);
+  width: 400px;
   border-style: solid;
   border-radius: 2%;
   border-color: beige;
+  filter: brightness(700%);
+  overflow: hidden;
+}
+
+#constellation-image {
+  width: 500px;
+  border-radius: 2%;
   padding-top: 30%;
   padding-bottom: 20%;
-  background-color: rgb(0, 0, 1, 0.5);
 }
 
 #myth-image {
@@ -55,4 +71,49 @@ main > * {
 #continue-button:hover {
   background-color: beige;
   color: midnightblue;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 480px) {
+  .top-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+}
+
+/* Media Query for Medium Screens */
+@media (min-width: 481px) and (max-width: 768px) {
+  h1 {
+    font-size: 50px; /* Adjust font size for medium screens */
+  }
+  h3 {
+    font-size: 22px; /* Adjust font size for large screens */
+  }
+  #input-text {
+    width: 60%; /* Adjust width for medium screens */
+  }
+  #question-prompt {
+    font-size: 20px;
+  }
+
+}
+
+/* Media Query for Large Screens */
+@media (min-width: 769px) {
+  h1 {
+    font-size: 55px; /* Adjust font size for large screens */
+  }
+  h3 {
+    font-size: 25px; /* Adjust font size for large screens */
+  }
+
+  #input-text {
+    width: 50%; /* Adjust width for large screens */
+  }
+  #question-prompt {
+    font-size: 22px;
+  }
+
 }
