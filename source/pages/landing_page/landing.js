@@ -71,3 +71,7 @@ function toSkyMapPage() {
   localStorage.setItem("questionType", selectedCategory);
   window.location.href = "../skymap_page/skymap.html";
 }
+
+function getCategory() {
+  return QuestionCategories.Work;
+}

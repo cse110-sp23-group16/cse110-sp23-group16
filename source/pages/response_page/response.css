@@ -11,6 +11,7 @@ html {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  width: 350px;
 }
 
 h2 {
@@ -44,36 +45,54 @@ a {
   display: none;
   width: 150px;
   height: 50px;
-  background-color: rgba(156, 215, 231, 0.902);
-  margin-top: 8%;
+  background-color: beige;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
+  font-size: 16px;
 }
-
+#hiddenButton:hover {
+  background-color: darkkhaki;
+}
 #visibleButton {
   width: 80px;
   height: 50px;
-  background-color: rgba(156, 215, 231, 0.902);
+  background-color: beige;
   margin-bottom: 5px;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
+  font-size: 13px;
+}
+
+#visibleButton:hover {
+  background-color: darkkhaki;
 }
 #explanation {
   display: flex;
   align-items: center;
   text-align: center;
   background: rgba(112, 115, 154, 0.792);
-  padding: 10px;
   height: 200px;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
+  overflow: auto;
+  padding: 1em 2em 1em 2em;
+}
+.btn_container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2%;
+}
+@media (max-width: 600px) {
+  #explanation {
+    padding: 0.5em 1em 0.5em 1em;
+  }
 }

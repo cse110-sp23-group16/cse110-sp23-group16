@@ -1,7 +1,8 @@
 import { Constellation } from "./Constellation.js";
 import { Background } from "./Background.js";
-import cloc from "./constellation_location.json" assert { type: "json" }; // constellation location data
-import connect from "./connected_stars_pair.json" assert { type: "json" }; // constellation point connections
+
+// ------ Load JSON Data ------
+const { cloc, connect } = await loadJsonData();
 
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
@@ -220,4 +221,24 @@ function animate(
 // Natigation
 function goToPage() {
   window.location.href = "../explanation_page/explanation.html";
+}
+
+// helper function to load json data
+async function loadJsonData() {
+  const clocResponse = await fetch("./constellation_location.json");
+  const cloc = await clocResponse.json();
+
+  const connectResponse = await fetch("./connected_stars_pair.json");
+  const connect = await connectResponse.json();
+  return { cloc, connect };
+}
+
+// helper function to load json data
+async function loadJsonData() {
+  const clocResponse = await fetch("./constellation_location.json");
+  const cloc = await clocResponse.json();
+
+  const connectResponse = await fetch("./connected_stars_pair.json");
+  const connect = await connectResponse.json();
+  return { cloc, connect };
 }
