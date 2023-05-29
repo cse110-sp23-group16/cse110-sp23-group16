@@ -77,7 +77,6 @@ a {
   align-items: center;
   text-align: center;
   background: rgba(112, 115, 154, 0.792);
-  padding: 10px;
   height: 200px;
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -89,7 +88,7 @@ a {
 }
 .btn_container {
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
   margin-top: 2%;
 }
 @media (max-width: 600px) {

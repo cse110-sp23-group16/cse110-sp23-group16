@@ -10,9 +10,8 @@ html {
 
 /* Set the text color to white */
 body,
-h1,
-p,
-a.button {
+.site-header__title,
+p {
   color: white;
 }
 
@@ -35,12 +34,12 @@ img {
   max-width: 100%;
 }
 
-#continue-button {
+.continue-button {
   border-radius: 4px;
   background-color: beige;
   font-size: 20px;
   margin: 20px;
 }
-#continue-button:hover {
+.continue-button:hover {
   background-color: darkkhaki;
 }
