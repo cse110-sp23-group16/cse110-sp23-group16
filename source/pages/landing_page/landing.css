@@ -20,28 +20,30 @@ h1 {
 p {
   color: beige;
 }
+
 #teller {
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
-#ball {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  width: 12%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
+
+#categories {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 5%;
+  gap: 10%;
 }
 
-#question-prompt {
-  text-align: center;
-  font-size: 18px;
+button.category {
+  background-color: transparent;
+  color: beige;
+  font-size: 40px;
+  border-style: solid;
+  border-radius: 12px;
+  padding: 0.5em;
 }
+
 div {
   text-align: center;
 }
@@ -54,11 +56,17 @@ div {
   background-color: rgb(226, 204, 246);
 }
 #continue-button {
-  border-radius: 4px;
-  background-color: beige;
-  font-size: 20px;
-  margin: 20px;
+  background-color: transparent;
+  color: beige;
+  margin-top: 5%;
+  border-style: solid;
+  font-size: 25px;
+  padding: 0.5em;
+  border-radius: 12px;
 }
 #continue-button:hover {
-  background-color: darkkhaki;
+  background-color: beige;
+  color: black;
+  border-style: double;
+  transition: 0.5s;
 }
