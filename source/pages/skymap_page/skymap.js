@@ -31,7 +31,16 @@ async function init() {
   let cameraOffset = setCanvasPanning(canvas, sky_background);
   // Create an array of constellation from json file data
   let constellation_arr = Object.keys(cloc).map(
-    (name) => new Constellation(name,connect[name],ctx,cloc[name],ratio,canvas.width,canvas.height)
+    (name) =>
+      new Constellation(
+        name,
+        connect[name],
+        ctx,
+        cloc[name],
+        ratio,
+        canvas.width,
+        canvas.height
+      )
   );
   canvas.addEventListener("click", (event) =>
     handleClickCanvas(event, constellation_arr, sky_background)
@@ -40,7 +49,15 @@ async function init() {
   let user_x = 0;
   let user_y = 0;
   // Begin animation
-  animate(user_x,user_y,canvas,ctx,constellation_arr,sky_background,cameraOffset);
+  animate(
+    user_x,
+    user_y,
+    canvas,
+    ctx,
+    constellation_arr,
+    sky_background,
+    cameraOffset
+  );
   document.getElementById("next-button").onclick = goToPage;
 }
 
