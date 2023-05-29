@@ -224,7 +224,7 @@ function goToPage() {
 // helper function to load json data
 async function loadJsonData() {
   const clocResponse = await fetch("./constellation_location.json");
-  
+
   const cloc = await clocResponse.json();
 
   const connectResponse = await fetch("./connected_stars_pair.json");
