@@ -1,9 +1,6 @@
 import { Constellation } from "./Constellation.js";
 import { Background } from "./Background.js";
 
-// ------ Load JSON Data ------
-const { cloc, connect } = await loadJsonData();
-
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
 
@@ -22,7 +19,8 @@ function setRatio() {
 let ratio = setRatio();
 
 // Starts the program, all function calls trace back here
-function init() {
+async function init() {
+  const { cloc, connect } = await loadJsonData();
   // Get Canvas, Context, and set the canvas width and height
   let canvas = document.querySelector("canvas");
   canvas.width = window.innerWidth;
@@ -183,6 +181,7 @@ function decideConstellation(constellation_arr, sky_background) {
   document.getElementById("next-button").classList.remove("hidden");
   // Record the result
   finalConstellation.setChosen(true);
+  localStorage.setItem("chosenConstellation", finalConstellation.name);
 }
 
 // Animation Loop
@@ -222,20 +221,10 @@ function animate(
 function goToPage() {
   window.location.href = "../explanation_page/explanation.html";
 }
-
 // helper function to load json data
 async function loadJsonData() {
   const clocResponse = await fetch("./constellation_location.json");
-  const cloc = await clocResponse.json();
-
-  const connectResponse = await fetch("./connected_stars_pair.json");
-  const connect = await connectResponse.json();
-  return { cloc, connect };
-}
-
-// helper function to load json data
-async function loadJsonData() {
-  const clocResponse = await fetch("./constellation_location.json");
+  
   const cloc = await clocResponse.json();
 
   const connectResponse = await fetch("./connected_stars_pair.json");

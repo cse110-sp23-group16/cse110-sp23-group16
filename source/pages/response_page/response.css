@@ -39,6 +39,7 @@ a {
   display: none;
   color: beige;
   font-size: x-large;
+  height: 150px;
 }
 
 #hiddenButton {
@@ -93,6 +94,6 @@ a {
 }
 @media (max-width: 600px) {
   #explanation {
-    padding: 0.5em 1em 0.5em 1em;
+    padding: 1em 2em 1em 2em;
   }
 }
