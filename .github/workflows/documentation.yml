@@ -9,7 +9,7 @@ jobs:
 
     permissions:
       # Lets this job push the docs to the repository
-      contents: write-all
+      contents: write
     strategy:
       matrix:
         nodeversion: [16]
