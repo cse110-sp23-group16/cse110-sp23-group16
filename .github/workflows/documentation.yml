@@ -41,19 +41,21 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
+            const workflow_ref = process.env.GITHUB_REF.split('/').pop();
             github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: context.repo.repo,
               workflow_id: 'formatter.yml',
-              ref: ${GITHUB_REF##*/},
+              ref: workflow_ref,
             })
       - name: Trigger tests action
         uses: actions/github-script@v6
         with:
           script: |
+            const workflow_ref = process.env.GITHUB_REF.split('/').pop();
             github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: context.repo.repo,
               workflow_id: 'tests.yml',
-              ref: ${GITHUB_REF##*/},
+              ref: workflow_ref,
             })
