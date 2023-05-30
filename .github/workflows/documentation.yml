@@ -37,3 +37,23 @@ jobs:
           git add docs
           git commit -m "Updated docs"
           git push
+      - name: Trigger formatter action
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'formatter.yml',
+              ref: ${GITHUB_REF##*/},
+            })
+      - name: Trigger tests action
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'tests.yml',
+              ref: ${GITHUB_REF##*/},
+            })
