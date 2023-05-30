@@ -7,7 +7,7 @@ const constellations = [
   "Ursa Major",
   "Carnia",
   "Ophiuchus",
-  "Armadillo Dragon"
+  "Armadillo Dragon",
 ];
 
 /*
@@ -25,17 +25,17 @@ function toggleText() {
   const chosenConstellation = localStorage.getItem("chosenConstellation");
   const questionInput = localStorage.getItem("questionType");
 
-  fetch('all_responses.json')
-  .then(response => response.json())
-  .then(data => {
-    const answer = data[questionInput][chosenConstellation];
-    const span = document.createElement("span");
-    span.textContent = answer;
-    text.appendChild(span);
-  })
-  .catch(error => {
-    console.error(error);
-  });
+  fetch("all_responses.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const answer = data[questionInput][chosenConstellation];
+      const span = document.createElement("span");
+      span.textContent = answer;
+      text.appendChild(span);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
 
 /*
