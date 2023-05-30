@@ -1,7 +1,5 @@
 import { Constellation } from "./Constellation.js";
 import { Background } from "./Background.js";
-import cloc from "./constellation_location.json" assert { type: "json" }; // constellation location data
-import connect from "./connected_stars_pair.json" assert { type: "json" }; // constellation point connections
 
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
@@ -21,7 +19,8 @@ function setRatio() {
 let ratio = setRatio();
 
 // Starts the program, all function calls trace back here
-function init() {
+async function init() {
+  const { cloc, connect } = await loadJsonData();
   // Get Canvas, Context, and set the canvas width and height
   let canvas = document.querySelector("canvas");
   canvas.width = window.innerWidth;
@@ -43,7 +42,6 @@ function init() {
         canvas.height
       )
   );
-  // Capture canvas click event
   canvas.addEventListener("click", (event) =>
     handleClickCanvas(event, constellation_arr, sky_background)
   );
@@ -60,7 +58,6 @@ function init() {
     sky_background,
     cameraOffset
   );
-  // Set button to go next page
   document.getElementById("next-button").onclick = goToPage;
 }
 
@@ -182,6 +179,7 @@ function decideConstellation(constellation_arr, sky_background) {
   document.getElementById("next-button").classList.remove("hidden");
   // Record the result
   finalConstellation.setChosen(true);
+  localStorage.setItem("chosenConstellation", finalConstellation.name);
 }
 
 // Animation Loop
@@ -220,4 +218,14 @@ function animate(
 // Natigation
 function goToPage() {
   window.location.href = "../explanation_page/explanation.html";
+}
+// helper function to load json data
+async function loadJsonData() {
+  const clocResponse = await fetch("./constellation_location.json");
+
+  const cloc = await clocResponse.json();
+
+  const connectResponse = await fetch("./connected_stars_pair.json");
+  const connect = await connectResponse.json();
+  return { cloc, connect };
 }

@@ -7,7 +7,7 @@ let constellationList = [
     imageLink: "../../assets/pictures/constellations/Aries.png",
   },
   {
-    name: "Canis Major",
+    name: "CanisMajor",
     description:
       "Canis Major's astrological meaning is derived from its mythology, particularly associated with the faithful hunting dog Laelaps or Sirius, the brightest star in the night sky. Canis Major represents loyalty, courage, and protection. Individuals influenced by this constellation embody unwavering loyalty and devotion, showing great courage and determination in pursuing their goals. They serve as protectors and guardians, providing a sense of security to those around them. The mythology of Canis Major emphasizes the importance of loyalty and faithfulness. Those aligned with this constellation possess a strong sense of duty and are dedicated to their loved ones. They stand by their commitments and exhibit unwavering loyalty in both personal and professional relationships. Canis Major individuals are known for their courage, fearlessly facing challenges and persevering until they achieve success. Astrologically, Canis Major symbolizes protection and guardianship. Those influenced by this constellation possess a natural instinct to protect and defend. Their presence brings a sense of security and comfort to others, as they serve as reliable protectors. Canis Major individuals are willing to go to great lengths to ensure the well-being and happiness of their loved ones, earning their trust and respect.",
     imageLink: "../../assets/pictures/constellations/CanisMajor.png",
@@ -26,12 +26,12 @@ let constellationList = [
   },
 ];
 
-// replace literal string with constellation chosen from skymap page
-//const chosenConstellation = constellationList[constellationList.findIndex(item => item.name === "Crux")];
-
-// randomized selected constellation, can remove once transfer of info from skymap page is implemented
+// get chosen constellation from localStorage
+const chosenConstellationName = localStorage.getItem("chosenConstellation");
 const chosenConstellation =
-  constellationList[Math.floor(Math.random() * constellationList.length)];
+  constellationList[
+    constellationList.findIndex((item) => item.name === chosenConstellationName)
+  ];
 
 // set title/description of constellation explanation to chosen constellation
 const constellationTitle = document.querySelector("h1");
