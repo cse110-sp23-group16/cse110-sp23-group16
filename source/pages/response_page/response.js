@@ -3,17 +3,12 @@ const constellations = [
   "Crux",
   "Aries",
   "Orion",
-  "Canis Major",
+  "CanisMajor",
   "Ursa Major",
   "Carnia",
   "Ophiuchus",
   "Armadillo Dragon"
 ];
-
-// Randomly select a category
-const randomCategory = categories[Math.floor(Math.random() * categories.length)];
-// Randomly select a constellation
-const randomConstellation = constellations[Math.floor(Math.random() * constellations.length)];
 
 /*
 Once called, this function hides away the triggering button, displays 
@@ -27,10 +22,13 @@ function toggleText() {
   text.style.display = "block";
   button.style.display = "block";
 
+  const chosenConstellation = localStorage.getItem("chosenConstellation");
+  const questionInput = localStorage.getItem("questionType");
+
   fetch('all_responses.json')
   .then(response => response.json())
   .then(data => {
-    const answer = data[randomCategory][randomConstellation];
+    const answer = data[questionInput][chosenConstellation];
     const span = document.createElement("span");
     span.textContent = answer;
     text.appendChild(span);
