@@ -11,7 +11,17 @@ export class ConstellationStar {
     enables or disables the selected swelling animation, and
     the swell ratio tells how much to swell by
     */
-  constructor(ctx, x, y, radius, selected, swell_ratio, color, selected_color) {
+  constructor(
+    ctx,
+    x,
+    y,
+    radius,
+    selected,
+    swell_ratio,
+    color,
+    selected_color,
+    ratio
+  ) {
     this.ctx = ctx;
     this.x = x;
     this.y = y;
@@ -22,6 +32,7 @@ export class ConstellationStar {
     this.dswell = 0.05;
     this.color = color;
     this.selected_color = selected_color;
+    this.done = false;
   }
 
   /*
@@ -49,11 +60,11 @@ export class ConstellationStar {
   }
 
   // Draw a line between this star and the input star
-  connect(star) {
+  connect(user_x, user_y, star) {
     this.ctx.beginPath();
     this.ctx.strokeStyle = "#16BDE5";
-    this.ctx.moveTo(this.x, this.y);
-    this.ctx.lineTo(star.x, star.y);
+    this.ctx.moveTo(this.x + user_x, this.y + user_y);
+    this.ctx.lineTo(star.x + user_x, star.y + user_y);
     this.ctx.stroke();
   }
 
@@ -80,12 +91,9 @@ export class ConstellationStar {
     change its selected mode
     */
   click(x, y) {
-    if (
-      (this.x - x) ** 2 + (this.y - y) ** 2 <
-      (2 * this.default_radius) ** 2
-    ) {
-      this.selected = !this.selected;
-    }
+    const isOnStar =
+      (this.x - x) ** 2 + (this.y - y) ** 2 < (2 * this.default_radius) ** 2;
+    if (isOnStar && !this.done) this.selected = !this.selected;
   }
 
   /*

@@ -9,29 +9,28 @@
   </head>
   <body>
     <header>
-      <h3>Welcome to</h3>
-      <h1>STARGAZER</h1>
+      <h3 class="custom-heading">Welcome to</h3>
+      <h1 class="custom-heading">STARGAZER</h1>
       <picture>
         <!-- <img src="../../assets/teller.jpg" alt="Armadillo fortune teller" width="200"> -->
         <img
           id="teller"
           src="./temp_teller.png"
           alt="Armadillo fortune teller"
-          width="400"
-        />
-        <img
-          id="ball"
-          src="./temp_crystal_ball.png"
-          alt="Armadillo fortune teller"
-          width="400"
+          width="140"
         />
       </picture>
     </header>
     <main>
-      <div>
-        <p id="question-prompt">What do you wish to know?</p>
-        <input type="text" id="input-text" />
-        <br />
+      <div id="categories">
+        <button id="daily-horoscope-button" class="category">
+          Daily Horoscope
+        </button>
+        <button id="career-button" class="category">Career</button>
+        <button id="health-button" class="category">Health</button>
+        <button id="relationship-button" class="category">Relationships</button>
+      </div>
+      <div id="continue">
         <button id="continue-button" onclick="toSkyMapPage()">
           Let the stars guide you
         </button>

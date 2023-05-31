@@ -3,62 +3,117 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 html {
   background: url("../../assets/PreviewMap.png") no-repeat center fixed;
   background-size: cover;
 }
-h3 {
+
+h3.custom-heading {
   text-align: center;
-  font-size: 20px;
   color: beige;
 }
-h1 {
+
+h1.custom-heading {
   text-align: center;
-  font-size: 60px;
   color: beige;
 }
+
 p {
   color: beige;
 }
+
 #teller {
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
-#ball {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  width: 12%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
+
+#categories {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 5%;
+  gap: 10%;
 }
 
-#question-prompt {
-  text-align: center;
-  font-size: 18px;
+button.category {
+  background-color: transparent;
+  color: beige;
+  font-size: 40px;
+  border-style: solid;
+  border-radius: 12px;
+  padding: 0.5em;
 }
+
 div {
   text-align: center;
 }
+
 #input-text {
   text-align: center;
-  width: 30%;
+  width: 100%; /* Updated width to 100% */
+  max-width: 400px; /* Added max-width for responsiveness */
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 4px;
   padding: 12px 20px;
   font-size: 16px;
   background-color: rgb(226, 204, 246);
 }
+
 #continue-button {
-  border-radius: 4px;
+  background-color: transparent;
+  color: beige;
+  margin-top: 5%;
+  border-style: solid;
+  font-size: 25px;
+  padding: 0.5em;
+  border-radius: 12px;
+}
+
+#continue-button:hover {
   background-color: beige;
-  font-size: 20px;
-  margin: 20px;
+  color: black;
+  border-style: double;
+  transition: 0.5s;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 480px) {
+  h1.custom-heading {
+    font-size: 40px; /* Adjust font size for small screens */
+  }
+  h3.custom-heading {
+    font-size: 18px; /* Adjust font size for small screens */
+  }
+
+  #input-text {
+    width: 80%; /* Adjust width for small screens */
+  }
+  #question-prompt {
+    font-size: 18px;
+  }
+}
+
+/* Media Query for Medium Screens */
+@media (min-width: 481px) and (max-width: 768px) {
+  h1.custom-heading {
+    font-size: 50px; /* Adjust font size for medium screens */
+  }
+  h3.custom-heading {
+    font-size: 22px; /* Adjust font size for large screens */
+  }
+  #input-text {
+    width: 60%; /* Adjust width for medium screens */
+  }
+  #question-prompt {
+    font-size: 20px;
+  }
 }
 #continue-button:hover {
-  background-color: darkkhaki;
+  background-color: beige;
+  color: black;
+  border-style: double;
+  transition: 0.5s;
 }
