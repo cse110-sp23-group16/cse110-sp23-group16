@@ -1,33 +1,6 @@
 import { Constellation } from "./Constellation.js";
 import { Background } from "./Background.js";
 
-// ------ Load JSON Data ------
-const { cloc, connect } = await loadJsonData();
-
-// ------ Setup Canvas ------
-// Get Canvas, Context, and set the canvas width and height
-var canvas = document.querySelector("canvas");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-var ctx = canvas.getContext("2d");
-// Record the name of the final constellation
-var result = "none";
-// Create background object
-
-let sky_background = new Background(ctx, canvas.width, canvas.height);
-// Create an array of constellation from json file data
-let constellation_arr = Object.keys(cloc).map(
-  (name) =>
-    new Constellation(
-      ctx,
-      cloc[name],
-      name,
-      canvas.width,
-      canvas.height,
-      connect[name]
-    )
-);
-
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
 
@@ -248,8 +221,6 @@ function animate(
 function goToPage() {
   window.location.href = "../explanation_page/explanation.html";
 }
-
-document.getElementById("next-button").onclick = goToPage;
 
 // helper function to load json data
 async function loadJsonData() {
