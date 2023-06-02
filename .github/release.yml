@@ -15,6 +15,9 @@ changelog:
     - title: UI Improvements 🪞
       labels:
         - UI
+    - title: New Assets 🎨
+      labels:
+        - assets
     - title: Other Changes
       labels:
         - "*"
