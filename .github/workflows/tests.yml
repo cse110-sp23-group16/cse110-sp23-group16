@@ -26,6 +26,6 @@ jobs:
       - name: Install JEST
         run: npm install jest@${{ matrix.jestversion }} jest-puppeteer@${{ matrix.jestpuppeteerversion }} puppeteer@${{ matrix.puppeteerversion }} http-server@${{ matrix.httpserverversion }}
       - name: Host Server
-        run: $(npm bin)/http-server -c-1
+        run: $(npm bin)/http-server -c-1 &
       - name: Run tests
         run: $(npm bin)/jest --config ./source/tests/jest.config.json
