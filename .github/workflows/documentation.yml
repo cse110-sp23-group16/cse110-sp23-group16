@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: ${{ matrix.nodeversion }}
       - name: Delete old Docs
-        run: rm -r ./dest/docs
+        run: rm -rf ./dest/docs
       - name: Create documentation
         uses: andstor/jsdoc-action@v1
         with:
