@@ -28,7 +28,6 @@ let constellation_arr = Object.keys(cloc).map(
     )
 );
 
-
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
 

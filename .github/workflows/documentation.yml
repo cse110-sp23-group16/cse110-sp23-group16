@@ -17,14 +17,15 @@ jobs:
       - name: Checkout source repo
         uses: actions/checkout@v3
         with:
-          path: 'src'
+          path: "src"
           persist-credentials: false
       - name: Checkout documentation repo
         uses: actions/checkout@v3
         with:
-          repository: 'cse110-sp23-group16/cse110-sp23-group16-docs'
-          path: 'dest'
-          persist-credentials: false
+          repository: "cse110-sp23-group16/cse110-sp23-group16-docs"
+          path: "dest"
+          persist-credentials: true
+          token: ${{ BOT_ORG_ACCESS }}
       - name: Set up node
         uses: actions/setup-node@v3
         with:
