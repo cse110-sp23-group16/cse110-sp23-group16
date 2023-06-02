@@ -1,4 +1,4 @@
 {
-    "preset": "jest-puppeteer",
-    "verbose": true
+  "preset": "jest-puppeteer",
+  "verbose": true
 }
