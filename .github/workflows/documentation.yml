@@ -25,7 +25,7 @@ jobs:
           repository: "cse110-sp23-group16/cse110-sp23-group16-docs"
           path: "dest"
           persist-credentials: true
-          token: ${{ BOT_ORG_ACCESS }}
+          token: ${{ secrets.BOT_ORG_ACCESS }}
       - name: Set up node
         uses: actions/setup-node@v3
         with:
