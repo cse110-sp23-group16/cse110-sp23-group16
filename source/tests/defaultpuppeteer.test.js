@@ -14,6 +14,6 @@ describe('Website Load Check', () => {
     });
   
     it('should be titled ', async () => {
-        await expect(page.title()).resolves.toMatch('Landing PageASDF');
+        await expect(page.title()).resolves.toMatch('Landing Page');
     });
 });
