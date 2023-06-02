@@ -22,4 +22,4 @@ jobs:
       - name: Install JEST
         run: npm install jest@${{ matrix.jestversion }} jest-puppeteer@${{ matrix.jestpuppeteerversion }} puppeteer@${{ matrix.puppeteerversion }}
       - name: Run tests
-        run: $(npm bin)/jest --config /source/tests/jest.config.json
+        run: $(npm bin)/jest --config ./source/tests/jest.config.json
