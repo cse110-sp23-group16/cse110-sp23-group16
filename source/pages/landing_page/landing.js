@@ -8,7 +8,7 @@ function init() {
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
 
-  const continueButton = document.getElementById("continue")
+  const continueButton = document.getElementById("continue-button")
   continueButton.classList.add('hidden');
 
   const dailyButton = document.getElementById("daily-horoscope-button");

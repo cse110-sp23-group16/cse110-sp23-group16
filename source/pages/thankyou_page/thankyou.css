@@ -33,13 +33,3 @@ img {
   margin: 20px auto;
   max-width: 100%;
 }
-
-.continue-button {
-  border-radius: 4px;
-  background-color: beige;
-  font-size: 20px;
-  margin: 20px;
-}
-.continue-button:hover {
-  background-color: darkkhaki;
-}

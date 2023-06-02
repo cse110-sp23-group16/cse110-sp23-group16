@@ -42,21 +42,6 @@ a {
   height: 150px;
 }
 
-#hiddenButton {
-  display: none;
-  width: 150px;
-  height: 50px;
-  background-color: beige;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
-  font-size: 16px;
-}
-#hiddenButton:hover {
-  background-color: darkkhaki;
-}
 #visibleButton {
   width: 80px;
   height: 50px;
