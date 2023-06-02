@@ -8,8 +8,8 @@ function init() {
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
 
-  const continueButton = document.getElementById("continue-button");
-  continueButton.style.visibility = "hidden";
+  const continueButton = document.getElementById("continue")
+  continueButton.classList.add('hidden');
 
   const dailyButton = document.getElementById("daily-horoscope-button");
   dailyButton.addEventListener("click", function () {
@@ -46,20 +46,17 @@ function setSelection(passedButton, continueButton) {
   // set all other buttons to deselected
   [].forEach.call(categoryButtons, function (btn) {
     if (btn !== passedButton) {
-      btn.style.color = "beige";
-      btn.style.background = "transparent";
+      btn.classList.remove('selected');
     }
   });
   // if button was already selected, make it deselected
-  if (passedButton.style.background == "beige") {
-    passedButton.style.color = "beige";
-    passedButton.style.background = "transparent";
+  if (passedButton.classList.contains('selected')) {
+    passedButton.classList.remove('selected')
     selectedCategory = "";
-    continueButton.style.visibility = "hidden";
+    continueButton.classList.add("hidden");
   } else {
-    passedButton.style.color = "black";
-    passedButton.style.background = "beige";
-    continueButton.style.visibility = "visible";
+    passedButton.classList.add('selected')
+    continueButton.classList.remove("hidden");
   }
 }
 
@@ -70,6 +67,7 @@ function setSelection(passedButton, continueButton) {
 function toSkyMapPage() {
   localStorage.setItem("questionType", selectedCategory);
   window.location.href = "../skymap_page/skymap.html";
+  console.log(selectedCategory)
 }
 
 function getCategory() {
