@@ -2,6 +2,9 @@ name: Continuous Integration Tests
 
 on: [push]
 
+env: 
+  JEST_PUPPETEER_CONFIG: ./source/tests/jest-puppeteer.config.js
+
 jobs:
   testing:
     runs-on: ubuntu-latest
