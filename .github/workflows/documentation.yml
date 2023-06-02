@@ -1,0 +1,47 @@
+name: generate-documentation
+run-name: Generate Documentation for all JS files in source
+on: [push]
+
+jobs:
+  create-docs:
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Lets this job push the docs to the repository
+      contents: write
+    strategy:
+      matrix:
+        nodeversion: [16]
+    steps:
+      - name: Checkout source repo
+        uses: actions/checkout@v3
+        with:
+          path: "src"
+          persist-credentials: false
+      - name: Checkout documentation repo
+        uses: actions/checkout@v3
+        with:
+          repository: "cse110-sp23-group16/cse110-sp23-group16-docs"
+          path: "dest"
+          persist-credentials: true
+          token: ${{ secrets.BOT_ORG_ACCESS }}
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.nodeversion }}
+      - name: Delete old Docs
+        run: rm -rf ./dest/docs
+      - name: Create documentation
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./src/source/pages
+          recurse: true
+          output_dir: ./dest/docs
+      - name: Push documentation to docs repository
+        run: |
+          cd dest
+          git config --global user.email "gitaction@gitaction.com"
+          git config --global user.name "Documentation Action"
+          git add docs
+          git commit -m "Updating docs"
+          git push

@@ -8,9 +8,12 @@ export class Constellation {
   /**
    * Takes star list which is an array of star coordinates and creates stars
    * @param {string} name name of constellation
-   * @param {JSON object}connect the paths to connect all the stars in the constellation.
+   * @param {JSONobject}connect the paths to connect all the stars in the constellation.
    * @param {CanvasRenderingContext2D} ctx
    * @param {Array} star_coord_list list of star coordinates
+   * @param {TODO} ratio TODO
+   * @param {TODO} width TODO
+   * @param {TODO} height TODO
    */
   constructor(name, connect, ctx, star_coord_list, ratio, width, height) {
     this.name = name;
