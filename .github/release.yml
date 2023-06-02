@@ -3,8 +3,6 @@
 changelog:
   exclude:
     labels:
-      - documentation
-      - CI/CD
   categories:
     - title: Bug Fixes 🛠
       labels:
