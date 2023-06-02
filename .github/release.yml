@@ -14,6 +14,12 @@ changelog:
     - title: New Assets 🎨
       labels:
         - assets
+    - title: CI/CD Pipeline 📦
+      labels:
+        - CI/CD
+    - title: Documentation 📑
+      labels:
+        - documentation
     - title: Other Changes
       labels:
         - "*"
