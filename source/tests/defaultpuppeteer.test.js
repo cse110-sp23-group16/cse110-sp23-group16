@@ -4,6 +4,6 @@ describe('Google', () => {
     });
   
     it('should be titled "Google"', async () => {
-        await expect(page.title()).resolves.toMatch('Googl');
+        await expect(page.title()).resolves.toMatch('ASDFASDF');
     });
 });
