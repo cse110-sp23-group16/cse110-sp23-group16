@@ -1,8 +1,6 @@
 # .github/release.yml
 
 changelog:
-  exclude:
-    labels:
   categories:
     - title: Bug Fixes 🛠
       labels:
