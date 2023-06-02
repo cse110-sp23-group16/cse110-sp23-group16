@@ -9,6 +9,9 @@ export class Background {
   /**
    * Load background images
    * @param {CanvasRenderingContext2D} ctx canvas rendering context
+   * @param {TODO} ratio TODO
+   * @param {TODO} width TODO
+   * @param {TODO} height TODO
    */
   constructor(ctx, ratio, width, height) {
     this.ctx = ctx;

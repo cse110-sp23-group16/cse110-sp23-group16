@@ -90,6 +90,8 @@ async function init() {
 
 /**
  * Set up canvas with panning
+ * @param {TODO} canvas TODO
+ * @param {TODO} sky_background TODO
  * @returns canvas
  * Reference: https://codepen.io/chengarda/pen/wRxoyB
  */
