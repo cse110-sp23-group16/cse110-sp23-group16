@@ -10,3 +10,7 @@ permissions:
 jobs:
   documentation:
     uses: ./.github/workflows/documentation.yml
+  testing:
+    uses: ./.github/workflows/tests.yml
+  formatter:
+    uses: ./.github/workflows/formatter.yml

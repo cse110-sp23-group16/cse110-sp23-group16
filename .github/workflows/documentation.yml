@@ -16,48 +16,34 @@ jobs:
       matrix:
         nodeversion: [16]
     steps:
-      - name: Checkout code
+      - name: Checkout source repo
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          path: 'src'
+          persist-credentials: false
+      - name: Checkout documentation repo
+        uses: actions/checkout@v3
+        with:
+          repository: 'cse110-sp23-group16/cse110-sp23-group16-docs'
+          path: 'dest'
+          persist-credentials: false
       - name: Set up node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.nodeversion }}
       - name: Delete old Docs
-        run: rm -r ./docs*
+        run: rm -r ./dest/docs
       - name: Create documentation
         uses: andstor/jsdoc-action@v1
         with:
-          source_dir: ./source/pages
+          source_dir: ./src/source/pages
           recurse: true
-          output_dir: ./docs
-      - name: Add documentation to repository
+          output_dir: ./dest/docs
+      - name: Push documentation to docs repository
         run: |
-          git config --global user.email "kjp002@ucsd.edu"
-          git config --global user.name "Khushi Patel"
+          cd dest
+          git config --global user.email "gitaction@gitaction.com"
+          git config --global user.name "Documentation Action"
           git add docs
-          git commit -m "Updated docs"
+          git commit -m "Updating docs"
           git push
-      - name: Trigger formatter action
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const workflow_ref = process.env.GITHUB_REF.split('/').pop();
-            github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'formatter.yml',
-              ref: workflow_ref,
-            })
-      - name: Trigger tests action
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const workflow_ref = process.env.GITHUB_REF.split('/').pop();
-            github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'tests.yml',
-              ref: workflow_ref,
-            })
