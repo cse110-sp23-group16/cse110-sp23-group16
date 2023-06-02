@@ -1,7 +1,6 @@
 name: generate-documentation
 run-name: Generate Documentation for all JS files in source
-on:
-  workflow_call:
+on: [push, pull_request]
 
 jobs:
   create-docs:
