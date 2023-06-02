@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: ${{ matrix.nodeversion }}
       - name: Install JEST
-        run: npm install jest@${{ matrix.jestversion }} jest-puppeteer@${{ matrix.jestpuppeteerversion }} puppeteer@${{ matrix.puppeteerversion }} http-server@${{ httpserverversion }}
+        run: npm install jest@${{ matrix.jestversion }} jest-puppeteer@${{ matrix.jestpuppeteerversion }} puppeteer@${{ matrix.puppeteerversion }} http-server@${{ matrix.httpserverversion }}
       - name: Host Server
         run: $(npm bin)/http-server -c-1
       - name: Run tests
