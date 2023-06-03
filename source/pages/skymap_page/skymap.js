@@ -93,10 +93,12 @@ function setCanvasPanning(canvas, sky_background) {
     isDragging = true;
     dragStart.x = getEventLocation(e).x - cameraOffset.x;
     dragStart.y = getEventLocation(e).y - cameraOffset.y;
+    canvas.style.cursor = "grabbing";
   }
 
   function onPointerUp(e) {
     isDragging = false;
+    canvas.style.cursor = "grab";
   }
 
   function onPointerMove(e) {
