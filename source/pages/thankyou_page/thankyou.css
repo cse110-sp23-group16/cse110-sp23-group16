@@ -26,10 +26,19 @@ body {
 
 .main-content {
   text-align: center;
+  width: 1000px;
 }
 
 img {
   display: block;
   margin: 20px auto;
   max-width: 100%;
+}
+
+h1 {
+  font-size: 40pt;
+}
+
+p {
+  font-size: 16pt;
 }

@@ -3,15 +3,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 html {
   background: url("../../assets/PreviewMap.png") no-repeat center fixed;
   background-size: cover;
-}
-#teller {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 350px;
 }
 
 h2 {
@@ -27,7 +22,15 @@ img {
   overflow: hidden;
 }
 
+img#teller {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 300px;
+}
+
 p {
+  margin: 0px;
   font-size: 20px;
 }
 
@@ -35,35 +38,39 @@ a {
   text-decoration: none;
 }
 
-#hiddenText {
+p#hiddenText {
   display: none;
   color: beige;
   font-size: x-large;
   height: 150px;
 }
 
-#visibleButton {
-  width: 80px;
-  height: 50px;
+button.response {
   background-color: beige;
-  margin-bottom: 5px;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
-  font-size: 13px;
+  border: none;
+  box-shadow: 0px 0px 3px beige;
+  border-radius: 12px;
+  color: rgb(19, 28, 63);
+  font-size: 20px;
+  line-height: 5vh;
+  height: 7vh;
+  margin-top: 0%;
+  margin-bottom: 1%;
+  padding: 0.5em;
 }
 
-#visibleButton:hover {
-  background-color: darkkhaki;
+button.response:hover {
+  background-color: rgb(143, 143, 137);
+  border-radius: 12px;
+  color: beige;
+  padding: 0.5em;
+  transition: 0.3s;
+  cursor: pointer;
 }
-#explanation {
-  display: flex;
-  align-items: center;
-  text-align: center;
+
+div#explanation {
   background: rgba(112, 115, 154, 0.792);
-  height: 200px;
+  height: 300px;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -72,11 +79,30 @@ a {
   overflow: auto;
   padding: 1em 2em 1em 2em;
 }
-.btn_container {
+
+div.btn_container {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 2%;
+  justify-content: center;
 }
+
+div.dark-back {
+  background-color: rgba(50, 50, 50, 0.5);
+  height: 170%;
+  width: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: -1;
+}
+
+.removed {
+  display: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
 @media (max-width: 600px) {
   #explanation {
     padding: 1em 2em 1em 2em;
