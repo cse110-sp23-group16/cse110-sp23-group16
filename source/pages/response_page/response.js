@@ -9,7 +9,8 @@ const constellations = [
   "Ophiuchus",
   "Armadillo Dragon",
 ];
-const errorMsg = "Please try again later by selecting both your question and your constellation. You will now be taken to the home page."
+const errorMsg =
+  "Please try again later by selecting both your question and your constellation. You will now be taken to the home page.";
 
 /*
 Once called, this function hides away the triggering button, displays 
@@ -26,34 +27,36 @@ function toggleText() {
   button.style.display = "block";
   const chosenConstellation = localStorage.getItem("chosenConstellation");
   const questionInput = localStorage.getItem("questionType");
-  if(chosenConstellation != null && questionInput != null) {
+  if (chosenConstellation != null && questionInput != null) {
     fetch("all_responses.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const answer = data[questionInput][chosenConstellation][Math.floor(Math.random() * 3)];
-      let index = 0;
-      let interval;
-      let words = answer.split(' ');
-      interval = setInterval(showNextCharacter, 100);
-      function showNextCharacter() {
-        if (index < words.length) {
-          text.textContent += words[index] + ' ';
-          index++;
-        } else {
-          clearInterval(interval);
+      .then((response) => response.json())
+      .then((data) => {
+        const answer =
+          data[questionInput][chosenConstellation][
+            Math.floor(Math.random() * 3)
+          ];
+        let index = 0;
+        let interval;
+        let words = answer.split(" ");
+        interval = setInterval(showNextCharacter, 100);
+        function showNextCharacter() {
+          if (index < words.length) {
+            text.textContent += words[index] + " ";
+            index++;
+          } else {
+            clearInterval(interval);
+          }
         }
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  }
-  else {
-    const answer = errorMsg
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } else {
+    const answer = errorMsg;
     text.textContent = answer;
-    setTimeout(function() {
+    setTimeout(function () {
       window.location.href = "../landing_page/landing.html";
-    }, 5000); 
+    }, 5000);
   }
 }
 
@@ -67,11 +70,11 @@ function goToPage() {
 /*
 As an animated transition, main section rising to its position
 */
-window.addEventListener('load', function() {
-  var mainContent = document.querySelector('main');
+window.addEventListener("load", function () {
+  var mainContent = document.querySelector("main");
   var desiredPosition = 0;
 
-  setTimeout(function() {
-    mainContent.style.top = desiredPosition + 'px';
+  setTimeout(function () {
+    mainContent.style.top = desiredPosition + "px";
   }, 100);
 });
