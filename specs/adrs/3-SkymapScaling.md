@@ -2,7 +2,7 @@
 
 ## Context and Problem
 
-We want to scale the skymap to twice of the user's screen so that the user can pan around the skymap to select the star with better percision and experience. It comes to the problem of how the scaling of the skymap will be done. 
+We want to scale the skymap to twice of the user's screen so that the user can pan around the skymap to select the star with better percision and experience. It comes to the problem of how the scaling of the skymap will be done.
 
 ## Considered Options
 
