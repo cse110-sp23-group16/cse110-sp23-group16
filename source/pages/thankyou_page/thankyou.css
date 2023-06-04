@@ -42,3 +42,8 @@ h1 {
 p {
   font-size: 16pt;
 }
+
+button.continue {
+  height: 9vh;
+  line-height: 6vh;
+}

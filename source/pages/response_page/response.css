@@ -13,6 +13,7 @@ h2 {
   font-size: 34px;
   text-align: center;
   color: white;
+  margin-top: 30px;
 }
 
 img {
@@ -27,6 +28,7 @@ img#teller {
   margin-right: auto;
   display: block;
   width: 300px;
+  margin-top: 20px;
 }
 
 p {
@@ -51,25 +53,26 @@ button.response {
   box-shadow: 0px 0px 3px beige;
   border-radius: 12px;
   color: rgb(19, 28, 63);
-  font-size: 20px;
-  line-height: 5vh;
+  font-size: 26px;
+  line-height: 2vh;
   height: 7vh;
-  margin-top: 0%;
+  margin-top: 10px;
   margin-bottom: 1%;
-  padding: 0.5em;
+  padding: 1em;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 button.response:hover {
   background-color: rgb(143, 143, 137);
   border-radius: 12px;
   color: beige;
-  padding: 0.5em;
   transition: 0.3s;
   cursor: pointer;
 }
 
 div#explanation {
-  background: rgba(112, 115, 154, 0.792);
+  background: rgba(112, 115, 154, 0.7);
   height: 300px;
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -78,6 +81,8 @@ div#explanation {
   -o-border-radius: 20px;
   overflow: auto;
   padding: 1em 2em 1em 2em;
+  box-shadow: 0px 0px 20px 10px rgba(112, 115, 154, 0.8);
+  margin-top: 30px;
 }
 
 div.btn_container {
@@ -86,7 +91,7 @@ div.btn_container {
 }
 
 div.dark-back {
-  background-color: rgba(50, 50, 50, 0.5);
+  background-color: rgba(11, 18, 45, 0.5);
   height: 170%;
   width: 100%;
   position: absolute;
