@@ -17,7 +17,7 @@ canvas {
   height: 100%;
   z-index: 0;
 }
-#tutorial{
+#tutorial {
   position: absolute;
   top: 0;
   right: 0;
@@ -25,7 +25,8 @@ canvas {
   border-radius: 12px;
   padding: 1.5em;
 }
-#confirm, #hide{
+#confirm,
+#hide {
   margin: 5px;
   background-color: beige;
   border-radius: 12px;

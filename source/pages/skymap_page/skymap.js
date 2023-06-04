@@ -237,19 +237,19 @@ async function loadJsonData() {
   return { cloc, connect };
 }
 
-function tutorialSetup(){
+function tutorialSetup() {
   let gotIt = document.getElementById("confirm");
   let tutorial = document.getElementById("tutorial");
   let hide = document.getElementById("hide");
   let dialog = document.querySelector("dialog");
-  gotIt.addEventListener("click", () =>{
+  gotIt.addEventListener("click", () => {
     dialog.close();
   });
-  tutorial.addEventListener("click", () =>{
+  tutorial.addEventListener("click", () => {
     dialog.showModal();
   });
-  hide.addEventListener("click", () =>{
+  hide.addEventListener("click", () => {
     dialog.close();
     tutorial.setAttribute("hidden", "hidden");
-  })
+  });
 }
