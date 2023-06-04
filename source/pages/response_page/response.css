@@ -3,6 +3,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 html {
   background: url("../../assets/PreviewMap.png") no-repeat center fixed;
   background-size: cover;
@@ -40,6 +41,8 @@ a {
   color: beige;
   font-size: x-large;
   height: 150px;
+  text-align: left;
+  font-family: "Segoe Print", cursive;
 }
 
 #hiddenButton {
@@ -58,7 +61,7 @@ a {
   background-color: darkkhaki;
 }
 #visibleButton {
-  width: 80px;
+  width: 150px;
   height: 50px;
   background-color: beige;
   margin-bottom: 5px;
@@ -67,7 +70,7 @@ a {
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 #visibleButton:hover {
@@ -96,4 +99,26 @@ a {
   #explanation {
     padding: 1em 2em 1em 2em;
   }
+}
+
+@keyframes glowAnimation {
+  0% {
+    box-shadow: 0 0 5px 5px white;
+  }
+  50% {
+    box-shadow: 0 0 20px 20px white;
+  }
+  100% {
+    box-shadow: 0 0 5px 5px white;
+  }
+}
+
+.glow {
+  animation: glowAnimation 2s infinite;
+}
+
+main {
+  position: relative;
+  top: 100px; /* Initial position, adjust as needed */
+  transition: top 1s ease; /* Transition animation duration and easing */
 }
