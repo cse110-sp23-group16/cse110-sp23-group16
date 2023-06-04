@@ -10,6 +10,10 @@ Starts with the landing page, the Almighty Armadillo teller prompt the user to s
 
 The skymap page is composed by a huge canvas and multiple stars scatter within it. The user will be prompt to pan around the canvas and select 5 stars that call to them by clicking on the white dots. As the selection is completed, the constellation with most stars selected will appear along with a continue button that will bring the user to the explanation page.
 
+**About scaling**
+
+The background and stars are being scaled to be twice the size of the user's screen (through the parameter `ratio` and calculated by the function `setRatio()`) so the user can pan around and select the stars with better percision. Note that the canvas itself is the size of user screen and does not scaled because it will cause performance issue, and the panning will only move the background and the stars position.
+
 # Explanation Page
 
 Here the page displays the constellation that matches the stars the user picked. The armadillo begins to explain the meaning of the constellation, and its mythical significance.
