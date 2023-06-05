@@ -69,7 +69,7 @@ Chi
 - Have sound effects for on click events
   - Different sound effect for different types of buttons
 
-Kushi
+Khushi
 - Change the favicon
 - Story telling animation (proposed by Shashank)
 
