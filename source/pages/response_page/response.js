@@ -30,18 +30,18 @@ Once called, this function hides away the triggering button, displays
 the fortune teller response as well as the next page button.
 */
 function toggleText() {
-  const explanation = document.getElementById("explanation");
-  const buttonClicked = document.getElementById("visibleButton");
-  const text = document.getElementById("hiddenText");
-  const button = document.getElementById("hiddenButton");
-
+  let buttonClicked = document.getElementById("visibleButton");
+  let explanation = document.getElementById("explanation");
+  let text = document.getElementById("hiddenText");
+  let button = document.getElementById("hiddenButton");
   explanation.classList.add("glow");
-  buttonClicked.style.display = "none";
-  text.style.display = "block";
-  button.style.display = "block";
+  buttonClicked.classList.add("removed");
 
   const chosenConstellation = localStorage.getItem("chosenConstellation");
   const questionInput = localStorage.getItem("questionType");
+
+  explanation.classList.remove("hidden");
+  button.classList.remove("hidden");
 
   if (chosenConstellation && questionInput) {
     fetchResponses(questionInput, chosenConstellation)
@@ -54,7 +54,6 @@ function toggleText() {
   } else {
     const answer = errorMsg;
     displayText(answer, text);
-
     setTimeout(() => {
       redirectToPage("../landing_page/landing.html");
     }, 5000);

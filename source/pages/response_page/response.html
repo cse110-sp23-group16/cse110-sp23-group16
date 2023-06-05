@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Response Page</title>
+    <link rel="stylesheet" href="../toplevel.css" />
     <link rel="stylesheet" href="./response.css" />
     <script src="./response.js"></script>
   </head>
@@ -15,19 +16,22 @@
           id="teller"
           src="./temp_teller.png"
           alt="Armadillo fortune teller"
-          width="400"
         />
       </picture>
+      <button id="visibleButton" class="response" onclick="toggleText()">
+        See Result
+      </button>
     </header>
     <main>
-      <button id="visibleButton" onclick="toggleText()">See Result</button>
-      <div id="explanation" class="text-box">
+      <div id="explanation" class="text-box hidden">
         <p id="hiddenText"></p>
       </div>
       <div class="btn_container">
-        <button id="hiddenButton" onclick="goToPage()">Next Page</button>
+        <button id="hiddenButton" class="continue hidden" onclick="goToPage()">
+          Next Page
+        </button>
       </div>
     </main>
-    <footer></footer>
+    <div class="dark-back"></div>
   </body>
 </html>

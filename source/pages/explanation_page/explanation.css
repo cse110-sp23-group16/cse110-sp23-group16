@@ -11,7 +11,8 @@ main {
 }
 
 main > * {
-  margin: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .top-container {
@@ -72,23 +73,6 @@ main > * {
     transform: scale(1);
     opacity: 1;
   }
-}
-
-#continue-button {
-  background-color: transparent;
-  color: beige;
-  text-align: center;
-  font-size: 20px;
-  padding: 1em;
-  border-radius: 30px;
-  border-color: beige;
-  outline: none;
-  animation: pulsate 2s ease-in-out;
-}
-
-#continue-button:hover {
-  background-color: beige;
-  color: midnightblue;
 }
 
 /* Media Query for Small Screens */

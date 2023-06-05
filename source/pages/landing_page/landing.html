@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page</title>
+    <link rel="stylesheet" href="../toplevel.css" />
     <link rel="stylesheet" href="./landing.css" />
     <script src="./landing.js"></script>
   </head>
@@ -11,18 +12,21 @@
     <header>
       <h3 class="custom-heading">Welcome to</h3>
       <h1 class="custom-heading">STARGAZER</h1>
-      <picture>
-        <!-- <img src="../../assets/teller.jpg" alt="Armadillo fortune teller" width="200"> -->
-        <img
-          id="teller"
-          src="./temp_teller.png"
-          alt="Armadillo fortune teller"
-          width="140"
-        />
-      </picture>
     </header>
     <main>
-      <div id="categories">
+      <div id="teller-box">
+        <picture>
+          <!-- <img src="../../assets/teller.jpg" alt="Armadillo fortune teller" width="200"> -->
+          <img
+            id="teller"
+            src="./temp_teller.png"
+            alt="Armadillo fortune teller"
+            width="140"
+          />
+        </picture>
+        <div class="prompt">Select a category</div>
+      </div>
+      <div class="categories">
         <button id="daily-horoscope-button" class="category">
           Daily Horoscope
         </button>
@@ -31,7 +35,7 @@
         <button id="relationship-button" class="category">Relationships</button>
       </div>
       <div id="continue">
-        <button id="continue-button" onclick="toSkyMapPage()">
+        <button id="continue-button" class="continue" onclick="toSkyMapPage()">
           Let the stars guide you
         </button>
       </div>
