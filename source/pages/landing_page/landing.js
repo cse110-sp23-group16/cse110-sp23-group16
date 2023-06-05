@@ -53,10 +53,12 @@ function setSelection(passedButton, continueButton) {
   if (passedButton.classList.contains("selected")) {
     passedButton.classList.remove("selected");
     selectedCategory = "";
+    continueButton.classList.remove("fade-in");
     continueButton.classList.add("hidden");
   } else {
     passedButton.classList.add("selected");
     continueButton.classList.remove("hidden");
+    continueButton.classList.add("fade-in");
   }
 }
 
@@ -72,4 +74,16 @@ function toSkyMapPage() {
 
 function getCategory() {
   return QuestionCategories.Work;
+}
+
+function handleStart() {
+  const startButton = document.getElementById('start-button');
+  const actionDiv = document.getElementById('action-div');
+  const categoriesDiv = document.getElementById('categories-div');
+  const promptDiv = document.getElementById('prompt-div');
+  startButton.classList.add('removed');
+  actionDiv.classList.remove('hidden');
+  categoriesDiv.classList.add('rise-fade-in');
+  promptDiv.classList.add('fade-in');
+  console.log('start')
 }

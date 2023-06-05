@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <h3 class="custom-heading">Welcome to</h3>
+      <h3 class="custom-heading fade-in">Welcome to</h3>
       <h1 class="custom-heading">STARGAZER</h1>
     </header>
     <main>
@@ -19,25 +19,35 @@
           <!-- <img src="../../assets/teller.jpg" alt="Armadillo fortune teller" width="200"> -->
           <img
             id="teller"
-            src="./temp_teller.png"
+            src="./FortuneTeller-LandingPage.png"
             alt="Armadillo fortune teller"
-            width="140"
           />
         </picture>
-        <div class="prompt">Select a category</div>
       </div>
-      <div class="categories">
-        <button id="daily-horoscope-button" class="category">
-          Daily Horoscope
-        </button>
-        <button id="career-button" class="category">Career</button>
-        <button id="health-button" class="category">Health</button>
-        <button id="relationship-button" class="category">Relationships</button>
-      </div>
-      <div id="continue">
-        <button id="continue-button" class="continue" onclick="toSkyMapPage()">
-          Let the stars guide you
-        </button>
+      <button id="start-button" onclick="handleStart()"> Start </button>
+      <div id="action-div" class="hidden"> 
+        <div id="prompt-div" class="prompt">
+          Select a category
+        </div>
+        <div id="categories-div" class="categories">
+          <button id="daily-horoscope-button" class="category">
+            Daily Horoscope
+          </button>
+          <button id="career-button" class="category">
+            Career
+          </button>
+          <button id="health-button" class="category">
+            Health
+          </button>
+          <button id="relationship-button" class="category">
+            Relationship
+          </button>
+        </div>
+        <div id="continue">
+          <button id="continue-button" class="continue" onclick="toSkyMapPage()">
+            Let the stars guide you
+          </button>
+        </div>
       </div>
     </main>
   </body>
