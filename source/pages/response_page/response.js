@@ -42,6 +42,9 @@ function toggleText() {
   const chosenConstellation = localStorage.getItem("chosenConstellation");
   const questionInput = localStorage.getItem("questionType");
 
+  explanation.classList.remove("hidden");
+  button.classList.remove("hidden");
+
   if (chosenConstellation && questionInput) {
     fetchResponses(questionInput, chosenConstellation)
       .then((answer) => {
@@ -87,9 +90,6 @@ function animateText(answer, textElement) {
   let interval;
   const words = answer.split(" ");
   interval = setInterval(showNextCharacter, 100);
-
-  explanation.classList.remove("hidden");
-  button.classList.remove("hidden");
 
   function showNextCharacter() {
     if (index < words.length) {
