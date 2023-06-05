@@ -3,3 +3,7 @@ describe("Default Jest Test", () => {
     expect(1).toBe(1);
   });
 });
+
+//test toggleText
+
+//test gotoPage (might be tricky or require research)
