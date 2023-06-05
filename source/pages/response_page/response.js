@@ -45,8 +45,6 @@ function toggleText() {
   if (chosenConstellation && questionInput) {
     fetchResponses(questionInput, chosenConstellation)
       .then((answer) => {
-        explanation.classList.remove("hidden");
-        button.classList.remove("hidden");
         animateText(answer, text);
       })
       .catch((error) => {
@@ -55,7 +53,6 @@ function toggleText() {
   } else {
     const answer = errorMsg;
     displayText(answer, text);
-
     setTimeout(() => {
       redirectToPage("../landing_page/landing.html");
     }, 5000);
@@ -90,6 +87,9 @@ function animateText(answer, textElement) {
   let interval;
   const words = answer.split(" ");
   interval = setInterval(showNextCharacter, 100);
+
+  explanation.classList.remove("hidden");
+  button.classList.remove("hidden");
 
   function showNextCharacter() {
     if (index < words.length) {
