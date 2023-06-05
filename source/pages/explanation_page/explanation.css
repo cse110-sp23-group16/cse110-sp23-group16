@@ -75,7 +75,6 @@ main > * {
   }
 }
 
-
 /* Media Query for Small Screens */
 @media (max-width: 600px) {
   .top-container {
