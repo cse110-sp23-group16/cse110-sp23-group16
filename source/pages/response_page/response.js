@@ -36,8 +36,6 @@ function toggleText() {
   let button = document.getElementById("hiddenButton");
   explanation.classList.add("glow");
   buttonClicked.classList.add("removed");
-  text.style.display = "block";
-  button.style.display = "block";
 
   const chosenConstellation = localStorage.getItem("chosenConstellation");
   const questionInput = localStorage.getItem("questionType");

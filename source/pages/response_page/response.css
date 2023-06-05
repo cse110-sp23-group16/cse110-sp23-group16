@@ -41,7 +41,7 @@ a {
 }
 
 p#hiddenText {
-  display: none;
+  display: block;
   color: beige;
   font-size: x-large;
   height: 150px;
