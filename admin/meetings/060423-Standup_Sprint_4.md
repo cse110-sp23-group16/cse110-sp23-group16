@@ -2,7 +2,7 @@
 Chi
 - Still work on the task
 
-Kushi: 
+Khushi: 
 - Writing unit tests (work in progress)
   - Diffucity with Jest and localstorage
 
