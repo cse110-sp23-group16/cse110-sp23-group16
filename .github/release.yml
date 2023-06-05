@@ -1,0 +1,23 @@
+# .github/release.yml
+
+changelog:
+  exclude:
+    labels:
+      - documentation
+      - CI/CD
+  categories:
+    - title: Bug Fixes 🛠
+      labels:
+        - bug
+    - title: New Features 🎉
+      labels:
+        - feature-dev-code
+    - title: UI Improvements 🪞
+      labels:
+        - UI
+    - title: New Assets 🎨
+      labels:
+        - assets
+    - title: Other Changes
+      labels:
+        - "*"

@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <h2>Let's now hear from the fortune teller.</h2>
+      <h2 id="fortune-opening"></h2>
       <picture>
         <img
           id="teller"
@@ -18,11 +18,11 @@
           alt="Armadillo fortune teller"
         />
       </picture>
+      <button id="visibleButton" class="response" onclick="toggleText()">
+        See Result
+      </button>
     </header>
     <main>
-      <button id="visibleButton" class="response" onclick="toggleText()">
-        Show Response
-      </button>
       <div id="explanation" class="text-box hidden">
         <p id="hiddenText"></p>
       </div>
