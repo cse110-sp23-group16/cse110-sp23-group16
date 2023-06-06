@@ -4,20 +4,6 @@ import { Background } from "./Background.js";
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
 
-function setRatio() {
-  let defaultWidth = 1920;
-  let defaultHeight = 1080;
-  let screenWidth = window.innerWidth;
-  let screenHeight = window.innerHeight;
-  let desiredWidth = screenWidth * 2;
-  let desiredHeight = screenHeight * 2;
-  return Math.max(
-    Math.ceil(desiredHeight / defaultHeight),
-    Math.ceil(desiredWidth / defaultWidth)
-  );
-}
-let ratio = setRatio();
-
 // Starts the program, all function calls trace back here
 async function init() {
   const { cloc, connect } = await loadJsonData();
@@ -60,6 +46,20 @@ async function init() {
   );
   document.getElementById("next-button").onclick = goToPage;
 }
+
+function setRatio() {
+  let defaultWidth = 1920;
+  let defaultHeight = 1080;
+  let screenWidth = window.innerWidth;
+  let screenHeight = window.innerHeight;
+  let desiredWidth = screenWidth * 2;
+  let desiredHeight = screenHeight * 2;
+  return Math.max(
+    Math.ceil(desiredHeight / defaultHeight),
+    Math.ceil(desiredWidth / defaultWidth)
+  );
+}
+let ratio = setRatio();
 
 /**
  * Set up canvas with panning
