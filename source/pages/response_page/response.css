@@ -102,6 +102,10 @@ div.dark-back {
   z-index: -1;
 }
 
+button.continue {
+  margin-top: 5vh;
+}
+
 .removed {
   display: none;
 }

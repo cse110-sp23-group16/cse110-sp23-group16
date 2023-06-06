@@ -46,4 +46,5 @@ p {
 button.continue {
   height: 9vh;
   line-height: 6vh;
+  margin-top: 5vh;
 }
