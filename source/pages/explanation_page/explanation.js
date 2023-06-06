@@ -11,7 +11,8 @@ let constellationList = [
     name: "Canis Major",
     description:
       "Canis Major is associated with the Greek tale of the hunter Orion, and his loyal hunting dog, Sirius. The pair were a peerless team, having tracked and defeated a menagerie of wondrous beasts. Boastful of his unmatched strength and prowess against all creatures of Earth, the gods sent a might scorpion to challenge the hunter. Orion and Sirius tracked down the beast, and although the pair fought hard, they could not defeat the formidable scorpion. After recieving a fatal sting, Orion succumbed to the venom. Despite this, Sirius continued to fight, guarding the body of his partner, until the brave dog too was slain. Wanting to honor both hunter and hound, Zeus immortalized the pair among the stars, Orion with his belt and weapon raised high, and his loyal companion astride next to him, one of the most prominent celestial bodies in the night sky. The story of Sirius and Orion reminds us of the enduring beauty of our friendships, as as such Canis Major represents loyalty, protection, and trust.",
-    imageLink: "../../assets/pictures/constellations/CanisMajor-explanation.png",
+    imageLink:
+      "../../assets/pictures/constellations/CanisMajor-explanation.png",
     mythLink: "../../assets/pictures/myths/CanisMajor-myth.jpeg",
   },
   {
@@ -31,7 +32,8 @@ let constellationList = [
   {
     name: "Armadillo Dragon",
     description: "Armadillo Dragon description.",
-    imageLink: "../../assets/pictures/constellations/ArmadilloDragon-explanation.png",
+    imageLink:
+      "../../assets/pictures/constellations/ArmadilloDragon-explanation.png",
     mythLink: "../../assets/pictures/myths/ArmadilloDragon-myth.jpeg",
   },
   {
