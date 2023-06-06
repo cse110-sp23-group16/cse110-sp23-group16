@@ -195,7 +195,7 @@ div#sky-div {
 }
 
 .sky-drop-in {
-  animation: 3s ease-out 0s 1 skyDropInAnimation;
+  animation: 2s ease-out 0s 1 skyDropInAnimation;
 }
 
 .hidden {
