@@ -31,6 +31,16 @@ function init() {
     selectedCategory = "health";
     setSelection(healthButton, continueButton);
   });
+
+  // Drop down sky effect
+  const skyWrapperDiv = document.getElementById('sky-wrapper-div');
+  const skyDiv = document.getElementById('sky-div');
+  const diameter = 1.5 * Math.sqrt(Math.pow(window.innerWidth, 2), Math.pow(window.innerHeight, 2));
+  skyDiv.style.width = `${diameter}px`;
+  skyDiv.style.height = `${diameter}px`;
+  skyDiv.style.transform = `translate(50%, 0%)`
+  skyWrapperDiv.style.width = `${2*diameter}px`;
+  skyWrapperDiv.style.height = `${2*diameter}px`;
 }
 
 /**
@@ -67,8 +77,14 @@ function setSelection(passedButton, continueButton) {
  * and routes to skymap page
  */
 function toSkyMapPage() {
+  const skyWrapperDiv = document.getElementById('sky-wrapper-div');
   localStorage.setItem("questionType", selectedCategory);
-  window.location.href = "../skymap_page/skymap.html";
+  skyWrapperDiv.classList.remove('hidden');
+  skyWrapperDiv.classList.add('sky-drop-in');
+  skyWrapperDiv.addEventListener("animationend", ()=>{
+    window.location.href = "../skymap_page/skymap.html";
+    skyWrapperDiv.classList.remove('sky-drop-in')
+  })
   console.log(selectedCategory);
 }
 
@@ -85,5 +101,4 @@ function handleStart() {
   actionDiv.classList.remove('hidden');
   categoriesDiv.classList.add('rise-fade-in');
   promptDiv.classList.add('fade-in');
-  console.log('start')
 }

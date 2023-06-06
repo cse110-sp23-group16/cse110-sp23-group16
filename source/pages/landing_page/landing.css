@@ -1,7 +1,8 @@
 html {
   background: url("../../assets/testbg.png") no-repeat center;
   background-size: cover;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -12,13 +13,15 @@ body {
 }
 
 header {
-  position: absolute;
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
   animation: .8s ease-in 0s 1 titleAnimation;
 }
 
+/* Reference: https://www.w3docs.com/snippets/css/how-to-create-animation-on-page-load.html */
 @keyframes titleAnimation {
   0% {
     transform: translateY(-50%);
@@ -30,36 +33,33 @@ header {
 
 h3.custom-heading {
   margin-top: 5vh;
-  font-size: 20pt;
-  z-index: 1;
+  font-size: 5vh;
 }
 
 h1.custom-heading {
-  font-size: 40pt;
-  z-index: 1;
+  font-size: 10vh;
 }
 
 main {
-  position: absolute;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding-bottom: 50px;
+  gap: 10vh;
   max-height: 100%;
   width: 100%;
+  transform: translateY(-30%);
 }
 
 div#teller-box {
-  z-index: -1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 6vh;
 }
 
 img#teller {
-  margin-top: 100px;
+  margin-top: 10vh;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -68,16 +68,14 @@ img#teller {
 
 button#start-button {
   position: absolute;
-  top: 100px;
-  transform: translateY(50%);
+  top: 48vh;
   background-color: transparent;
   box-shadow: 0px 0px 7px 10px rgb(111, 165, 213, 0.5);
-  margin-top: 110px;
-  width: 190px;
-  height: 190px;
+  width: 34vh;
+  height: 34vh;
   border-radius: 50%;
   border: none;
-  font-size: 30pt;
+  font-size: 7vh;
   animation: 3s ease-in 0s infinite glowAnimation;
 }
 
@@ -107,7 +105,7 @@ div#action-div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 5vh;
   width: 100%;
   top: 50%;
 }
@@ -115,7 +113,7 @@ div#action-div {
 div.prompt {
   width: -moz-fit-content;
   width: fit-content;
-  padding: 6px;
+  padding: 1vh;
   font-size: 16pt;
   background-color: rgba(112, 115, 154, 1);
   border-radius: 20px;
@@ -173,6 +171,33 @@ button.continue {
   transform: translate(0vw, -1vh);
 }
 
+div#sky-wrapper-div {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  border: none;
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+
+div#sky-div {
+  background: #030a21;
+  border-radius: 50%;
+}
+
+@keyframes skyDropInAnimation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(135deg);
+  }
+}
+
+.sky-drop-in {
+  animation: 3s ease-out 0s 1 skyDropInAnimation;
+}
+
 .hidden {
   visibility: hidden;
 }
@@ -217,12 +242,30 @@ button.continue {
   h3.custom-heading {
     font-size: 18px; /* Adjust font size for small screens */
   }
-
   #input-text {
     width: 80%; /* Adjust width for small screens */
   }
   #question-prompt {
     font-size: 18px;
+  }
+  h3.custom-heading {
+    margin-top: 9vh;
+    font-size: 3vh;
+  }
+  h1.custom-heading {
+    font-size: 8vh;
+  }
+  img#teller {
+    margin-top: 30vh;
+    width: 40vh;
+  }
+  button#start-button {
+    top: 60vh;
+    width: 28vh;
+    height: 28vh;
+  }
+  div#action-div {
+    transform: translateY(-12vh);
   }
 }
 
