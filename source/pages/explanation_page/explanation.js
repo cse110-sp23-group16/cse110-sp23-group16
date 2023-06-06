@@ -8,9 +8,9 @@ let constellationList = [
     mythLink: "../../assets/pictures/myths/Aries-myth.jpeg",
   },
   {
-    name: "Canis Major",
+    name: "CanisMajor",
     description:
-      "Canis Major is associated with the Greek tale of the hunter Orion, and his loyal hunting dog, Sirius. The pair were a peerless team, having tracked and defeated a menagerie of wondrous beasts. Boastful of his unmatched strength and prowess against all creatures of Earth, the gods sent a might scorpion to challenge the hunter. Orion and Sirius tracked down the beast, and although the pair fought hard, they could not defeat the formidable scorpion. After recieving a fatal sting, Orion succumbed to the venom. Despite this, Sirius continued to fight, guarding the body of his partner, until the brave dog too was slain. Wanting to honor both hunter and hound, Zeus immortalized the pair among the stars, Orion with his belt and weapon raised high, and his loyal companion astride next to him, one of the most prominent celestial bodies in the night sky. The story of Sirius and Orion reminds us of the enduring beauty of our friendships, as as such Canis Major represents loyalty, protection, and trust.",
+      "Canis Major is associated with the Greek tale of the hunter Orion, and his loyal hunting dog, Sirius. The pair were a peerless team, having tracked and defeated a menagerie of wondrous beasts. Boastful of his unmatched strength and prowess against all creatures of Earth, the gods sent a might scorpion to challenge the hunter. Orion and Sirius tracked down the beast, and although the pair fought hard, they could not defeat the formidable scorpion. After recieving a fatal sting, Orion succumbed to the venom. Despite this, Sirius continued to fight, guarding the body of his partner, until the brave dog too was slain. Wanting to honor both hunter and hound, Zeus immortalized the pair among the stars, Orion with his belt and weapon raised high, and his loyal companion astride next to him, one of the most prominent celestial bodies in the night sky. The story of Sirius and Orion reminds us of the enduring beauty of our friendships, and as such Canis Major represents loyalty, protection, and trust.",
     imageLink: "../../assets/pictures/constellations/CanisMajor.png",
     mythLink: "../../assets/pictures/myths/CanisMajor-myth.jpeg",
   },
@@ -30,7 +30,7 @@ let constellationList = [
   },
   {
     name: "Armadillo Dragon",
-    description: "Armadillo Dragon description.",
+    description: "Armadillo Dragon description",
     imageLink: "../../assets/pictures/constellations/ArmadilloDragon.png",
     mythLink: "../../assets/pictures/myths/ArmadilloDragon-myth.jpeg",
   },
@@ -52,7 +52,7 @@ let constellationList = [
     name: "Ursa Major",
     description:
       "The constellation Ursa Major, the Great Bear, represents the tragic Greek tale of the goddess Callisto. Once a nymph, and an ardent follower of the hunter goddess Artemis, her life took a dark turn when she attracted the attention of Zeus. Disguising himself as Artemis, she decieved and seduced Callisto. Upon learning of Callisto's pregnancy, Artemis exiled her from their hunting band. Callisto would give birth to a son, Arcas, but thereafter transformed into a bear by Zeus' wife, Hera. Arcas grew to be an exceptional hunter, but would one day encounter his mother as a wild bear. As the two prepared to find, Zeus intervened to avoid further tragedy, and placed both mother and son in the sky above as constellations: Callisto as Ursa Major, Arcas as Ursa Minor. One of the most distinctive constellations, Ursa Major is associated with themes of love, betrayal, and transformation, as well as a reminder of the consequences of ones actions.",
-    imageLink: "../../assets/pictures/constellations/UrsaMajor.png",
+    imageLink: "../../assets/pictures/constellations/Orion.png",
     mythLink: "../../assets/pictures/myths/UrsaMajor-myth.jpeg",
   },
 ];
@@ -63,6 +63,7 @@ const chosenConstellation =
   constellationList[
     constellationList.findIndex((item) => item.name === chosenConstellationName)
   ];
+console.log(chosenConstellation);
 
 // set title/description/images of constellation explanation to chosen constellation
 const constellationTitle = document.querySelector("h1");
@@ -72,7 +73,7 @@ constellationDesription.textContent = chosenConstellation["description"];
 const constellationImage = document.getElementById("constellation-image");
 constellationImage.src = chosenConstellation.imageLink;
 const mythImage = document.getElementById("myth-image");
-mythImage.src = chosenConstellation.mythLink;
+mythImage.src = chosenConstellation["mythLink"];
 
 const continueButton = document.getElementById("continue-button");
 continueButton.addEventListener("click", function () {
