@@ -1,5 +1,5 @@
-import { Constellation } from "./Constellation.js";
 import { Background } from "./Background.js";
+import { Constellation } from "./Constellation.js";
 
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
@@ -171,6 +171,7 @@ function decideConstellation(constellation_arr, sky_background) {
       index = constellation_arr.indexOf(constellation);
     }
   }
+  console.log(finalConstellation.name);
 
   // Connect final constellation stars
   constellation_arr[index].connectAll();
