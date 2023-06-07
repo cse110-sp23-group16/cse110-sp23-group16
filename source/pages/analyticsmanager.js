@@ -1,10 +1,13 @@
+const httpserver = 'localhost:4000/analytics';
+
 /**
  * Create an empty session for analytics usage, uses default/empty values
  * @returns {JSONObject} JSON object representing current session
  */
 function getEmptySession() {
     const emptySessionJSON = {
-        "status": 0,
+        "id": makeid(12),
+        "status": 1,
         "exitPage": "",
         "errors": [],
         "timeOnPage": {
@@ -126,5 +129,37 @@ function sessionStarSelectedInc() {
     writeSession(session);
 }
 
+function sessionBeaconPOST() {
+    let session = getSession();
+    let blob = new Blob([JSON.stringify(session)], {type: 'application/json'});
+    navigator.sendBeacon(httpserver, blob);
+}
+
+function sessionPOST() {
+    fetch(httpserver, {
+        method: "POST",
+        body: JSON.stringify(getSession()),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+}
+
+/**
+ * This function generates a random id of length
+ * @param {number} length 
+ * @returns a random string of provided length
+ */
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+      counter += 1;
+    }
+    return result;
+}
+
 export { setEmptySession, setSessionStatus, setSessionExit, addSessionError, addSessionPageTime, 
-addSessionCategorySelected, addSessionClick, sessionStarSelectedInc }
+addSessionCategorySelected, addSessionClick, sessionStarSelectedInc, sessionPOST }
