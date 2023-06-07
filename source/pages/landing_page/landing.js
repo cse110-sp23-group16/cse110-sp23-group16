@@ -1,6 +1,8 @@
 window.addEventListener("DOMContentLoaded", init);
 var selectedCategory = "";
 
+import * as analyticsManager from '../analyticsmanager.js';
+const analyticsPageName = "landing"
 /**
  * initialize function, called once whole DOM is parsed
  */
@@ -10,6 +12,9 @@ function init() {
   populateDropdown();
   initializeVoicing();
 
+  // Create a new session for analytics
+  analyticsManager.setEmptySession();
+  
   // Hide continue button
   const continueButton = document.getElementById("continue-button");
   continueButton.classList.add("hidden");
@@ -55,7 +60,6 @@ function setCategoryEffect(categoryButton, categoryName, iconURL) {
     categoryIconChange.classList.remove("fade-in-fast");
     categoryIconChange.classList.add("fade-out-fast");
   });
-  continueButton.addEventListener("click", toSkyMapPage);
 }
 
 /**
@@ -130,6 +134,25 @@ function toSkyMapPage() {
   localStorage.setItem("questionType", selectedCategory);
   console.log(selectedCategory);
 }
+
+/**
+ * Time tracker for page analytics, send update to server
+ */
+document.addEventListener("DOMContentLoaded", () => {
+  const startTime = new Date();
+  window.addEventListener("beforeunload", () => {
+    const endTime = new Date();
+    analyticsManager.addSessionPageTime(analyticsPageName, endTime.getTime() - startTime.getTime());
+    analyticsManager.sessionPOST();
+  });
+});
+
+/**
+ * Error tracker for page analytics
+ */
+window.addEventListener("error", (event) => {
+  analyticsManager.addSessionError(analyticsPageName, event.error.name, event.error.message, event.error.stack);
+})
 
 function getCategory() {
   return QuestionCategories.Work;
