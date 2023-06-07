@@ -1,0 +1,46 @@
+// Imports for express mongo and dotenv
+import dotenv from 'dotenv';
+import { MongoClient } from "mongodb";
+import express from 'express';
+
+// Setup dotenv
+dotenv.config({path:'.env'});
+
+// Create a MongoClient with the server string
+const connectionString = process.env.ATLAS_URI || "";
+const client = new MongoClient(connectionString);
+
+// Attempt a connection with the MongoDB Client
+let conn;
+try {
+    console.log("Connecting to MongoDB");
+    conn = await client.connect();
+    console.log("Connection to MongoDB Secured");
+} catch(e) {
+    console.error(e);
+}
+
+// Get a database for the Analytics Collection
+let db = conn.db("Analytics");
+
+
+
+// Set up node js and routes
+const app = express();
+const port = 4000;
+
+app.use(express.json());
+
+// This route is for error tracking. 
+app.post('/error', async (req, res) => {
+    let newDocument = {
+        error: req.body.error
+    };
+    let collection = await db.collection("TestErrors");
+    let result = await collection.insertOne(newDocument);
+    res.send(result).status(204);
+});
+
+app.listen(port, () => {
+    console.log(`Server Started at ${port}`);
+});
