@@ -26,6 +26,7 @@ body {
 
 .main-content {
   text-align: center;
+  width: 1000px;
 }
 
 img {
@@ -34,12 +35,15 @@ img {
   max-width: 100%;
 }
 
-.continue-button {
-  border-radius: 4px;
-  background-color: beige;
-  font-size: 20px;
-  margin: 20px;
+h1 {
+  font-size: 40pt;
 }
-.continue-button:hover {
-  background-color: darkkhaki;
+
+p {
+  font-size: 16pt;
+}
+
+button.continue {
+  height: 9vh;
+  line-height: 6vh;
 }
