@@ -25,7 +25,7 @@ Sessions are stored as json files
             "explanation": 4,
             "response": 8,
             "thankYou": 4
-        }
+        },
         "categorySelected": "health",
         "clicks": [
             [[340,720], [342,719]],
