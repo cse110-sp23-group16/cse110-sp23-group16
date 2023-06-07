@@ -41,6 +41,14 @@ app.post('/error', async (req, res) => {
     res.send(result).status(204);
 });
 
+// This route is for Analytics
+app.post('/analytics', async (req, res) => {
+    let newDocument = req.body;
+    let collection = await db.collection("Sessions");
+    let result = await collection.replaceOne({"id" : req.body.id}, newDocument, {upsert: true});
+    res.send(result).status(204);
+});
+
 app.listen(port, () => {
     console.log(`Server Started at ${port}`);
 });
