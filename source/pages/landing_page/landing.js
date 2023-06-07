@@ -17,11 +17,11 @@ function init() {
   const dailyButton = document.getElementById("daily-horoscope-button");
   dailyButton.addEventListener("click", function () {
     selectedCategory = "daily";
-    categoryIconSet.src = "daily.png";
+    categoryIconSet.style.backgroundImage = "url('daily.png')";
     setSelection(dailyButton, continueButton);
   });
   dailyButton.addEventListener("mouseover", function () {
-    categoryIconChange.src = "daily.png";
+    categoryIconChange.style.backgroundImage = "url('daily.png')";
     categoryIconChange.classList.remove("transparent");
     categoryIconChange.classList.remove("fade-out-fast");
     categoryIconChange.classList.add("fade-in-fast");
@@ -34,11 +34,11 @@ function init() {
   const relationshipButton = document.getElementById("relationship-button");
   relationshipButton.addEventListener("click", function () {
     selectedCategory = "relationship";
-    categoryIconSet.src = "relationship.png";
+    categoryIconSet.style.backgroundImage = "url('relationship.png')";
     setSelection(relationshipButton, continueButton);
   });
   relationshipButton.addEventListener("mouseover", function () {
-    categoryIconChange.src = "relationship.png";
+    categoryIconChange.style.backgroundImage = "url('relationship.png')";
     categoryIconChange.classList.remove("transparent");
     categoryIconChange.classList.remove("fade-out-fast");
     categoryIconChange.classList.add("fade-in-fast");
@@ -51,11 +51,11 @@ function init() {
   const careerButton = document.getElementById("career-button");
   careerButton.addEventListener("click", function () {
     selectedCategory = "career";
-    categoryIconSet.src = "career.png";
+    categoryIconSet.style.backgroundImage = "url('career.png')";
     setSelection(careerButton, continueButton);
   });
   careerButton.addEventListener("mouseover", function () {
-    categoryIconChange.src = "career.png";
+    categoryIconChange.style.backgroundImage = "url('career.png')";
     categoryIconChange.classList.remove("transparent");
     categoryIconChange.classList.remove("fade-out-fast");
     categoryIconChange.classList.add("fade-in-fast");
@@ -68,11 +68,11 @@ function init() {
   const healthButton = document.getElementById("health-button");
   healthButton.addEventListener("click", function () {
     selectedCategory = "health";
-    categoryIconSet.src = "health.png";
+    categoryIconSet.style.backgroundImage = "url('health.png')";
     setSelection(healthButton, continueButton);
   });
   healthButton.addEventListener("mouseover", function () {
-    categoryIconChange.src = "health.png";
+    categoryIconChange.style.backgroundImage = "url('health.png')";
     categoryIconChange.classList.remove("transparent");
     categoryIconChange.classList.remove("fade-out-fast");
     categoryIconChange.classList.add("fade-in-fast");
@@ -166,9 +166,11 @@ function handleStart() {
   const promptDiv = document.getElementById('prompt-div');
   const title = document.querySelector('header');
   const clawsDiv = document.getElementById('claws-div');
+  const categoryIconDiv = document.getElementById('category-icon-div');
   actionDiv.classList.remove('hidden');
   categoriesDiv.classList.add('fade-in');
   promptDiv.classList.add('fade-in');
+  categoryIconDiv.classList.add('fade-in');
   title.classList.add('transparent');
   title.classList.add('fade-out');
   startButton.classList.remove('glow');
