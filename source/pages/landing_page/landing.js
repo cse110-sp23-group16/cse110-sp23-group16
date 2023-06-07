@@ -55,6 +55,7 @@ function setCategoryEffect(categoryButton, categoryName, iconURL) {
     categoryIconChange.classList.remove("fade-in-fast");
     categoryIconChange.classList.add("fade-out-fast");
   });
+  continueButton.addEventListener("click", toSkyMapPage);
 }
 
 /**
