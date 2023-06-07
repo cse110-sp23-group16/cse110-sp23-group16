@@ -77,14 +77,26 @@ function setSelection(passedButton, continueButton) {
  * and routes to skymap page
  */
 function toSkyMapPage() {
-  const skyWrapperDiv = document.getElementById('sky-wrapper-div');
-  localStorage.setItem("questionType", selectedCategory);
-  skyWrapperDiv.classList.remove('hidden');
-  skyWrapperDiv.classList.add('sky-drop-in');
-  skyWrapperDiv.addEventListener("animationend", ()=>{
-    window.location.href = "../skymap_page/skymap.html";
-    skyWrapperDiv.classList.remove('sky-drop-in')
+  // Transition Animation
+  const actionDiv = document.getElementById('action-div');
+  const coverDiv = document.getElementById('cover-div');
+  const tellerEffect = document.getElementById('teller-effect');
+  actionDiv.classList.add("fade-out");
+  actionDiv.addEventListener("animationend", (event) => {
+    actionDiv.classList.add("transparent");
+    tellerEffect.classList.remove("hidden");
+    tellerEffect.classList.add("teller-effect-animation");
   })
+  coverDiv.classList.remove("hidden");
+  coverDiv.classList.add("turn-dark");
+  tellerEffect.addEventListener("animationend", () => {
+    tellerEffect.classList.remove("half-transparent");
+    tellerEffect.classList.add("transparent");
+    // Go to next page
+    window.location.href = "../skymap_page/skymap.html";
+  })
+  // Set category
+  localStorage.setItem("questionType", selectedCategory);
   console.log(selectedCategory);
 }
 
@@ -97,8 +109,17 @@ function handleStart() {
   const actionDiv = document.getElementById('action-div');
   const categoriesDiv = document.getElementById('categories-div');
   const promptDiv = document.getElementById('prompt-div');
-  startButton.classList.add('removed');
+  const title = document.querySelector('header');
+  const clawsDiv = document.getElementById('claws-div');
   actionDiv.classList.remove('hidden');
-  categoriesDiv.classList.add('rise-fade-in');
+  categoriesDiv.classList.add('fade-in');
   promptDiv.classList.add('fade-in');
+  title.classList.add('transparent');
+  title.classList.add('fade-out');
+  startButton.classList.remove('glow');
+  startButton.classList.add('fade-out');
+  clawsDiv.classList.add('fade-out');
+  startButton.addEventListener("animationend", () => {
+    startButton.classList.add('removed');
+  })
 }

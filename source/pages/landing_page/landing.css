@@ -1,5 +1,5 @@
 html {
-  background: url("../../assets/testbg.png") no-repeat center;
+  background: url("../../assets/Teller-shack-background.png") no-repeat center;
   background-size: cover;
   height: 100vh;
   width: 100vw;
@@ -21,23 +21,15 @@ header {
   animation: .8s ease-in 0s 1 titleAnimation;
 }
 
-/* Reference: https://www.w3docs.com/snippets/css/how-to-create-animation-on-page-load.html */
-@keyframes titleAnimation {
-  0% {
-    transform: translateY(-50%);
-  }
-  100% {
-    transform: translateY(0);
-   }
-}
-
 h3.custom-heading {
   margin-top: 5vh;
   font-size: 5vh;
+  text-shadow: 0px 0px 10px #4c4325;
 }
 
 h1.custom-heading {
   font-size: 10vh;
+  text-shadow: 0px 0px 10px #4c4325;
 }
 
 main {
@@ -59,36 +51,40 @@ div#teller-box {
 }
 
 img#teller {
-  margin-top: 10vh;
+  margin-top: 20vh;
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 50vh;
+  width: 40vh;
+}
+
+div#claws-div {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  gap: 12vh;
+  top: 0;
+  left: 0;
+  transform: translate(-14.2vh, 3vh);
+  width: 200%;
+}
+
+img.claw {
+  width: 14vh;
+  animation: 5s ease-in-out 0s infinite clawVAnimation;
 }
 
 button#start-button {
   position: absolute;
-  top: 48vh;
+  top: 50vh;
   background-color: transparent;
   box-shadow: 0px 0px 7px 10px rgb(111, 165, 213, 0.5);
-  width: 34vh;
-  height: 34vh;
+  width: 28vh;
+  height: 28vh;
   border-radius: 50%;
   border: none;
-  font-size: 7vh;
-  animation: 3s ease-in 0s infinite glowAnimation;
-}
-
-@keyframes glowAnimation {
-  0% {
-    box-shadow: 0px 0px 20px 15px rgb(111, 165, 213, 0.5);
-  }
-  50% {
-    box-shadow: 0px 0px 0px 0px rgb(111, 165, 213, 0.5);
-  }
-  100% {
-    box-shadow: 0px 0px 20px 15px rgb(111, 165, 213, 0.5);
-   }
+  font-size: 5vh;
+  text-shadow: 0px 0px 5px #3d3d3d;
 }
 
 button#start-button:hover {
@@ -107,7 +103,7 @@ div#action-div {
   align-items: center;
   gap: 5vh;
   width: 100%;
-  top: 50%;
+  top: 38%;
 }
 
 div.prompt {
@@ -122,9 +118,18 @@ div.prompt {
 }
 
 div.categories {
+  margin-top: 1vh;
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
+  gap: 22vw;
+}
+
+div.categories > .group {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
 }
 
 button.category {
@@ -133,12 +138,12 @@ button.category {
   border: 2px solid rgb(71, 77, 98);
   border-radius: 12px;
   padding: 0.5em;
-  height: 50px;
-  line-height: 30px;
+  height: 54px;
+  line-height: 36px;
   font-size: 16pt;
   margin-right: 3%;
   transition: 0.5s;
-  width: 190px;
+  width: 200px;
 }
 
 button.category:hover {
@@ -168,71 +173,60 @@ button.category.selected:hover {
 }
 
 button.continue {
-  transform: translate(0vw, -1vh);
+  transform: translate(0vw, 6vh);
 }
 
-div#sky-wrapper-div {
-  position: fixed;
-  z-index: 2;
+div#cover-div {
+  position: absolute;
+  z-index: 3;
   top: 0;
   left: 0;
-  border: none;
-  transform: translate(-50%, -50%) rotate(135deg);
-}
-
-div#sky-div {
+  width: 100%;
+  height: 100%;
   background: #030a21;
+}
+
+div#cover-div > #teller-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+div#cover-div > #teller-effect > .eyes {
+  position: absolute;
+  background: radial-gradient(circle, beige 0%, rgba(245, 245, 220, 0.8) 100%);
+  box-shadow: 0px 0px 7px 4px rgb(245, 245, 220, 0.7);
+  width: 1.6vh;
+  height: 1.6vh;
   border-radius: 50%;
+  border: none;
+  margin-top: 41vh;
 }
 
-@keyframes skyDropInAnimation {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(135deg);
-  }
+div#cover-div > #teller-effect > #eye-left {
+  margin-left: 47vw;
 }
 
-.sky-drop-in {
-  animation: 2s ease-out 0s 1 skyDropInAnimation;
+div#cover-div > #teller-effect > #eye-right {
+  margin-left: 51.7vw;
 }
 
-.hidden {
-  visibility: hidden;
+div#cover-div > #teller-effect > #crystal-ball {
+  position: absolute;
+  background: radial-gradient(circle, beige 0%, rgba(245, 245, 220, 0.8) 70%, rgba(245, 245, 220, 0.3) 100%);
+  box-shadow: 0px 0px 10px 7px rgb(245, 245, 220, 0.7);
+  width: 28vh;
+  height: 28vh;
+  border-radius: 50%;
+  border: none;
+  margin-top: 50vh;
+  margin-left: 50vw;
+  transform: translate(-50%, 30%);
 }
 
-.removed {
-  display: none;
-}
-
-.fade-in {
-  animation: .5s ease-in 0s 1 fadeInAnimation;
-}
-
-@keyframes fadeInAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.rise-fade-in {
-  animation: .5s ease-in 0s 1 riseUpAnimation;
-}
-
-@keyframes riseUpAnimation {
-  0% {
-    transform: translateY(50%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+/* Devise View */
 
 /* Media Query for Small Screens */
 @media (max-width: 480px) {
@@ -285,3 +279,153 @@ div#sky-div {
   }
 }
 
+/* Display */
+
+.hidden {
+  visibility: hidden;
+}
+
+.removed {
+  display: none;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.half-transparent {
+  opacity: 0.5;
+}
+
+/* Animation */
+
+.claw-H {
+  animation: 3s ease-in-out 0s infinite clawHAnimation;
+}
+
+.teller-effect-animation {
+  animation: 2s ease-in 0s 1 tellerAnimation;
+}
+
+.fade-in {
+  animation: .5s ease-in 0s 1 fadeInAnimation;
+}
+
+.fade-out {
+  animation: .5s ease-in 0s 1 fadeOutAnimation;
+}
+
+.rise-up {
+  animation: .5s ease-in 0s 1 riseUpAnimation;
+}
+
+.glow {
+  animation: 3s ease-in 0s infinite glowAnimation;
+}
+
+.turn-dark {
+  animation: 2s linear 0s 1 turnDarkAnimation;
+}
+
+/* Reference: https://www.w3docs.com/snippets/css/how-to-create-animation-on-page-load.html */
+@keyframes titleAnimation {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+   }
+}
+
+@keyframes glowAnimation {
+  0% {
+    box-shadow: 0px 0px 20px 15px rgb(111, 165, 213, 0.5);
+  }
+  50% {
+    box-shadow: 0px 0px 0px 0px rgb(111, 165, 213, 0.5);
+  }
+  100% {
+    box-shadow: 0px 0px 20px 15px rgb(111, 165, 213, 0.5);
+   }
+}
+
+@keyframes clawHAnimation {
+  0% {
+    gap: 12vh;
+  }
+  50% {
+    gap: 13vh;
+  }
+  100% {
+    gap: 12vh;
+  }
+}
+
+@keyframes clawVAnimation {
+  0% {
+    transform: translateY(0vh);
+  }
+  50% {
+    transform: translateY(2vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
+}
+
+@keyframes skyDropInAnimation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(135deg);
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes tellerAnimation {
+  0% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOutAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes riseUpAnimation {
+  0% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes turnDarkAnimation {
+  0% {
+    background: #030a2100;
+  }
+  100% {
+    background: #030a21;
+  }
+}

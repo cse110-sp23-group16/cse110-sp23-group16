@@ -9,6 +9,13 @@
     <script src="./landing.js"></script>
   </head>
   <body>
+    <div id="cover-div" class="hidden">
+      <div id="teller-effect" class="half-transparent">
+        <div id="eye-left" class="eyes"></div>
+        <div id="eye-right" class="eyes"></div>
+        <div id="crystal-ball"></div>
+      </div>
+    </div>
     <header>
       <h3 class="custom-heading fade-in">Welcome to</h3>
       <h1 class="custom-heading">STARGAZER</h1>
@@ -23,25 +30,35 @@
             alt="Armadillo fortune teller"
           />
         </picture>
-        <button id="start-button" onclick="handleStart()"> Start </button>
+        <button id="start-button" class="glow" onclick="handleStart()"> 
+          Start 
+          <div id="claws-div" class="claw-H">
+            <img id="claw-left" src="../../assets/pictures/teller/armadillo-claw-left.png" class="claw" alt="claw-left"/>
+            <img id="claw-right" src="../../assets/pictures/teller/armadillo-claw-right.png" class="claw" alt="claw-right"/>
+          </div>
+        </button>
       </div>
       <div id="action-div" class="hidden"> 
         <div id="prompt-div" class="prompt">
           Select a category
         </div>
         <div id="categories-div" class="categories">
-          <button id="daily-horoscope-button" class="category">
-            Daily Horoscope
-          </button>
-          <button id="career-button" class="category">
-            Career
-          </button>
-          <button id="health-button" class="category">
-            Health
-          </button>
-          <button id="relationship-button" class="category">
-            Relationship
-          </button>
+          <div class="group">
+            <button id="daily-horoscope-button" class="category">
+              Daily Horoscope
+            </button>
+            <button id="career-button" class="category">
+              Career
+            </button>
+          </div>
+          <div class="group">
+            <button id="health-button" class="category">
+              Health
+            </button>
+            <button id="relationship-button" class="category">
+              Relationship
+            </button>
+          </div>
         </div>
         <div id="continue">
           <button id="continue-button" class="continue" onclick="toSkyMapPage()">
@@ -49,10 +66,7 @@
           </button>
         </div>
       </div>
-      
     </main>
-    <div id="sky-wrapper-div" class="hidden">
-      <div id="sky-div"></div>
-    </div>
+
   </body>
 </html>

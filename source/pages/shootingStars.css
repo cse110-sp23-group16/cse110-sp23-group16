@@ -10,8 +10,18 @@ Reference: https://www.geeksforgeeks.org/how-to-create-shooting-star-animation-e
   overflow: hidden;
 }
 
+#terrain-img {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .sky{
   position: absolute;/* position: relative; */
+  z-index: -1;
   top: 0;
   left: 0;
   width: 100vw;
