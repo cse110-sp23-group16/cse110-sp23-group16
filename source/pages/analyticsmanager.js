@@ -129,19 +129,14 @@ function sessionStarSelectedInc() {
     writeSession(session);
 }
 
-function sessionBeaconPOST() {
-    let session = getSession();
-    let blob = new Blob([JSON.stringify(session)], {type: 'application/json'});
-    navigator.sendBeacon(httpserver, blob);
-}
-
 function sessionPOST() {
     fetch(httpserver, {
         method: "POST",
         body: JSON.stringify(getSession()),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
-        }
+        },
+        keepalive: true
     })
 }
 
