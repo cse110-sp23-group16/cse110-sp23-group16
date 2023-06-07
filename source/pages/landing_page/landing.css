@@ -44,6 +44,7 @@ main {
 }
 
 div#teller-box {
+  z-index: -1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,6 +120,7 @@ div.prompt {
 
 div#category-icon-div {
   position: absolute;
+  z-index: -1;
   top: 20vh;
   width: 26vh;
   height: 26vh;
@@ -284,6 +286,35 @@ div#cover-div > #teller-effect > #crystal-ball {
   div#action-div {
     transform: translateY(-12vh);
   }
+  div#category-icon-div {
+    top: 45vh;
+  }
+  div.categories {
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+  }
+  div#action-div {
+    top: 30%;
+  }
+  button.continue {
+    transform: translate(0vw, 0vh);
+  }
+  div#cover-div > #teller-effect > .eyes {
+    margin-top: 42vh;
+  }
+  div#cover-div > #teller-effect > #eye-left {
+    margin-left: 41vw;
+  }
+  div#cover-div > #teller-effect > #eye-right {
+    margin-left: 54vw;
+  }
+  div#cover-div > #teller-effect > #crystal-ball {
+    margin-top: 51vh;
+  }
+  div#category-icon-div {
+    z-index: -1;
+  }
 }
 
 /* Media Query for Medium Screens */
@@ -299,6 +330,18 @@ div#cover-div > #teller-effect > #crystal-ball {
   }
   #question-prompt {
     font-size: 20px;
+  }
+  div#cover-div > #teller-effect > .eyes {
+    margin-top: 34vh;
+  }
+  div#cover-div > #teller-effect > #eye-left {
+    margin-left: 41vw;
+  }
+  div#cover-div > #teller-effect > #eye-right {
+    margin-left: 54vw;
+  }
+  div#cover-div > #teller-effect > #crystal-ball {
+    margin-top: 35vh;
   }
 }
 
