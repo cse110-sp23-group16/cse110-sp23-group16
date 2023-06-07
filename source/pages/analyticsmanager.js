@@ -120,8 +120,11 @@ function addSessionClick(click) {
 /**
  * Increment the starselected for the session
  */
-function addSessionClick() {
+function sessionStarSelectedInc() {
     let session = getSession();
     session.starSelected += 1;
     writeSession(session);
 }
+
+export { setEmptySession, setSessionStatus, setSessionExit, addSessionError, addSessionPageTime, 
+addSessionCategorySelected, addSessionClick, sessionStarSelectedInc }
