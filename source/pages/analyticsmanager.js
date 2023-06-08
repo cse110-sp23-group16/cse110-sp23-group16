@@ -1,4 +1,4 @@
-const httpserver = 'https://68.183.96.210:4000/analytics';
+const httpserver = 'https://stargazer.rest:4000/analytics';
 
 /**
  * Create an empty session for analytics usage, uses default/empty values
