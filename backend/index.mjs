@@ -2,6 +2,7 @@
 import dotenv from 'dotenv';
 import { MongoClient } from "mongodb";
 import express from 'express';
+import cors from 'cors';
 
 // Imports for https
 import { createServer } from 'https';
@@ -34,6 +35,7 @@ const app = express();
 const port = 4000;
 
 app.use(express.json());
+app.use(cors);
 
 // This route is for error tracking. 
 app.post('/error', async (req, res) => {
