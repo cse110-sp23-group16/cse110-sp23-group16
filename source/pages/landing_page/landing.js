@@ -8,94 +8,50 @@ function init() {
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
 
+  // Hide continue button
   const continueButton = document.getElementById("continue-button");
-  const categoryIconSet = document.getElementById("category-icon-set");
-  const categoryIconChange = document.getElementById("category-icon-change");
+  continueButton.classList.add("hidden");
+
+  // Category Icon Effect 
+  const dailyButton = document.getElementById("daily-horoscope-button");
+  const relationshipButton = document.getElementById("relationship-button");
+  const careerButton = document.getElementById("career-button");
+  const healthButton = document.getElementById("health-button");
   const dailyIconURL = "../../assets/Icons/DailyHoroscope.png";
   const carrerIconURL = "../../assets/Icons/Career.png";
   const healthIconURL = "../../assets/Icons/Health.png";
   const relationshipIconURL = "../../assets/Icons/Relationship.png";
-
-  continueButton.classList.add("hidden");
-
-  const dailyButton = document.getElementById("daily-horoscope-button");
-  dailyButton.addEventListener("click", function () {
-    selectedCategory = "daily";
-    categoryIconSet.style.backgroundImage = `url(${dailyIconURL})`;
-    setSelection(dailyButton, continueButton);
-  });
-  dailyButton.addEventListener("mouseover", function () {
-    categoryIconChange.style.backgroundImage = `url(${dailyIconURL})`;
-    categoryIconChange.classList.remove("transparent");
-    categoryIconChange.classList.remove("fade-out-fast");
-    categoryIconChange.classList.add("fade-in-fast");
-  });
-  dailyButton.addEventListener("mouseout", function () {
-    categoryIconChange.classList.add("transparent");
-    categoryIconChange.classList.remove("fade-in-fast");
-    categoryIconChange.classList.add("fade-out-fast");
-  });
-  const relationshipButton = document.getElementById("relationship-button");
-  relationshipButton.addEventListener("click", function () {
-    selectedCategory = "relationship";
-    categoryIconSet.style.backgroundImage = `url(${relationshipIconURL})`;
-    setSelection(relationshipButton, continueButton);
-  });
-  relationshipButton.addEventListener("mouseover", function () {
-    categoryIconChange.style.backgroundImage = `url(${relationshipIconURL})`;
-    categoryIconChange.classList.remove("transparent");
-    categoryIconChange.classList.remove("fade-out-fast");
-    categoryIconChange.classList.add("fade-in-fast");
-  });
-  relationshipButton.addEventListener("mouseout", function () {
-    categoryIconChange.classList.add("transparent");
-    categoryIconChange.classList.remove("fade-in-fast");
-    categoryIconChange.classList.add("fade-out-fast");
-  });
-  const careerButton = document.getElementById("career-button");
-  careerButton.addEventListener("click", function () {
-    selectedCategory = "career";
-    categoryIconSet.style.backgroundImage = `url(${carrerIconURL})`;
-    setSelection(careerButton, continueButton);
-  });
-  careerButton.addEventListener("mouseover", function () {
-    categoryIconChange.style.backgroundImage = `url(${carrerIconURL})`;
-    categoryIconChange.classList.remove("transparent");
-    categoryIconChange.classList.remove("fade-out-fast");
-    categoryIconChange.classList.add("fade-in-fast");
-  });
-  careerButton.addEventListener("mouseout", function () {
-    categoryIconChange.classList.add("transparent");
-    categoryIconChange.classList.remove("fade-in-fast");
-    categoryIconChange.classList.add("fade-out-fast");
-  });
-  const healthButton = document.getElementById("health-button");
-  healthButton.addEventListener("click", function () {
-    selectedCategory = "health";
-    categoryIconSet.style.backgroundImage = `url(${healthIconURL})`;
-    setSelection(healthButton, continueButton);
-  });
-  healthButton.addEventListener("mouseover", function () {
-    categoryIconChange.style.backgroundImage = `url(${healthIconURL})`;
-    categoryIconChange.classList.remove("transparent");
-    categoryIconChange.classList.remove("fade-out-fast");
-    categoryIconChange.classList.add("fade-in-fast");
-  });
-  healthButton.addEventListener("mouseout", function () {
-    categoryIconChange.classList.add("transparent");
-    categoryIconChange.classList.remove("fade-in-fast");
-    categoryIconChange.classList.add("fade-out-fast");
-  });
+  setCategoryEffect(dailyButton, "daily", dailyIconURL)
+  setCategoryEffect(relationshipButton, "relationship", relationshipIconURL)
+  setCategoryEffect(careerButton, "career", carrerIconURL)
+  setCategoryEffect(healthButton, "health", healthIconURL)
 }
 
-function setCategoryEffect() {
-  const categoryIcon = getElementById("category-icon");
-  const dailyHoloscopeButton = getElementById("daily-horoscope-button");
-  dailyHoloscopeButton.addEventListener("onmouseover", () => {
-    categoryIcon.src = "./daily-holoscope.png";
+/**
+ * Set mouse evens for category button to trigger category icon effect
+ * @param {HTMLButtonElement} categoryButton 
+ * @param {String} categoryName 
+ * @param {Strong} iconURL 
+ */
+function setCategoryEffect(categoryButton, categoryName, iconURL) {
+  const categoryIconSet = document.getElementById("category-icon-set");
+  const categoryIconChange = document.getElementById("category-icon-change");
+  const continueButton = document.getElementById("continue-button");
+  categoryButton.addEventListener("click", function () {
+    selectedCategory = categoryName;
+    categoryIconSet.style.backgroundImage = `url(${iconURL})`;
+    setSelection(categoryButton, continueButton);
   });
-  dailyHoloscopeButton.addEventListener("onmouseover", () => {
-    categoryIcon.src = "./daily-holoscope.png";
+  categoryButton.addEventListener("mouseover", function () {
+    categoryIconChange.style.backgroundImage = `url(${iconURL})`;
+    categoryIconChange.classList.remove("transparent");
+    categoryIconChange.classList.remove("fade-out-fast");
+    categoryIconChange.classList.add("fade-in-fast");
+  });
+  categoryButton.addEventListener("mouseout", function () {
+    categoryIconChange.classList.add("transparent");
+    categoryIconChange.classList.remove("fade-in-fast");
+    categoryIconChange.classList.add("fade-out-fast");
   });
 }
 
@@ -167,6 +123,9 @@ function getCategory() {
   return QuestionCategories.Work;
 }
 
+/**
+ * Handle click on start button
+ */
 function handleStart() {
   const startButton = document.getElementById("start-button");
   const actionDiv = document.getElementById("action-div");

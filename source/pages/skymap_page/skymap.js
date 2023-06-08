@@ -1,6 +1,41 @@
 import { Constellation } from "./Constellation.js";
 import { Background } from "./Background.js";
 
+let constellationList = [
+  {
+    name: "Aries",
+    imageLink: "../../assets/pictures/constellations/Aries.png",
+  },
+  {
+    name: "Canis Major",
+    imageLink: "../../assets/pictures/constellations/CanisMajor.png",
+  },
+  {
+    name: "Crux",
+    imageLink: "../../assets/pictures/constellations/Crux.png",
+  },
+  {
+    name: "Orion",
+    imageLink: "../../assets/pictures/constellations/Orion.png",
+  },
+  {
+    name: "Armadillo Dragon",
+    imageLink: "../../assets/pictures/constellations/ArmadilloDragon.png",
+  },
+  {
+    name: "Carina",
+    imageLink: "../../assets/pictures/constellations/Carnia.png",
+  },
+  {
+    name: "Ophiuchus",
+    imageLink: "../../assets/pictures/constellations/Ophiuchus.png",
+  },
+  {
+    name: "Ursa Major",
+    imageLink: "../../assets/pictures/constellations/Orion.png",
+  },
+]
+
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
 
@@ -177,7 +212,9 @@ function decideConstellation(constellation_arr, sky_background) {
   // Show final constellation image
   sky_background.load_image(
     finalConstellation,
-    `../../assets/pictures/constellations/${finalConstellation.name}.png`
+    constellationList[
+      constellationList.findIndex((item) => item.name === finalConstellation.name)
+    ].imageLink
   );
   // Show button to next page
   document.getElementById("next-button").classList.remove("hidden");
