@@ -34,7 +34,7 @@ let constellationList = [
     name: "Ursa Major",
     imageLink: "../../assets/pictures/constellations/Orion.png",
   },
-]
+];
 
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
@@ -213,7 +213,9 @@ function decideConstellation(constellation_arr, sky_background) {
   sky_background.load_image(
     finalConstellation,
     constellationList[
-      constellationList.findIndex((item) => item.name === finalConstellation.name)
+      constellationList.findIndex(
+        (item) => item.name === finalConstellation.name
+      )
     ].imageLink
   );
   // Show button to next page

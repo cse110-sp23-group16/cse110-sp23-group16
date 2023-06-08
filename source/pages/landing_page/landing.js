@@ -12,7 +12,7 @@ function init() {
   const continueButton = document.getElementById("continue-button");
   continueButton.classList.add("hidden");
 
-  // Category Icon Effect 
+  // Category Icon Effect
   const dailyButton = document.getElementById("daily-horoscope-button");
   const relationshipButton = document.getElementById("relationship-button");
   const careerButton = document.getElementById("career-button");
@@ -21,17 +21,17 @@ function init() {
   const carrerIconURL = "../../assets/Icons/Career.png";
   const healthIconURL = "../../assets/Icons/Health.png";
   const relationshipIconURL = "../../assets/Icons/Relationship.png";
-  setCategoryEffect(dailyButton, "daily", dailyIconURL)
-  setCategoryEffect(relationshipButton, "relationship", relationshipIconURL)
-  setCategoryEffect(careerButton, "career", carrerIconURL)
-  setCategoryEffect(healthButton, "health", healthIconURL)
+  setCategoryEffect(dailyButton, "daily", dailyIconURL);
+  setCategoryEffect(relationshipButton, "relationship", relationshipIconURL);
+  setCategoryEffect(careerButton, "career", carrerIconURL);
+  setCategoryEffect(healthButton, "health", healthIconURL);
 }
 
 /**
  * Set mouse evens for category button to trigger category icon effect
- * @param {HTMLButtonElement} categoryButton 
- * @param {String} categoryName 
- * @param {Strong} iconURL 
+ * @param {HTMLButtonElement} categoryButton
+ * @param {String} categoryName
+ * @param {Strong} iconURL
  */
 function setCategoryEffect(categoryButton, categoryName, iconURL) {
   const categoryIconSet = document.getElementById("category-icon-set");
@@ -101,7 +101,7 @@ function toSkyMapPage() {
   // Animations
   tellerImg.classList.remove("teller-move");
   actionDiv.classList.add("fade-out");
-  actionDiv.addEventListener("animationend", (event) => {
+  actionDiv.addEventListener("animationend", () => {
     actionDiv.classList.add("transparent");
     tellerEffect.classList.remove("hidden");
     tellerEffect.classList.add("teller-effect-animation");
