@@ -51,12 +51,22 @@ div#teller-box {
   gap: 6vh;
 }
 
-img#teller {
-  margin-top: 20vh;
+div#teller-wrap {
+  margin-top: 26vh;
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 40vh;
+  height: 48vh;
+  overflow: hidden;
+}
+
+img#teller {
+  width: 44vh;
+}
+
+img#crystal-ball {
+  width: 30vh;
+  transform: translateY(-26vh);
 }
 
 div#claws-div {
@@ -66,18 +76,18 @@ div#claws-div {
   gap: 12vh;
   top: 0;
   left: 0;
-  transform: translate(-14.2vh, 3vh);
+  transform: translate(-14.2vh, 0vh);
   width: 200%;
 }
 
 img.claw {
-  width: 14vh;
+  width: 20vh;
   animation: 5s ease-in-out 0s infinite clawVAnimation;
 }
 
 button#start-button {
   position: absolute;
-  top: 50vh;
+  top: 55vh;
   background-color: transparent;
   box-shadow: 0px 0px 7px 10px rgb(111, 165, 213, 0.5);
   width: 28vh;
@@ -85,6 +95,7 @@ button#start-button {
   border-radius: 50%;
   border: none;
   font-size: 5vh;
+  line-height: 20vh;
   text-shadow: 0px 0px 5px #3d3d3d;
 }
 
@@ -104,7 +115,6 @@ div#action-div {
   align-items: center;
   gap: 5vh;
   width: 100%;
-  top: 38%;
 }
 
 div.prompt {
@@ -116,12 +126,13 @@ div.prompt {
   border-radius: 20px;
   box-shadow: 0px 0px 14px 12px rgba(112, 115, 154, 1);
   padding-bottom: 0px;
+  margin-top: 33vh;
 }
 
 div#category-icon-div {
   position: absolute;
   z-index: -1;
-  top: 20vh;
+  top: 55vh;
   width: 26vh;
   height: 26vh;
   border-radius: 50%;
@@ -148,7 +159,7 @@ div#category-icon-set {
 }
 
 div.categories {
-  margin-top: 1vh;
+  margin-top: 14vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -168,12 +179,12 @@ button.category {
   border: 2px solid rgb(71, 77, 98);
   border-radius: 12px;
   padding: 0.5em;
-  height: 54px;
-  line-height: 36px;
-  font-size: 16pt;
+  height: 8vh;
+  line-height: 5vh;
+  font-size: 4vh;
   margin-right: 3%;
   transition: 0.5s;
-  width: 200px;
+  width: 18vw;
 }
 
 button.category:hover {
@@ -202,10 +213,6 @@ button.category.selected:hover {
   transition: 0.5s;
 }
 
-button.continue {
-  transform: translate(0vw, 6vh);
-}
-
 div#cover-div {
   position: absolute;
   z-index: 3;
@@ -228,22 +235,22 @@ div#cover-div > #teller-effect > .eyes {
   position: absolute;
   background: rgba(245, 245, 220, 0.8);
   box-shadow: 0px 0px 7px 4px rgb(245, 245, 220, 0.7);
-  width: 1.6vh;
-  height: 1.6vh;
+  width: 2vh;
+  height: 2vh;
   border-radius: 50%;
   border: none;
-  margin-top: 40vh;
+  margin-top: 38vh;
 }
 
 div#cover-div > #teller-effect > #eye-left {
-  margin-left: 47vw;
+  margin-left: 46vw;
 }
 
 div#cover-div > #teller-effect > #eye-right {
   margin-left: 52vw;
 }
 
-div#cover-div > #teller-effect > #crystal-ball {
+div#cover-div > #teller-effect > #crystal-ball-glow {
   position: absolute;
   background: rgba(245, 245, 220, 0.8);
   box-shadow: 0px 0px 10px 7px rgb(245, 245, 220, 0.7);
@@ -251,7 +258,7 @@ div#cover-div > #teller-effect > #crystal-ball {
   height: 28vh;
   border-radius: 50%;
   border: none;
-  margin-top: 50vh;
+  margin-top: 45vh;
   margin-left: 50vw;
   transform: translate(-50%, 30%);
 }
@@ -280,45 +287,46 @@ div#cover-div > #teller-effect > #crystal-ball {
     font-size: 8vh;
   }
   img#teller {
-    margin-top: 30vh;
     width: 40vh;
   }
   button#start-button {
-    top: 60vh;
+    top: 54vh;
     width: 28vh;
     height: 28vh;
   }
   div#action-div {
-    transform: translateY(-12vh);
+    transform: translateY(-7vh);
   }
   div#category-icon-div {
-    top: 45vh;
+    z-index: -1;
+    top: 62vh;
   }
   div.categories {
+    margin-top: 1vh;
     flex-direction: column;
     align-items: center;
     gap: 3vh;
   }
-  div#action-div {
-    top: 30%;
-  }
-  button.continue {
-    transform: translate(0vw, 0vh);
-  }
   div#cover-div > #teller-effect > .eyes {
-    margin-top: 42vh;
+    margin-top: 32vh;
   }
   div#cover-div > #teller-effect > #eye-left {
-    margin-left: 41vw;
+    margin-left: 39vw;
   }
   div#cover-div > #teller-effect > #eye-right {
-    margin-left: 54vw;
+    margin-left: 55vw;
   }
-  div#cover-div > #teller-effect > #crystal-ball {
-    margin-top: 51vh;
+  div#cover-div > #teller-effect > #crystal-ball-glow {
+    margin-top: 40vh;
   }
-  div#category-icon-div {
-    z-index: -1;
+  button#start-button {
+    line-height: 30vh;
+  }
+  button.category {
+    height: 50px;
+    width: 200px;
+    line-height: 30px;
+    font-size: 16pt;
   }
 }
 
@@ -345,8 +353,19 @@ div#cover-div > #teller-effect > #crystal-ball {
   div#cover-div > #teller-effect > #eye-right {
     margin-left: 54vw;
   }
-  div#cover-div > #teller-effect > #crystal-ball {
-    margin-top: 48vh;
+  div#cover-div > #teller-effect > #crystal-ball-glow {
+    margin-top: 46vh;
+  }
+  button.category {
+    height: 40px;
+    width: 160px;
+    line-height: 24px;
+    font-size: 12pt;
+  }
+  button.continue {
+    font-size: 16pt;
+    line-height: 40px;
+    height: 50px;
   }
 }
 
@@ -404,6 +423,22 @@ div#cover-div > #teller-effect > #crystal-ball {
 
 .turn-dark {
   animation: 2s linear 0s 1 turnDarkAnimation;
+}
+
+.teller-move {
+  animation: 5s ease-in-out 0s infinite tellerMoveAnimation;
+}
+
+@keyframes tellerMoveAnimation {
+  0% {
+    transform: translateY(0vh);
+  }
+  50% {
+    transform: translateY(2vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
 }
 
 /* Reference: https://www.w3docs.com/snippets/css/how-to-create-animation-on-page-load.html */

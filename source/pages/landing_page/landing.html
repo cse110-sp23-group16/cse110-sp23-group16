@@ -13,7 +13,7 @@
       <div id="teller-effect" class="half-transparent">
         <div id="eye-left" class="eyes"></div>
         <div id="eye-right" class="eyes"></div>
-        <div id="crystal-ball"></div>
+        <div id="crystal-ball-glow"></div>
       </div>
     </div>
     <header>
@@ -22,14 +22,10 @@
     </header>
     <main>
       <div id="teller-box">
-        <picture>
-          <!-- <img src="../../assets/teller.jpg" alt="Armadillo fortune teller" width="200"> -->
-          <img
-            id="teller"
-            src="./FortuneTeller-LandingPage.png"
-            alt="Armadillo fortune teller"
-          />
-        </picture>
+        <div id="teller-wrap"> 
+          <img id="teller" class="teller-move" src="./FortuneTeller.png" alt="Armadillo fortune teller"/>
+        </div>
+        <img id="crystal-ball" src="CrystalBall.png" alt="crystall ball"/>
         <button id="start-button" class="glow" onclick="handleStart()"> 
           Start 
           <div id="claws-div" class="claw-H">
@@ -38,6 +34,7 @@
           </div>
         </button>
       </div>
+
       <div id="action-div" class="hidden"> 
         <div id="prompt-div" class="prompt">
           Select a category

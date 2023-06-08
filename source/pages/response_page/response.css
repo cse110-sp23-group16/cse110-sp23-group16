@@ -19,7 +19,6 @@ h2 {
 img#teller {
   display: block;
   margin: 0 auto;
-  border-radius: 50%;
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
@@ -137,4 +136,20 @@ main {
   position: relative;
   top: 100px; /* Initial position, adjust as needed */
   transition: top 1s ease; /* Transition animation duration and easing */
+}
+
+.teller-move {
+  animation: 5s ease-in-out 0s infinite tellerMoveAnimation;
+}
+
+@keyframes tellerMoveAnimation {
+  0% {
+    transform: translateY(0vh);
+  }
+  50% {
+    transform: translateY(-3vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
 }

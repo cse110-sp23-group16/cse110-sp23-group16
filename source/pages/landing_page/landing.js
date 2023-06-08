@@ -11,17 +11,21 @@ function init() {
   const continueButton = document.getElementById("continue-button");
   const categoryIconSet = document.getElementById("category-icon-set");
   const categoryIconChange = document.getElementById("category-icon-change");
+  const dailyIconURL = "../../assets/Icons/DailyHoroscope.png";
+  const carrerIconURL = "../../assets/Icons/Career.png";
+  const healthIconURL = "../../assets/Icons/Health.png";
+  const relationshipIconURL = "../../assets/Icons/Relationship.png";
 
   continueButton.classList.add("hidden");
 
   const dailyButton = document.getElementById("daily-horoscope-button");
   dailyButton.addEventListener("click", function () {
     selectedCategory = "daily";
-    categoryIconSet.style.backgroundImage = "url('daily.png')";
+    categoryIconSet.style.backgroundImage = `url(${dailyIconURL})`;
     setSelection(dailyButton, continueButton);
   });
   dailyButton.addEventListener("mouseover", function () {
-    categoryIconChange.style.backgroundImage = "url('daily.png')";
+    categoryIconChange.style.backgroundImage = `url(${dailyIconURL})`;
     categoryIconChange.classList.remove("transparent");
     categoryIconChange.classList.remove("fade-out-fast");
     categoryIconChange.classList.add("fade-in-fast");
@@ -34,11 +38,11 @@ function init() {
   const relationshipButton = document.getElementById("relationship-button");
   relationshipButton.addEventListener("click", function () {
     selectedCategory = "relationship";
-    categoryIconSet.style.backgroundImage = "url('relationship.png')";
+    categoryIconSet.style.backgroundImage = `url(${relationshipIconURL})`;
     setSelection(relationshipButton, continueButton);
   });
   relationshipButton.addEventListener("mouseover", function () {
-    categoryIconChange.style.backgroundImage = "url('relationship.png')";
+    categoryIconChange.style.backgroundImage = `url(${relationshipIconURL})`;
     categoryIconChange.classList.remove("transparent");
     categoryIconChange.classList.remove("fade-out-fast");
     categoryIconChange.classList.add("fade-in-fast");
@@ -51,11 +55,11 @@ function init() {
   const careerButton = document.getElementById("career-button");
   careerButton.addEventListener("click", function () {
     selectedCategory = "career";
-    categoryIconSet.style.backgroundImage = "url('career.png')";
+    categoryIconSet.style.backgroundImage = `url(${carrerIconURL})`;
     setSelection(careerButton, continueButton);
   });
   careerButton.addEventListener("mouseover", function () {
-    categoryIconChange.style.backgroundImage = "url('career.png')";
+    categoryIconChange.style.backgroundImage = `url(${carrerIconURL})`;
     categoryIconChange.classList.remove("transparent");
     categoryIconChange.classList.remove("fade-out-fast");
     categoryIconChange.classList.add("fade-in-fast");
@@ -68,11 +72,11 @@ function init() {
   const healthButton = document.getElementById("health-button");
   healthButton.addEventListener("click", function () {
     selectedCategory = "health";
-    categoryIconSet.style.backgroundImage = "url('health.png')";
+    categoryIconSet.style.backgroundImage = `url(${healthIconURL})`;
     setSelection(healthButton, continueButton);
   });
   healthButton.addEventListener("mouseover", function () {
-    categoryIconChange.style.backgroundImage = "url('health.png')";
+    categoryIconChange.style.backgroundImage = `url(${healthIconURL})`;
     categoryIconChange.classList.remove("transparent");
     categoryIconChange.classList.remove("fade-out-fast");
     categoryIconChange.classList.add("fade-in-fast");
@@ -136,6 +140,10 @@ function toSkyMapPage() {
   const actionDiv = document.getElementById('action-div');
   const coverDiv = document.getElementById('cover-div');
   const tellerEffect = document.getElementById('teller-effect');
+  const tellerImg = document.getElementById('teller');
+
+  // Animations
+  tellerImg.classList.remove('teller-move')
   actionDiv.classList.add("fade-out");
   actionDiv.addEventListener("animationend", (event) => {
     actionDiv.classList.add("transparent");
@@ -167,6 +175,7 @@ function handleStart() {
   const title = document.querySelector('header');
   const clawsDiv = document.getElementById('claws-div');
   const categoryIconDiv = document.getElementById('category-icon-div');
+
   actionDiv.classList.remove('hidden');
   categoriesDiv.classList.add('fade-in');
   promptDiv.classList.add('fade-in');
