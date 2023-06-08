@@ -77,8 +77,8 @@ const constellationDesription = document.getElementById("description");
 constellationDesription.textContent = chosenConstellation["description"];
 
 //Start speaking
-if (chosenVoice != -1){
-  synth.addEventListener('voiceschanged', () =>{
+if (chosenVoice != -1) {
+  synth.addEventListener("voiceschanged", () => {
     list = synth.getVoices();
     utterance.voice = list[chosenVoice];
     utterance.text = constellationDesription.textContent;

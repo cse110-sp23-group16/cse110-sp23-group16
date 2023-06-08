@@ -17,7 +17,7 @@ function init() {
   option.classList.add("hidden");
   const voiceButton = document.getElementById("voice-button");
   voiceButton.classList.toggle("crossed-out");
-  voiceButton.addEventListener("click", function(){
+  voiceButton.addEventListener("click", function () {
     voiceButton.classList.toggle("crossed-out");
     option.classList.toggle("hidden");
   });
@@ -45,19 +45,19 @@ function init() {
 }
 
 // Helper function that populates the dropdown menu for the voice selection
-function populateDropdown(){
+function populateDropdown() {
   let select = document.getElementById("voice-select");
   let synth = window.speechSynthesis;
-  synth.addEventListener('voiceschanged', () => {
+  synth.addEventListener("voiceschanged", () => {
     let list = synth.getVoices();
-    for (let i in list){
+    for (let i in list) {
       let voice = list[i];
       let option = document.createElement("option");
       option.text = voice.name;
       option.value = i;
       select.add(option);
     }
-  })
+  });
   console.log("populated");
 }
 /**
@@ -94,12 +94,12 @@ function setSelection(passedButton, continueButton) {
 function toSkyMapPage() {
   localStorage.setItem("questionType", selectedCategory);
   const voiceButton = document.getElementById("voice-button");
-  if (voiceButton.classList.toggle("crossed-out") == true){
+  if (voiceButton.classList.toggle("crossed-out") == true) {
     let choice = document.querySelector("select").value;
-    if (choice != "select"){
+    if (choice != "select") {
       localStorage.setItem("voiceChoice", choice);
     }
-  }else{
+  } else {
     localStorage.setItem("voiceChoice", -1);
   }
   window.location.href = "../skymap_page/skymap.html";

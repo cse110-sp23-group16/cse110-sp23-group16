@@ -143,10 +143,10 @@ div#teller-box {
   gap: 6px;
 }
 
-.crossed-out{
+.crossed-out {
   text-decoration: line-through;
 }
 
-select{
+select {
   background-color: rgba(0, 0, 0, 0.7);
 }

@@ -129,15 +129,15 @@ function goToPage() {
   synth.cancel();
 }
 
-function speak(text){
+function speak(text) {
   const chosenVoice = localStorage.getItem("voiceChoice");
-  if (chosenVoice == -1){
+  if (chosenVoice == -1) {
     return;
   }
   let utterance = new SpeechSynthesisUtterance();
   let list;
   synth = window.speechSynthesis;
-  synth.addEventListener('voiceschanged', () =>{
+  synth.addEventListener("voiceschanged", () => {
     list = synth.getVoices();
     utterance.voice = list[chosenVoice];
     utterance.text = text;
@@ -161,4 +161,3 @@ window.addEventListener("load", function () {
     openingSentences[Math.floor(Math.random() * openingSentences.length)];
   h2Element.textContent = randomSentence;
 });
-
