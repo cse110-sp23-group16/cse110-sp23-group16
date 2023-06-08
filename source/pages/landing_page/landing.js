@@ -7,7 +7,7 @@ var selectedCategory = "";
 function init() {
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
-  
+
   const continueButton = document.getElementById("continue-button");
   const categoryIconSet = document.getElementById("category-icon-set");
   const categoryIconChange = document.getElementById("category-icon-change");
@@ -29,12 +29,12 @@ function init() {
     categoryIconChange.classList.remove("transparent");
     categoryIconChange.classList.remove("fade-out-fast");
     categoryIconChange.classList.add("fade-in-fast");
-  })
+  });
   dailyButton.addEventListener("mouseout", function () {
     categoryIconChange.classList.add("transparent");
     categoryIconChange.classList.remove("fade-in-fast");
     categoryIconChange.classList.add("fade-out-fast");
-  })
+  });
   const relationshipButton = document.getElementById("relationship-button");
   relationshipButton.addEventListener("click", function () {
     selectedCategory = "relationship";
@@ -46,12 +46,12 @@ function init() {
     categoryIconChange.classList.remove("transparent");
     categoryIconChange.classList.remove("fade-out-fast");
     categoryIconChange.classList.add("fade-in-fast");
-  })
+  });
   relationshipButton.addEventListener("mouseout", function () {
     categoryIconChange.classList.add("transparent");
     categoryIconChange.classList.remove("fade-in-fast");
     categoryIconChange.classList.add("fade-out-fast");
-  })
+  });
   const careerButton = document.getElementById("career-button");
   careerButton.addEventListener("click", function () {
     selectedCategory = "career";
@@ -63,12 +63,12 @@ function init() {
     categoryIconChange.classList.remove("transparent");
     categoryIconChange.classList.remove("fade-out-fast");
     categoryIconChange.classList.add("fade-in-fast");
-  })
+  });
   careerButton.addEventListener("mouseout", function () {
     categoryIconChange.classList.add("transparent");
     categoryIconChange.classList.remove("fade-in-fast");
     categoryIconChange.classList.add("fade-out-fast");
-  })
+  });
   const healthButton = document.getElementById("health-button");
   healthButton.addEventListener("click", function () {
     selectedCategory = "health";
@@ -80,12 +80,12 @@ function init() {
     categoryIconChange.classList.remove("transparent");
     categoryIconChange.classList.remove("fade-out-fast");
     categoryIconChange.classList.add("fade-in-fast");
-  })
+  });
   healthButton.addEventListener("mouseout", function () {
     categoryIconChange.classList.add("transparent");
     categoryIconChange.classList.remove("fade-in-fast");
     categoryIconChange.classList.add("fade-out-fast");
-  })
+  });
 }
 
 function setCategoryEffect() {
@@ -93,10 +93,10 @@ function setCategoryEffect() {
   const dailyHoloscopeButton = getElementById("daily-horoscope-button");
   dailyHoloscopeButton.addEventListener("onmouseover", () => {
     categoryIcon.src = "./daily-holoscope.png";
-  })
+  });
   dailyHoloscopeButton.addEventListener("onmouseover", () => {
     categoryIcon.src = "./daily-holoscope.png";
-  })
+  });
 }
 
 /**
@@ -137,19 +137,19 @@ function setSelection(passedButton, continueButton) {
  */
 function toSkyMapPage() {
   // Transition Animation
-  const actionDiv = document.getElementById('action-div');
-  const coverDiv = document.getElementById('cover-div');
-  const tellerEffect = document.getElementById('teller-effect');
-  const tellerImg = document.getElementById('teller');
+  const actionDiv = document.getElementById("action-div");
+  const coverDiv = document.getElementById("cover-div");
+  const tellerEffect = document.getElementById("teller-effect");
+  const tellerImg = document.getElementById("teller");
 
   // Animations
-  tellerImg.classList.remove('teller-move')
+  tellerImg.classList.remove("teller-move");
   actionDiv.classList.add("fade-out");
   actionDiv.addEventListener("animationend", (event) => {
     actionDiv.classList.add("transparent");
     tellerEffect.classList.remove("hidden");
     tellerEffect.classList.add("teller-effect-animation");
-  })
+  });
   coverDiv.classList.remove("hidden");
   coverDiv.classList.add("turn-dark");
   tellerEffect.addEventListener("animationend", () => {
@@ -157,7 +157,7 @@ function toSkyMapPage() {
     tellerEffect.classList.add("transparent");
     // Go to next page
     window.location.href = "../skymap_page/skymap.html";
-  })
+  });
   // Set category
   localStorage.setItem("questionType", selectedCategory);
   console.log(selectedCategory);
@@ -168,24 +168,24 @@ function getCategory() {
 }
 
 function handleStart() {
-  const startButton = document.getElementById('start-button');
-  const actionDiv = document.getElementById('action-div');
-  const categoriesDiv = document.getElementById('categories-div');
-  const promptDiv = document.getElementById('prompt-div');
-  const title = document.querySelector('header');
-  const clawsDiv = document.getElementById('claws-div');
-  const categoryIconDiv = document.getElementById('category-icon-div');
+  const startButton = document.getElementById("start-button");
+  const actionDiv = document.getElementById("action-div");
+  const categoriesDiv = document.getElementById("categories-div");
+  const promptDiv = document.getElementById("prompt-div");
+  const title = document.querySelector("header");
+  const clawsDiv = document.getElementById("claws-div");
+  const categoryIconDiv = document.getElementById("category-icon-div");
 
-  actionDiv.classList.remove('hidden');
-  categoriesDiv.classList.add('fade-in');
-  promptDiv.classList.add('fade-in');
-  categoryIconDiv.classList.add('fade-in');
-  title.classList.add('transparent');
-  title.classList.add('fade-out');
-  startButton.classList.remove('glow');
-  startButton.classList.add('fade-out');
-  clawsDiv.classList.add('fade-out');
+  actionDiv.classList.remove("hidden");
+  categoriesDiv.classList.add("fade-in");
+  promptDiv.classList.add("fade-in");
+  categoryIconDiv.classList.add("fade-in");
+  title.classList.add("transparent");
+  title.classList.add("fade-out");
+  startButton.classList.remove("glow");
+  startButton.classList.add("fade-out");
+  clawsDiv.classList.add("fade-out");
   startButton.addEventListener("animationend", () => {
-    startButton.classList.add('removed');
-  })
+    startButton.classList.add("removed");
+  });
 }

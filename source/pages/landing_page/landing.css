@@ -18,7 +18,7 @@ header {
   display: flex;
   flex-direction: column;
   width: 100%;
-  animation: .8s ease-in 0s 1 titleAnimation;
+  animation: 0.8s ease-in 0s 1 titleAnimation;
 }
 
 h3.custom-heading {
@@ -101,7 +101,11 @@ button#start-button {
 
 button#start-button:hover {
   cursor: pointer;
-  background: radial-gradient(circle, rgba(111,165,213,0.70) 0%, rgba(111,165,213,0.30) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(111, 165, 213, 0.7) 0%,
+    rgba(111, 165, 213, 0.3) 70%
+  );
   animation: none;
   box-shadow: 0px 0px 20px 15px rgb(111, 165, 213, 0.5);
   transition: 0.4s;
@@ -398,23 +402,23 @@ div#cover-div > #teller-effect > #crystal-ball-glow {
 }
 
 .fade-in {
-  animation: .5s ease-in 0s 1 fadeInAnimation;
+  animation: 0.5s ease-in 0s 1 fadeInAnimation;
 }
 
 .fade-in-fast {
-  animation: .2s ease-in 0s 1 fadeInAnimation;
+  animation: 0.2s ease-in 0s 1 fadeInAnimation;
 }
 
 .fade-out {
-  animation: .5s ease-in 0s 1 fadeOutAnimation;
+  animation: 0.5s ease-in 0s 1 fadeOutAnimation;
 }
 
 .fade-out-fast {
-  animation: .2s ease-in 0s 1 fadeOutAnimation;
+  animation: 0.2s ease-in 0s 1 fadeOutAnimation;
 }
 
 .rise-up {
-  animation: .5s ease-in 0s 1 riseUpAnimation;
+  animation: 0.5s ease-in 0s 1 riseUpAnimation;
 }
 
 .glow {
@@ -448,7 +452,7 @@ div#cover-div > #teller-effect > #crystal-ball-glow {
   }
   100% {
     transform: translateY(0);
-   }
+  }
 }
 
 @keyframes glowAnimation {
@@ -460,7 +464,7 @@ div#cover-div > #teller-effect > #crystal-ball-glow {
   }
   100% {
     box-shadow: 0px 0px 20px 15px rgb(111, 165, 213, 0.5);
-   }
+  }
 }
 
 @keyframes clawHAnimation {

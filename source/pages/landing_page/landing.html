@@ -22,52 +22,64 @@
     </header>
     <main>
       <div id="teller-box">
-        <div id="teller-wrap"> 
-          <img id="teller" class="teller-move" src="./FortuneTeller.png" alt="Armadillo fortune teller"/>
+        <div id="teller-wrap">
+          <img
+            id="teller"
+            class="teller-move"
+            src="./FortuneTeller.png"
+            alt="Armadillo fortune teller"
+          />
         </div>
-        <img id="crystal-ball" src="CrystalBall.png" alt="crystall ball"/>
-        <button id="start-button" class="glow" onclick="handleStart()"> 
-          Start 
+        <img id="crystal-ball" src="CrystalBall.png" alt="crystall ball" />
+        <button id="start-button" class="glow" onclick="handleStart()">
+          Start
           <div id="claws-div" class="claw-H">
-            <img id="claw-left" src="../../assets/pictures/teller/armadillo-claw-left.png" class="claw" alt="claw-left"/>
-            <img id="claw-right" src="../../assets/pictures/teller/armadillo-claw-right.png" class="claw" alt="claw-right"/>
+            <img
+              id="claw-left"
+              src="../../assets/pictures/teller/armadillo-claw-left.png"
+              class="claw"
+              alt="claw-left"
+            />
+            <img
+              id="claw-right"
+              src="../../assets/pictures/teller/armadillo-claw-right.png"
+              class="claw"
+              alt="claw-right"
+            />
           </div>
         </button>
       </div>
 
-      <div id="action-div" class="hidden"> 
-        <div id="prompt-div" class="prompt">
-          Select a category
-        </div>
-        <div id="category-icon-div"> 
-          <div id="category-icon-set" class="category-icon"> </div>
-          <div id="category-icon-change" class="category-icon"> </div>
+      <div id="action-div" class="hidden">
+        <div id="prompt-div" class="prompt">Select a category</div>
+        <div id="category-icon-div">
+          <div id="category-icon-set" class="category-icon"></div>
+          <div id="category-icon-change" class="category-icon"></div>
         </div>
         <div id="categories-div" class="categories">
           <div class="group">
             <button id="daily-horoscope-button" class="category">
               Daily Horoscope
             </button>
-            <button id="career-button" class="category">
-              Career
-            </button>
+            <button id="career-button" class="category">Career</button>
           </div>
           <div class="group">
-            <button id="health-button" class="category">
-              Health
-            </button>
+            <button id="health-button" class="category">Health</button>
             <button id="relationship-button" class="category">
               Relationship
             </button>
           </div>
         </div>
         <div id="continue">
-          <button id="continue-button" class="continue" onclick="toSkyMapPage()">
+          <button
+            id="continue-button"
+            class="continue"
+            onclick="toSkyMapPage()"
+          >
             Let the stars guide you
           </button>
         </div>
       </div>
     </main>
-
   </body>
 </html>
