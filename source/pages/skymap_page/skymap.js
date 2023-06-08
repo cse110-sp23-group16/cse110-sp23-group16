@@ -1,22 +1,43 @@
 import { Background } from "./Background.js";
 import { Constellation } from "./Constellation.js";
 
+let constellationList = [
+  {
+    name: "Aries",
+    imageLink: "../../assets/pictures/constellations/Aries.png",
+  },
+  {
+    name: "Canis Major",
+    imageLink: "../../assets/pictures/constellations/CanisMajor.png",
+  },
+  {
+    name: "Crux",
+    imageLink: "../../assets/pictures/constellations/Crux.png",
+  },
+  {
+    name: "Orion",
+    imageLink: "../../assets/pictures/constellations/Orion.png",
+  },
+  {
+    name: "Armadillo Dragon",
+    imageLink: "../../assets/pictures/constellations/ArmadilloDragon.png",
+  },
+  {
+    name: "Carina",
+    imageLink: "../../assets/pictures/constellations/Carnia.png",
+  },
+  {
+    name: "Ophiuchus",
+    imageLink: "../../assets/pictures/constellations/Ophiuchus.png",
+  },
+  {
+    name: "Ursa Major",
+    imageLink: "../../assets/pictures/constellations/Orion.png",
+  },
+];
+
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
-
-function setRatio() {
-  let defaultWidth = 1920;
-  let defaultHeight = 1080;
-  let screenWidth = window.innerWidth;
-  let screenHeight = window.innerHeight;
-  let desiredWidth = screenWidth * 2;
-  let desiredHeight = screenHeight * 2;
-  return Math.max(
-    Math.ceil(desiredHeight / defaultHeight),
-    Math.ceil(desiredWidth / defaultWidth)
-  );
-}
-let ratio = setRatio();
 
 // Starts the program, all function calls trace back here
 async function init() {
@@ -64,6 +85,20 @@ async function init() {
   );
   document.getElementById("next-button").onclick = goToPage;
 }
+
+function setRatio() {
+  let defaultWidth = 1920;
+  let defaultHeight = 1080;
+  let screenWidth = window.innerWidth;
+  let screenHeight = window.innerHeight;
+  let desiredWidth = screenWidth * 2;
+  let desiredHeight = screenHeight * 2;
+  return Math.max(
+    Math.ceil(desiredHeight / defaultHeight),
+    Math.ceil(desiredWidth / defaultWidth)
+  );
+}
+let ratio = setRatio();
 
 /**
  * Set up canvas with panning
@@ -181,7 +216,11 @@ function decideConstellation(constellation_arr, sky_background) {
   // Show final constellation image
   sky_background.load_image(
     finalConstellation,
-    `../../assets/pictures/constellations/${finalConstellation.name}.png`
+    constellationList[
+      constellationList.findIndex(
+        (item) => item.name === finalConstellation.name
+      )
+    ].imageLink
   );
   // Show button to next page
   document.getElementById("next-button").classList.remove("hidden");

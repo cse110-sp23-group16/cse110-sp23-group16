@@ -24,70 +24,77 @@ People who attended:
 
 Aiden
 (progress)
+
 - Almost finshed animation mostly on landing page
-(todo)
+  (todo)
 - Fix page scroll bug
 - Zoom out for constellation on selection
 
 Andy
 (progress)
+
 - Finished creating the landing page assets
-(todo)
+  (todo)
 - Restructure asset directory
 
 Cheng
 (progress)
+
 - Improved skymap tutorial UI
-(todo)
+  (todo)
 - Fixing response page textbox
 - Working on response page visual
 - (Prority low) response page animation
 
 Chi
 (progress)
+
 - Sound effect (still looking for sound effects for category buttons)
   - Incoperate new UI for sound effect
 - Need help on zoom in
 
 Kushi
 (progress)
+
 - Explanation page story telling (still working on it)
 
 Jerry
 (progress)
+
 - Update stars and constellation on skymap
 - Speech synthesis api doesn't fit the app
 - Shashank: We use speech synthesis, but we recognize that the voice is very machiney, but we wanted to demonstrate that we have this feature working, and we can later hire voice actors to speak out our lines and we'll play those audios instead, just by swapping it.
 
 Pramodya
 (progress)
+
 - Github slack integration
 - revamping the readme page along with user documentation
 - condensing the explanations
-(todo)
+  (todo)
 - Will fix the explanation page to make text shorter
 
 ### To Do
 
 **High Priority**
 Sound Design Overall/Voices
+
 - Jerry
 - Chi
 - Aiden
-Unit Tests
+  Unit Tests
 - Pram
 - Andy
 - Victor
-Puppeteer tests
+  Puppeteer tests
 - Cheng
 - Khushi
 - Jerry
-Wrap up the Animations (Make Mobile)
+  Wrap up the Animations (Make Mobile)
 - Aiden
-Restructure Assets Directory
+  Restructure Assets Directory
 - Andy
-Analytics
+  Analytics
 - Shashank
-Prepping for Videos
+  Prepping for Videos
 - Victor
-

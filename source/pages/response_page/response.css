@@ -16,14 +16,10 @@ h2 {
   margin-top: 30px;
 }
 
-img {
+img#teller {
   display: block;
   margin: 0 auto;
-  border-radius: 50%;
   overflow: hidden;
-}
-
-img#teller {
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -102,6 +98,10 @@ div.dark-back {
   z-index: -1;
 }
 
+button.continue {
+  margin-top: 5vh;
+}
+
 .removed {
   display: none;
 }
@@ -136,4 +136,20 @@ main {
   position: relative;
   top: 100px; /* Initial position, adjust as needed */
   transition: top 1s ease; /* Transition animation duration and easing */
+}
+
+.teller-move {
+  animation: 5s ease-in-out 0s infinite tellerMoveAnimation;
+}
+
+@keyframes tellerMoveAnimation {
+  0% {
+    transform: translateY(0vh);
+  }
+  50% {
+    transform: translateY(-3vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
 }
