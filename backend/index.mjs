@@ -3,6 +3,10 @@ import dotenv from 'dotenv';
 import { MongoClient } from "mongodb";
 import express from 'express';
 
+// Imports for https
+import { createServer } from 'https';
+import { readFileSync } from 'fs';
+
 // Setup dotenv
 dotenv.config({path:'.env'});
 
@@ -49,6 +53,11 @@ app.post('/analytics', async (req, res) => {
     res.send(result).status(204);
 });
 
-app.listen(port, () => {
+const options = {
+    key: readFileSync('/etc/letsencrypt/live/stargazer.rest/privkey.pem'),
+    cert: readFileSync('/etc/letsencrypt/live/stargazer.rest/fullchain.pem')
+};
+
+createServer(options, app).listen(port, () => {
     console.log(`Server Started at ${port}`);
 });
