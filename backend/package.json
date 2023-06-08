@@ -4,15 +4,13 @@
   "description": "Backend server for analytics",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.mjs"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
-    "mongodb": "^5.6.0",
-    "nodemon": "^2.0.22"
+    "mongodb": "^5.6.0"
   }
 }
