@@ -35,7 +35,7 @@ const app = express();
 const port = 4000;
 
 app.use(express.json());
-app.use(cors);
+app.use(cors());
 
 // This route is for error tracking. 
 app.post('/error', async (req, res) => {
