@@ -1,5 +1,5 @@
-import { Constellation } from "./Constellation.js";
 import { Background } from "./Background.js";
+import { Constellation } from "./Constellation.js";
 
 let constellationList = [
   {
@@ -41,6 +41,10 @@ window.addEventListener("DOMContentLoaded", init);
 
 // Starts the program, all function calls trace back here
 async function init() {
+  //Set up the tutorial dialog and buttons
+  let dialog = document.querySelector("dialog");
+  dialog.showModal();
+  tutorialSetup();
   const { cloc, connect } = await loadJsonData();
   // Get Canvas, Context, and set the canvas width and height
   let canvas = document.querySelector("canvas");
@@ -272,4 +276,21 @@ async function loadJsonData() {
   const connectResponse = await fetch("./connected_stars_pair.json");
   const connect = await connectResponse.json();
   return { cloc, connect };
+}
+
+function tutorialSetup() {
+  let gotIt = document.getElementById("confirm");
+  let tutorial = document.getElementById("tutorial");
+  let hide = document.getElementById("hide");
+  let dialog = document.querySelector("dialog");
+  gotIt.addEventListener("click", () => {
+    dialog.close();
+  });
+  tutorial.addEventListener("click", () => {
+    dialog.showModal();
+  });
+  hide.addEventListener("click", () => {
+    dialog.close();
+    tutorial.setAttribute("hidden", "hidden");
+  });
 }
