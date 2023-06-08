@@ -142,3 +142,11 @@ div#teller-box {
   align-items: center;
   gap: 6px;
 }
+
+.crossed-out{
+  text-decoration: line-through;
+}
+
+select{
+  background-color: rgba(0, 0, 0, 0.7);
+}

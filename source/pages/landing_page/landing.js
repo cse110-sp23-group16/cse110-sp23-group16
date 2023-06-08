@@ -7,9 +7,20 @@ var selectedCategory = "";
 function init() {
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
+  populateDropdown();
 
   const continueButton = document.getElementById("continue-button");
   continueButton.classList.add("hidden");
+
+  //Initialize the voicing text selection
+  const option = document.querySelector("#voice-select");
+  option.classList.add("hidden");
+  const voiceButton = document.getElementById("voice-button");
+  voiceButton.classList.toggle("crossed-out");
+  voiceButton.addEventListener("click", function(){
+    voiceButton.classList.toggle("crossed-out");
+    option.classList.toggle("hidden");
+  });
 
   const dailyButton = document.getElementById("daily-horoscope-button");
   dailyButton.addEventListener("click", function () {
@@ -33,6 +44,22 @@ function init() {
   });
 }
 
+// Helper function that populates the dropdown menu for the voice selection
+function populateDropdown(){
+  let select = document.getElementById("voice-select");
+  let synth = window.speechSynthesis;
+  synth.addEventListener('voiceschanged', () => {
+    let list = synth.getVoices();
+    for (let i in list){
+      let voice = list[i];
+      let option = document.createElement("option");
+      option.text = voice.name;
+      option.value = i;
+      select.add(option);
+    }
+  })
+  console.log("populated");
+}
 /**
  * All buttons besides the passed button are set to deselected, if the
  * passed button is already selected, its colors become deselected and the
@@ -66,6 +93,15 @@ function setSelection(passedButton, continueButton) {
  */
 function toSkyMapPage() {
   localStorage.setItem("questionType", selectedCategory);
+  const voiceButton = document.getElementById("voice-button");
+  if (voiceButton.classList.toggle("crossed-out") == true){
+    let choice = document.querySelector("select").value;
+    if (choice != "select"){
+      localStorage.setItem("voiceChoice", choice);
+    }
+  }else{
+    localStorage.setItem("voiceChoice", -1);
+  }
   window.location.href = "../skymap_page/skymap.html";
   console.log(selectedCategory);
 }

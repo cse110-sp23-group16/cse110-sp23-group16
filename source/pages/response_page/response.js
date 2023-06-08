@@ -1,3 +1,4 @@
+let synth;
 const categories = ["relationship", "career", "health", "daily"];
 const constellations = [
   "Crux",
@@ -47,6 +48,7 @@ function toggleText() {
     fetchResponses(questionInput, chosenConstellation)
       .then((answer) => {
         animateText(answer, text);
+        speak(answer);
       })
       .catch((error) => {
         console.error(error);
@@ -124,6 +126,23 @@ Once called, the window will be showing the thankyou page.
 */
 function goToPage() {
   window.location.href = "../thankyou_page/thankyou.html";
+  synth.cancel();
+}
+
+function speak(text){
+  const chosenVoice = localStorage.getItem("voiceChoice");
+  if (chosenVoice == -1){
+    return;
+  }
+  let utterance = new SpeechSynthesisUtterance();
+  let list;
+  synth = window.speechSynthesis;
+  synth.addEventListener('voiceschanged', () =>{
+    list = synth.getVoices();
+    utterance.voice = list[chosenVoice];
+    utterance.text = text;
+    synth.speak(utterance);
+  });
 }
 
 /*
@@ -142,3 +161,4 @@ window.addEventListener("load", function () {
     openingSentences[Math.floor(Math.random() * openingSentences.length)];
   h2Element.textContent = randomSentence;
 });
+

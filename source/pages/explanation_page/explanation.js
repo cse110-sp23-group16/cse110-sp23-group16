@@ -56,6 +56,11 @@ let constellationList = [
     mythLink: "../../assets/pictures/myths/UrsaMajor-myth.jpeg",
   },
 ];
+// get chosen voice from localstorage
+const chosenVoice = localStorage.getItem("voiceChoice");
+let synth = window.speechSynthesis;
+let utterance = new SpeechSynthesisUtterance();
+let list;
 
 // get chosen constellation from localStorage
 const chosenConstellationName = localStorage.getItem("chosenConstellation");
@@ -70,6 +75,17 @@ const constellationTitle = document.querySelector("h1");
 constellationTitle.textContent = chosenConstellation["name"];
 const constellationDesription = document.getElementById("description");
 constellationDesription.textContent = chosenConstellation["description"];
+
+//Start speaking
+if (chosenVoice != -1){
+  synth.addEventListener('voiceschanged', () =>{
+    list = synth.getVoices();
+    utterance.voice = list[chosenVoice];
+    utterance.text = constellationDesription.textContent;
+    synth.speak(utterance);
+  });
+}
+
 const constellationImage = document.getElementById("constellation-image");
 constellationImage.src = chosenConstellation.imageLink;
 const mythImage = document.getElementById("myth-image");
@@ -78,4 +94,5 @@ mythImage.src = chosenConstellation["mythLink"];
 const continueButton = document.getElementById("continue-button");
 continueButton.addEventListener("click", function () {
   window.location.href = "../response_page/response.html";
+  synth.cancel();
 });
