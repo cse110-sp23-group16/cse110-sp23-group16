@@ -136,16 +136,36 @@ function toSkyMapPage() {
 }
 
 /**
- * Time tracker for page analytics, send update to server
+ * Start time tracker on initial dom content load
  */
+var startTime;
 document.addEventListener("DOMContentLoaded", () => {
-  const startTime = new Date();
-  window.addEventListener("beforeunload", () => {
+  startTime = new Date();
+  console.log("Starting time");
+})
+
+document.addEventListener("beforeunload", () => {
+  console.log("Posting");
+  const endTime = new Date();
+  analyticsManager.addSessionPageTime(analyticsPageName, endTime.getTime() - startTime.getTime());
+  analyticsManager.sessionPOST();
+})
+
+/**
+ * Listen for visibility changes for end time and push, or start time
+ * again
+ */
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    console.log("Restarting time");
+    startTime = new Date();
+  } else {
+    console.log("Posting");
     const endTime = new Date();
     analyticsManager.addSessionPageTime(analyticsPageName, endTime.getTime() - startTime.getTime());
     analyticsManager.sessionPOST();
-  });
-});
+  }
+})
 
 /**
  * Error tracker for page analytics

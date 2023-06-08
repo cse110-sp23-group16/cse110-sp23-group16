@@ -1,4 +1,4 @@
-const httpserver = 'localhost:4000/analytics';
+const httpserver = 'https://68.183.96.210:4000/analytics';
 
 /**
  * Create an empty session for analytics usage, uses default/empty values
@@ -140,6 +140,10 @@ function sessionPOST() {
     })
 }
 
+function sessionBeacon() {
+    navigator.sendBeacon(httpserver, JSON.stringify(getSession()));
+}
+
 /**
  * This function generates a random id of length
  * @param {number} length 
@@ -157,4 +161,4 @@ function makeid(length) {
 }
 
 export { setEmptySession, setSessionStatus, setSessionExit, addSessionError, addSessionPageTime, 
-addSessionCategorySelected, addSessionClick, sessionStarSelectedInc, sessionPOST }
+addSessionCategorySelected, addSessionClick, sessionStarSelectedInc, sessionPOST, sessionBeacon }
