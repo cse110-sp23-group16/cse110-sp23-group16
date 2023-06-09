@@ -8,28 +8,50 @@ function init() {
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
 
+  // Hide continue button
   const continueButton = document.getElementById("continue-button");
   continueButton.classList.add("hidden");
 
+  // Category Icon Effect
   const dailyButton = document.getElementById("daily-horoscope-button");
-  dailyButton.addEventListener("click", function () {
-    selectedCategory = "daily";
-    setSelection(dailyButton, continueButton);
-  });
   const relationshipButton = document.getElementById("relationship-button");
-  relationshipButton.addEventListener("click", function () {
-    selectedCategory = "relationship";
-    setSelection(relationshipButton, continueButton);
-  });
   const careerButton = document.getElementById("career-button");
-  careerButton.addEventListener("click", function () {
-    selectedCategory = "career";
-    setSelection(careerButton, continueButton);
-  });
   const healthButton = document.getElementById("health-button");
-  healthButton.addEventListener("click", function () {
-    selectedCategory = "health";
-    setSelection(healthButton, continueButton);
+  const dailyIconURL = "../../assets/Icons/DailyHoroscope.png";
+  const carrerIconURL = "../../assets/Icons/Career.png";
+  const healthIconURL = "../../assets/Icons/Health.png";
+  const relationshipIconURL = "../../assets/Icons/Relationship.png";
+  setCategoryEffect(dailyButton, "daily", dailyIconURL);
+  setCategoryEffect(relationshipButton, "relationship", relationshipIconURL);
+  setCategoryEffect(careerButton, "career", carrerIconURL);
+  setCategoryEffect(healthButton, "health", healthIconURL);
+}
+
+/**
+ * Set mouse evens for category button to trigger category icon effect
+ * @param {HTMLButtonElement} categoryButton
+ * @param {String} categoryName
+ * @param {Strong} iconURL
+ */
+function setCategoryEffect(categoryButton, categoryName, iconURL) {
+  const categoryIconSet = document.getElementById("category-icon-set");
+  const categoryIconChange = document.getElementById("category-icon-change");
+  const continueButton = document.getElementById("continue-button");
+  categoryButton.addEventListener("click", function () {
+    selectedCategory = categoryName;
+    categoryIconSet.style.backgroundImage = `url(${iconURL})`;
+    setSelection(categoryButton, continueButton);
+  });
+  categoryButton.addEventListener("mouseover", function () {
+    categoryIconChange.style.backgroundImage = `url(${iconURL})`;
+    categoryIconChange.classList.remove("transparent");
+    categoryIconChange.classList.remove("fade-out-fast");
+    categoryIconChange.classList.add("fade-in-fast");
+  });
+  categoryButton.addEventListener("mouseout", function () {
+    categoryIconChange.classList.add("transparent");
+    categoryIconChange.classList.remove("fade-in-fast");
+    categoryIconChange.classList.add("fade-out-fast");
   });
 }
 
@@ -42,7 +64,8 @@ function init() {
  * @param {Button} continueButton
  */
 function setSelection(passedButton, continueButton) {
-  var categoryButtons = document.getElementsByClassName("category");
+  const categoryIconSet = document.getElementById("category-icon-set");
+  const categoryButtons = document.getElementsByClassName("category");
   // set all other buttons to deselected
   [].forEach.call(categoryButtons, function (btn) {
     if (btn !== passedButton) {
@@ -53,10 +76,14 @@ function setSelection(passedButton, continueButton) {
   if (passedButton.classList.contains("selected")) {
     passedButton.classList.remove("selected");
     selectedCategory = "";
+    continueButton.classList.remove("fade-in");
     continueButton.classList.add("hidden");
+    // remove category effect
+    categoryIconSet.src = "";
   } else {
     passedButton.classList.add("selected");
     continueButton.classList.remove("hidden");
+    continueButton.classList.add("fade-in");
   }
 }
 
@@ -65,11 +92,59 @@ function setSelection(passedButton, continueButton) {
  * and routes to skymap page
  */
 function toSkyMapPage() {
+  // Transition Animation
+  const actionDiv = document.getElementById("action-div");
+  const coverDiv = document.getElementById("cover-div");
+  const tellerEffect = document.getElementById("teller-effect");
+  const tellerImg = document.getElementById("teller");
+
+  // Animations
+  tellerImg.classList.remove("teller-move");
+  actionDiv.classList.add("fade-out");
+  actionDiv.addEventListener("animationend", () => {
+    actionDiv.classList.add("transparent");
+    tellerEffect.classList.remove("hidden");
+    tellerEffect.classList.add("teller-effect-animation");
+  });
+  coverDiv.classList.remove("hidden");
+  coverDiv.classList.add("turn-dark");
+  tellerEffect.addEventListener("animationend", () => {
+    tellerEffect.classList.remove("half-transparent");
+    tellerEffect.classList.add("transparent");
+    // Go to next page
+    window.location.href = "../skymap_page/skymap.html";
+  });
+  // Set category
   localStorage.setItem("questionType", selectedCategory);
-  window.location.href = "../skymap_page/skymap.html";
   console.log(selectedCategory);
 }
 
 function getCategory() {
   return QuestionCategories.Work;
+}
+
+/**
+ * Handle click on start button
+ */
+function handleStart() {
+  const startButton = document.getElementById("start-button");
+  const actionDiv = document.getElementById("action-div");
+  const categoriesDiv = document.getElementById("categories-div");
+  const promptDiv = document.getElementById("prompt-div");
+  const title = document.querySelector("header");
+  const clawsDiv = document.getElementById("claws-div");
+  const categoryIconDiv = document.getElementById("category-icon-div");
+
+  actionDiv.classList.remove("hidden");
+  categoriesDiv.classList.add("fade-in");
+  promptDiv.classList.add("fade-in");
+  categoryIconDiv.classList.add("fade-in");
+  title.classList.add("transparent");
+  title.classList.add("fade-out");
+  startButton.classList.remove("glow");
+  startButton.classList.add("fade-out");
+  clawsDiv.classList.add("fade-out");
+  startButton.addEventListener("animationend", () => {
+    startButton.classList.add("removed");
+  });
 }

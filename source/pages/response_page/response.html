@@ -4,17 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Response Page</title>
+    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico" />
     <link rel="stylesheet" href="../toplevel.css" />
+    <link rel="stylesheet" href="../shootingStars.css" />
     <link rel="stylesheet" href="./response.css" />
-    <script src="./response.js"></script>
+    <script src="./response.js" type="module"></script>
   </head>
   <body>
+    <div class="wrap">
+      <div id="stars-div" class="sky"></div>
+    </div>
     <header>
       <h2 id="fortune-opening"></h2>
       <picture>
         <img
           id="teller"
-          src="./temp_teller.png"
+          class="teller-move"
+          src="../../assets/pictures/teller/responseTeller.png"
           alt="Armadillo fortune teller"
         />
       </picture>
@@ -32,6 +38,5 @@
         </button>
       </div>
     </main>
-    <div class="dark-back"></div>
   </body>
 </html>

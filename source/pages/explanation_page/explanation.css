@@ -1,13 +1,14 @@
 html {
   background: url("../../assets/PreviewMap.png") no-repeat center fixed;
   background-size: cover;
+  overflow: hidden;
 }
 
 main {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-top: 5%;
+  margin-top: 2%;
 }
 
 main > * {
@@ -15,19 +16,21 @@ main > * {
   margin-right: 1em;
 }
 
-.top-container {
+div.top-container {
   display: flex;
   justify-content: space-around;
 }
 
-.bot-container {
-  display: flex;
-  justify-content: center;
+img#myth-image {
+  border-style: solid;
+  border-color: beige;
+  border-radius: 2%;
+  width: 400px;
 }
 
-#explanation {
+div#explanation {
   width: 35%;
-  height: 500px;
+  height: 480px;
   color: beige;
   text-align: left;
   border-style: solid;
@@ -36,7 +39,7 @@ main > * {
   overflow: auto;
 }
 
-.img_container {
+div.img_container {
   background-color: rgba(0, 0, 1, 0.5);
   width: 400px;
   border-style: solid;
@@ -46,19 +49,23 @@ main > * {
   overflow: hidden;
 }
 
-#constellation-image {
+img#constellation-image {
   width: 500px;
   border-radius: 2%;
   padding-top: 30%;
   padding-bottom: 20%;
 }
 
-#myth-image {
-  border-style: solid;
-  border-color: beige;
-  border-radius: 2%;
-  width: 400px;
+div.bot-container {
+  display: flex;
+  justify-content: center;
 }
+
+button.continue {
+  margin-top: 5vh;
+}
+
+/* Animation */
 
 @keyframes pulsate {
   0% {
@@ -77,66 +84,55 @@ main > * {
 
 /* Media Query for Small Screens */
 @media (max-width: 600px) {
-  .top-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  html {
+    overflow: auto;
   }
-
-  .top-container {
+  div.top-container {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  #myth-image {
-    width: 300px;
+  img#myth-image {
+    width: 333px;
     margin-bottom: 2%;
   }
-  #explanation {
+  div#explanation {
     width: 300px;
     margin-bottom: 2%;
     padding: 0.5em 1em 0.5em 1em;
   }
-
-  .img_container {
-    width: 300px;
+  div.img_container {
+    width: 333px;
   }
 }
 
 /* Media Query for Medium Screens */
 @media (min-width: 601px) and (max-width: 1200px) {
+  html {
+    overflow: auto;
+  }
   h1.custom-heading {
     font-size: 40px; /* Adjust font size for medium screens */
   }
-
   h3 {
     font-size: 22px; /* Adjust font size for large screens */
   }
-
-  #input-text {
-    width: 60%; /* Adjust width for medium screens */
-  }
-
-  #question-prompt {
-    font-size: 20px;
-  }
-
-  .top-container {
+  div.top-container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  #myth-image {
-    width: 500px;
+  img#myth-image {
+    width: 80%;
     margin-bottom: 2%;
   }
-  #explanation {
-    width: 500px;
+  div#explanation {
+    width: 70%;
     margin-bottom: 2%;
   }
-
-  .img_container {
-    width: 500px;
+  div.img_container {
+    width: 80%;
   }
 }
 

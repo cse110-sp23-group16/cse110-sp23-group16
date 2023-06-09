@@ -2,6 +2,7 @@ body {
   margin: 2%;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 
 html {
@@ -9,26 +10,17 @@ html {
   background-size: cover;
 }
 
+main {
+  position: relative;
+  top: 100px; /* Initial position, adjust as needed */
+  transition: top 1s ease; /* Transition animation duration and easing */
+}
+
 h2 {
   font-size: 34px;
   text-align: center;
   color: white;
-  margin-top: 30px;
-}
-
-img {
-  display: block;
-  margin: 0 auto;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-img#teller {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 300px;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 p {
@@ -40,13 +32,15 @@ a {
   text-decoration: none;
 }
 
-p#hiddenText {
+img#teller {
   display: block;
-  color: beige;
-  font-size: x-large;
-  height: 150px;
-  text-align: left;
-  font-family: "Segoe Print", cursive;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 260px;
+  margin-top: 20px;
 }
 
 button.response {
@@ -87,20 +81,25 @@ div#explanation {
   margin-top: 30px;
 }
 
+p#hiddenText {
+  display: block;
+  color: beige;
+  font-size: x-large;
+  height: 150px;
+  text-align: left;
+  font-family: "Segoe Print", cursive;
+}
+
 div.btn_container {
   display: flex;
   justify-content: center;
 }
 
-div.dark-back {
-  background-color: rgba(11, 18, 45, 0.5);
-  height: 170%;
-  width: 100%;
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  z-index: -1;
+button.continue {
+  margin-top: 5vh;
 }
+
+/* Effect */
 
 .removed {
   display: none;
@@ -110,10 +109,48 @@ div.dark-back {
   visibility: hidden;
 }
 
+/* Media Query for Small Screens */
 @media (max-width: 600px) {
-  #explanation {
+  html {
+    overflow: auto;
+  }
+  h2 {
+    font-size: 20pt;
+  }
+  img#teller {
+    width: 220px;
+    margin-top: 0px;
+  }
+  div#explanation {
     padding: 1em 2em 1em 2em;
   }
+}
+
+/* Media Query for Medium Screens */
+@media (min-width: 601px) and (max-width: 1200px) {
+  html {
+    overflow: auto;
+  }
+  h2 {
+    font-size: 20pt;
+  }
+  img#teller {
+    width: 220px;
+    margin-top: 0px;
+  }
+  div#explanation {
+    padding: 1em 2em 1em 2em;
+  }
+}
+
+/* Animation */
+
+.glow {
+  animation: glowAnimation 2s infinite;
+}
+
+.teller-move {
+  animation: 5s ease-in-out 0s infinite tellerMoveAnimation;
 }
 
 @keyframes glowAnimation {
@@ -128,12 +165,14 @@ div.dark-back {
   }
 }
 
-.glow {
-  animation: glowAnimation 2s infinite;
-}
-
-main {
-  position: relative;
-  top: 100px; /* Initial position, adjust as needed */
-  transition: top 1s ease; /* Transition animation duration and easing */
+@keyframes tellerMoveAnimation {
+  0% {
+    transform: translateY(0vh);
+  }
+  50% {
+    transform: translateY(-3vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
 }
