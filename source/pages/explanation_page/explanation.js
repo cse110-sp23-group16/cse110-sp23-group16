@@ -33,7 +33,7 @@ let constellationList = [
   },
   {
     name: "Armadillo Dragon",
-    description: 
+    description:
       "The Armadillo Dragon constellation represents a mythical creature blending the qualities of an armadillo and a dragon. Legend has it that this celestial guardian possessed an impenetrable armor-like shell, symbolizing protection and resilience, while embodying the power, wisdom, and mysticism of dragons. In ancient tales, adventurers embarked on quests to find the Armadillo Dragon, believed to safeguard hidden treasures of great value—both material and spiritual. This constellation serves as a reminder to embrace challenges, cultivate inner strength, and embark on personal quests for growth and self-discovery, symbolizing resilience, adaptability, and the pursuit of wisdom.",
     imageLink:
       "../../assets/pictures/constellations/ArmadilloDragon-explanation.png",
