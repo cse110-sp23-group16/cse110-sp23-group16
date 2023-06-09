@@ -21,7 +21,6 @@ describe("Landing Page Tests", () => {
     await page.waitForTimeout(100);
     const continuebutton = await page.$("#continue-button");
     await continuebutton.click();
-    //await page.waitForTimeout(100);
     await page.waitForSelector("canvas");
   });
 
