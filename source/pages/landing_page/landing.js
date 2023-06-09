@@ -8,19 +8,10 @@ function init() {
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
   populateDropdown();
+  initializeVoicing();
 
   const continueButton = document.getElementById("continue-button");
   continueButton.classList.add("hidden");
-
-  //Initialize the voicing text selection
-  const option = document.querySelector("#voice-select");
-  option.classList.add("hidden");
-  const voiceButton = document.getElementById("voice-button");
-  voiceButton.classList.toggle("crossed-out");
-  voiceButton.addEventListener("click", function () {
-    voiceButton.classList.toggle("crossed-out");
-    option.classList.toggle("hidden");
-  });
 
   const dailyButton = document.getElementById("daily-horoscope-button");
   dailyButton.addEventListener("click", function () {
@@ -104,6 +95,18 @@ function toSkyMapPage() {
   }
   window.location.href = "../skymap_page/skymap.html";
   console.log(selectedCategory);
+}
+
+function initializeVoicing() {
+  //Initialize the voicing text selection
+  const option = document.querySelector("#voice-select");
+  option.classList.add("hidden");
+  const voiceButton = document.getElementById("voice-button");
+  voiceButton.classList.toggle("crossed-out");
+  voiceButton.addEventListener("click", function () {
+    voiceButton.classList.toggle("crossed-out");
+    option.classList.toggle("hidden");
+  });
 }
 
 function getCategory() {

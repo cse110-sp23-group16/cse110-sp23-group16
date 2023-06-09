@@ -48,7 +48,6 @@ function toggleText() {
     fetchResponses(questionInput, chosenConstellation)
       .then((answer) => {
         animateText(answer, text);
-        speak(answer);
       })
       .catch((error) => {
         console.error(error);
@@ -89,6 +88,7 @@ function animateText(answer, textElement) {
   let index = 0;
   let interval;
   const words = answer.split(" ");
+  speak(answer);
   interval = setInterval(showNextCharacter, 100);
 
   function showNextCharacter() {
