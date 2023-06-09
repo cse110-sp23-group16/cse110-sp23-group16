@@ -1,3 +1,5 @@
+import { setShootingStars } from "../shootingStar.js";
+
 // array of constellations - name, description, constellation image link, myth image link
 let constellationList = [
   {
@@ -31,7 +33,8 @@ let constellationList = [
   },
   {
     name: "Armadillo Dragon",
-    description: "Armadillo Dragon description.",
+    description: 
+      "The Armadillo Dragon constellation represents a mythical creature blending the qualities of an armadillo and a dragon. Legend has it that this celestial guardian possessed an impenetrable armor-like shell, symbolizing protection and resilience, while embodying the power, wisdom, and mysticism of dragons. In ancient tales, adventurers embarked on quests to find the Armadillo Dragon, believed to safeguard hidden treasures of great value—both material and spiritual. This constellation serves as a reminder to embrace challenges, cultivate inner strength, and embark on personal quests for growth and self-discovery, symbolizing resilience, adaptability, and the pursuit of wisdom.",
     imageLink:
       "../../assets/pictures/constellations/ArmadilloDragon-explanation.png",
     mythLink: "../../assets/pictures/myths/ArmadilloDragon-myth.jpeg",
@@ -65,6 +68,7 @@ const chosenConstellation =
   constellationList[
     constellationList.findIndex((item) => item.name === chosenConstellationName)
   ];
+console.log(chosenConstellation);
 
 // set title/description/images of constellation explanation to chosen constellation
 const constellationTitle = document.querySelector("h1");
@@ -74,9 +78,11 @@ constellationDesription.textContent = chosenConstellation["description"];
 const constellationImage = document.getElementById("constellation-image");
 constellationImage.src = chosenConstellation.imageLink;
 const mythImage = document.getElementById("myth-image");
-mythImage.src = chosenConstellation.mythLink;
+mythImage.src = chosenConstellation["mythLink"];
 
 const continueButton = document.getElementById("continue-button");
 continueButton.addEventListener("click", function () {
   window.location.href = "../response_page/response.html";
 });
+
+new setShootingStars(document);

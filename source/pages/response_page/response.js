@@ -1,9 +1,11 @@
+import { setShootingStars } from "../shootingStar.js";
+
 const categories = ["relationship", "career", "health", "daily"];
 const constellations = [
   "Crux",
   "Aries",
   "Orion",
-  "CanisMajor",
+  "Canis Major",
   "Ursa Major",
   "Carnia",
   "Ophiuchus",
@@ -141,4 +143,9 @@ window.addEventListener("load", function () {
   const randomSentence =
     openingSentences[Math.floor(Math.random() * openingSentences.length)];
   h2Element.textContent = randomSentence;
+
+  new setShootingStars(document);
+
+  window.toggleText = toggleText;
+  window.goToPage = goToPage;
 });
