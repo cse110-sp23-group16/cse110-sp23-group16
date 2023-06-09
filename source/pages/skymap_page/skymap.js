@@ -1,7 +1,6 @@
 import { Background } from "./Background.js";
 import { Constellation } from "./Constellation.js";
 
-
 let constellationList = [
   {
     name: "Aries",
@@ -36,7 +35,6 @@ let constellationList = [
     imageLink: "../../assets/pictures/constellations/Orion.png",
   },
 ];
-
 
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
