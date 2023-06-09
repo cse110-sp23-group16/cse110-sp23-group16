@@ -547,3 +547,11 @@ div#cover-div > #teller-effect > #crystal-ball-glow {
     background: #030a21;
   }
 }
+
+.crossed-out {
+  text-decoration: line-through;
+}
+
+select {
+  background-color: rgba(0, 0, 0, 0.7);
+}
