@@ -25,10 +25,7 @@ export class Background {
       "sky_gradient",
       "../../assets/skymap/Stargazer-background.png"
     );
-    this.load_image(
-      "terrian",
-      "../../assets/skymap/Stargazer-asset.png"
-    );
+    this.load_image("terrian", "../../assets/skymap/Stargazer-asset.png");
   }
 
   /* 
