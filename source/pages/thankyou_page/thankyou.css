@@ -1,12 +1,13 @@
-body {
-  margin: 2%;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 html {
   background: url("../../assets/PreviewMap.png") no-repeat center fixed;
   background-size: cover;
   overflow: hidden;
+}
+
+body {
+  margin: 2%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Set the text color to white */
@@ -25,7 +26,7 @@ body {
   height: 100vh;
 }
 
-.main-content {
+div.main-content {
   text-align: center;
   width: 1000px;
 }
@@ -48,4 +49,32 @@ button.continue {
   height: 9vh;
   line-height: 6vh;
   margin-top: 5vh;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 30pt;
+  }
+  div.main-content {
+    width: 80%;
+  }
+  button.continue {
+    height: 50px;
+    line-height: 30px;
+  }
+}
+
+/* Media Query for Medium Screens */
+@media (min-width: 601px) and (max-width: 1200px) {
+  h1 {
+    font-size: 30pt;
+  }
+  div.main-content {
+    width: 80%;
+  }
+  button.continue {
+    height: 50px;
+    line-height: 30px;
+  }
 }
