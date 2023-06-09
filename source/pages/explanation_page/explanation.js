@@ -62,27 +62,64 @@ let constellationList = [
   },
 ];
 
-// get chosen constellation from localStorage
-const chosenConstellationName = localStorage.getItem("chosenConstellation");
-const chosenConstellation =
-  constellationList[
-    constellationList.findIndex((item) => item.name === chosenConstellationName)
-  ];
-console.log(chosenConstellation);
+let synth;
+window.addEventListener("DOMContentLoaded", init);
+function init() {
+  initializeConstellation();
+  // get chosen voice from localstorage
+  const chosenVoice = localStorage.getItem("voiceChoice");
+  synth = window.speechSynthesis;
+  let utterance = new SpeechSynthesisUtterance();
+  let list;
+  //Start speaking
+  if (chosenVoice != -1) {
+    synth.addEventListener("voiceschanged", () => {
+      list = synth.getVoices();
+      utterance.voice = list[chosenVoice];
+      utterance.text = document.getElementById("description").textContent;
+      synth.speak(utterance);
+    });
+  }
+}
 
-// set title/description/images of constellation explanation to chosen constellation
-const constellationTitle = document.querySelector("h1");
-constellationTitle.textContent = chosenConstellation["name"];
-const constellationDesription = document.getElementById("description");
-constellationDesription.textContent = chosenConstellation["description"];
-const constellationImage = document.getElementById("constellation-image");
-constellationImage.src = chosenConstellation.imageLink;
-const mythImage = document.getElementById("myth-image");
-mythImage.src = chosenConstellation["mythLink"];
+function initializeConstellation() {
+  // get chosen constellation from localStorage
+  const chosenConstellationName = localStorage.getItem("chosenConstellation");
+  const chosenConstellation =
+    constellationList[
+      constellationList.findIndex(
+        (item) => item.name === chosenConstellationName
+      )
+    ];
+  console.log(chosenConstellation);
+
+  // set title/description/images of constellation explanation to chosen constellation
+  const constellationTitle = document.querySelector("h1");
+  constellationTitle.textContent = chosenConstellation["name"];
+  const constellationDesription = document.getElementById("description");
+  constellationDesription.textContent = chosenConstellation["description"];
+  const constellationImage = document.getElementById("constellation-image");
+  constellationImage.src = chosenConstellation.imageLink;
+  const mythImage = document.getElementById("myth-image");
+  mythImage.src = chosenConstellation["mythLink"];
+}
 
 const continueButton = document.getElementById("continue-button");
 continueButton.addEventListener("click", function () {
   window.location.href = "../response_page/response.html";
+  synth.cancel();
 });
 
 new setShootingStars(document);
+stopTalkWhenReload();
+function stopTalkWhenReload() {
+  //These event listeners stop the voicing when user reload or navigate back to previous page.
+  window.addEventListener("beforeunload", stopSpeechSynthesis);
+  window.addEventListener("unload", stopSpeechSynthesis);
+}
+
+function stopSpeechSynthesis() {
+  if (synth.speaking) {
+    synth.cancel();
+  }
+}

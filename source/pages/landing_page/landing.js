@@ -7,6 +7,8 @@ var selectedCategory = "";
 function init() {
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
+  populateDropdown();
+  initializeVoicing();
 
   // Hide continue button
   const continueButton = document.getElementById("continue-button");
@@ -97,7 +99,16 @@ function toSkyMapPage() {
   const coverDiv = document.getElementById("cover-div");
   const tellerEffect = document.getElementById("teller-effect");
   const tellerImg = document.getElementById("teller");
-
+  //Find user's decision on using voicing text
+  const voiceButton = document.getElementById("voice-button");
+  if (voiceButton.classList.toggle("crossed-out") == true) {
+    let choice = document.querySelector("select").value;
+    if (choice != "select") {
+      localStorage.setItem("voiceChoice", choice);
+    }
+  } else {
+    localStorage.setItem("voiceChoice", -1);
+  }
   // Animations
   tellerImg.classList.remove("teller-move");
   actionDiv.classList.add("fade-out");
@@ -146,5 +157,33 @@ function handleStart() {
   clawsDiv.classList.add("fade-out");
   startButton.addEventListener("animationend", () => {
     startButton.classList.add("removed");
+  });
+}
+
+// Helper function that populates the dropdown menu for the voice selection
+function populateDropdown() {
+  let select = document.getElementById("voice-select");
+  let synth = window.speechSynthesis;
+  synth.addEventListener("voiceschanged", () => {
+    let list = synth.getVoices();
+    for (let i in list) {
+      let voice = list[i];
+      let option = document.createElement("option");
+      option.text = voice.name;
+      option.value = i;
+      select.add(option);
+    }
+  });
+  console.log("populated");
+}
+//Initialize the voicing text selection and buttons
+function initializeVoicing() {
+  const option = document.querySelector("#voice-select");
+  option.classList.add("hidden");
+  const voiceButton = document.getElementById("voice-button");
+  voiceButton.classList.toggle("crossed-out");
+  voiceButton.addEventListener("click", function () {
+    voiceButton.classList.toggle("crossed-out");
+    option.classList.toggle("hidden");
   });
 }
