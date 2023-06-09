@@ -2,32 +2,29 @@ body {
   margin: 2%;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
+
 html {
   background: url("../../assets/PreviewMap.png") no-repeat center fixed;
   background-size: cover;
 }
-#teller {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 350px;
+
+main {
+  position: relative;
+  top: 100px; /* Initial position, adjust as needed */
+  transition: top 1s ease; /* Transition animation duration and easing */
 }
 
 h2 {
   font-size: 34px;
   text-align: center;
   color: white;
-}
-
-img {
-  display: block;
-  margin: 0 auto;
-  border-radius: 50%;
-  overflow: hidden;
+  margin-top: 50px;
 }
 
 p {
+  margin: 0px;
   font-size: 20px;
 }
 
@@ -35,50 +32,44 @@ a {
   text-decoration: none;
 }
 
-#hiddenText {
-  display: none;
+img#teller {
+  display: block;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 260px;
+  margin-top: 20px;
+}
+
+button.response {
+  background-color: beige;
+  border: none;
+  box-shadow: 0px 0px 3px beige;
+  border-radius: 12px;
+  color: rgb(19, 28, 63);
+  font-size: 26px;
+  line-height: 2vh;
+  height: 7vh;
+  margin-top: 10px;
+  margin-bottom: 1%;
+  padding: 1em;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+button.response:hover {
+  background-color: rgb(143, 143, 137);
+  border-radius: 12px;
   color: beige;
-  font-size: x-large;
-  height: 150px;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-#hiddenButton {
-  display: none;
-  width: 150px;
-  height: 50px;
-  background-color: beige;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
-  font-size: 16px;
-}
-#hiddenButton:hover {
-  background-color: darkkhaki;
-}
-#visibleButton {
-  width: 80px;
-  height: 50px;
-  background-color: beige;
-  margin-bottom: 5px;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
-  font-size: 13px;
-}
-
-#visibleButton:hover {
-  background-color: darkkhaki;
-}
-#explanation {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  background: rgba(112, 115, 154, 0.792);
-  height: 200px;
+div#explanation {
+  background: rgba(112, 115, 154, 0.7);
+  height: fit-content;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -86,14 +77,102 @@ a {
   -o-border-radius: 20px;
   overflow: auto;
   padding: 1em 2em 1em 2em;
+  box-shadow: 0px 0px 20px 10px rgba(112, 115, 154, 0.8);
+  margin-top: 30px;
 }
-.btn_container {
+
+p#hiddenText {
+  display: block;
+  color: beige;
+  font-size: x-large;
+  height: 150px;
+  text-align: left;
+  font-family: "Segoe Print", cursive;
+}
+
+div.btn_container {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 2%;
+  justify-content: center;
 }
+
+button.continue {
+  margin-top: 5vh;
+}
+
+/* Effect */
+
+.removed {
+  display: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+/* Media Query for Small Screens */
 @media (max-width: 600px) {
-  #explanation {
+  html {
+    overflow: auto;
+  }
+  h2 {
+    font-size: 20pt;
+  }
+  img#teller {
+    width: 220px;
+    margin-top: 0px;
+  }
+  div#explanation {
     padding: 1em 2em 1em 2em;
+  }
+}
+
+/* Media Query for Medium Screens */
+@media (min-width: 601px) and (max-width: 1200px) {
+  html {
+    overflow: auto;
+  }
+  h2 {
+    font-size: 20pt;
+  }
+  img#teller {
+    width: 220px;
+    margin-top: 0px;
+  }
+  div#explanation {
+    padding: 1em 2em 1em 2em;
+  }
+}
+
+/* Animation */
+
+.glow {
+  animation: glowAnimation 2s infinite;
+}
+
+.teller-move {
+  animation: 5s ease-in-out 0s infinite tellerMoveAnimation;
+}
+
+@keyframes glowAnimation {
+  0% {
+    box-shadow: 0 0 5px 5px white;
+  }
+  50% {
+    box-shadow: 0 0 20px 20px white;
+  }
+  100% {
+    box-shadow: 0 0 5px 5px white;
+  }
+}
+
+@keyframes tellerMoveAnimation {
+  0% {
+    transform: translateY(0vh);
+  }
+  50% {
+    transform: translateY(-3vh);
+  }
+  100% {
+    transform: translateY(0vh);
   }
 }
