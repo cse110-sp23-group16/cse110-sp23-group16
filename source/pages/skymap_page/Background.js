@@ -23,11 +23,11 @@ export class Background {
     // backgrounds
     this.load_image(
       "sky_gradient",
-      "../../assets/pictures/others/Stargazer-background.png"
+      "../../assets/skymap/Stargazer-background.png"
     );
     this.load_image(
       "terrian",
-      "../../assets/pictures/others/Stargazer-asset.png"
+      "../../assets/skymap/Stargazer-asset.png"
     );
   }
 
