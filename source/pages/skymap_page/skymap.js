@@ -39,13 +39,17 @@ let constellationList = [
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
 
-// Starts the program, all function calls trace back here
+/**
+ * Starts the program, all function calls trace back here
+ */
 async function init() {
-  //Set up the tutorial dialog and buttons
+  /* Tutorial Setup */
+  // Set up the tutorial dialog and buttons
   let dialog = document.querySelector("dialog");
   dialog.showModal();
   tutorialSetup();
   const { cloc, connect } = await loadJsonData();
+  /* Canvas Setup */
   // Get Canvas, Context, and set the canvas width and height
   let canvas = document.querySelector("canvas");
   canvas.width = window.innerWidth;
