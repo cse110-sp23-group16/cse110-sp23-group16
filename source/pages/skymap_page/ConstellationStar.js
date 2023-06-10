@@ -1,16 +1,23 @@
-// Class for Constellation Star
-/* 
-This class is intended for interactable stars, it takes the x and y for
-the foreground star along with radius and color. It will draw a star
-there, and it reacts to click captures.
-*/
+/**
+ * This class is intended for interactable stars, it takes the x and y for
+ * the foreground star along with radius and color. It will draw a star
+ * there, and it reacts to click captures.
+ */
 export class ConstellationStar {
-  /*
-    This constructor takes the x y for the foreground star,
-    along with the radius for the star. The selected state
-    enables or disables the selected swelling animation, and
-    the swell ratio tells how much to swell by
-    */
+  /**
+   * Takes the x y for the foreground star, along with the radius for the star. 
+   * The selected state enables or disables the selected swelling animation, and
+   * the swell ratio tells how much to swell by.
+   * @param {CanvasRenderingContext2D} ctx canvas rendering context
+   * @param {Number} x position x
+   * @param {Number} y position y
+   * @param {Number} radius star radius
+   * @param {Boolean} selected if is selected
+   * @param {Number} swell_ratio animated swelling radius
+   * @param {String} color default color 
+   * @param {String} selected_color selected color
+   * @param {Number} ratio aspect ratio
+   */
   constructor(
     ctx,
     x,
@@ -35,9 +42,11 @@ export class ConstellationStar {
     this.done = false;
   }
 
-  /*
-    Draws the star based on current values and user_x and user_y
-    */
+  /**
+   * Draws the star based on current values and user_x and user_y
+   * @param {Number} user_x user view offset x
+   * @param {Number} user_y user view offset y
+   */
   draw(user_x, user_y) {
     if (!this.selected) {
       this.ctx.strokeStyle = this.color;
@@ -59,7 +68,12 @@ export class ConstellationStar {
     this.ctx.stroke();
   }
 
-  // Draw a line between this star and the input star
+  /**
+   * Draw a line between this star and the input star
+   * @param {Number} user_x user view offset x
+   * @param {Number} user_y user view offset y
+   * @param {ConstellationStar} star stars to connect
+   */
   connect(user_x, user_y, star) {
     this.ctx.beginPath();
     this.ctx.strokeStyle = "#16BDE5";
@@ -68,10 +82,12 @@ export class ConstellationStar {
     this.ctx.stroke();
   }
 
-  /*
-    Call with animation loop, updates the swell amount if it is selected
-    else set the swell to 0
-    */
+  /**
+   * Call with animation loop, updates the swell amount if it is selected
+   * else set the swell to 0
+   * @param {Number} user_x user view offset x
+   * @param {Number} user_y user view offset y
+   */
   update(user_x, user_y) {
     if (this.selected) {
       this.radius += this.dswell;
@@ -86,19 +102,21 @@ export class ConstellationStar {
     this.draw(user_x, user_y);
   }
 
-  /*
-    Click event handler, if the click fell within the region of the circle
-    change its selected mode
-    */
+  /**
+   * Click event handler, if the click fell within the region of the circle
+   * change its selected mode
+   * @param {Number} x clicked position x
+   * @param {Number} y clicked position y
+   */
   click(x, y) {
     const isOnStar =
       (this.x - x) ** 2 + (this.y - y) ** 2 < (2 * this.default_radius) ** 2;
     if (isOnStar && !this.done) this.selected = !this.selected;
   }
 
-  /*
-    Getter for is selected
-    */
+  /**
+   * Getter for is selected
+   */
   get isSelected() {
     return this.selected;
   }
