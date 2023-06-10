@@ -1,28 +1,28 @@
-const httpserver = 'https://stargazer.rest:4000/analytics';
+const httpserver = "https://stargazer.rest:4000/analytics";
 
 /**
  * Create an empty session for analytics usage, uses default/empty values
  * @returns {JSONObject} JSON object representing current session
  */
 function getEmptySession() {
-    const emptySessionJSON = {
-        "id": makeid(12),
-        "status": 1,
-        "exitPage": "",
-        "errors": [],
-        "timeOnPage": {
-            "landing": 0,
-            "skymap": 0,
-            "explanation": 0,
-            "response": 0,
-            "thankYou": 0
-        },
-        "categorySelected": "",
-        "clicks": [],
-        "starSelected": 0
-    }
-    
-    return emptySessionJSON;
+  const emptySessionJSON = {
+    id: makeid(12),
+    status: 1,
+    exitPage: "",
+    errors: [],
+    timeOnPage: {
+      landing: 0,
+      skymap: 0,
+      explanation: 0,
+      response: 0,
+      thankYou: 0,
+    },
+    categorySelected: "",
+    clicks: [],
+    starSelected: 0,
+  };
+
+  return emptySessionJSON;
 }
 
 /**
@@ -30,13 +30,13 @@ function getEmptySession() {
  * @returns {JSONObject} JSON object representing current session
  */
 function getSession() {
-    let sessionObj = localStorage.getItem("session");
-    if (sessionObj === null) {
-        sessionObj = getEmptySession();
-    } else {
-        sessionObj = JSON.parse(sessionObj);
-    }
-    return sessionObj
+  let sessionObj = localStorage.getItem("session");
+  if (sessionObj === null) {
+    sessionObj = getEmptySession();
+  } else {
+    sessionObj = JSON.parse(sessionObj);
+  }
+  return sessionObj;
 }
 
 /**
@@ -44,16 +44,16 @@ function getSession() {
  * @param {JSONObject} sessionJSON session object to be written
  */
 function writeSession(sessionJSON) {
-    const sessionString = JSON.stringify(sessionJSON);
-    localStorage.setItem("session", sessionString);
+  const sessionString = JSON.stringify(sessionJSON);
+  localStorage.setItem("session", sessionString);
 }
 
 /**
  * Set the current session to empty
  */
 function setEmptySession() {
-    let session = getEmptySession();
-    writeSession(session);
+  let session = getEmptySession();
+  writeSession(session);
 }
 
 /**
@@ -61,9 +61,9 @@ function setEmptySession() {
  * @param {number} status status code to be entered
  */
 function setSessionStatus(status) {
-    let session = getSession();
-    session.status = status;
-    writeSession(session);
+  let session = getSession();
+  session.status = status;
+  writeSession(session);
 }
 
 /**
@@ -71,9 +71,9 @@ function setSessionStatus(status) {
  * @param {string} pageName page name to be written
  */
 function setSessionExit(pageName) {
-    let session = getSession();
-    session.exitPage = pageName;
-    writeSession(session);
+  let session = getSession();
+  session.exitPage = pageName;
+  writeSession(session);
 }
 
 /**
@@ -84,9 +84,14 @@ function setSessionExit(pageName) {
  * @param {string} stack string representation of the stack trace at error
  */
 function addSessionError(pageName, name, message, stack) {
-    let session = getSession();
-    session.errors.push({"page": pageName, "name": name, "message": message, "stack": stack});
-    writeSession(session);
+  let session = getSession();
+  session.errors.push({
+    page: pageName,
+    name: name,
+    message: message,
+    stack: stack,
+  });
+  writeSession(session);
 }
 
 /**
@@ -95,9 +100,9 @@ function addSessionError(pageName, name, message, stack) {
  * @param {number} time amount of time to increment by
  */
 function addSessionPageTime(pageName, time) {
-    let session = getSession();
-    session.timeOnPage[pageName] += time;
-    writeSession(session);
+  let session = getSession();
+  session.timeOnPage[pageName] += time;
+  writeSession(session);
 }
 
 /**
@@ -105,9 +110,9 @@ function addSessionPageTime(pageName, time) {
  * @param {string} category category name to set to
  */
 function addSessionCategorySelected(category) {
-    let session = getSession();
-    session.categorySelected = category
-    writeSession(session);
+  let session = getSession();
+  session.categorySelected = category;
+  writeSession(session);
 }
 
 /**
@@ -115,50 +120,124 @@ function addSessionCategorySelected(category) {
  * @param {Array} click coordinates of downclick and upclick, in nested length 2 arrays
  */
 function addSessionClick(click) {
-    let session = getSession();
-    session.clicks.push(click);
-    writeSession(session);
+  let session = getSession();
+  session.clicks.push(click);
+  writeSession(session);
 }
 
 /**
  * Increment the starselected for the session
  */
 function sessionStarSelectedInc() {
-    let session = getSession();
-    session.starSelected += 1;
-    writeSession(session);
+  let session = getSession();
+  session.starSelected += 1;
+  writeSession(session);
 }
 
 function sessionPOST() {
-    fetch(httpserver, {
-        method: "POST",
-        body: JSON.stringify(getSession()),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        },
-        keepalive: true
-    })
+  fetch(httpserver, {
+    method: "POST",
+    body: JSON.stringify(getSession()),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+    keepalive: true,
+  });
 }
 
 function sessionBeacon() {
-    navigator.sendBeacon(httpserver, JSON.stringify(getSession()));
+  navigator.sendBeacon(httpserver, JSON.stringify(getSession()));
 }
 
 /**
  * This function generates a random id of length
- * @param {number} length 
+ * @param {number} length
  * @returns a random string of provided length
  */
 function makeid(length) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let counter = 0;
-    while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * characters.length));
-      counter += 1;
-    }
-    return result;
+  let result = "";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let counter = 0;
+  while (counter < length) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+    counter += 1;
+  }
+  return result;
 }
 
-export { setEmptySession, setSessionStatus, setSessionExit, addSessionError, addSessionPageTime, 
-addSessionCategorySelected, addSessionClick, sessionStarSelectedInc, sessionPOST, sessionBeacon }
+/**
+ * This function tags a page with duration tracking, and error tracking
+ * Requires a string for the current page name, and status of being on this page
+ * @param {string} pageName page name of current page
+ * @param {int} status status code to post when this page is left from
+ */
+function defaultPageAnalytics(pageName, status) {
+  setSessionExit(pageName);
+  setSessionStatus(status);
+
+  /**
+   * Start time tracker on initial dom content load
+   */
+  let startTime;
+  document.addEventListener("DOMContentLoaded", () => {
+    startTime = new Date();
+    console.log("Starting time");
+  });
+
+  /**
+   * Listen for visibility changes or beforeunload for end time and
+   * push session
+   */
+  document.addEventListener("beforeunload", () => {
+    console.log("Posting");
+    const endTime = new Date();
+    addSessionPageTime(
+      pageName,
+      endTime.getTime() - startTime.getTime()
+    );
+    sessionPOST();
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      // If it came back into visibility start a new time
+      console.log("Restarting time");
+      startTime = new Date();
+    } else {
+      console.log("Posting");
+      const endTime = new Date();
+      addSessionPageTime(
+        pageName,
+        endTime.getTime() - startTime.getTime()
+      );
+      sessionPOST();
+    }
+  });
+
+  /**
+   * Error tracker for page analytics
+   */
+  window.addEventListener("error", (event) => {
+    analyticsManager.addSessionError(
+      pageName,
+      event.error.name,
+      event.error.message,
+      event.error.stack
+    );
+  });
+}
+
+export {
+  setEmptySession,
+  setSessionStatus,
+  setSessionExit,
+  addSessionError,
+  addSessionPageTime,
+  addSessionCategorySelected,
+  addSessionClick,
+  sessionStarSelectedInc,
+  sessionPOST,
+  sessionBeacon,
+  defaultPageAnalytics
+};
