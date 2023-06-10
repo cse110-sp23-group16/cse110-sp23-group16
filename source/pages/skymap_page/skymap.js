@@ -1,7 +1,9 @@
 import { Background } from "./Background.js";
 import { Constellation } from "./Constellation.js";
 
-let constellationList = [
+const debug = false;
+
+const constellationList = [
   {
     name: "Aries",
     imageLink: "../../assets/pictures/constellations/Aries.png",
@@ -45,16 +47,16 @@ window.addEventListener("DOMContentLoaded", init);
 async function init() {
   /* Tutorial Setup */
   // Set up the tutorial dialog and buttons
-  let dialog = document.querySelector("dialog");
+  const dialog = document.querySelector("dialog");
   dialog.showModal();
   tutorialSetup();
-  const { cloc, connect } = await loadJsonData();
   /* Canvas Setup */
   // Get Canvas, Context, and set the canvas width and height
-  let canvas = document.querySelector("canvas");
+  const { cloc, connect } = await loadJsonData();
+  const canvas = document.querySelector("canvas");
+  const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  let ctx = canvas.getContext("2d");
   // Create background object
   let sky_background = new Background(ctx, ratio, canvas.width, canvas.height);
   let cameraOffset = setCanvasPanning(canvas, sky_background);
@@ -74,22 +76,22 @@ async function init() {
   canvas.addEventListener("click", (event) =>
     handleClickCanvas(event, constellation_arr, sky_background)
   );
-  // Hard code user coord
-  let user_x = 0;
-  let user_y = 0;
   // Begin animation
   animate(
-    user_x,
-    user_y,
     canvas,
     ctx,
     constellation_arr,
     sky_background,
     cameraOffset
   );
+  // Set next button to go to next page
   document.getElementById("next-button").onclick = goToPage;
 }
 
+/**
+ * Calculate background ratio according to the user screen size
+ * (2:1 of the screen size) 
+ */
 function setRatio() {
   let defaultWidth = 1920;
   let defaultHeight = 1080;
@@ -102,20 +104,21 @@ function setRatio() {
     Math.ceil(desiredWidth / defaultWidth)
   );
 }
+
 let ratio = setRatio();
 
 /**
  * Set up canvas with panning
- * @param {TODO} canvas TODO
- * @param {TODO} sky_background TODO
- * @returns canvas
+ * @param {HTMLCanvasElement} canvas
+ * @param {Background} sky_background 
+ * @returns cameraOffset
  * Reference: https://codepen.io/chengarda/pen/wRxoyB
  */
 function setCanvasPanning(canvas, sky_background) {
-  let ctx = canvas.getContext("2d");
+  // User's view point, use it to move the skymap
   let cameraOffset = { x: 0, y: 0 };
 
-  // Panning
+  // Hook even listener for panning event
   canvas.addEventListener("mousedown", onPointerDown);
   canvas.addEventListener("touchstart", (e) => handleTouch(e, onPointerDown));
   canvas.addEventListener("mouseup", onPointerUp);
@@ -134,6 +137,7 @@ function setCanvasPanning(canvas, sky_background) {
   let isDragging = false;
   let dragStart = { x: 0, y: 0 };
 
+  // Mouse down to start dragging
   function onPointerDown(e) {
     isDragging = true;
     dragStart.x = getEventLocation(e).x - cameraOffset.x;
@@ -141,11 +145,13 @@ function setCanvasPanning(canvas, sky_background) {
     canvas.style.cursor = "grabbing";
   }
 
+  // Mouse up to stop dragging
   function onPointerUp(e) {
     isDragging = false;
     canvas.style.cursor = "grab";
   }
 
+  // Mouse move to drag if is dragging
   function onPointerMove(e) {
     if (isDragging && getEventLocation(e)) {
       cameraOffset.x = getEventLocation(e).x - dragStart.x;
@@ -163,18 +169,25 @@ function setCanvasPanning(canvas, sky_background) {
     }
   }
 
+  // Touch event for mobile version
   function handleTouch(e, singleTouchHandler) {
     if (e.touches.length == 1) {
       singleTouchHandler(e);
     } else if (e.type == "touchmove" && e.touches.length == 2) {
       isDragging = false;
-      handlePinch(e);
     }
   }
 
   return cameraOffset;
 }
 
+/**
+ * Handle click when the user click on the canvas to trigger the
+ * star click and count the total if clicked on the star.
+ * @param {Event} event 
+ * @param {Constellation} constellation_arr 
+ * @param {Background} sky_background 
+ */
 function handleClickCanvas(event, constellation_arr, sky_background) {
   let canvas = document.querySelector("canvas");
   let rect = canvas.getBoundingClientRect();
@@ -182,11 +195,12 @@ function handleClickCanvas(event, constellation_arr, sky_background) {
   let y = event.clientY - rect.y;
   let total = 0; //Keep track of total stars selected
 
+  // Click on the star and increment constellation counter of the selected star
   for (const constellation of constellation_arr) {
     constellation.click(x, y);
     total += constellation.selected_number;
   }
-  //If 5 stars are selected, start calculating which constellation has the most stars.
+  // If 5 stars are selected, start calculating which constellation has the most stars.
   if (total == 5) {
     decideConstellation(constellation_arr, sky_background);
     canvas.style.pointerEvents = "none";
@@ -198,15 +212,21 @@ function handleClickCanvas(event, constellation_arr, sky_background) {
   for (const constellation of constellation_arr) {
     ratios[constellation.name] = constellation.selected_ratio;
   }
-  console.log(ratios);
+  if(debug) {
+    console.log(ratios);
+  }
 }
 
-// Decide which constellation is selected based on most stars selected;
+/** 
+ * Decide which constellation is selected based on most stars selected
+ */ 
 function decideConstellation(constellation_arr, sky_background) {
   let numStar = constellation_arr[0].selected_number;
   let finalConstellation = constellation_arr[0];
   let index = 0;
 
+  // loop though all the constellation and to selected
+  // the final constellation if 5 stars are selected
   for (const constellation of constellation_arr) {
     if (constellation.selected_number > numStar) {
       numStar = constellation.selected_number;
@@ -214,10 +234,15 @@ function decideConstellation(constellation_arr, sky_background) {
       index = constellation_arr.indexOf(constellation);
     }
   }
-  console.log(finalConstellation.name);
+
+  // ----- DEBUG -----
+  if(debug) {
+    console.log(finalConstellation.name);
+  }
 
   // Connect final constellation stars
   constellation_arr[index].connectAll();
+
   // Show final constellation image
   sky_background.load_image(
     finalConstellation,
@@ -227,17 +252,19 @@ function decideConstellation(constellation_arr, sky_background) {
       )
     ].imageLink
   );
+
   // Show button to next page
   document.getElementById("next-button").classList.remove("hidden");
-  // Record the result
+
+  // Record the result to the local storage
   finalConstellation.setChosen(true);
   localStorage.setItem("chosenConstellation", finalConstellation.name);
 }
 
-// Animation Loop
+/**
+ * Animation loop to update the skymap
+ */
 function animate(
-  user_x,
-  user_y,
   canvas,
   ctx,
   constellation_arr,
@@ -246,8 +273,6 @@ function animate(
 ) {
   requestAnimationFrame(() =>
     animate(
-      user_x,
-      user_y,
       canvas,
       ctx,
       constellation_arr,
@@ -272,17 +297,21 @@ function goToPage() {
   window.location.href = "../explanation_page/explanation.html";
 }
 
-// helper function to load json data
+/**
+ * Helper function to load json data for constellation and stars
+ * @return { cloc, connect }
+ */
 async function loadJsonData() {
   const clocResponse = await fetch("./constellation_location.json");
-
   const cloc = await clocResponse.json();
-
   const connectResponse = await fetch("./connected_stars_pair.json");
   const connect = await connectResponse.json();
   return { cloc, connect };
 }
 
+/**
+ * Set up the tutorial dialog
+ */
 function tutorialSetup() {
   let gotIt = document.getElementById("confirm");
   let tutorial = document.getElementById("tutorial");
