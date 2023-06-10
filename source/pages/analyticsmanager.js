@@ -219,7 +219,7 @@ function defaultPageAnalytics(pageName, status) {
    * Error tracker for page analytics
    */
   window.addEventListener("error", (event) => {
-    analyticsManager.addSessionError(
+    addSessionError(
       pageName,
       event.error.name,
       event.error.message,
