@@ -7,7 +7,6 @@ describe("Skymap Usability Test", () => {
   let upY;
   let downY;
 
-
   beforeAll(async () => {
     await page.goto(
       "http://127.0.0.1:8080/source/pages/skymap_page/skymap.html"
@@ -15,10 +14,10 @@ describe("Skymap Usability Test", () => {
     ratio = await setRatio();
   });
 
-  async function modifiedClick(x, y){
+  async function modifiedClick(x, y) {
     //First drag the screen so that x and y are within the viewport size.
-    if (x <= leftX){
-      while (x <= leftX){
+    if (x <= leftX) {
+      while (x <= leftX) {
         await page.mouse.move(100, 50);
         await page.mouse.down();
         await page.mouse.move(200, 50);
@@ -26,8 +25,8 @@ describe("Skymap Usability Test", () => {
         leftX = leftX - 100;
         rightX = rightX - 100;
       }
-    }else if (x >= rightX){
-      while (x >= rightX){
+    } else if (x >= rightX) {
+      while (x >= rightX) {
         await page.mouse.move(200, 50);
         await page.mouse.down();
         await page.mouse.move(100, 50);
@@ -36,9 +35,9 @@ describe("Skymap Usability Test", () => {
         rightX = rightX + 100;
       }
     }
-    if (y >= downY){
+    if (y >= downY) {
       //if y is below the screen
-      while (y >= downY){
+      while (y >= downY) {
         await page.mouse.move(50, 200);
         await page.mouse.down();
         await page.mouse.move(50, 100);
@@ -46,15 +45,15 @@ describe("Skymap Usability Test", () => {
         upY = upY + 100;
         downY = downY + 100;
       }
-    }else if (y <= upY){
+    } else if (y <= upY) {
       //if y is above the screen
-      while (y <= upY){
+      while (y <= upY) {
         await page.mouse.move(50, 100);
         await page.mouse.down();
         await page.mouse.move(50, 200);
         await page.mouse.up();
         upY = upY - 100;
-        downY = downY -100;
+        downY = downY - 100;
       }
     }
     await page.mouse.click(x - leftX, y - upY);
@@ -65,7 +64,7 @@ describe("Skymap Usability Test", () => {
     let defaultHeight = 1080;
     let window = await page.viewport();
     screenWidth = window.width;
-    screenHeight = window.height; 
+    screenHeight = window.height;
     leftX = 0;
     rightX = screenWidth;
     upY = 0;
@@ -78,10 +77,10 @@ describe("Skymap Usability Test", () => {
     );
   }
 
-  async function resetXY(){
+  async function resetXY() {
     let window = await page.viewport();
     screenWidth = window.width;
-    screenHeight = window.height; 
+    screenHeight = window.height;
     leftX = 0;
     rightX = screenWidth;
     upY = 0;
@@ -134,8 +133,8 @@ describe("Skymap Usability Test", () => {
     });
     expect(item).toBe("Canis Major");
   });
-  
-  it('Clicking stars for Ophiuchus and check the result', async () =>{
+
+  it("Clicking stars for Ophiuchus and check the result", async () => {
     await page.reload();
     const confirmButton = await page.$("#confirm");
     await confirmButton.click();
@@ -144,16 +143,18 @@ describe("Skymap Usability Test", () => {
     await page.mouse.click(231 * ratio, 213 * ratio);
     await page.mouse.click(242 * ratio, 128 * ratio);
     await page.mouse.click(214 * ratio, 223 * ratio);
-    const nextButtonClassList = await page.$eval('#next-button', button => Array.from(button.classList));
+    const nextButtonClassList = await page.$eval("#next-button", (button) =>
+      Array.from(button.classList)
+    );
     expect(nextButtonClassList.includes("hidden")).toBe(false);
     const item = await page.evaluate(() => {
       // Access the localStorage item
-      return localStorage.getItem('chosenConstellation');
+      return localStorage.getItem("chosenConstellation");
     });
-    expect(item).toBe('Ophiuchus');
+    expect(item).toBe("Ophiuchus");
   });
 
-  it('Clicking stars for Ophiuchus, and also de-select the stars for some times, and check the result', async () =>{
+  it("Clicking stars for Ophiuchus, and also de-select the stars for some times, and check the result", async () => {
     await page.reload();
     const confirmButton = await page.$("#confirm");
     await confirmButton.click();
@@ -163,20 +164,24 @@ describe("Skymap Usability Test", () => {
     await page.mouse.click(231 * ratio, 213 * ratio);
     await page.mouse.click(242 * ratio, 128 * ratio);
     await page.mouse.click(214 * ratio, 223 * ratio);
-    let nextButtonClassList = await page.$eval('#next-button', button => Array.from(button.classList));
+    let nextButtonClassList = await page.$eval("#next-button", (button) =>
+      Array.from(button.classList)
+    );
     expect(nextButtonClassList.includes("hidden")).toBe(true);
     await page.mouse.click(276 * ratio, 82 * ratio);
-    nextButtonClassList = await page.$eval('#next-button', button => Array.from(button.classList));
+    nextButtonClassList = await page.$eval("#next-button", (button) =>
+      Array.from(button.classList)
+    );
     expect(nextButtonClassList.includes("hidden")).toBe(false);
     const item = await page.evaluate(() => {
       // Access the localStorage item
-      return localStorage.getItem('chosenConstellation');
+      return localStorage.getItem("chosenConstellation");
     });
-    expect(item).toBe('Ophiuchus');
+    expect(item).toBe("Ophiuchus");
   });
 
   //This test can be used by itself, without any other modifying function
-  it('Clicking stars for Crux and check the result', async () =>{
+  it("Clicking stars for Crux and check the result", async () => {
     await page.reload();
     const confirmButton = await page.$("#confirm");
     await confirmButton.click();
@@ -197,16 +202,18 @@ describe("Skymap Usability Test", () => {
     await page.mouse.click(718 * ratio - 800, 112 * ratio - 100);
     await page.mouse.click(587 * ratio - 800, 204 * ratio - 100);
     await page.mouse.click(793 * ratio - 800, 255 * ratio - 100);
-    const nextButtonClassList = await page.$eval('#next-button', button => Array.from(button.classList));
+    const nextButtonClassList = await page.$eval("#next-button", (button) =>
+      Array.from(button.classList)
+    );
     expect(nextButtonClassList.includes("hidden")).toBe(false);
     const item = await page.evaluate(() => {
       // Access the localStorage item
-      return localStorage.getItem('chosenConstellation');
+      return localStorage.getItem("chosenConstellation");
     });
-    expect(item).toBe('Crux');
+    expect(item).toBe("Crux");
   });
 
-  it('Clicking stars for Orion and check the result', async () =>{
+  it("Clicking stars for Orion and check the result", async () => {
     await page.reload();
     const confirmButton = await page.$("#confirm");
     await confirmButton.click();
@@ -215,17 +222,19 @@ describe("Skymap Usability Test", () => {
     await modifiedClick(1136 * ratio, 249 * ratio);
     await modifiedClick(1242 * ratio, 241 * ratio);
     await modifiedClick(1247 * ratio, 212 * ratio);
-    const nextButtonClassList = await page.$eval('#next-button', button => Array.from(button.classList));
+    const nextButtonClassList = await page.$eval("#next-button", (button) =>
+      Array.from(button.classList)
+    );
     expect(nextButtonClassList.includes("hidden")).toBe(false);
     const item = await page.evaluate(() => {
       // Access the localStorage item
-      return localStorage.getItem('chosenConstellation');
+      return localStorage.getItem("chosenConstellation");
     });
-    expect(item).toBe('Orion');
+    expect(item).toBe("Orion");
     resetXY();
   });
 
-  it('Clicking stars for Armadillo Dragon and check the result', async () =>{
+  it("Clicking stars for Armadillo Dragon and check the result", async () => {
     await page.reload();
     const confirmButton = await page.$("#confirm");
     await confirmButton.click();
@@ -234,17 +243,19 @@ describe("Skymap Usability Test", () => {
     await modifiedClick(1640 * ratio, 563 * ratio);
     await modifiedClick(1463 * ratio, 430 * ratio);
     await modifiedClick(1247 * ratio, 212 * ratio);
-    const nextButtonClassList = await page.$eval('#next-button', button => Array.from(button.classList));
+    const nextButtonClassList = await page.$eval("#next-button", (button) =>
+      Array.from(button.classList)
+    );
     expect(nextButtonClassList.includes("hidden")).toBe(false);
     const item = await page.evaluate(() => {
       // Access the localStorage item
-      return localStorage.getItem('chosenConstellation');
+      return localStorage.getItem("chosenConstellation");
     });
-    expect(item).toBe('Armadillo Dragon');
+    expect(item).toBe("ArmadilloDragon");
     resetXY();
   });
   //This test attempts to use the modifying function.
-  it('Clicking stars for Aries and check the result', async () =>{
+  it("Clicking stars for Aries and check the result", async () => {
     await page.reload();
     const confirmButton = await page.$("#confirm");
     await confirmButton.click();
@@ -253,17 +264,19 @@ describe("Skymap Usability Test", () => {
     await modifiedClick(1602 * ratio, 166 * ratio);
     await modifiedClick(1651 * ratio, 210 * ratio);
     await modifiedClick(1285 * ratio, 225 * ratio);
-    const nextButtonClassList = await page.$eval('#next-button', button => Array.from(button.classList));
+    const nextButtonClassList = await page.$eval("#next-button", (button) =>
+      Array.from(button.classList)
+    );
     expect(nextButtonClassList.includes("hidden")).toBe(false);
     const item = await page.evaluate(() => {
       // Access the localStorage item
-      return localStorage.getItem('chosenConstellation');
+      return localStorage.getItem("chosenConstellation");
     });
-    expect(item).toBe('Aries');
+    expect(item).toBe("Aries");
     resetXY();
   });
 
-  it('Clicking stars for Carnia and check the result', async() =>{
+  it("Clicking stars for Carnia and check the result", async () => {
     await page.reload();
     const confirmButton = await page.$("#confirm");
     await confirmButton.click();
@@ -272,17 +285,19 @@ describe("Skymap Usability Test", () => {
     await modifiedClick(1135 * ratio, 367 * ratio);
     await modifiedClick(983 * ratio, 377 * ratio);
     await modifiedClick(1029 * ratio, 245 * ratio);
-    const nextButtonClassList = await page.$eval('#next-button', button => Array.from(button.classList));
+    const nextButtonClassList = await page.$eval("#next-button", (button) =>
+      Array.from(button.classList)
+    );
     expect(nextButtonClassList.includes("hidden")).toBe(false);
     const item = await page.evaluate(() => {
       // Access the localStorage item
-      return localStorage.getItem('chosenConstellation');
+      return localStorage.getItem("chosenConstellation");
     });
-    expect(item).toBe('Carnia');
+    expect(item).toBe("Carnia");
     resetXY();
   });
 
-  it('Clicking stars for Ursa Major and check the result', async() =>{
+  it("Clicking stars for Ursa Major and check the result", async () => {
     await page.reload();
     const confirmButton = await page.$("#confirm");
     await confirmButton.click();
@@ -291,13 +306,15 @@ describe("Skymap Usability Test", () => {
     await modifiedClick(1415 * ratio, 190 * ratio);
     await modifiedClick(1348 * ratio, 373 * ratio);
     await modifiedClick(1450 * ratio, 287 * ratio);
-    const nextButtonClassList = await page.$eval('#next-button', button => Array.from(button.classList));
+    const nextButtonClassList = await page.$eval("#next-button", (button) =>
+      Array.from(button.classList)
+    );
     expect(nextButtonClassList.includes("hidden")).toBe(false);
     const item = await page.evaluate(() => {
       // Access the localStorage item
-      return localStorage.getItem('chosenConstellation');
+      return localStorage.getItem("chosenConstellation");
     });
-    expect(item).toBe('Ursa Major');
+    expect(item).toBe("UrsaMajor");
     resetXY();
   });
 });
