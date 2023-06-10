@@ -19,7 +19,7 @@ let constellationList = [
     imageLink: "../../assets/pictures/constellations/Orion.png",
   },
   {
-    name: "ArmadilloDragon",
+    name: "Armadillo Dragon",
     imageLink: "../../assets/pictures/constellations/ArmadilloDragon.png",
   },
   {
@@ -31,7 +31,7 @@ let constellationList = [
     imageLink: "../../assets/pictures/constellations/Ophiuchus.png",
   },
   {
-    name: "UrsaMajor",
+    name: "Ursa Major",
     imageLink: "../../assets/pictures/constellations/UrsaMajor.png",
   },
 ];

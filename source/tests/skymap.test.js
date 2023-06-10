@@ -251,7 +251,7 @@ describe("Skymap Usability Test", () => {
       // Access the localStorage item
       return localStorage.getItem("chosenConstellation");
     });
-    expect(item).toBe("ArmadilloDragon");
+    expect(item).toBe("Armadillo Dragon");
     resetXY();
   });
   //This test attempts to use the modifying function.
@@ -314,7 +314,7 @@ describe("Skymap Usability Test", () => {
       // Access the localStorage item
       return localStorage.getItem("chosenConstellation");
     });
-    expect(item).toBe("UrsaMajor");
+    expect(item).toBe("Ursa Major");
     resetXY();
   });
 });
