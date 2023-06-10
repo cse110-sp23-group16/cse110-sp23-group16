@@ -1,7 +1,7 @@
 describe("Landing Page Tests", () => {
   beforeAll(async () => {
     await page.goto(
-      "http://127.0.0.1:5500/source/pages/landing_page/landing.html"
+      "http://127.0.0.1:8080/source/pages/landing_page/landing.html"
     );
   });
 
@@ -28,7 +28,7 @@ describe("Landing Page Tests", () => {
     // should be in skymap page
     const pageURL = await page.url();
     expect(pageURL).toBe(
-      "http://127.0.0.1:5500/source/pages/skymap_page/skymap.html"
+      "http://127.0.0.1:8080/source/pages/skymap_page/skymap.html"
     );
 
     // Check local storage
@@ -50,13 +50,13 @@ describe("Landing Page Tests", () => {
   it("Check if chosen constellation in local storage is Canis Major, click next to go to response page", async () => {
     // manually go to explanation page
     await page.goto(
-      "http://127.0.0.1:5500/source/pages/explanation_page/explanation.html"
+      "http://127.0.0.1:8080/source/pages/explanation_page/explanation.html"
     );
 
     // check if page is explanation page
     const pageURL = await page.url();
     expect(pageURL).toBe(
-      "http://127.0.0.1:5500/source/pages/explanation_page/explanation.html"
+      "http://127.0.0.1:8080/source/pages/explanation_page/explanation.html"
     );
 
     // get chosen constellation from local storage
@@ -82,7 +82,7 @@ describe("Landing Page Tests", () => {
     // check if on response page
     const pageURL = await page.url();
     expect(pageURL).toBe(
-      "http://127.0.0.1:5500/source/pages/response_page/response.html"
+      "http://127.0.0.1:8080/source/pages/response_page/response.html"
     );
 
     // click see result button
@@ -106,7 +106,7 @@ describe("Landing Page Tests", () => {
     // check if on thank you page
     const pageURL = await page.url();
     expect(pageURL).toBe(
-      "http://127.0.0.1:5500/source/pages/thankyou_page/thankyou.html"
+      "http://127.0.0.1:8080/source/pages/thankyou_page/thankyou.html"
     );
 
     const homeButton = await page.$("button");
@@ -115,14 +115,14 @@ describe("Landing Page Tests", () => {
 
     const landingURL = await page.url();
     expect(landingURL).toBe(
-      "http://127.0.0.1:5500/source/pages/landing_page/landing.html"
+      "http://127.0.0.1:8080/source/pages/landing_page/landing.html"
     );
   });
 
   it("Click start, click relationships, click next, local storage should be relationship", async () => {
     //await page.reload();
     await page.goto(
-      "http://127.0.0.1:5500/source/pages/landing_page/landing.html"
+      "http://127.0.0.1:8080/source/pages/landing_page/landing.html"
     );
 
     // Reset the page
@@ -147,7 +147,7 @@ describe("Landing Page Tests", () => {
     // should be in skymap page
     const pageURL = await page.url();
     expect(pageURL).toBe(
-      "http://127.0.0.1:5500/source/pages/skymap_page/skymap.html"
+      "http://127.0.0.1:8080/source/pages/skymap_page/skymap.html"
     );
 
     // Check local storage
@@ -170,13 +170,13 @@ describe("Landing Page Tests", () => {
   it("Check if chosen constellation in local storage is Orion, click next to go to response page", async () => {
     // manually go to explanation page
     await page.goto(
-      "http://127.0.0.1:5500/source/pages/explanation_page/explanation.html"
+      "http://127.0.0.1:8080/source/pages/explanation_page/explanation.html"
     );
 
     // check if page is explanation page
     const pageURL = await page.url();
     expect(pageURL).toBe(
-      "http://127.0.0.1:5500/source/pages/explanation_page/explanation.html"
+      "http://127.0.0.1:8080/source/pages/explanation_page/explanation.html"
     );
 
     // get chosen constellation from local storage
@@ -202,7 +202,7 @@ describe("Landing Page Tests", () => {
     //check if on response page
     const pageURL = await page.url();
     expect(pageURL).toBe(
-      "http://127.0.0.1:5500/source/pages/response_page/response.html"
+      "http://127.0.0.1:8080/source/pages/response_page/response.html"
     );
 
     //click to see result button
@@ -226,7 +226,7 @@ describe("Landing Page Tests", () => {
     //check if on thank you page
     const pageURL = await page.url();
     expect(pageURL).toBe(
-      "http://127.0.0.1:5500/source/pages/thankyou_page/thankyou.html"
+      "http://127.0.0.1:8080/source/pages/thankyou_page/thankyou.html"
     );
 
     const homeButton = await page.$("button");
@@ -235,7 +235,7 @@ describe("Landing Page Tests", () => {
 
     const landingURL = await page.url();
     expect(landingURL).toBe(
-      "http://127.0.0.1:5500/source/pages/landing_page/landing.html"
+      "http://127.0.0.1:8080/source/pages/landing_page/landing.html"
     );
   });
 });
