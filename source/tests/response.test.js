@@ -10,7 +10,7 @@ describe("toggleText", () => {
       "http://127.0.0.1:8080/source/pages/response_page/response.html"
     );
   });
-  it("should hide the triggering button and display the fortune teller response", async () => {
+  it("checking button functions", async () => {
     await page.evaluate(() => {
       localStorage.setItem("questionType", "health");
       localStorage.setItem("chosenConstellation", "Aries");
@@ -37,10 +37,7 @@ describe("toggleText", () => {
       el.classList.contains("hidden")
     );
     expect(nextPageButtonClass).toBe(false);
-  });
 
-  it("should redirect to the thank you page when called", async () => {
-    // Call goToPage
     await page.evaluate(() => {
       goToPage();
     });
