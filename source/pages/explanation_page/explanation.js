@@ -64,6 +64,9 @@ let constellationList = [
 
 let synth;
 window.addEventListener("DOMContentLoaded", init);
+/**
+ * Retrieves info from previous page
+ */
 function init() {
   initializeConstellation();
   // get chosen voice from localstorage
@@ -82,6 +85,9 @@ function init() {
   }
 }
 
+/**
+ * Initialize the info from the previuos page
+ */
 function initializeConstellation() {
   // get chosen constellation from localStorage
   const chosenConstellationName = localStorage.getItem("chosenConstellation");
@@ -112,12 +118,18 @@ continueButton.addEventListener("click", function () {
 
 new setShootingStars(document);
 stopTalkWhenReload();
+/**
+ * voiceover stops when page reloaded/goes to previuos page.
+ */
 function stopTalkWhenReload() {
   //These event listeners stop the voicing when user reload or navigate back to previous page.
   window.addEventListener("beforeunload", stopSpeechSynthesis);
   window.addEventListener("unload", stopSpeechSynthesis);
 }
 
+/**
+ * stops speech
+ */
 function stopSpeechSynthesis() {
   if (synth.speaking) {
     synth.cancel();
