@@ -10,7 +10,7 @@ describe("Google Sanity Check Test Case", () => {
 
 describe("Website Load Check", () => {
     beforeAll(async () => {
-        await page.goto("http://127.0.0.1:5500/source/pages/landing_page/landing.html");
+        await page.goto("http://127.0.0.1:8080/source/pages/landing_page/landing.html");
     });
 
     it("should be titled ", async () => {
@@ -20,7 +20,7 @@ describe("Website Load Check", () => {
 
 describe("Landing Page Tests", () => {
     beforeAll(async () => {
-      await page.goto("http://127.0.0.1:5500/source/pages/landing_page/landing.html");
+      await page.goto("http://127.0.0.1:8080/source/pages/landing_page/landing.html");
     });
   
     it("Click start, click health, click next, local storage should be health", async () => {
@@ -32,7 +32,7 @@ describe("Landing Page Tests", () => {
   
       // check if page is landing page
       const landingURL = await page.url();
-      expect(landingURL).toBe("http://127.0.0.1:5500/source/pages/landing_page/landing.html");
+      expect(landingURL).toBe("http://127.0.0.1:8080/source/pages/landing_page/landing.html");
 
       // Navigate through the landing page to get to skymap
       const startbutton = await page.$("#start-button");
@@ -61,14 +61,14 @@ describe("Landing Page Tests", () => {
 
       // check if page is skymap page
       const skymapURL = await page.url();
-      expect(skymapURL).toBe("http://127.0.0.1:5500/source/pages/skymap_page/skymap.html");
+      expect(skymapURL).toBe("http://127.0.0.1:8080/source/pages/skymap_page/skymap.html");
     });
 
     it("Click start, click health, click next, local storage should be health", async () => {
 
         // check if page is skymap page
         const skymapURL = await page.url();
-        expect(skymapURL).toBe("http://127.0.0.1:5500/source/pages/skymap_page/skymap.html");
+        expect(skymapURL).toBe("http://127.0.0.1:8080/source/pages/skymap_page/skymap.html");
         
         // Navigate through the landing page to get to skymap
         /*
@@ -95,11 +95,11 @@ describe("Landing Page Tests", () => {
     });
 
     it("Check if chosen constellation in local storage is Canis Major, click next to go to response page", async () => {
-        await page.goto("http://127.0.0.1:5500/source/pages/explanation_page/explanation.html");
+        await page.goto("http://127.0.0.1:8080/source/pages/explanation_page/explanation.html");
 
         // check if page is explanation page
         const pageURL = await page.url();
-        expect(pageURL).toBe("http://127.0.0.1:5500/source/pages/explanation_page/explanation.html");
+        expect(pageURL).toBe("http://127.0.0.1:8080/source/pages/explanation_page/explanation.html");
     
         // Check local storage
         const questiontype = await page.evaluate(() => {
@@ -148,7 +148,7 @@ describe("Landing Page Tests", () => {
 
         // check if page is response page
         const responseURL = await page.url();
-        expect(responseURL).toBe("http://127.0.0.1:5500/source/pages/response_page/response.html");
+        expect(responseURL).toBe("http://127.0.0.1:8080/source/pages/response_page/response.html");
     });
 
     it("Click see result, click to next page", async () => {   
@@ -171,19 +171,19 @@ describe("Landing Page Tests", () => {
 
         // check if on thank you page
         const thankyouURL = await page.url();
-        expect(thankyouURL).toBe("http://127.0.0.1:5500/source/pages/thankyou_page/thankyou.html");
+        expect(thankyouURL).toBe("http://127.0.0.1:8080/source/pages/thankyou_page/thankyou.html");
     });
 
     it("Click Home to go back to landing page", async () => {
         // check if on thank you page
         const thankyouURL = await page.url();
-        expect(thankyouURL).toBe("http://127.0.0.1:5500/source/pages/thankyou_page/thankyou.html");
+        expect(thankyouURL).toBe("http://127.0.0.1:8080/source/pages/thankyou_page/thankyou.html");
     
         const homeButton = await page.$('button');
         await homeButton.click();
         await page.waitForTimeout(100);
     
         const landingURL = await page.url();
-        expect(landingURL).toBe("http://127.0.0.1:5500/source/pages/landing_page/landing.html");
+        expect(landingURL).toBe("http://127.0.0.1:8080/source/pages/landing_page/landing.html");
     });
 });
