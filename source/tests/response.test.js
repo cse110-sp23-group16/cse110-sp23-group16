@@ -44,8 +44,8 @@ describe("toggleText", () => {
     );
     expect(nextPageButtonClass).toBe(false);
 
-    // Assert that the text content is displayed correctly
-    const textContent = await page.$eval("#hiddenText", (el) => el.textContent);
-    expect(textContent.trim()).not.toBe("");
+    // Assert that the text content is not empty
+    const textContent = await page.$eval('#hiddenText', (el) => el.textContent);
+    expect(textContent.trim() !== '').toBe(true);
   });
 });
