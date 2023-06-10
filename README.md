@@ -6,7 +6,7 @@ This application is Team 16's project for Professor Powell's Spring 2023 CSE-110
 
 # STARGAZER
 
-### Current Release: v0.2.0
+### Current Release: v0.3.0
 
 Curious about your future? Interested in finding the truth among the stars? Stargazer provides a one-of-a-kind experience at the intersection of fortune-telling and constellation-reading. Let the stars be your guide, and learn what the future has in store for you!
 
@@ -25,7 +25,7 @@ View our current [release history](https://github.com/cse110-sp23-group16/cse110
 
 ### Roadmap
 
-View our plans for the future.
+View our plans for the future [here](https://github.com/cse110-sp23-group16/cse110-sp23-group16/blob/main/roadmap.md).
 
 ### Changelog
 
