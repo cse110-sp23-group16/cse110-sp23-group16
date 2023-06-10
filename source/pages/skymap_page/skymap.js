@@ -281,7 +281,7 @@ function goToPage() {
 
 /**
  * Helper function to load json data for constellation and stars
- * @return { cloc, connect }
+ * @return cloc, connect
  */
 async function loadJsonData() {
   const clocResponse = await fetch("./constellation_location.json");
