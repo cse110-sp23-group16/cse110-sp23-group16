@@ -23,7 +23,7 @@ let constellationList = [
     imageLink: "../../assets/pictures/constellations/ArmadilloDragon.png",
   },
   {
-    name: "Carnia",
+    name: "Carina",
     imageLink: "../../assets/pictures/constellations/Carnia.png",
   },
   {

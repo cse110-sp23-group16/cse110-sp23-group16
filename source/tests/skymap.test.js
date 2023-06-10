@@ -276,7 +276,7 @@ describe("Skymap Usability Test", () => {
     resetXY();
   });
 
-  it("Clicking stars for Carnia and check the result", async () => {
+  it("Clicking stars for Carina and check the result", async () => {
     await page.reload();
     const confirmButton = await page.$("#confirm");
     await confirmButton.click();
@@ -293,7 +293,7 @@ describe("Skymap Usability Test", () => {
       // Access the localStorage item
       return localStorage.getItem("chosenConstellation");
     });
-    expect(item).toBe("Carnia");
+    expect(item).toBe("Carina");
     resetXY();
   });
 
