@@ -1,5 +1,10 @@
 import { setShootingStars } from "../shootingStar.js";
 
+import * as analyticsManager from "../analyticsmanager.js";
+const analyticsPageName = "explanation";
+const analyticsStatus = 1;
+analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
+
 // array of constellations - name, description, constellation image link, myth image link
 let constellationList = [
   {
