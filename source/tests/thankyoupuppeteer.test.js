@@ -1,7 +1,7 @@
 describe("Thank You Page Tests", () => {
   beforeAll(async () => {
     await page.goto(
-      "http://127.0.0.1:5500/source/pages/thankyou_page/thankyou.html"
+      "http://127.0.0.1:8080/source/pages/thankyou_page/thankyou.html"
     );
   });
 
@@ -9,7 +9,7 @@ describe("Thank You Page Tests", () => {
     // check if on thank you page
     const thankyouURL = await page.url();
     expect(thankyouURL).toBe(
-      "http://127.0.0.1:5500/source/pages/thankyou_page/thankyou.html"
+      "http://127.0.0.1:8080/source/pages/thankyou_page/thankyou.html"
     );
 
     // click on home button
@@ -19,7 +19,7 @@ describe("Thank You Page Tests", () => {
 
     const landingURL = await page.url();
     expect(landingURL).toBe(
-      "http://127.0.0.1:5500/source/pages/landing_page/landing.html"
+      "http://127.0.0.1:8080/source/pages/landing_page/landing.html"
     );
   });
 });
