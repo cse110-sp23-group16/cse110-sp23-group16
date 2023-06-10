@@ -1,8 +1,9 @@
+import * as analyticsManager from '../analyticsmanager.js';
+const analyticsPageName = "landing";
+
 window.addEventListener("DOMContentLoaded", init);
 var selectedCategory = "";
 
-import * as analyticsManager from '../analyticsmanager.js';
-const analyticsPageName = "landing"
 /**
  * initialize function, called once whole DOM is parsed
  */
@@ -12,8 +13,9 @@ function init() {
   populateDropdown();
   initializeVoicing();
 
-  // Create a new session for analytics
+  // Create a new session for analytics, tag with page name
   analyticsManager.setEmptySession();
+  analyticsManager.setSessionExit(analyticsPageName);
   
   // Hide continue button
   const continueButton = document.getElementById("continue-button");
@@ -135,45 +137,6 @@ function toSkyMapPage() {
   console.log(selectedCategory);
 }
 
-/**
- * Start time tracker on initial dom content load
- */
-var startTime;
-document.addEventListener("DOMContentLoaded", () => {
-  startTime = new Date();
-  console.log("Starting time");
-})
-
-document.addEventListener("beforeunload", () => {
-  console.log("Posting");
-  const endTime = new Date();
-  analyticsManager.addSessionPageTime(analyticsPageName, endTime.getTime() - startTime.getTime());
-  analyticsManager.sessionPOST();
-})
-
-/**
- * Listen for visibility changes for end time and push, or start time
- * again
- */
-document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "visible") {
-    console.log("Restarting time");
-    startTime = new Date();
-  } else {
-    console.log("Posting");
-    const endTime = new Date();
-    analyticsManager.addSessionPageTime(analyticsPageName, endTime.getTime() - startTime.getTime());
-    analyticsManager.sessionPOST();
-  }
-})
-
-/**
- * Error tracker for page analytics
- */
-window.addEventListener("error", (event) => {
-  analyticsManager.addSessionError(analyticsPageName, event.error.name, event.error.message, event.error.stack);
-})
-
 function getCategory() {
   return QuestionCategories.Work;
 }
@@ -231,3 +194,43 @@ function initializeVoicing() {
     option.classList.toggle("hidden");
   });
 }
+
+/**
+ * Start time tracker on initial dom content load
+ */
+var startTime;
+document.addEventListener("DOMContentLoaded", () => {
+  startTime = new Date();
+  console.log("Starting time");
+})
+
+/**
+ * Listen for visibility changes or beforeunload for end time and 
+ * push session
+ */
+document.addEventListener("beforeunload", () => {
+  console.log("Posting");
+  const endTime = new Date();
+  analyticsManager.addSessionPageTime(analyticsPageName, endTime.getTime() - startTime.getTime());
+  analyticsManager.sessionPOST();
+})
+
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    // If it came back into visibility start a new time
+    console.log("Restarting time");
+    startTime = new Date();
+  } else {
+    console.log("Posting");
+    const endTime = new Date();
+    analyticsManager.addSessionPageTime(analyticsPageName, endTime.getTime() - startTime.getTime());
+    analyticsManager.sessionPOST();
+  }
+})
+
+/**
+ * Error tracker for page analytics
+ */
+window.addEventListener("error", (event) => {
+  analyticsManager.addSessionError(analyticsPageName, event.error.name, event.error.message, event.error.stack);
+})
