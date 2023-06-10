@@ -34,6 +34,11 @@ function init() {
   setCategoryEffect(relationshipButton, "relationship", relationshipIconURL);
   setCategoryEffect(careerButton, "career", carrerIconURL);
   setCategoryEffect(healthButton, "health", healthIconURL);
+
+  // Attach onclick to start and continue
+  const startButton = document.getElementById("start-button");
+  startButton.addEventListener("click", handleStart);
+  continueButton.addEventListener("click", toSkyMapPage);
 }
 
 /**
