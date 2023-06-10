@@ -77,20 +77,14 @@ async function init() {
     handleClickCanvas(event, constellation_arr, sky_background)
   );
   // Begin animation
-  animate(
-    canvas,
-    ctx,
-    constellation_arr,
-    sky_background,
-    cameraOffset
-  );
+  animate(canvas, ctx, constellation_arr, sky_background, cameraOffset);
   // Set next button to go to next page
   document.getElementById("next-button").onclick = goToPage;
 }
 
 /**
  * Calculate background ratio according to the user screen size
- * (2:1 of the screen size) 
+ * (2:1 of the screen size)
  */
 function setRatio() {
   let defaultWidth = 1920;
@@ -110,7 +104,7 @@ let ratio = setRatio();
 /**
  * Set up canvas with panning
  * @param {HTMLCanvasElement} canvas
- * @param {Background} sky_background 
+ * @param {Background} sky_background
  * @returns cameraOffset
  * Reference: https://codepen.io/chengarda/pen/wRxoyB
  */
@@ -184,9 +178,9 @@ function setCanvasPanning(canvas, sky_background) {
 /**
  * Handle click when the user click on the canvas to trigger the
  * star click and count the total if clicked on the star.
- * @param {Event} event 
- * @param {Constellation} constellation_arr 
- * @param {Background} sky_background 
+ * @param {Event} event
+ * @param {Constellation} constellation_arr
+ * @param {Background} sky_background
  */
 function handleClickCanvas(event, constellation_arr, sky_background) {
   let canvas = document.querySelector("canvas");
@@ -212,14 +206,14 @@ function handleClickCanvas(event, constellation_arr, sky_background) {
   for (const constellation of constellation_arr) {
     ratios[constellation.name] = constellation.selected_ratio;
   }
-  if(debug) {
+  if (debug) {
     console.log(ratios);
   }
 }
 
-/** 
+/**
  * Decide which constellation is selected based on most stars selected
- */ 
+ */
 function decideConstellation(constellation_arr, sky_background) {
   let numStar = constellation_arr[0].selected_number;
   let finalConstellation = constellation_arr[0];
@@ -236,7 +230,7 @@ function decideConstellation(constellation_arr, sky_background) {
   }
 
   // ----- DEBUG -----
-  if(debug) {
+  if (debug) {
     console.log(finalConstellation.name);
   }
 
@@ -264,21 +258,9 @@ function decideConstellation(constellation_arr, sky_background) {
 /**
  * Animation loop to update the skymap
  */
-function animate(
-  canvas,
-  ctx,
-  constellation_arr,
-  sky_background,
-  cameraOffset
-) {
+function animate(canvas, ctx, constellation_arr, sky_background, cameraOffset) {
   requestAnimationFrame(() =>
-    animate(
-      canvas,
-      ctx,
-      constellation_arr,
-      sky_background,
-      cameraOffset
-    )
+    animate(canvas, ctx, constellation_arr, sky_background, cameraOffset)
   );
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   sky_background.update(cameraOffset.x, cameraOffset.y, ratio);
