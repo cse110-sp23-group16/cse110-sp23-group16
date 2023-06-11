@@ -2,6 +2,7 @@ import * as analyticsManager from "../analyticsmanager.js";
 import { setShootingStars } from "../shootingStar.js";
 const analyticsPageName = "explanation";
 const analyticsStatus = 1;
+let synthExist;
 analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
 
 /**
@@ -90,7 +91,10 @@ function init() {
       utterance.voice = list[chosenVoice];
       utterance.text = document.getElementById("description").textContent;
       synth.speak(utterance);
+      synthExist = 1;
     });
+  }else{
+    synthExist = -1;
   }
 }
 
@@ -140,7 +144,7 @@ function stopTalkWhenReload() {
  * stops speech
  */
 function stopSpeechSynthesis() {
-  if (synth.speaking) {
+  if (synthExist == 1 && synth.speaking) {
     synth.cancel();
   }
 }

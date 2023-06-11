@@ -6,6 +6,7 @@ const analyticsStatus = 1;
 analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
 
 let synth;
+let synthExist;
 const categories = ["relationship", "career", "health", "daily"];
 const constellations = [
   "Crux",
@@ -139,10 +140,12 @@ function goToPage() {
 function speak(text) {
   const chosenVoice = localStorage.getItem("voiceChoice");
   if (chosenVoice == -1) {
+    synthExist = -1;
     return;
   }
   let utterance = new SpeechSynthesisUtterance();
   let list;
+  synthExist = 1;
   synth = window.speechSynthesis;
   synth.addEventListener("voiceschanged", () => {
     list = synth.getVoices();
@@ -177,7 +180,7 @@ window.addEventListener("load", function () {
 window.addEventListener("beforeunload", stopSpeechSynthesis);
 
 function stopSpeechSynthesis() {
-  if (synth.speaking) {
+  if (synthExist == 1 && synth.speaking) {
     synth.cancel();
   }
 }
