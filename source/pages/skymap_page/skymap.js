@@ -6,35 +6,35 @@ const debug = false;
 const constellationList = [
   {
     name: "Aries",
-    imageLink: "../../assets/pictures/constellations/Aries.png",
+    imageLink: "../../assets/constellations/Aries.png",
   },
   {
     name: "Canis Major",
-    imageLink: "../../assets/pictures/constellations/CanisMajor.png",
+    imageLink: "../../assets/constellations/CanisMajor.png",
   },
   {
     name: "Crux",
-    imageLink: "../../assets/pictures/constellations/Crux.png",
+    imageLink: "../../assets/constellations/Crux.png",
   },
   {
     name: "Orion",
-    imageLink: "../../assets/pictures/constellations/Orion.png",
+    imageLink: "../../assets/constellations/Orion.png",
   },
   {
     name: "Armadillo Dragon",
-    imageLink: "../../assets/pictures/constellations/ArmadilloDragon.png",
+    imageLink: "../../assets/constellations/ArmadilloDragon.png",
   },
   {
     name: "Carina",
-    imageLink: "../../assets/pictures/constellations/Carnia.png",
+    imageLink: "../../assets/constellations/Carnia.png",
   },
   {
     name: "Ophiuchus",
-    imageLink: "../../assets/pictures/constellations/Ophiuchus.png",
+    imageLink: "../../assets/constellations/Ophiuchus.png",
   },
   {
     name: "Ursa Major",
-    imageLink: "../../assets/pictures/constellations/Orion.png",
+    imageLink: "../../assets/constellations/Orion.png",
   },
 ];
 
