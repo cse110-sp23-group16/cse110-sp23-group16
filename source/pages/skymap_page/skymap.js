@@ -39,7 +39,7 @@ const constellationList = [
   },
   {
     name: "Ursa Major",
-    imageLink: "../../assets/constellations/Orion.png",
+    imageLink: "../../assets/constellations/UrsaMajor.png",
   },
 ];
 
