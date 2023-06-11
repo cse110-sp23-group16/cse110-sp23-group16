@@ -65,7 +65,7 @@ function setCategoryEffect(categoryButton, categoryName, iconURL) {
   categoryButton.addEventListener("click", function () {
     selectedCategory = categoryName;
     clickSound = document.getElementById("clickSound");
-    playClickSound(document, null, categoryName);
+    playClickSound(clickSound, selectedCategory);
     categoryIconSet.style.backgroundImage = `url(${iconURL})`;
     setSelection(categoryButton, continueButton);
   });
@@ -149,9 +149,10 @@ function toSkyMapPage() {
     tellerEffect.classList.add("transparent");
     // Go to next page
     playClickSound(
-      document,
-      () => (window.location.href = "../skymap_page/skymap.html"),
-      selectedCategory
+      clickSound,
+      selectedCategory,
+      backgroundMusic.currentTime,
+      () => (window.location.href = "../skymap_page/skymap.html")
     );
   });
   // Set category

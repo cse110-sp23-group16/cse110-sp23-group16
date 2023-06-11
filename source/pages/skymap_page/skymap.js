@@ -340,7 +340,9 @@ function animate(canvas, ctx, constellation_arr, sky_background, cameraOffset) {
  */
 function goToPage() {
   playClickSound(
-    document,
+    document.getElementById("clickSound"),
+    localStorage.getItem("questionType"),
+    backgroundMusic.currentTime,
     () => (window.location.href = "../explanation_page/explanation.html")
   );
 }
