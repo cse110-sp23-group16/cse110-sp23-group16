@@ -1,5 +1,5 @@
 import { setShootingStars } from "../shootingStar.js";
-
+import playClickSound from "../../utils/playClickSound.js";
 import * as analyticsManager from "../analyticsmanager.js";
 const analyticsPageName = "response";
 const analyticsStatus = 1;
@@ -14,7 +14,6 @@ const constellations = [
   "Orion",
   "Canis Major",
   "Ursa Major",
-  "Carina",
   "Carina",
   "Ophiuchus",
   "Armadillo Dragon",
@@ -135,9 +134,11 @@ function redirectToPage(url) {
 Once called, the window will be showing the thankyou page.
 */
 function goToPage() {
-  localStorage.setItem("musicPlayTime", backgroundMusic.currentTime);
+  const clickSound = document.getElementById("clickSound");
   playClickSound(
+    clickSound,
     localStorage.getItem("questionType"),
+    backgroundMusic.currentTime,
     () => (window.location.href = "../thankyou_page/thankyou.html")
   );
   stopSpeechSynthesis();
@@ -165,9 +166,13 @@ Main section rising up to its position (animated transition)
 */
 window.addEventListener("load", function () {
   // get the music play time of the last page from local storage, then play at that time
-  backgroundMusic = document.getElementById("background-music");
-  backgroundMusic.currentTime = localStorage.getItem("musicPlayTime");
-  backgroundMusic.play();
+  try {
+    backgroundMusic = document.getElementById("background-music");
+    backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
+    backgroundMusic.play();
+  } catch (e) {
+    console.error(e);
+  }
   var mainContent = document.querySelector("main");
   var desiredPosition = 0;
 
@@ -193,19 +198,4 @@ function stopSpeechSynthesis() {
   if (synthExist == 1 && synth.speaking) {
     synth.cancel();
   }
-}
-
-// play click sound, optional callback function to be called after sound ends
-function playClickSound(category, callback = null) {
-  console.log(category);
-  const categoryToSoundPath = {
-    daily: "../../assets/music/dailyClick.mp3",
-    relationship: "../../assets/music/relationshipClick.mp3",
-    career: "../../assets/music/careerClick.mp3",
-    health: "../../assets/music/healthClick.mp3",
-  };
-  const clickSound = document.getElementById("clickSound");
-  clickSound.src = categoryToSoundPath[category];
-  clickSound.onended = callback;
-  clickSound.play();
 }

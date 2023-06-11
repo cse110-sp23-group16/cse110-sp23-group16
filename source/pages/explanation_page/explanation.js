@@ -1,5 +1,7 @@
 import * as analyticsManager from "../analyticsmanager.js";
 import { setShootingStars } from "../shootingStar.js";
+import playClickSound from "../../utils/playClickSound.js";
+
 const analyticsPageName = "explanation";
 const analyticsStatus = 1;
 let synthExist;
@@ -80,9 +82,14 @@ window.addEventListener("DOMContentLoaded", init);
  */
 function init() {
   // get the music play time of the last page from local storage, then play at that time
-  backgroundMusic = document.getElementById("background-music");
-  backgroundMusic.currentTime = localStorage.getItem("musicPlayTime");
-  backgroundMusic.play();
+  try {
+    backgroundMusic = document.getElementById("background-music");
+    backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
+    backgroundMusic.play();
+  } catch (e) {
+    console.error(e);
+  }
+
   initializeConstellation();
   // get chosen voice from localstorage
   const chosenVoice = localStorage.getItem("voiceChoice");
@@ -130,9 +137,11 @@ function initializeConstellation() {
 
 const continueButton = document.getElementById("continue-button");
 continueButton.addEventListener("click", function () {
-  localStorage.setItem("musicPlayTime", backgroundMusic.currentTime);
+  const clickSound = document.getElementById("clickSound");
   playClickSound(
+    clickSound,
     localStorage.getItem("questionType"),
+    backgroundMusic.currentTime,
     () => (window.location.href = "../response_page/response.html")
   );
   stopSpeechSynthesis();
@@ -156,18 +165,4 @@ function stopSpeechSynthesis() {
   if (synthExist == 1 && synth.speaking) {
     synth.cancel();
   }
-}
-
-// play click sound, optional callback function to be called after sound ends
-function playClickSound(category, callback = null) {
-  const categoryToSoundPath = {
-    daily: "../../assets/music/dailyClick.mp3",
-    relationship: "../../assets/music/relationshipClick.mp3",
-    career: "../../assets/music/careerClick.mp3",
-    health: "../../assets/music/healthClick.mp3",
-  };
-  const clickSound = document.getElementById("clickSound");
-  clickSound.src = categoryToSoundPath[category];
-  clickSound.onended = callback;
-  clickSound.play();
 }

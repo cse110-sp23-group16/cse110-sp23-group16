@@ -1,5 +1,6 @@
 import { Background } from "./Background.js";
 import { Constellation } from "./Constellation.js";
+import playClickSound from "../../utils/playClickSound.js";
 
 import * as analyticsManager from "../analyticsmanager.js";
 const analyticsPageName = "skymap";
@@ -54,9 +55,14 @@ window.addEventListener("DOMContentLoaded", init);
  */
 async function init() {
   // get the music play time of the last page from local storage, then play at that time
-  backgroundMusic = document.getElementById("background-music");
-  backgroundMusic.currentTime = localStorage.getItem("musicPlayTime");
-  backgroundMusic.play();
+  try {
+    backgroundMusic = document.getElementById("background-music");
+    backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
+    backgroundMusic.play();
+  } catch (e) {
+    console.error(e);
+  }
+
   //Set up the tutorial dialog and buttons
   let dialog = document.querySelector("dialog");
   dialog.showModal();
@@ -243,36 +249,33 @@ function handleClickCanvas(event, constellation_arr, sky_background) {
 function zoomOutCanvas(finalConstellation) {
   // map constellation name to x-axis
   const constellation_xAxis = {
-    'Orion': -800,
-    'Crux': -500,
-    'Aries': -1300,
-    'Canis Major': -160,
-    'Ursa Major': -1400,
-    'Carina': -825,
-    'Ophiuchus': -90,
-    'Armadillo Dragon': -1425
-  }
+    Orion: -800,
+    Crux: -500,
+    Aries: -1300,
+    "Canis Major": -160,
+    "Ursa Major": -1400,
+    Carina: -825,
+    Ophiuchus: -90,
+    "Armadillo Dragon": -1425,
+  };
   const canvas = document.querySelector("canvas");
   ratio *= 0.5;
 
   cameraOffset.x = constellation_xAxis[finalConstellation.name];
-  cameraOffset.y = 0
+  cameraOffset.y = 0;
   cameraOffset.x =
     canvas.width - cameraOffset.x <= 1920 * ratio
       ? cameraOffset.x
-      : canvas.width - 1920 * ratio ;
+      : canvas.width - 1920 * ratio;
   cameraOffset.y =
     canvas.height - cameraOffset.y <= 1080
       ? cameraOffset.y
       : canvas.height - 1080 * rate;
 
-  // if (Math.abs(cameraOffset.x) + canvas.width > )
-
-  console.log('cam.x ', cameraOffset.x, 'cam.y ', cameraOffset.y);
-  console.log('canvaswidth ', canvas.width, 'canvasheight ', canvas.height);
-  constellation_arr.forEach((constellation) => constellation.updateRatio(ratio));
+  constellation_arr.forEach((constellation) =>
+    constellation.updateRatio(ratio)
+  );
 }
-
 
 // Decide which constellation is selected based on most stars selected;
 function decideConstellation(constellation_arr, sky_background) {
@@ -293,20 +296,14 @@ function decideConstellation(constellation_arr, sky_background) {
   // un-comment the below code
   // then, change line 193 -> if (total == 5) to if (total == 1) for easier testing
   // adjust the below index to test different constellation
-          // index = 7;
-          // finalConstellation = constellation_arr[index];
+  // index = 7;
+  // finalConstellation = constellation_arr[index];
   //************************ **************************/
-  
-   console.log(finalConstellation.name);
   zoomOutCanvas(finalConstellation);
-  console.log(finalConstellation.name);
 
   // Connect final constellation stars
   constellation_arr[index].connectAll();
 
-  // Show final constellation image
-  console.log('constellationList ', constellationList,'index ', index, 'finalConstellation ', finalConstellation, 'finalConstellation.name ', finalConstellation.name,
-  'constellationList.findIndex ', constellationList.findIndex(item => item.name === finalConstellation.name));
   sky_background.load_image(
     finalConstellation,
     constellationList[
@@ -347,9 +344,11 @@ function animate(canvas, ctx, constellation_arr, sky_background, cameraOffset) {
  * @Property {Function} Navigation
  */
 function goToPage() {
-  localStorage.setItem("musicPlayTime", backgroundMusic.currentTime);
+  const clickSound = document.getElementById("clickSound");
   playClickSound(
+    clickSound,
     localStorage.getItem("questionType"),
+    backgroundMusic.currentTime,
     () => (window.location.href = "../explanation_page/explanation.html")
   );
 }
@@ -384,19 +383,4 @@ function tutorialSetup() {
     dialog.close();
     tutorial.setAttribute("hidden", "hidden");
   });
-}
-
-// play click sound, optional callback function to be called after sound ends
-function playClickSound(category, callback = null) {
-  console.log(category);
-  const categoryToSoundPath = {
-    daily: "../../assets/music/dailyClick.mp3",
-    relationship: "../../assets/music/relationshipClick.mp3",
-    career: "../../assets/music/careerClick.mp3",
-    health: "../../assets/music/healthClick.mp3",
-  };
-  const clickSound = document.getElementById("clickSound");
-  clickSound.src = categoryToSoundPath[category];
-  clickSound.onended = callback;
-  clickSound.play();
 }

@@ -1,4 +1,5 @@
 import * as analyticsManager from "../analyticsmanager.js";
+import playClickSound from "../../utils/playClickSound.js";
 const analyticsPageName = "landing";
 const analyticsStatus = 1;
 analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
@@ -6,16 +7,22 @@ analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
 window.addEventListener("DOMContentLoaded", init);
 var selectedCategory = "";
 let backgroundMusic;
+let clickSound;
 
 /**
  * initialize function, called once whole DOM is parsed
  */
 function init() {
-  backgroundMusic = document.getElementById("background-music");
-  backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
-  backgroundMusic.play();
+  // get the music play time of the last page from local storage, then play at that time
+  try {
+    backgroundMusic = document.getElementById("background-music");
+    backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
+    backgroundMusic.play();
+  } catch (e) {
+    console.error(e);
+  }
 
-  if( backgroundMusic.paused) {
+  if (backgroundMusic.paused) {
     alert("Please enable browser AutoPlay settings to enjoy background music.");
   }
 
@@ -63,7 +70,8 @@ function setCategoryEffect(categoryButton, categoryName, iconURL) {
   const continueButton = document.getElementById("continue-button");
   categoryButton.addEventListener("click", function () {
     selectedCategory = categoryName;
-    playClickSound(categoryName);
+    clickSound = document.getElementById("clickSound");
+    playClickSound(clickSound, categoryName);
     categoryIconSet.style.backgroundImage = `url(${iconURL})`;
     setSelection(categoryButton, continueButton);
   });
@@ -117,7 +125,6 @@ function setSelection(passedButton, continueButton) {
  * and routes to skymap page
  */
 function toSkyMapPage() {
-  localStorage.setItem("musicPlayTime", backgroundMusic.currentTime);
   // Transition Animation
   const actionDiv = document.getElementById("action-div");
   const coverDiv = document.getElementById("cover-div");
@@ -148,7 +155,9 @@ function toSkyMapPage() {
     tellerEffect.classList.add("transparent");
     // Go to next page
     playClickSound(
+      clickSound,
       selectedCategory,
+      backgroundMusic.currentTime,
       () => (window.location.href = "../skymap_page/skymap.html")
     );
   });
@@ -216,18 +225,4 @@ function initializeVoicing() {
     voiceButton.classList.toggle("crossed-out");
     option.classList.toggle("hidden");
   });
-}
-
-// play click sound, optional callback function to be called after sound ends
-function playClickSound(category, callback = null) {
-  const categoryToSoundPath = {
-    daily: "../../assets/music/dailyClick.mp3",
-    relationship: "../../assets/music/relationshipClick.mp3",
-    career: "../../assets/music/careerClick.mp3",
-    health: "../../assets/music/healthClick.mp3",
-  };
-  const clickSound = document.getElementById("clickSound");
-  clickSound.src = categoryToSoundPath[category];
-  clickSound.onended = callback;
-  clickSound.play();
 }
