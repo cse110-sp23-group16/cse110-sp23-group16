@@ -55,19 +55,13 @@ window.addEventListener("DOMContentLoaded", init);
  * @Property {Function} Starts the program, all function calls trace back here
  */
 async function init() {
-  // backgroundMusic = document.getElementById("background-music");
-  // playBgMusic(backgroundMusic);
-  // get the music play time of the last page from local storage, then play at that time
-  backgroundMusic = document.getElementById("background-music");
   try {
-  backgroundMusic.currentTime = localStorage.getItem("musicPlayTime");
     backgroundMusic = document.getElementById("background-music");
-  backgroundMusic.play();
-    backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
-    backgroundMusic.play();
+    playBgMusic(backgroundMusic);
   } catch (e) {
     console.error(e);
   }
+
   //Set up the tutorial dialog and buttons
   let dialog = document.querySelector("dialog");
   dialog.showModal();
