@@ -58,7 +58,6 @@ async function init() {
   backgroundMusic = document.getElementById("background-music");
   playBgMusic(document.getElementById("background-music"));
 
-
   //Set up the tutorial dialog and buttons
   let dialog = document.querySelector("dialog");
   dialog.showModal();
@@ -340,7 +339,10 @@ function animate(canvas, ctx, constellation_arr, sky_background, cameraOffset) {
  * @Property {Function} Navigation
  */
 function goToPage() {
-  playClickSound(document, () => (window.location.href = "../explanation_page/explanation.html"));
+  playClickSound(
+    document,
+    () => (window.location.href = "../explanation_page/explanation.html")
+  );
 }
 
 /**

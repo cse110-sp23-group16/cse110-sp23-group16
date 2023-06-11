@@ -65,7 +65,7 @@ function setCategoryEffect(categoryButton, categoryName, iconURL) {
   categoryButton.addEventListener("click", function () {
     selectedCategory = categoryName;
     clickSound = document.getElementById("clickSound");
-    playClickSound(document,null , categoryName);
+    playClickSound(document, null, categoryName);
     categoryIconSet.style.backgroundImage = `url(${iconURL})`;
     setSelection(categoryButton, continueButton);
   });
