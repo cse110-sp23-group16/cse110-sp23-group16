@@ -8,7 +8,7 @@ const analyticsStatus = 1;
 analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
 
 let synth;
-let synthExist;
+let synthExist = -1;
 const categories = ["relationship", "career", "health", "daily"];
 const constellations = [
   "Crux",
@@ -190,7 +190,7 @@ window.addEventListener("load", function () {
 window.addEventListener("beforeunload", stopSpeechSynthesis);
 
 function stopSpeechSynthesis() {
-  if (synthExist? == 1 && synth?.speaking) {
+  if (synthExist == 1 && synth.speaking) {
     synth.cancel();
   }
 }
