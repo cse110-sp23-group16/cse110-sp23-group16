@@ -93,7 +93,7 @@ function init() {
       synth.speak(utterance);
       synthExist = 1;
     });
-  }else{
+  } else {
     synthExist = -1;
   }
 }
