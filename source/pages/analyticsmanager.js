@@ -192,10 +192,7 @@ function defaultPageAnalytics(pageName, status) {
   document.addEventListener("beforeunload", () => {
     console.log("Posting");
     const endTime = new Date();
-    addSessionPageTime(
-      pageName,
-      endTime.getTime() - startTime.getTime()
-    );
+    addSessionPageTime(pageName, endTime.getTime() - startTime.getTime());
     sessionPOST();
   });
 
@@ -207,10 +204,7 @@ function defaultPageAnalytics(pageName, status) {
     } else {
       console.log("Posting");
       const endTime = new Date();
-      addSessionPageTime(
-        pageName,
-        endTime.getTime() - startTime.getTime()
-      );
+      addSessionPageTime(pageName, endTime.getTime() - startTime.getTime());
       sessionPOST();
     }
   });
@@ -239,5 +233,5 @@ export {
   sessionStarSelectedInc,
   sessionPOST,
   sessionBeacon,
-  defaultPageAnalytics
+  defaultPageAnalytics,
 };
