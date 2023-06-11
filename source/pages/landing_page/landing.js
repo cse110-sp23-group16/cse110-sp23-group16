@@ -20,9 +20,9 @@ const relationshipIconURL = "../../assets/Icons/Relationship.png";
 function init() {
   backgroundMusic = document.getElementById("background-music");
   playBgMusic(backgroundMusic);
-  // if (backgroundMusic.paused) {
-  //   alert("Please enable browser AutoPlay settings to enjoy background music.");
-  // }
+  if (backgroundMusic.paused) {
+    alert("Please enable browser AutoPlay settings to enjoy background music.");
+  }
 
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
