@@ -1,3 +1,12 @@
+# Meeting Minutes
+
+## Meeting Information
+
+**Meeting Date/Time:** 6/10 Sat 08:00-09:00 
+**Meeting Purpose:** checking everyone's current status
+**Meeting Location:** Zoom
+**Note Taker:** Aiden Chen
+
 ## Attendence
 
 Missing Chi
