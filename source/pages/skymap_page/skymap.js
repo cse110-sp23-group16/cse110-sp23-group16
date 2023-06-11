@@ -57,7 +57,7 @@ window.addEventListener("DOMContentLoaded", init);
 async function init() {
   try {
     backgroundMusic = document.getElementById("background-music");
-    playBgMusic(backgroundMusic);
+    playBgMusic(document.getElementById("background-music"));
   } catch (e) {
     console.error(e);
   }
