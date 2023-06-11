@@ -19,16 +19,10 @@ const relationshipIconURL = "../../assets/Icons/Relationship.png";
  */
 function init() {
   backgroundMusic = document.getElementById("background-music");
-  try {
-    backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
-    backgroundMusic.play();
-  } catch (e) {
-    console.error(e);
-  }
-  
-  if (backgroundMusic.paused) {
-    alert("Please enable browser AutoPlay settings to enjoy background music.");
-  }
+  playBgMusic(backgroundMusic);
+  // if (backgroundMusic.paused) {
+  //   alert("Please enable browser AutoPlay settings to enjoy background music.");
+  // }
 
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
@@ -71,7 +65,7 @@ function setCategoryEffect(categoryButton, categoryName, iconURL) {
   categoryButton.addEventListener("click", function () {
     selectedCategory = categoryName;
     clickSound = document.getElementById("clickSound");
-    playClickSound(clickSound, categoryName);
+    playClickSound(document,null , categoryName);
     categoryIconSet.style.backgroundImage = `url(${iconURL})`;
     setSelection(categoryButton, continueButton);
   });
@@ -155,10 +149,9 @@ function toSkyMapPage() {
     tellerEffect.classList.add("transparent");
     // Go to next page
     playClickSound(
-      clickSound,
-      selectedCategory,
-      backgroundMusic.currentTime,
-      () => (window.location.href = "../skymap_page/skymap.html")
+      document,
+      () => (window.location.href = "../skymap_page/skymap.html"),
+      selectedCategory
     );
   });
   // Set category

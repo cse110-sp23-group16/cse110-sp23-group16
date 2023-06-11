@@ -55,13 +55,9 @@ window.addEventListener("DOMContentLoaded", init);
  * @Property {Function} Starts the program, all function calls trace back here
  */
 async function init() {
-    backgroundMusic = document.getElementById("background-music");
-    try {
-      backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
-      backgroundMusic.play();
-    } catch (e) {
-      console.error(e);
-    }
+  backgroundMusic = document.getElementById("background-music");
+  playBgMusic(document.getElementById("background-music"));
+
 
   //Set up the tutorial dialog and buttons
   let dialog = document.querySelector("dialog");
@@ -344,12 +340,7 @@ function animate(canvas, ctx, constellation_arr, sky_background, cameraOffset) {
  * @Property {Function} Navigation
  */
 function goToPage() {
-  playClickSound(
-    document.getElementById("clickSound"),
-    localStorage.getItem("questionType"),
-    backgroundMusic.currentTime,
-    () => (window.location.href = "../explanation_page/explanation.html")
-  );
+  playClickSound(document, () => (window.location.href = "../explanation_page/explanation.html"));
 }
 
 /**
