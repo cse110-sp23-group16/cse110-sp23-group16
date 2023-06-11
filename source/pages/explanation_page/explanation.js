@@ -1,5 +1,5 @@
-import { setShootingStars } from "../shootingStar.js";
 import * as analyticsManager from "../analyticsmanager.js";
+import { setShootingStars } from "../shootingStar.js";
 const analyticsPageName = "explanation";
 const analyticsStatus = 1;
 analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
@@ -122,7 +122,7 @@ function initializeConstellation() {
 const continueButton = document.getElementById("continue-button");
 continueButton.addEventListener("click", function () {
   window.location.href = "../response_page/response.html";
-  synth.cancel();
+  stopSpeechSynthesis();
 });
 
 new setShootingStars(document);

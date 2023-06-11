@@ -133,7 +133,7 @@ Once called, the window will be showing the thankyou page.
 */
 function goToPage() {
   window.location.href = "../thankyou_page/thankyou.html";
-  synth.cancel();
+  stopSpeechSynthesis();
 }
 
 function speak(text) {
@@ -177,5 +177,7 @@ window.addEventListener("load", function () {
 window.addEventListener("beforeunload", stopSpeechSynthesis);
 
 function stopSpeechSynthesis() {
-  synth.cancel();
+  if (synth.speaking) {
+    synth.cancel();
+  }
 }
