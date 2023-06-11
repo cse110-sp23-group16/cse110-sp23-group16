@@ -50,8 +50,8 @@ export class Background {
 
   /**
    * If images are loaded draw the background images
-   * @param {Number} user_x user view offset x
-   * @param {Number} user_y user view offset y
+   * @param {Number} user_x user view offset
+   * @param {Number} user_y user view offset
    * @param {Number} scale image scale
    */
   draw(user_x = 0, user_y = 0, scale) {
@@ -71,8 +71,8 @@ export class Background {
   /**
    * Called every animation frame. Does not update any internal values,
    * simply calls draw.
-   * @param {Number} user_x user view offset x
-   * @param {Number} user_y user view offset y
+   * @param {Number} user_x user view offset
+   * @param {Number} user_y user view offset
    * @param {Number} scale image scale
    */
   update(user_x = 0, user_y = 0, scale) {

@@ -49,8 +49,8 @@ export class Constellation {
 
   /**
    * Click event handler, pass click event to all stars in the constellation
-   * @param {Number} x
-   * @param {Number} y
+   * @param {Number} x coordinate
+   * @param {Number} y coordinate
    */
   click(x, y) {
     this.stars.forEach((star) =>
@@ -87,7 +87,7 @@ export class Constellation {
   }
 
   /**
-   * Connect all the points in the constellation
+   * @Property {Function} Connect all the points in the constellation
    */
   connectAll() {
     let points = this.connect;
@@ -104,7 +104,7 @@ export class Constellation {
 
   /**
    * Set this constellation as chosen by the user
-   * @param {String} choice
+   * @param {String} choice set contellation as choosen
    */
   setChosen(choice) {
     this.isChosen = choice;
@@ -112,8 +112,8 @@ export class Constellation {
 
   /**
    * Set the display offset
-   * @param {*} offset_x user view offset x
-   * @param {*} offset_y user view offset y
+   * @param {Number} offset_x user view offset
+   * @param {Number} offset_y user view offset
    */
   setOffset(offset_x, offset_y) {
     this.offset_x = offset_x;
@@ -121,7 +121,7 @@ export class Constellation {
   }
 
   /**
-   * Get constellation selected ratio
+   * @Property {Function} Get constellation selected ratio
    */
   get selected_ratio() {
     let stars_selected_cnt = 0;
@@ -134,7 +134,7 @@ export class Constellation {
   }
 
   /**
-   * Get the number of selected stars in the constellation
+   * @Property {Function} Get the number of selected stars in the constellation
    */
   get selected_number() {
     let stars_selected_cnt = 0;

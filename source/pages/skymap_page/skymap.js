@@ -42,7 +42,7 @@ const constellationList = [
 window.addEventListener("DOMContentLoaded", init);
 
 /**
- * Starts the program, all function calls trace back here
+ * @Property {Function} Starts the program, all function calls trace back here
  */
 async function init() {
   /* Tutorial Setup */
@@ -83,8 +83,8 @@ async function init() {
 }
 
 /**
- * Calculate background ratio according to the user screen size
- * (2:1 of the screen size)
+ * @Property {Function} Calculate background ratio according to the user screen size
+ *                      (2:1 of the screen size)
  */
 function setRatio() {
   let defaultWidth = 1920;
@@ -212,7 +212,7 @@ function handleClickCanvas(event, constellation_arr, sky_background) {
 }
 
 /**
- * Decide which constellation is selected based on most stars selected
+ * @Property {Function} Decide which constellation is selected based on most stars selected
  */
 function decideConstellation(constellation_arr, sky_background) {
   let numStar = constellation_arr[0].selected_number;
@@ -256,7 +256,7 @@ function decideConstellation(constellation_arr, sky_background) {
 }
 
 /**
- * Animation loop to update the skymap
+ * @Property {Function} Animation loop to update the skymap
  */
 function animate(canvas, ctx, constellation_arr, sky_background, cameraOffset) {
   requestAnimationFrame(() =>
@@ -274,14 +274,16 @@ function animate(canvas, ctx, constellation_arr, sky_background, cameraOffset) {
   }
 }
 
-// Natigation
+/**
+ * @Property {Function} Navigation
+ */
 function goToPage() {
   window.location.href = "../explanation_page/explanation.html";
 }
 
 /**
- * Helper function to load json data for constellation and stars
- * @return cloc, connect
+ * @Property {Function} Helper function to load json data for constellation and stars
+ * @return cloc, connect constellation location and connect
  */
 async function loadJsonData() {
   const clocResponse = await fetch("./constellation_location.json");
@@ -292,7 +294,7 @@ async function loadJsonData() {
 }
 
 /**
- * Set up the tutorial dialog
+ * @Property {Function} Set up the tutorial dialog
  */
 function tutorialSetup() {
   let gotIt = document.getElementById("confirm");

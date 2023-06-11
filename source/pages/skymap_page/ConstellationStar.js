@@ -9,8 +9,8 @@ export class ConstellationStar {
    * The selected state enables or disables the selected swelling animation, and
    * the swell ratio tells how much to swell by.
    * @param {CanvasRenderingContext2D} ctx canvas rendering context
-   * @param {Number} x position x
-   * @param {Number} y position y
+   * @param {Number} x coordinate
+   * @param {Number} y coordinate
    * @param {Number} radius star radius
    * @param {Boolean} selected if is selected
    * @param {Number} swell_ratio animated swelling radius
@@ -44,8 +44,8 @@ export class ConstellationStar {
 
   /**
    * Draws the star based on current values and user_x and user_y
-   * @param {Number} user_x user view offset x
-   * @param {Number} user_y user view offset y
+   * @param {Number} user_x user view offset
+   * @param {Number} user_y user view offset
    */
   draw(user_x, user_y) {
     if (!this.selected) {
@@ -85,8 +85,8 @@ export class ConstellationStar {
   /**
    * Call with animation loop, updates the swell amount if it is selected
    * else set the swell to 0
-   * @param {Number} user_x user view offset x
-   * @param {Number} user_y user view offset y
+   * @param {Number} user_x user view offset
+   * @param {Number} user_y user view offset
    */
   update(user_x, user_y) {
     if (this.selected) {
@@ -105,8 +105,8 @@ export class ConstellationStar {
   /**
    * Click event handler, if the click fell within the region of the circle
    * change its selected mode
-   * @param {Number} x clicked position x
-   * @param {Number} y clicked position y
+   * @param {Number} x clicked coordinate
+   * @param {Number} y clicked coordinate
    */
   click(x, y) {
     const isOnStar =
@@ -115,7 +115,7 @@ export class ConstellationStar {
   }
 
   /**
-   * Getter for is selected
+   * @Property {Function} Getter for is selected
    */
   get isSelected() {
     return this.selected;
