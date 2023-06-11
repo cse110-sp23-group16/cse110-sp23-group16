@@ -1,7 +1,7 @@
 describe("Landing Page Tests", () => {
   beforeAll(async () => {
     await page.goto(
-      "http://127.0.0.1:5500/source/pages/landing_page/landing.html"
+      "http://127.0.0.1:8080/source/pages/landing_page/landing.html"
     );
   });
 
