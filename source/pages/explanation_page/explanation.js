@@ -1,6 +1,7 @@
 import * as analyticsManager from "../analyticsmanager.js";
 import { setShootingStars } from "../shootingStar.js";
 import playClickSound from "../../utils/playClickSound.js";
+import playBgMusic from "../../utils/playBgMusic.js";
 
 const analyticsPageName = "explanation";
 const analyticsStatus = 1;
@@ -81,14 +82,8 @@ window.addEventListener("DOMContentLoaded", init);
  * Retrieves info from previous page
  */
 function init() {
-  // get the music play time of the last page from local storage, then play at that time
-  try {
-    backgroundMusic = document.getElementById("background-music");
-    backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
-    backgroundMusic.play();
-  } catch (e) {
-    console.error(e);
-  }
+  backgroundMusic = document.getElementById("background-music");
+  playBgMusic(backgroundMusic);
 
   initializeConstellation();
   // get chosen voice from localstorage
@@ -137,9 +132,8 @@ function initializeConstellation() {
 
 const continueButton = document.getElementById("continue-button");
 continueButton.addEventListener("click", function () {
-  const clickSound = document.getElementById("clickSound");
   playClickSound(
-    clickSound,
+    document.getElementById("clickSound"),
     localStorage.getItem("questionType"),
     backgroundMusic.currentTime,
     () => (window.location.href = "../response_page/response.html")

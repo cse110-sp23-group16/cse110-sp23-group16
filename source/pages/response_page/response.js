@@ -1,6 +1,8 @@
 import { setShootingStars } from "../shootingStar.js";
 import playClickSound from "../../utils/playClickSound.js";
 import * as analyticsManager from "../analyticsmanager.js";
+import playBgMusic from "../../utils/playBgMusic.js";
+
 const analyticsPageName = "response";
 const analyticsStatus = 1;
 analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
@@ -134,9 +136,8 @@ function redirectToPage(url) {
 Once called, the window will be showing the thankyou page.
 */
 function goToPage() {
-  const clickSound = document.getElementById("clickSound");
   playClickSound(
-    clickSound,
+    document.getElementById("clickSound"),
     localStorage.getItem("questionType"),
     backgroundMusic.currentTime,
     () => (window.location.href = "../thankyou_page/thankyou.html")
@@ -165,14 +166,8 @@ function speak(text) {
 Main section rising up to its position (animated transition)
 */
 window.addEventListener("load", function () {
-  // get the music play time of the last page from local storage, then play at that time
-  try {
-    backgroundMusic = document.getElementById("background-music");
-    backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
-    backgroundMusic.play();
-  } catch (e) {
-    console.error(e);
-  }
+  backgroundMusic = document.getElementById("background-music");
+  playBgMusic(backgroundMusic);
   var mainContent = document.querySelector("main");
   var desiredPosition = 0;
 
@@ -195,7 +190,7 @@ window.addEventListener("load", function () {
 window.addEventListener("beforeunload", stopSpeechSynthesis);
 
 function stopSpeechSynthesis() {
-  if (synthExist == 1 && synth.speaking) {
+  if (synthExist? == 1 && synth?.speaking) {
     synth.cancel();
   }
 }
