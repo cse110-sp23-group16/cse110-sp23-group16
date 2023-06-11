@@ -6,10 +6,10 @@
 export class BackgroundStar {
   /**
    * Takes x and y coordinates for star, along with radius and color
-   * @param {Number} x 
-   * @param {Number} y 
-   * @param {Number} radius 
-   * @param {String} color 
+   * @param {Number} x
+   * @param {Number} y
+   * @param {Number} radius
+   * @param {String} color
    */
   constructor(x, y, radius, color) {
     this.x = x;

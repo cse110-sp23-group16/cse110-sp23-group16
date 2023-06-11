@@ -49,8 +49,8 @@ export class Constellation {
 
   /**
    * Click event handler, pass click event to all stars in the constellation
-   * @param {Number} x  
-   * @param {Number} y 
+   * @param {Number} x
+   * @param {Number} y
    */
   click(x, y) {
     this.stars.forEach((star) =>
@@ -104,7 +104,7 @@ export class Constellation {
 
   /**
    * Set this constellation as chosen by the user
-   * @param {String} choice 
+   * @param {String} choice
    */
   setChosen(choice) {
     this.isChosen = choice;

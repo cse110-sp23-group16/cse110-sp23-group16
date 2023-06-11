@@ -5,7 +5,7 @@
  */
 export class ConstellationStar {
   /**
-   * Takes the x y for the foreground star, along with the radius for the star. 
+   * Takes the x y for the foreground star, along with the radius for the star.
    * The selected state enables or disables the selected swelling animation, and
    * the swell ratio tells how much to swell by.
    * @param {CanvasRenderingContext2D} ctx canvas rendering context
@@ -14,7 +14,7 @@ export class ConstellationStar {
    * @param {Number} radius star radius
    * @param {Boolean} selected if is selected
    * @param {Number} swell_ratio animated swelling radius
-   * @param {String} color default color 
+   * @param {String} color default color
    * @param {String} selected_color selected color
    * @param {Number} ratio aspect ratio
    */
