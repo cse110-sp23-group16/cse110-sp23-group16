@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico" />
     <link rel="stylesheet" href="../toplevel.css" />
     <link rel="stylesheet" href="./landing.css" />
-    <script src="./landing.js"></script>
+    <script type="module" src="./landing.js"></script>
   </head>
   <body>
     <div id="cover-div" class="hidden">
@@ -27,27 +27,27 @@
           <img
             id="teller"
             class="teller-move"
-            src="../../assets/pictures/teller/FortuneTeller.png"
+            src="../../assets/teller/FortuneTeller.png"
             alt="Armadillo fortune teller"
           />
         </div>
         <img
           id="crystal-ball"
-          src="../../assets/pictures/teller/CrystalBall.png"
+          src="../../assets/teller/CrystalBall.png"
           alt="crystall ball"
         />
-        <button id="start-button" class="glow" onclick="handleStart()">
+        <button id="start-button" class="glow">
           Start
           <div id="claws-div" class="claw-H">
             <img
               id="claw-left"
-              src="../../assets/pictures/teller/armadillo-claw-left.png"
+              src="../../assets/teller/armadillo-claw-left.png"
               class="claw"
               alt="claw-left"
             />
             <img
               id="claw-right"
-              src="../../assets/pictures/teller/armadillo-claw-right.png"
+              src="../../assets/teller/armadillo-claw-right.png"
               class="claw"
               alt="claw-right"
             />
@@ -76,11 +76,7 @@
           </div>
         </div>
         <div id="continue">
-          <button
-            id="continue-button"
-            class="continue"
-            onclick="toSkyMapPage()"
-          >
+          <button id="continue-button" class="continue">
             Let the stars guide you
           </button>
           <button id="voice-button" class="continue">Voicing Text</button>

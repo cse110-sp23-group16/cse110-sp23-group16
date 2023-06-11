@@ -2,6 +2,18 @@ import { setShootingStars } from "../shootingStar.js";
 
 let backgroundMusic;
 
+import * as analyticsManager from "../analyticsmanager.js";
+const analyticsPageName = "thankYou";
+const analyticsStatus = 0;
+analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
+
+/**
+ * @property {Function} toLandingPage sends user back to landing page
+ * @property {Function} init initalize name to landing page.
+ */
+/**
+ * Directs user back to the landing page
+ */
 function toLandingPage() {
   localStorage.setItem("musicPlayTime", backgroundMusic.currentTime);
   playClickSound(
@@ -13,6 +25,9 @@ function toLandingPage() {
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
 
+/**
+ * Directs user back to the landing page
+ */
 async function init() {
   // get the music play time of the last page from local storage, then play at that time
   backgroundMusic = document.getElementById("background-music");

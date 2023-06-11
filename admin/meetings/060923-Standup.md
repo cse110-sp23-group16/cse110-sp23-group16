@@ -1,4 +1,18 @@
+# Meeting Minutes
+
+## Meeting Information
+
+**Meeting Date/Time:** 6/9 Fri 07:00-08:00
+**Meeting Purpose:** Checking everyone's status
+**Meeting Location:** Zoom
+**Note Taker:** Aiden Chen
+
+## Attendence
+
 Everyone is here
+Chi left early
+
+## Process
 
 Jerry
 
@@ -46,10 +60,10 @@ Victor
 
 - Code freeze on Sunday night, need to get everything done on Saturday
 
-Decision
+## Decision
 
 - Dropped explanation page story telling feature
 
-To Do
+## To Do
 
 - Please delete branch you created but no longer worked on

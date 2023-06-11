@@ -1,3 +1,8 @@
+import * as analyticsManager from "../analyticsmanager.js";
+const analyticsPageName = "landing";
+const analyticsStatus = 1;
+analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
+
 window.addEventListener("DOMContentLoaded", init);
 var selectedCategory = "";
 let backgroundMusic;
@@ -19,6 +24,9 @@ function init() {
   populateDropdown();
   initializeVoicing();
 
+  // Create a new session for analytics, tag with page name
+  analyticsManager.setEmptySession();
+
   // Hide continue button
   const continueButton = document.getElementById("continue-button");
   continueButton.classList.add("hidden");
@@ -36,6 +44,11 @@ function init() {
   setCategoryEffect(relationshipButton, "relationship", relationshipIconURL);
   setCategoryEffect(careerButton, "career", carrerIconURL);
   setCategoryEffect(healthButton, "health", healthIconURL);
+
+  // Attach onclick to start and continue
+  const startButton = document.getElementById("start-button");
+  startButton.addEventListener("click", handleStart);
+  continueButton.addEventListener("click", toSkyMapPage);
 }
 
 /**
@@ -142,6 +155,9 @@ function toSkyMapPage() {
   // Set category
   localStorage.setItem("questionType", selectedCategory);
   console.log(selectedCategory);
+
+  //Update Analytics
+  analyticsManager.addSessionCategorySelected(selectedCategory);
 }
 
 function getCategory() {

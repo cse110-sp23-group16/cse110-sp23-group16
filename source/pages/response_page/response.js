@@ -1,5 +1,12 @@
 import { setShootingStars } from "../shootingStar.js";
+
+import * as analyticsManager from "../analyticsmanager.js";
+const analyticsPageName = "response";
+const analyticsStatus = 1;
+analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
+
 let synth;
+let synthExist;
 const categories = ["relationship", "career", "health", "daily"];
 const constellations = [
   "Crux",
@@ -7,6 +14,7 @@ const constellations = [
   "Orion",
   "Canis Major",
   "Ursa Major",
+  "Carina",
   "Carina",
   "Ophiuchus",
   "Armadillo Dragon",
@@ -132,16 +140,18 @@ function goToPage() {
     localStorage.getItem("questionType"),
     () => (window.location.href = "../thankyou_page/thankyou.html")
   );
-  synth.cancel();
+  stopSpeechSynthesis();
 }
 
 function speak(text) {
   const chosenVoice = localStorage.getItem("voiceChoice");
   if (chosenVoice == -1) {
+    synthExist = -1;
     return;
   }
   let utterance = new SpeechSynthesisUtterance();
   let list;
+  synthExist = 1;
   synth = window.speechSynthesis;
   synth.addEventListener("voiceschanged", () => {
     list = synth.getVoices();
@@ -180,7 +190,9 @@ window.addEventListener("load", function () {
 window.addEventListener("beforeunload", stopSpeechSynthesis);
 
 function stopSpeechSynthesis() {
-  synth.cancel();
+  if (synthExist == 1 && synth.speaking) {
+    synth.cancel();
+  }
 }
 
 // play click sound, optional callback function to be called after sound ends

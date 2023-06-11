@@ -1,19 +1,19 @@
 import { ConstellationStar } from "./ConstellationStar.js";
 
-/*
-This class draws and tracks its own stars. Must be given coordinates
-of the stars relative to the top left of the screen
-*/
+/**
+ * This class draws and tracks its own stars. Must be given coordinates
+ * of the stars relative to the top left of the screen
+ */
 export class Constellation {
   /**
    * Takes star list which is an array of star coordinates and creates stars
    * @param {string} name name of constellation
-   * @param {JSONobject}connect the paths to connect all the stars in the constellation.
+   * @param {JSONobject} connect the paths to connect all the stars in the constellation.
    * @param {CanvasRenderingContext2D} ctx
    * @param {Array} star_coord_list list of star coordinates
-   * @param {TODO} ratio TODO
-   * @param {TODO} width TODO
-   * @param {TODO} height TODO
+   * @param {Number} ratio scaling ratio along with background
+   * @param {Number} width canvas width
+   * @param {Number} height canvas height
    */
   constructor(name, connect, ctx, star_coord_list, ratio, width, height) {
     this.name = name;
@@ -47,40 +47,48 @@ export class Constellation {
     }
   }
 
-  /*
-    Click event handler, pass click event to all stars in the constellation
-    */
+  /**
+   * Click event handler, pass click event to all stars in the constellation
+   * @param {Number} x coordinate
+   * @param {Number} y coordinate
+   */
   click(x, y) {
     this.stars.forEach((star) =>
       star.click(x - this.offset_x, y - this.offset_y)
     );
   }
 
-  /*
-    Draw function, draw all stars in constellation
-    */
+  /**
+   * Draw function, draw all stars in constellation
+   * @param {Number} user_x user view offset x
+   * @param {Number} user_y user view offset y
+   */
   draw(user_x, user_y) {
     this.stars.forEach((star) => star.update(user_x, user_y));
   }
 
-  /*
-    Update function, to be called by animation loop
-    */
+  /**
+   * Update function, to be called by animation loop
+   * @param {Number} user_x user view offset x
+   * @param {Number} user_y user view offset y
+   */
   update(user_x, user_y) {
     this.draw(user_x, user_y);
   }
 
-  /*
-    New update function if the current constellation is the final result.
-    */
+  /**
+   * New update function if the current constellation is the final result.
+   * @param {Number} user_x user view offset x
+   * @param {Number} user_y user view offset y
+   */
   updateNew(user_x, user_y) {
     this.draw(user_x, user_y);
     this.connectAll();
   }
 
-  /*
-        Connect all the points in the constellation
-        */
+  /**
+   * @Property {Function} Connect all the points in the constellation
+   */
   connectAll() {
     let points = this.connect;
     for (let starting in points) {
@@ -94,18 +102,27 @@ export class Constellation {
     }
   }
 
+  /**
+   * Set this constellation as chosen by the user
+   * @param {String} choice set contellation as choosen
+   */
   setChosen(choice) {
     this.isChosen = choice;
   }
 
+  /**
+   * Set the display offset
+   * @param {Number} offset_x user view offset
+   * @param {Number} offset_y user view offset
+   */
   setOffset(offset_x, offset_y) {
     this.offset_x = offset_x;
     this.offset_y = offset_y;
   }
 
-  /*
-    Get constellation selected ratio
-    */
+  /**
+   * @Property {Function} Get constellation selected ratio
+   */
   get selected_ratio() {
     let stars_selected_cnt = 0;
     for (const star of this.stars) {
@@ -116,9 +133,9 @@ export class Constellation {
     return stars_selected_cnt / this.stars.length;
   }
 
-  /*
-    Get the number of selected stars in the constellation
-    */
+  /**
+   * @Property {Function} Get the number of selected stars in the constellation
+   */
   get selected_number() {
     let stars_selected_cnt = 0;
     for (const star of this.stars) {
