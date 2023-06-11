@@ -9,6 +9,10 @@ window.addEventListener("DOMContentLoaded", init);
 var selectedCategory = "";
 let backgroundMusic;
 let clickSound;
+const dailyIconURL = "../../assets/Icons/DailyHoroscope.png";
+const carrerIconURL = "../../assets/Icons/Career.png";
+const healthIconURL = "../../assets/Icons/Health.png";
+const relationshipIconURL = "../../assets/Icons/Relationship.png";
 
 /**
  * initialize function, called once whole DOM is parsed
@@ -37,10 +41,6 @@ function init() {
   const relationshipButton = document.getElementById("relationship-button");
   const careerButton = document.getElementById("career-button");
   const healthButton = document.getElementById("health-button");
-  const dailyIconURL = "../../assets/Icons/DailyHoroscope.png";
-  const carrerIconURL = "../../assets/Icons/Career.png";
-  const healthIconURL = "../../assets/Icons/Health.png";
-  const relationshipIconURL = "../../assets/Icons/Relationship.png";
   setCategoryEffect(dailyButton, "daily", dailyIconURL);
   setCategoryEffect(relationshipButton, "relationship", relationshipIconURL);
   setCategoryEffect(careerButton, "career", carrerIconURL);
