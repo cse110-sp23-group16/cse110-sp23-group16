@@ -120,7 +120,12 @@ function setCanvasPanning(canvas, sky_background) {
   canvas.addEventListener("mousemove", onPointerMove);
   canvas.addEventListener("touchmove", (e) => handleTouch(e, onPointerMove));
 
-  // Gets the relevant location from a mouse or single touch event
+  /**
+   * Gets the relevant location from a mouse or single touch event
+   * @param {Event} e mouse event
+   * @returns x: e.clientX coordinate
+   *          y: e.clientY coordinate
+   */
   function getEventLocation(e) {
     if (e.touches && e.touches.length == 1)
       return { x: e.touches[0].clientX, y: e.touches[0].clientY };
@@ -131,7 +136,10 @@ function setCanvasPanning(canvas, sky_background) {
   let isDragging = false;
   let dragStart = { x: 0, y: 0 };
 
-  // Mouse down to start dragging
+  /**
+   * Mouse down to start dragging
+   * @param {Event} e mouse event
+   */
   function onPointerDown(e) {
     isDragging = true;
     dragStart.x = getEventLocation(e).x - cameraOffset.x;
@@ -139,13 +147,19 @@ function setCanvasPanning(canvas, sky_background) {
     canvas.style.cursor = "grabbing";
   }
 
-  // Mouse up to stop dragging
+  /**
+   * Mouse up to stop dragging
+   * @param {Event} e mouse event
+   */
   function onPointerUp(e) {
     isDragging = false;
     canvas.style.cursor = "grab";
   }
 
-  // Mouse move to drag if is dragging
+  /**
+   * Mouse move to drag if is dragging
+   * @param {Event} e mouse event
+   */
   function onPointerMove(e) {
     if (isDragging && getEventLocation(e)) {
       cameraOffset.x = getEventLocation(e).x - dragStart.x;
@@ -163,7 +177,11 @@ function setCanvasPanning(canvas, sky_background) {
     }
   }
 
-  // Touch event for mobile version
+  /**
+   * Touch event for mobile version
+   * @param {Event} e mouse event
+   * @param {Function} singleTouchHandler handler on touch
+   */
   function handleTouch(e, singleTouchHandler) {
     if (e.touches.length == 1) {
       singleTouchHandler(e);
