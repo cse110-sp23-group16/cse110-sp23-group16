@@ -61,10 +61,15 @@ let constellationList = [
     mythLink: "../../assets/pictures/myths/UrsaMajor-myth.jpeg",
   },
 ];
+let backgroundMusic;
 
 let synth;
 window.addEventListener("DOMContentLoaded", init);
 function init() {
+  // get the music play time of the last page from local storage, then play at that time
+  backgroundMusic = document.getElementById("background-music");
+  backgroundMusic.currentTime = localStorage.getItem("musicPlayTime");
+  backgroundMusic.play();
   initializeConstellation();
   // get chosen voice from localstorage
   const chosenVoice = localStorage.getItem("voiceChoice");
@@ -106,7 +111,11 @@ function initializeConstellation() {
 
 const continueButton = document.getElementById("continue-button");
 continueButton.addEventListener("click", function () {
-  window.location.href = "../response_page/response.html";
+  localStorage.setItem("musicPlayTime", backgroundMusic.currentTime);
+  playClickSound(
+    localStorage.getItem("questionType"),
+    () => (window.location.href = "../response_page/response.html")
+  );
   synth.cancel();
 });
 
@@ -122,4 +131,18 @@ function stopSpeechSynthesis() {
   if (synth.speaking) {
     synth.cancel();
   }
+}
+
+// play click sound, optional callback function to be called after sound ends
+function playClickSound(category, callback = null) {
+  const categoryToSoundPath = {
+    daily: "../../assets/music/dailyClick.mp3",
+    relationship: "../../assets/music/relationshipClick.mp3",
+    career: "../../assets/music/careerClick.mp3",
+    health: "../../assets/music/healthClick.mp3",
+  };
+  const clickSound = document.getElementById("clickSound");
+  clickSound.src = categoryToSoundPath[category];
+  clickSound.onended = callback;
+  clickSound.play();
 }

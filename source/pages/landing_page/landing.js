@@ -1,10 +1,14 @@
 window.addEventListener("DOMContentLoaded", init);
 var selectedCategory = "";
+let backgroundMusic;
 
 /**
  * initialize function, called once whole DOM is parsed
  */
 function init() {
+  backgroundMusic = document.getElementById("background-music");
+  backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
+  backgroundMusic.play();
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
   populateDropdown();
@@ -41,6 +45,7 @@ function setCategoryEffect(categoryButton, categoryName, iconURL) {
   const continueButton = document.getElementById("continue-button");
   categoryButton.addEventListener("click", function () {
     selectedCategory = categoryName;
+    playClickSound(categoryName);
     categoryIconSet.style.backgroundImage = `url(${iconURL})`;
     setSelection(categoryButton, continueButton);
   });
@@ -94,6 +99,7 @@ function setSelection(passedButton, continueButton) {
  * and routes to skymap page
  */
 function toSkyMapPage() {
+  localStorage.setItem("musicPlayTime", backgroundMusic.currentTime);
   // Transition Animation
   const actionDiv = document.getElementById("action-div");
   const coverDiv = document.getElementById("cover-div");
@@ -123,7 +129,10 @@ function toSkyMapPage() {
     tellerEffect.classList.remove("half-transparent");
     tellerEffect.classList.add("transparent");
     // Go to next page
-    window.location.href = "../skymap_page/skymap.html";
+    playClickSound(
+      selectedCategory,
+      () => window.location.href = "../skymap_page/skymap.html"
+    );
   });
   // Set category
   localStorage.setItem("questionType", selectedCategory);
@@ -186,4 +195,18 @@ function initializeVoicing() {
     voiceButton.classList.toggle("crossed-out");
     option.classList.toggle("hidden");
   });
+}
+
+// play click sound, optional callback function to be called after sound ends
+function playClickSound(category, callback = null) {
+  const categoryToSoundPath = {
+    daily: "../../assets/music/dailyClick.mp3",
+    relationship: "../../assets/music/relationshipClick.mp3",
+    career: "../../assets/music/careerClick.mp3",
+    health: "../../assets/music/healthClick.mp3",
+  };
+  const clickSound = document.getElementById("clickSound");
+  clickSound.src = categoryToSoundPath[category];
+  clickSound.onended = callback;
+  clickSound.play();
 }

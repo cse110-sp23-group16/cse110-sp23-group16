@@ -26,6 +26,7 @@ const openingSentences = [
   "Greetings, seeker of answers! Trust in the whispers of the universe that brought you here.",
   "Welcome, dear one! Let the dance of divination commence.",
 ];
+let backgroundMusic;
 
 /*
 Once called, this function hides away the triggering button, displays 
@@ -126,7 +127,11 @@ function redirectToPage(url) {
 Once called, the window will be showing the thankyou page.
 */
 function goToPage() {
-  window.location.href = "../thankyou_page/thankyou.html";
+  localStorage.setItem("musicPlayTime", backgroundMusic.currentTime);
+  playClickSound(
+    localStorage.getItem("questionType"),
+    () => (window.location.href = "../thankyou_page/thankyou.html")
+  );
   synth.cancel();
 }
 
@@ -149,6 +154,10 @@ function speak(text) {
 Main section rising up to its position (animated transition)
 */
 window.addEventListener("load", function () {
+  // get the music play time of the last page from local storage, then play at that time
+  backgroundMusic = document.getElementById("background-music");
+  backgroundMusic.currentTime = localStorage.getItem("musicPlayTime");
+  backgroundMusic.play();
   var mainContent = document.querySelector("main");
   var desiredPosition = 0;
 
@@ -172,4 +181,19 @@ window.addEventListener("beforeunload", stopSpeechSynthesis);
 
 function stopSpeechSynthesis() {
   synth.cancel();
+}
+
+// play click sound, optional callback function to be called after sound ends
+function playClickSound(category, callback = null) {
+  console.log(category);
+  const categoryToSoundPath = {
+    daily: "../../assets/music/dailyClick.mp3",
+    relationship: "../../assets/music/relationshipClick.mp3",
+    career: "../../assets/music/careerClick.mp3",
+    health: "../../assets/music/healthClick.mp3",
+  };
+  const clickSound = document.getElementById("clickSound");
+  clickSound.src = categoryToSoundPath[category];
+  clickSound.onended = callback;
+  clickSound.play();
 }

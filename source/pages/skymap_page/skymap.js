@@ -35,12 +35,17 @@ let constellationList = [
     imageLink: "../../assets/pictures/constellations/Orion.png",
   },
 ];
+let backgroundMusic;
 
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
 
 // Starts the program, all function calls trace back here
 async function init() {
+  // get the music play time of the last page from local storage, then play at that time
+  backgroundMusic = document.getElementById("background-music");
+  backgroundMusic.currentTime = localStorage.getItem("musicPlayTime");
+  backgroundMusic.play();
   //Set up the tutorial dialog and buttons
   let dialog = document.querySelector("dialog");
   dialog.showModal();
@@ -265,7 +270,11 @@ function animate(
 
 // Natigation
 function goToPage() {
-  window.location.href = "../explanation_page/explanation.html";
+  localStorage.setItem("musicPlayTime", backgroundMusic.currentTime);
+  playClickSound(
+    localStorage.getItem("questionType"),
+    () => (window.location.href = "../explanation_page/explanation.html")
+  );
 }
 
 // helper function to load json data
@@ -294,4 +303,19 @@ function tutorialSetup() {
     dialog.close();
     tutorial.setAttribute("hidden", "hidden");
   });
+}
+
+// play click sound, optional callback function to be called after sound ends
+function playClickSound(category, callback = null) {
+  console.log(category);
+  const categoryToSoundPath = {
+    daily: "../../assets/music/dailyClick.mp3",
+    relationship: "../../assets/music/relationshipClick.mp3",
+    career: "../../assets/music/careerClick.mp3",
+    health: "../../assets/music/healthClick.mp3",
+  };
+  const clickSound = document.getElementById("clickSound");
+  clickSound.src = categoryToSoundPath[category];
+  clickSound.onended = callback;
+  clickSound.play();
 }
