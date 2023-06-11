@@ -185,7 +185,7 @@ button.category {
   padding: 0.5em;
   height: 8vh;
   line-height: 5vh;
-  font-size: 4vh;
+  font-size: 2vw;
   margin-right: 3%;
   transition: 0.5s;
   width: 18vw;
@@ -362,7 +362,7 @@ div#cover-div > #teller-effect > #crystal-ball-glow {
   }
   button.category {
     height: 40px;
-    width: 160px;
+    width: 30vw;
     line-height: 24px;
     font-size: 12pt;
   }
