@@ -14,7 +14,6 @@ JsDocs allows developers annotate JavaScript files in an easier and cleanner man
 JsDocs is fully functional for the team to use. All members need to do is to download Node.js (https://nodejs.org/en/download) and in their terminal of VS Code run the command `npm install -g jsdoc`. Afterwards, JsDocs is fully functional.
 We tested JsDocs by creating a separate branch with a source and a test files. The source incldues a function to add two numbers. The test file checks if the function works appropriately. Finally, we ensured that a fully documented HTML file is created by typing the command 'jsdoc <nameOfFile.js>. JsDocs now also works for the rest of the project. On each push, GitHub actions will automatically generate the docs on a separate repo for now such that each branch has an embedded html file that can be opened to view documentation.
 
-
 ## Codeclimate--code quality via tool, linting
 
 ### Completed
