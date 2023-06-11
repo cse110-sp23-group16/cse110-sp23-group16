@@ -1,6 +1,11 @@
 import { Background } from "./Background.js";
 import { Constellation } from "./Constellation.js";
 
+import * as analyticsManager from "../analyticsmanager.js";
+const analyticsPageName = "skymap";
+const analyticsStatus = 1;
+analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
+
 const debug = false;
 
 const constellationList = [

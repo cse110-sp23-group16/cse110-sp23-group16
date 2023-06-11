@@ -1,10 +1,16 @@
 import { setShootingStars } from "../shootingStar.js";
+import * as analyticsManager from "../analyticsmanager.js";
+const analyticsPageName = "explanation";
+const analyticsStatus = 1;
+analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
+
 /**
  * @property {Function} init retrieves info from previous page
  * @property {Function} initializeConstellation initalize constellations
  * @property {Function} stopTalkWhenReload stop voice over when reload/back a page
  * @property {Function} stopSpeechSynthesis stop voice over
  */
+
 // array of constellations - name, description, constellation image link, myth image link
 let constellationList = [
   {

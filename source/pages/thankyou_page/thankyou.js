@@ -1,4 +1,10 @@
 import { setShootingStars } from "../shootingStar.js";
+
+import * as analyticsManager from "../analyticsmanager.js";
+const analyticsPageName = "thankYou";
+const analyticsStatus = 0;
+analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
+
 /**
  * @property {Function} toLandingPage sends user back to landing page
  * @property {Function} init initalize name to landing page.
