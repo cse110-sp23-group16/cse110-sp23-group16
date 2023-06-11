@@ -1,5 +1,8 @@
 import { setShootingStars } from "../shootingStar.js";
-
+/**
+ * @property {Function} toLandingPage sends user back to landing page
+ * @property {Function} init initalize name to landing page.
+ */
 /**
  * Directs user back to the landing page
  */
