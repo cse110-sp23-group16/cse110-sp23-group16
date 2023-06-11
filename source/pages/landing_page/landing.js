@@ -19,7 +19,13 @@ const relationshipIconURL = "../../assets/Icons/Relationship.png";
  */
 function init() {
   backgroundMusic = document.getElementById("background-music");
-  playBgMusic(backgroundMusic);
+  try {
+    backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
+    backgroundMusic.play();
+  } catch (e) {
+    console.error(e);
+  }
+  
   if (backgroundMusic.paused) {
     alert("Please enable browser AutoPlay settings to enjoy background music.");
   }

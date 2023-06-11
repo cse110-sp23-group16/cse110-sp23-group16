@@ -83,7 +83,12 @@ window.addEventListener("DOMContentLoaded", init);
  */
 function init() {
   backgroundMusic = document.getElementById("background-music");
-  playBgMusic(backgroundMusic);
+  try {
+    backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
+    backgroundMusic.play();
+  } catch (e) {
+    console.error(e);
+  }
 
   initializeConstellation();
   // get chosen voice from localstorage

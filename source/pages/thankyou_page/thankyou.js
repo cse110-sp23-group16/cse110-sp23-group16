@@ -32,7 +32,12 @@ window.addEventListener("DOMContentLoaded", init);
  */
 async function init() {
   backgroundMusic = document.getElementById("background-music");
-  playBgMusic(backgroundMusic);
+  try {
+    backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
+    backgroundMusic.play();
+  } catch (e) {
+    console.error(e);
+  }
   new setShootingStars(document);
   window.toLandingPage = toLandingPage;
 }

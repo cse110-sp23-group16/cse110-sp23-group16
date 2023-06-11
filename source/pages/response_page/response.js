@@ -167,7 +167,12 @@ Main section rising up to its position (animated transition)
 */
 window.addEventListener("load", function () {
   backgroundMusic = document.getElementById("background-music");
-  playBgMusic(backgroundMusic);
+  try {
+    backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
+    backgroundMusic.play();
+  } catch (e) {
+    console.error(e);
+  }
   var mainContent = document.querySelector("main");
   var desiredPosition = 0;
 
