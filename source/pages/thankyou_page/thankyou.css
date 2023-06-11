@@ -46,6 +46,10 @@ p {
   font-size: 16pt;
 }
 
+img#fortune-teller-image {
+  width: 14vw;
+}
+
 button.continue {
   height: 9vh;
   line-height: 6vh;
@@ -59,6 +63,9 @@ button.continue {
   }
   div.main-content {
     width: 80%;
+  }
+  img#fortune-teller-image {
+    width: auto;
   }
   button.continue {
     height: 50px;

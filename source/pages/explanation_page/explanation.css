@@ -25,33 +25,35 @@ div.top-container {
 img#myth-image {
   border-style: solid;
   border-color: beige;
+  width: 30vw;
+  height: 75vh;
   border-radius: 2%;
-  width: 400px;
 }
 
 div#explanation {
-  width: 35%;
-  height: 480px;
+  width: 35vw;
   color: beige;
   text-align: left;
   border-style: solid;
   border-radius: 2%;
   padding: 1em 2em 1em 2em;
   overflow: auto;
+  height: 70vh;
 }
 
 div.img_container {
   background-color: rgba(0, 0, 1, 0.5);
-  width: 400px;
+  width: 30vw;
   border-style: solid;
   border-radius: 2%;
   border-color: beige;
   filter: brightness(700%);
   overflow: hidden;
+  height: 75vh;
 }
 
 #constellation-image {
-  width: 350px;
+  width: 20vw;
   border-radius: 2%;
   padding-top: 30%;
   padding-bottom: 20%;
@@ -63,7 +65,7 @@ div.bot-container {
 }
 
 button.continue {
-  margin-top: 5vh;
+  margin-top: 4vh;
 }
 
 /* Animation */
@@ -95,7 +97,7 @@ button.continue {
     align-items: center;
   }
   img#myth-image {
-    width: 333px;
+    width: auto;
     margin-bottom: 2%;
   }
   div#explanation {
@@ -125,15 +127,14 @@ button.continue {
     align-items: center;
   }
   img#myth-image {
-    width: 80%;
+    width: auto;
     margin-bottom: 2%;
   }
   div#explanation {
-    width: 70%;
     margin-bottom: 2%;
   }
   div.img_container {
-    width: 80%;
+    width: auto;
   }
 }
 
