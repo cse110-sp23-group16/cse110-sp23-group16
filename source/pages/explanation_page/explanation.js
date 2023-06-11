@@ -1,6 +1,6 @@
 import { setShootingStars } from "../shootingStar.js";
 /**
- * @property {Function} init retrieves info from previous page 
+ * @property {Function} init retrieves info from previous page
  * @property {Function} initializeConstellation initalize constellations
  * @property {Function} stopTalkWhenReload stop voice over when reload/back a page
  * @property {Function} stopSpeechSynthesis stop voice over
