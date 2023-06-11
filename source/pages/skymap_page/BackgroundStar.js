@@ -1,13 +1,16 @@
-// Class for background star
-/*
-This class is intended for non interactable stars. Given a coordinate
-for its absolute location it will draw a star there, and update given
-the user_x and user_y
-*/
+/**
+ * This class is intended for non interactable stars. Given a coordinate
+ * for its absolute location it will draw a star there, and update given
+ * the user_x and user_y
+ */
 export class BackgroundStar {
-  /*
-    Takes x and y coordinates for star, along with radius and color
-    */
+  /**
+   * Takes x and y coordinates for star, along with radius and color
+   * @param {Number} x
+   * @param {Number} y
+   * @param {Number} radius
+   * @param {String} color
+   */
   constructor(x, y, radius, color) {
     this.x = x;
     this.y = y;
@@ -15,9 +18,11 @@ export class BackgroundStar {
     this.color = color;
   }
 
-  /* 
-    Draws the background star given the current user x and y
-    */
+  /**
+   * Draws the background star given the current user x and y
+   * @param {Number} user_x user view offset x
+   * @param {Number} user_y user view offset y
+   */
   draw(user_x, user_y) {
     ctx.strokeStyle = this.color;
     ctx.beginPath();
@@ -33,9 +38,11 @@ export class BackgroundStar {
     ctx.stroke();
   }
 
-  /* 
-    Update function to be called by animation loop, takes user x and y
-    */
+  /**
+   * Update function to be called by animation loop, takes user x and y
+   * @param {Number} user_x user view offset x
+   * @param {Number} user_y user view offset y
+   */
   update(user_x, user_y) {
     this.draw(user_x, user_y);
   }
