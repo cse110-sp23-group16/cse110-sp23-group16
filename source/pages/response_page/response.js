@@ -102,6 +102,8 @@ function animateText(answer, textElement) {
     if (index < words.length) {
       textElement.textContent += words[index] + " ";
       index++;
+      let container = textElement.parentNode;
+      container.scrollTop = container.scrollHeight;
     } else {
       clearInterval(interval);
       explanation.classList.remove("glow");
