@@ -1,3 +1,8 @@
+/**
+ * Set background shooting star animation
+ * Require: HTMLDivElement id="stars-div"
+ * @param {Document} document document of target page
+ */
 export function setShootingStars(document) {
   const starsDiv = document.getElementById("stars-div");
   function createStar() {

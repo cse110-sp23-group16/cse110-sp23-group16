@@ -1,4 +1,10 @@
 import { setShootingStars } from "../shootingStar.js";
+
+import * as analyticsManager from "../analyticsmanager.js";
+const analyticsPageName = "response";
+const analyticsStatus = 1;
+analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
+
 let synth;
 const categories = ["relationship", "career", "health", "daily"];
 const constellations = [
@@ -7,7 +13,7 @@ const constellations = [
   "Orion",
   "Canis Major",
   "Ursa Major",
-  "Carnia",
+  "Carina",
   "Ophiuchus",
   "Armadillo Dragon",
 ];
