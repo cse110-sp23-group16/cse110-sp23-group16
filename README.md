@@ -11,6 +11,7 @@ This application is Team 16's project for Professor Powell's Spring 2023 CSE-110
 Curious about your future? Interested in finding the truth among the stars? Stargazer provides a one-of-a-kind experience at the intersection of fortune-telling and constellation-reading. Let the stars be your guide, and learn what the future has in store for you!
 
 ## Using Stargazer
+
 [Stargazer](https://cse110-sp23-group16.github.io/cse110-sp23-group16/source/pages/landing_page/landing.html)
 
 On the landing page, first click Start and you will see the options "Daily Horoscope", "Health", "Career", and "Relationship". There is also an option to voice the text for voice accessibility; when you click the "Voicing Text" button you will see a dropdown where you can select the voice type so choose one from the dropdown. If you are not interested in voicing text, then click the button again and you will see a line across the button to signal no voice text selection. To continue with the app, select one of the field options "Daily Horoscope", "Health", "Career", and "Relationship". Feel free to select and unselect by pressing on the button, if it is beige then the button is selected. Then you will see a "Let the stars guide you button" so click that to continue.
@@ -23,7 +24,6 @@ Now you are on the explanation page which has the name of the constellation, it'
 In the response page, you will see an armadillo fortune teller greeting you and the "See Result" button which you can click to see the generated response for you. After reading the response, you can select the "next page" button to reach our last page, thanking you for visiting.
 
 Once you are redirected to the thank you page, you can choose to go back to the main landing page to try another category or selection of stars or both. To go back to the landing page, just click the button "Home". Otherwise you can close the browser tab to fully exit the application.
-
 
 ### Documentation
 
