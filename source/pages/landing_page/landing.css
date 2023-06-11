@@ -57,7 +57,7 @@ div#teller-wrap {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  height: 48vh;
+  height: 46vh;
   overflow: hidden;
 }
 
@@ -88,7 +88,7 @@ img.claw {
 
 button#start-button {
   position: absolute;
-  top: 55vh;
+  top: 53vh;
   background-color: transparent;
   box-shadow: 0px 0px 7px 10px rgb(111, 165, 213, 0.5);
   width: 28vh;
@@ -137,7 +137,7 @@ div.prompt {
 div#category-icon-div {
   position: absolute;
   z-index: -1;
-  top: 55vh;
+  top: 53vh;
   width: 26vh;
   height: 26vh;
   border-radius: 50%;
@@ -263,9 +263,19 @@ div#cover-div > #teller-effect > #crystal-ball-glow {
   height: 28vh;
   border-radius: 50%;
   border: none;
-  margin-top: 45vh;
+  margin-top: 44vh;
   margin-left: 50vw;
   transform: translate(-50%, 30%);
+}
+
+div#continue {
+  display: flex;
+  gap: 1vw;
+  transform: translateX(15.7vw);
+}
+
+select#voice-select {
+  height: 30px;
 }
 
 /* Devise View */
@@ -295,7 +305,7 @@ div#cover-div > #teller-effect > #crystal-ball-glow {
     width: 40vh;
   }
   button#start-button {
-    top: 54vh;
+    top: 52vh;
     width: 28vh;
     height: 28vh;
   }
@@ -304,7 +314,7 @@ div#cover-div > #teller-effect > #crystal-ball-glow {
   }
   div#category-icon-div {
     z-index: -1;
-    top: 62vh;
+    top: 60vh;
   }
   div.categories {
     margin-top: 1vh;
@@ -322,7 +332,7 @@ div#cover-div > #teller-effect > #crystal-ball-glow {
     margin-left: 55vw;
   }
   div#cover-div > #teller-effect > #crystal-ball-glow {
-    margin-top: 40vh;
+    margin-top: 38vh;
   }
   button#start-button {
     line-height: 30vh;
@@ -332,6 +342,14 @@ div#cover-div > #teller-effect > #crystal-ball-glow {
     width: 200px;
     line-height: 30px;
     font-size: 16pt;
+  }
+  div#continue {
+    flex-direction: column;
+    transform: none;
+    gap: 0;
+  }
+  button#voice-button {
+    display: none;
   }
 }
 
