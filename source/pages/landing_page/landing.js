@@ -131,7 +131,7 @@ function toSkyMapPage() {
     // Go to next page
     playClickSound(
       selectedCategory,
-      () => window.location.href = "../skymap_page/skymap.html"
+      () => (window.location.href = "../skymap_page/skymap.html")
     );
   });
   // Set category
