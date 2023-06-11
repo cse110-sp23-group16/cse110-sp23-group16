@@ -13,7 +13,7 @@ const constellations = [
   "Orion",
   "Canis Major",
   "Ursa Major",
-  "Carnia",
+  "Carina",
   "Ophiuchus",
   "Armadillo Dragon",
 ];
