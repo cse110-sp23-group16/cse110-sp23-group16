@@ -9,6 +9,11 @@ function init() {
   backgroundMusic = document.getElementById("background-music");
   backgroundMusic.currentTime = localStorage.getItem("musicPlayTime") | 0;
   backgroundMusic.play();
+
+  if( backgroundMusic.paused) {
+    alert("Please enable browser AutoPlay settings to enjoy background music.");
+  }
+
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
   populateDropdown();

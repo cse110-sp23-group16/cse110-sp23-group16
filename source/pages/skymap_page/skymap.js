@@ -24,7 +24,7 @@ let constellationList = [
   },
   {
     name: "Carina",
-    imageLink: "../../assets/pictures/constellations/Carnia.png",
+    imageLink: "../../assets/pictures/constellations/Carina.png",
   },
   {
     name: "Ophiuchus",
@@ -32,10 +32,12 @@ let constellationList = [
   },
   {
     name: "Ursa Major",
-    imageLink: "../../assets/pictures/constellations/Orion.png",
+    imageLink: "../../assets/pictures/constellations/UrsaMajor.png",
   },
 ];
 let backgroundMusic;
+let cameraOffset;
+let constellation_arr;
 
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
@@ -58,9 +60,9 @@ async function init() {
   let ctx = canvas.getContext("2d");
   // Create background object
   let sky_background = new Background(ctx, ratio, canvas.width, canvas.height);
-  let cameraOffset = setCanvasPanning(canvas, sky_background);
+  cameraOffset = setCanvasPanning(canvas, sky_background);
   // Create an array of constellation from json file data
-  let constellation_arr = Object.keys(cloc).map(
+  constellation_arr = Object.keys(cloc).map(
     (name) =>
       new Constellation(
         name,
@@ -202,6 +204,40 @@ function handleClickCanvas(event, constellation_arr, sky_background) {
   console.log(ratios);
 }
 
+// zoom out canvas and move camera to the selected constellation when 5 stars are selected, called only in decideConstellation()
+function zoomOutCanvas(finalConstellation) {
+  // map constellation name to x-axis
+  const constellation_xAxis = {
+    'Orion': -800,
+    'Crux': -500,
+    'Aries': -1300,
+    'Canis Major': -160,
+    'Ursa Major': -1400,
+    'Carina': -825,
+    'Ophiuchus': -90,
+    'Armadillo Dragon': -1425
+  }
+  const canvas = document.querySelector("canvas");
+  ratio *= 0.5;
+
+  cameraOffset.x = constellation_xAxis[finalConstellation.name];
+  cameraOffset.y = 0
+  cameraOffset.x =
+    canvas.width - cameraOffset.x <= 1920 * ratio
+      ? cameraOffset.x
+      : canvas.width - 1920 * ratio ;
+  cameraOffset.y =
+    canvas.height - cameraOffset.y <= 1080
+      ? cameraOffset.y
+      : canvas.height - 1080 * rate;
+
+  // if (Math.abs(cameraOffset.x) + canvas.width > )
+
+  console.log('cam.x ', cameraOffset.x, 'cam.y ', cameraOffset.y);
+  console.log('canvaswidth ', canvas.width, 'canvasheight ', canvas.height);
+  constellation_arr.forEach((constellation) => constellation.updateRatio(ratio));
+}
+
 // Decide which constellation is selected based on most stars selected;
 function decideConstellation(constellation_arr, sky_background) {
   let numStar = constellation_arr[0].selected_number;
@@ -215,11 +251,23 @@ function decideConstellation(constellation_arr, sky_background) {
       index = constellation_arr.indexOf(constellation);
     }
   }
+  //********* Manual Testing section helper ************/
+  // un-comment the below code
+  // then, change line 193 -> if (total == 5) to if (total == 1) for easier testing
+  // adjust the below index to test different constellation
+          // index = 7;
+          // finalConstellation = constellation_arr[index];
+  //************************ **************************/
   console.log(finalConstellation.name);
+  zoomOutCanvas(finalConstellation);
+
+
 
   // Connect final constellation stars
   constellation_arr[index].connectAll();
   // Show final constellation image
+  console.log('constellationList ', constellationList,'index ', index, 'finalConstellation ', finalConstellation, 'finalConstellation.name ', finalConstellation.name,
+  'constellationList.findIndex ', constellationList.findIndex(item => item.name === finalConstellation.name));
   sky_background.load_image(
     finalConstellation,
     constellationList[

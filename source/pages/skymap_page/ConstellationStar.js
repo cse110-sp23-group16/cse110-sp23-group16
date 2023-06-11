@@ -33,6 +33,7 @@ export class ConstellationStar {
     this.color = color;
     this.selected_color = selected_color;
     this.done = false;
+    this.ratio = ratio;
   }
 
   /*
@@ -101,5 +102,10 @@ export class ConstellationStar {
     */
   get isSelected() {
     return this.selected;
+  }
+
+  updateRatio(ratio) {
+    this.x *= ratio / this.ratio;
+    this.y *= ratio / this.ratio;
   }
 }

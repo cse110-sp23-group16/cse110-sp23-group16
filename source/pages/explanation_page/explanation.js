@@ -43,7 +43,7 @@ let constellationList = [
     name: "Carina",
     description:
       "In Greek mythology, the constellation Carina represents the hull of the famous ship Argo Navis, the vessel that carried Jason and the Argonauts on their legendary quest to find the Golden Fleece in Colchis. According to the myth, the ship Argo was constructed by the skilled shipwright Argus, with the guidance of the sagacious goddess Athena. Although often overlooked, the ship Argo played a crucial role in the success of its infamous crew. The ship sailed through treacherous waters, encountered various deadly challenges and divine obstacles, and still reached far-off lands in the search of the sacred artifact. Despite the encounters with mythical creatures, navigational challenges from catastrophic weather, and the antics of its crew, the Argo safely delivered Jason back to Thessaly, truimphant with the completion of his quest. The constellation Carina symbolizes the vessel that carried these heroes on their adventure, and symbolizes exploration, reliability, and perserverence.",
-    imageLink: "../../assets/pictures/constellations/Carnia-explanation.png",
+    imageLink: "../../assets/pictures/constellations/Carina-explanation.png",
     mythLink: "../../assets/pictures/myths/Carina-myth.jpeg",
   },
   {

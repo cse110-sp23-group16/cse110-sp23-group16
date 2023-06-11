@@ -128,4 +128,8 @@ export class Constellation {
     }
     return stars_selected_cnt;
   }
+
+  updateRatio(ratio) {
+    this.stars.forEach((star) => star.updateRatio(ratio));
+  }
 }
