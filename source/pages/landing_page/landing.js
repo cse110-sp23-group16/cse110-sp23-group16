@@ -144,12 +144,8 @@ function toSkyMapPage() {
     tellerEffect.classList.remove("half-transparent");
     tellerEffect.classList.add("transparent");
     // Go to next page
-    playClickSound(
-      clickSound,
-      selectedCategory,
-      backgroundMusic.currentTime,
-      () => (window.location.href = "../skymap_page/skymap.html")
-    );
+    localStorage.setItem("musicPlayTime", backgroundMusic.currentTime);
+    window.location.href = "../skymap_page/skymap.html"
   });
   // Set category
   localStorage.setItem("questionType", selectedCategory);
@@ -188,6 +184,7 @@ function handleStart() {
   startButton.addEventListener("animationend", () => {
     startButton.classList.add("removed");
   });
+
 }
 
 // Helper function that populates the dropdown menu for the voice selection
