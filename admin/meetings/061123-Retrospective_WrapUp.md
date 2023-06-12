@@ -12,7 +12,9 @@
 Everyone is here, Shashank needed to leave early.
 
 ## Note
+
 **Chi**
+
 - Finished sound effect and zooming
 - Failing some puppeteer e2e test
   - Modify the test to wait for the page longer
@@ -35,7 +37,7 @@ Everyone is here, Shashank needed to leave early.
 
 - Start, Stop, Continue
   - Not many thing we can do since it is end of the sprints but we will still do it
-- Guildline for development process such as PR review 
+- Guildline for development process such as PR review
   - We originally want to do pair programming and have they review each other's code but didn't do it
   - Chi suggest we can have at least 2 people reviewing PR
 - Stop features
@@ -46,23 +48,29 @@ Everyone is here, Shashank needed to leave early.
   - Pretty much done
 
 **Team Video**
+
 - Scripts are relised for public and private verison
 - Please make comments and give suggestions for improvement on it
 
 **ADR documentation**
+
 - Jerry will do one
 - Might need one for analytics (Shashank)
 
 **JSDocs**
+
 - Landing page
   - Aiden
 
 **Khushi**
+
 - Updated CI/CD pipeline `phase2.md` for an assignment
 
 **Favorite ask page**
+
 - Put it in README.md
-  
+
 **Andy**
+
 - Checked for dangling file (remove anything we don't need)
   - Placeholder file? for system diagram (that's alright)
