@@ -19,10 +19,6 @@ const relationshipIconURL = "../../assets/Icons/Relationship.png";
  */
 function init() {
   backgroundMusic = document.getElementById("background-music");
-  playBgMusic(backgroundMusic);
-  if (backgroundMusic.paused) {
-    alert("Please enable browser AutoPlay settings to enjoy background music.");
-  }
 
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
@@ -178,6 +174,7 @@ function handleStart() {
   const title = document.querySelector("header");
   const clawsDiv = document.getElementById("claws-div");
   const categoryIconDiv = document.getElementById("category-icon-div");
+  playBgMusic(backgroundMusic);
 
   actionDiv.classList.remove("hidden");
   categoriesDiv.classList.add("fade-in");
