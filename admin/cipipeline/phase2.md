@@ -37,5 +37,3 @@ We have set up branch protection rules on our main branch that prevent other bra
 ### Completed
 
 We have set up a github actions workflow that automatically runs the prettier check to ensure style guidelines have been enforced. This allows for our code to have standardized patterns in the repository, and as such we wont run into style based merge conflicts. Before pushing, all developers will run `npm install prettier@2.8.8 -g` at the directory and then run `prettier --write .` which will recursively reformat all files in the directory.
-
-## Analytics
