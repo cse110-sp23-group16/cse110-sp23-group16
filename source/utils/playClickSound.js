@@ -16,5 +16,8 @@ export default function playClickSound(
     clickSound.onended = callback;
   }
   localStorage.setItem("musicPlayTime", bgMusicPlayTime);
-  clickSound.play().catch((err) => callback()); // if play() fails, just call callback without playing sound
+  clickSound.play().catch((err) => {
+    // if play() fails, just call callback without playing sound
+    if (callback !== null) callback();
+  });
 }
