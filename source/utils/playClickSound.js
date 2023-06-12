@@ -2,14 +2,9 @@
 export default function playClickSound(
   clickSound,
   category,
-  bgMusicPlayTime = null,
+  bgMusicPlayTime = 0,
   callback = null
 ) {
-  if (callback === null) {
-    return null;
-  } else {
-    return callback();
-  }
   const categoryToSoundPath = {
     daily: "../../assets/music/dailyClick.mp3",
     relationship: "../../assets/music/relationshipClick.mp3",
@@ -17,7 +12,9 @@ export default function playClickSound(
     health: "../../assets/music/healthClick.mp3",
   };
   clickSound.src = categoryToSoundPath[category];
-  clickSound.onended = callback;
+  if (callback !== null) {
+    clickSound.onended = callback;
+  }
   localStorage.setItem("musicPlayTime", bgMusicPlayTime);
-  clickSound.play().catch((err) => callback());
+  clickSound.play().catch((err) => callback()); // if play() fails, just call callback without playing sound
 }
