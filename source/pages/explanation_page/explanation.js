@@ -1,5 +1,8 @@
 import * as analyticsManager from "../analyticsmanager.js";
 import { setShootingStars } from "../shootingStar.js";
+import playClickSound from "../../utils/playClickSound.js";
+import playBgMusic from "../../utils/playBgMusic.js";
+
 const analyticsPageName = "explanation";
 const analyticsStatus = 1;
 let synthExist;
@@ -53,7 +56,7 @@ let constellationList = [
     name: "Carina",
     description:
       "In Greek mythology, the constellation Carina represents the hull of the famous ship Argo Navis, the vessel that carried Jason and the Argonauts on their legendary quest to find the Golden Fleece in Colchis. According to the myth, the ship Argo was constructed by the skilled shipwright Argus, with the guidance of the sagacious goddess Athena. Although often overlooked, the ship Argo played a crucial role in the success of its infamous crew. The ship sailed through treacherous waters, encountered various deadly challenges and divine obstacles, and still reached far-off lands in the search of the sacred artifact. Despite the encounters with mythical creatures, navigational challenges from catastrophic weather, and the antics of its crew, the Argo safely delivered Jason back to Thessaly, truimphant with the completion of his quest. The constellation Carina symbolizes the vessel that carried these heroes on their adventure, and symbolizes exploration, reliability, and perserverence.",
-    imageLink: "../../assets/constellations/Carnia-explanation.png",
+    imageLink: "../../assets/constellations/Carina-explanation.png",
     mythLink: "../../assets/myths/Carina-myth.jpeg",
   },
   {
@@ -71,6 +74,7 @@ let constellationList = [
     mythLink: "../../assets/myths/UrsaMajor-myth.jpeg",
   },
 ];
+let backgroundMusic;
 
 let synth;
 window.addEventListener("DOMContentLoaded", init);
@@ -78,6 +82,9 @@ window.addEventListener("DOMContentLoaded", init);
  * Retrieves info from previous page
  */
 function init() {
+  backgroundMusic = document.getElementById("background-music");
+  playBgMusic(backgroundMusic);
+
   initializeConstellation();
   // get chosen voice from localstorage
   const chosenVoice = localStorage.getItem("voiceChoice");
@@ -125,7 +132,12 @@ function initializeConstellation() {
 
 const continueButton = document.getElementById("continue-button");
 continueButton.addEventListener("click", function () {
-  window.location.href = "../response_page/response.html";
+  playClickSound(
+    document.getElementById("clickSound"),
+    localStorage.getItem("questionType"),
+    backgroundMusic.currentTime,
+    () => (window.location.href = "../response_page/response.html")
+  );
   stopSpeechSynthesis();
 });
 

@@ -15,7 +15,7 @@ describe("Thank You Page Tests", () => {
     // click on home button
     const homeButton = await page.$("button");
     await homeButton.click();
-    await page.waitForTimeout(100);
+    await page.waitForTimeout(3000);
 
     const landingURL = await page.url();
     expect(landingURL).toBe(

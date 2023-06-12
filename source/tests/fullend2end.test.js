@@ -144,7 +144,7 @@ describe("End to end test: select Health, Orion", () => {
     //click continue to go to next page
     const continuebutton = await page.$("#continue-button");
     await continuebutton.click();
-    await page.waitForTimeout(100);
+    await page.waitForTimeout(3000);
     await page.waitForSelector("canvas");
 
     // check if page is skymap page
@@ -197,7 +197,7 @@ describe("End to end test: select Health, Orion", () => {
 
     const nextButton = await page.$("#next-button");
     await nextButton.click();
-    await page.waitForTimeout(100);
+    await page.waitForTimeout(3000);
   });
 
   it("Check if Health and Orion in local storage, check explanation/image, click next to go to response page", async () => {
@@ -249,7 +249,7 @@ describe("End to end test: select Health, Orion", () => {
     //click continue to go to next page
     const continueButton = await page.$("#continue-button");
     await continueButton.click();
-    await page.waitForTimeout(100);
+    await page.waitForTimeout(3000);
 
     // check if page is response page
     const responseURL = await page.url();
@@ -274,7 +274,7 @@ describe("End to end test: select Health, Orion", () => {
     // click to go to thank you page
     const nextPageButton = await page.$("#hiddenButton");
     await nextPageButton.click();
-    await page.waitForTimeout(100);
+    await page.waitForTimeout(3000);
 
     // check if on thank you page
     const thankyouURL = await page.url();
@@ -292,7 +292,7 @@ describe("End to end test: select Health, Orion", () => {
 
     const homeButton = await page.$("button");
     await homeButton.click();
-    await page.waitForTimeout(100);
+    await page.waitForTimeout(3000);
 
     const landingURL = await page.url();
     expect(landingURL).toBe(

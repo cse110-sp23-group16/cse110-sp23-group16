@@ -1,5 +1,7 @@
 import { Background } from "./Background.js";
 import { Constellation } from "./Constellation.js";
+import playClickSound from "../../utils/playClickSound.js";
+import playBgMusic from "../../utils/playBgMusic.js";
 
 import * as analyticsManager from "../analyticsmanager.js";
 const analyticsPageName = "skymap";
@@ -31,7 +33,7 @@ const constellationList = [
   },
   {
     name: "Carina",
-    imageLink: "../../assets/constellations/Carnia.png",
+    imageLink: "../../assets/constellations/Carina.png",
   },
   {
     name: "Ophiuchus",
@@ -42,6 +44,9 @@ const constellationList = [
     imageLink: "../../assets/constellations/UrsaMajor.png",
   },
 ];
+let backgroundMusic;
+let cameraOffset;
+let constellation_arr;
 
 // Run the init() function when the page has loaded
 window.addEventListener("DOMContentLoaded", init);
@@ -50,9 +55,11 @@ window.addEventListener("DOMContentLoaded", init);
  * @Property {Function} Starts the program, all function calls trace back here
  */
 async function init() {
-  /* Tutorial Setup */
-  // Set up the tutorial dialog and buttons
-  const dialog = document.querySelector("dialog");
+  backgroundMusic = document.getElementById("background-music");
+  playBgMusic(document.getElementById("background-music"));
+
+  //Set up the tutorial dialog and buttons
+  let dialog = document.querySelector("dialog");
   dialog.showModal();
   tutorialSetup();
   /* Canvas Setup */
@@ -64,9 +71,9 @@ async function init() {
   canvas.height = window.innerHeight;
   // Create background object
   let sky_background = new Background(ctx, ratio, canvas.width, canvas.height);
-  let cameraOffset = setCanvasPanning(canvas, sky_background);
+  cameraOffset = setCanvasPanning(canvas, sky_background);
   // Create an array of constellation from json file data
-  let constellation_arr = Object.keys(cloc).map(
+  constellation_arr = Object.keys(cloc).map(
     (name) =>
       new Constellation(
         name,
@@ -233,10 +240,39 @@ function handleClickCanvas(event, constellation_arr, sky_background) {
     console.log(ratios);
   }
 }
+// zoom out canvas and move camera to the selected constellation when 5 stars are selected, called only in decideConstellation()
+function zoomOutCanvas(finalConstellation) {
+  // map constellation name to x-axis
+  const constellation_xAxis = {
+    Orion: -800,
+    Crux: -500,
+    Aries: -1300,
+    "Canis Major": -160,
+    "Ursa Major": -1400,
+    Carina: -825,
+    Ophiuchus: -90,
+    "Armadillo Dragon": -1425,
+  };
+  const canvas = document.querySelector("canvas");
+  ratio *= 0.5;
 
-/**
- * @Property {Function} Decide which constellation is selected based on most stars selected
- */
+  cameraOffset.x = constellation_xAxis[finalConstellation.name];
+  cameraOffset.y = 0;
+  cameraOffset.x =
+    canvas.width - cameraOffset.x <= 1920 * ratio
+      ? cameraOffset.x
+      : canvas.width - 1920 * ratio;
+  cameraOffset.y =
+    canvas.height - cameraOffset.y <= 1080
+      ? cameraOffset.y
+      : canvas.height - 1080 * rate;
+
+  constellation_arr.forEach((constellation) =>
+    constellation.updateRatio(ratio)
+  );
+}
+
+// Decide which constellation is selected based on most stars selected;
 function decideConstellation(constellation_arr, sky_background) {
   let numStar = constellation_arr[0].selected_number;
   let finalConstellation = constellation_arr[0];
@@ -251,16 +287,18 @@ function decideConstellation(constellation_arr, sky_background) {
       index = constellation_arr.indexOf(constellation);
     }
   }
-
-  // ----- DEBUG -----
-  if (debug) {
-    console.log(finalConstellation.name);
-  }
+  //********* Manual Testing section helper ************/
+  // un-comment the below code
+  // then, change line 193 -> if (total == 5) to if (total == 1) for easier testing
+  // adjust the below index to test different constellation
+  // index = 7;
+  // finalConstellation = constellation_arr[index];
+  //************************ **************************/
+  zoomOutCanvas(finalConstellation);
 
   // Connect final constellation stars
   constellation_arr[index].connectAll();
 
-  // Show final constellation image
   sky_background.load_image(
     finalConstellation,
     constellationList[
@@ -301,7 +339,12 @@ function animate(canvas, ctx, constellation_arr, sky_background, cameraOffset) {
  * @Property {Function} Navigation
  */
 function goToPage() {
-  window.location.href = "../explanation_page/explanation.html";
+  playClickSound(
+    document.getElementById("clickSound"),
+    localStorage.getItem("questionType"),
+    backgroundMusic.currentTime,
+    () => (window.location.href = "../explanation_page/explanation.html")
+  );
 }
 
 /**

@@ -1,12 +1,14 @@
 import { setShootingStars } from "../shootingStar.js";
-
+import playClickSound from "../../utils/playClickSound.js";
 import * as analyticsManager from "../analyticsmanager.js";
+import playBgMusic from "../../utils/playBgMusic.js";
+
 const analyticsPageName = "response";
 const analyticsStatus = 1;
 analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
 
 let synth;
-let synthExist;
+let synthExist = -1;
 const categories = ["relationship", "career", "health", "daily"];
 const constellations = [
   "Crux",
@@ -33,6 +35,7 @@ const openingSentences = [
   "Greetings, seeker of answers! Trust in the whispers of the universe that brought you here.",
   "Welcome, dear one! Let the dance of divination commence.",
 ];
+let backgroundMusic;
 
 /*
 Once called, this function hides away the triggering button, displays 
@@ -135,7 +138,12 @@ function redirectToPage(url) {
 Once called, the window will be showing the thankyou page.
 */
 function goToPage() {
-  window.location.href = "../thankyou_page/thankyou.html";
+  playClickSound(
+    document.getElementById("clickSound"),
+    localStorage.getItem("questionType"),
+    backgroundMusic.currentTime,
+    () => (window.location.href = "../thankyou_page/thankyou.html")
+  );
   stopSpeechSynthesis();
 }
 
@@ -160,6 +168,8 @@ function speak(text) {
 Main section rising up to its position (animated transition)
 */
 window.addEventListener("load", function () {
+  backgroundMusic = document.getElementById("background-music");
+  playBgMusic(backgroundMusic);
   var mainContent = document.querySelector("main");
   var desiredPosition = 0;
 
