@@ -1,5 +1,14 @@
 import { setShootingStars } from "../shootingStar.js";
+import playClickSound from "../../utils/playClickSound.js";
+import * as analyticsManager from "../analyticsmanager.js";
+import playBgMusic from "../../utils/playBgMusic.js";
+
+const analyticsPageName = "response";
+const analyticsStatus = 1;
+analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
+
 let synth;
+let synthExist = -1;
 const categories = ["relationship", "career", "health", "daily"];
 const constellations = [
   "Crux",
@@ -7,7 +16,7 @@ const constellations = [
   "Orion",
   "Canis Major",
   "Ursa Major",
-  "Carnia",
+  "Carina",
   "Ophiuchus",
   "Armadillo Dragon",
 ];
@@ -26,6 +35,7 @@ const openingSentences = [
   "Greetings, seeker of answers! Trust in the whispers of the universe that brought you here.",
   "Welcome, dear one! Let the dance of divination commence.",
 ];
+let backgroundMusic;
 
 /*
 Once called, this function hides away the triggering button, displays 
@@ -96,6 +106,8 @@ function animateText(answer, textElement) {
     if (index < words.length) {
       textElement.textContent += words[index] + " ";
       index++;
+      let container = textElement.parentNode;
+      container.scrollTop = container.scrollHeight;
     } else {
       clearInterval(interval);
       explanation.classList.remove("glow");
@@ -126,17 +138,24 @@ function redirectToPage(url) {
 Once called, the window will be showing the thankyou page.
 */
 function goToPage() {
-  window.location.href = "../thankyou_page/thankyou.html";
-  synth.cancel();
+  playClickSound(
+    document.getElementById("clickSound"),
+    localStorage.getItem("questionType"),
+    backgroundMusic.currentTime,
+    () => (window.location.href = "../thankyou_page/thankyou.html")
+  );
+  stopSpeechSynthesis();
 }
 
 function speak(text) {
   const chosenVoice = localStorage.getItem("voiceChoice");
   if (chosenVoice == -1) {
+    synthExist = -1;
     return;
   }
   let utterance = new SpeechSynthesisUtterance();
   let list;
+  synthExist = 1;
   synth = window.speechSynthesis;
   synth.addEventListener("voiceschanged", () => {
     list = synth.getVoices();
@@ -149,6 +168,8 @@ function speak(text) {
 Main section rising up to its position (animated transition)
 */
 window.addEventListener("load", function () {
+  backgroundMusic = document.getElementById("background-music");
+  playBgMusic(backgroundMusic);
   var mainContent = document.querySelector("main");
   var desiredPosition = 0;
 
@@ -171,5 +192,7 @@ window.addEventListener("load", function () {
 window.addEventListener("beforeunload", stopSpeechSynthesis);
 
 function stopSpeechSynthesis() {
-  synth.cancel();
+  if (synthExist == 1 && synth.speaking) {
+    synth.cancel();
+  }
 }

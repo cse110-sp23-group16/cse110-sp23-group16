@@ -1,14 +1,32 @@
+import * as analyticsManager from "../analyticsmanager.js";
+import playClickSound from "../../utils/playClickSound.js";
+import playBgMusic from "../../utils/playBgMusic.js";
+const analyticsPageName = "landing";
+const analyticsStatus = 1;
+analyticsManager.defaultPageAnalytics(analyticsPageName, analyticsStatus);
+
 window.addEventListener("DOMContentLoaded", init);
 var selectedCategory = "";
+let backgroundMusic;
+let clickSound;
+const dailyIconURL = "../../assets/Icons/DailyHoroscope.png";
+const carrerIconURL = "../../assets/Icons/Career.png";
+const healthIconURL = "../../assets/Icons/Health.png";
+const relationshipIconURL = "../../assets/Icons/Relationship.png";
 
 /**
  * initialize function, called once whole DOM is parsed
  */
 function init() {
+  backgroundMusic = document.getElementById("background-music");
+
   // localStorage cleared to reset question type and constellation
   localStorage.clear();
   populateDropdown();
   initializeVoicing();
+
+  // Create a new session for analytics, tag with page name
+  analyticsManager.setEmptySession();
 
   // Hide continue button
   const continueButton = document.getElementById("continue-button");
@@ -19,14 +37,15 @@ function init() {
   const relationshipButton = document.getElementById("relationship-button");
   const careerButton = document.getElementById("career-button");
   const healthButton = document.getElementById("health-button");
-  const dailyIconURL = "../../assets/Icons/DailyHoroscope.png";
-  const carrerIconURL = "../../assets/Icons/Career.png";
-  const healthIconURL = "../../assets/Icons/Health.png";
-  const relationshipIconURL = "../../assets/Icons/Relationship.png";
   setCategoryEffect(dailyButton, "daily", dailyIconURL);
   setCategoryEffect(relationshipButton, "relationship", relationshipIconURL);
   setCategoryEffect(careerButton, "career", carrerIconURL);
   setCategoryEffect(healthButton, "health", healthIconURL);
+
+  // Attach onclick to start and continue
+  const startButton = document.getElementById("start-button");
+  startButton.addEventListener("click", handleStart);
+  continueButton.addEventListener("click", toSkyMapPage);
 }
 
 /**
@@ -41,6 +60,8 @@ function setCategoryEffect(categoryButton, categoryName, iconURL) {
   const continueButton = document.getElementById("continue-button");
   categoryButton.addEventListener("click", function () {
     selectedCategory = categoryName;
+    clickSound = document.getElementById("clickSound");
+    playClickSound(clickSound, selectedCategory);
     categoryIconSet.style.backgroundImage = `url(${iconURL})`;
     setSelection(categoryButton, continueButton);
   });
@@ -123,11 +144,15 @@ function toSkyMapPage() {
     tellerEffect.classList.remove("half-transparent");
     tellerEffect.classList.add("transparent");
     // Go to next page
+    localStorage.setItem("musicPlayTime", backgroundMusic.currentTime);
     window.location.href = "../skymap_page/skymap.html";
   });
   // Set category
   localStorage.setItem("questionType", selectedCategory);
   console.log(selectedCategory);
+
+  //Update Analytics
+  analyticsManager.addSessionCategorySelected(selectedCategory);
 }
 
 function getCategory() {
@@ -145,6 +170,7 @@ function handleStart() {
   const title = document.querySelector("header");
   const clawsDiv = document.getElementById("claws-div");
   const categoryIconDiv = document.getElementById("category-icon-div");
+  playBgMusic(backgroundMusic);
 
   actionDiv.classList.remove("hidden");
   categoriesDiv.classList.add("fade-in");
