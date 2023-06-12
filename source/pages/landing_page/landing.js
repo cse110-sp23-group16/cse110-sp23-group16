@@ -15,7 +15,7 @@ const healthIconURL = "../../assets/Icons/Health.png";
 const relationshipIconURL = "../../assets/Icons/Relationship.png";
 
 /**
- * initialize function, called once whole DOM is parsed
+ * @Property {Function} initialize function, called once whole DOM is parsed
  */
 function init() {
   backgroundMusic = document.getElementById("background-music");
@@ -111,8 +111,8 @@ function setSelection(passedButton, continueButton) {
 }
 
 /**
- * Adds the type of question into localStorage under the key "questionType",
- * and routes to skymap page
+ * @Property {Function} Adds the type of question into localStorage under the key "questionType",
+ * and routes to skymap page.
  */
 function toSkyMapPage() {
   // Transition Animation
@@ -155,12 +155,8 @@ function toSkyMapPage() {
   analyticsManager.addSessionCategorySelected(selectedCategory);
 }
 
-function getCategory() {
-  return QuestionCategories.Work;
-}
-
 /**
- * Handle click on start button
+ * @Property {Function} Handle click on start button
  */
 function handleStart() {
   const startButton = document.getElementById("start-button");
@@ -186,7 +182,9 @@ function handleStart() {
   });
 }
 
-// Helper function that populates the dropdown menu for the voice selection
+/**
+ * @Property {Function} Helper function that populates the dropdown menu for the voice selection
+ */
 function populateDropdown() {
   let select = document.getElementById("voice-select");
   let synth = window.speechSynthesis;
@@ -202,7 +200,10 @@ function populateDropdown() {
   });
   console.log("populated");
 }
-//Initialize the voicing text selection and buttons
+
+/**
+ * @Property {Function} Initialize the voicing text selection and buttons
+ */
 function initializeVoicing() {
   const option = document.querySelector("#voice-select");
   option.classList.add("hidden");
