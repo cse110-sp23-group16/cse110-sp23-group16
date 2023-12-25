@@ -4,6 +4,8 @@
 
 This application is Team 16's project for Professor Powell's Spring 2023 CSE-110 Software Engineering course at UCSD.
 
+View [Demo](https://www.youtube.com/watch?v=vcf0brKmHaY) here!
+
 # STARGAZER
 
 ### Current Release: v0.3.0
